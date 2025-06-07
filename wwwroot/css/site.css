@@ -1,22 +1,188 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Для назви, якщо треба піксельний шрифт */
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Базовий шрифт */
+    overflow: hidden; /* Prevent scrollbars */
+    display: flex; /* Використовуємо flexbox */
+    align-items: center; /* Центруємо по вертикалі */
+    min-height: 100vh; /* Full viewport height */
+    background-color: #000033; /* Дуже темно-синій фон для контрасту з неоном */
+    position: relative; /* For z-index context */
+    padding-left: 50px; /* Або будь-яке інше значення, наприклад, 5% */
+    box-sizing: border-box; /* Важливо для padding */
+}
+
+/* ОСНОВНИЙ SPLINE VIEWER ЯК ПОВНИЙ ЗАДНІЙ ФОН - ЦЕЙ БЛОК ТЕПЕР МОЖНА ВИДАЛИТИ АБО ЗАКОМЕНТУВАТИ,
+   ОСКІЛЬКИ SPLINE БІЛЬШЕ НЕ БУДЕ ЗАВАНТАЖУВАТИСЯ */
+/*
+.full-background-spline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+*/
+
+/* Menu Container Styling */
+.menu-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for the menu */
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative; /* Ensures it sits above Spline */
+    z-index: 10; /* Make sure menu is clickable */
+    max-width: 400px; /* Adjust as needed */
+    width: 90%; /* Responsive width */
+    border: 2px solid #001a33; /* Темний синьо-фіолетовий border */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+
+    margin-right: auto; /* Це "відштовхне" меню вліво */
+}
+
+/* MiSide Title Styling */
+.menu-title {
+    font-family: 'Press Start 2P', cursive; /* Optional: for pixel font */
+    font-size: 3em;
+    color: #33ccff; /* Яскравий блакитний */
+    text-shadow: 0 0 10px #33ccff, 0 0 20px #33ccff, 0 0 30px #33ccff; /* Неонове світіння */
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.menu-title::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%2333ccff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    display: inline-block;
+    width: 20px; /* Adjust size */
+    height: 20px; /* Adjust size */
+    margin-right: 5px; /* Space between heart and text */
+    vertical-align: middle;
+}
+
+.menu-subtitle {
+    font-size: 1.2em;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+/* Main Menu List */
+.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu li {
+    margin-bottom: 10px;
+}
+
+/* Menu Item Buttons */
+.menu-item {
+    display: block;
+    background-color: #002244; /* Темно-синій колір кнопки */
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: left; /* Align text to left inside button */
+    border: 1px solid #004488; /* Світліший синій для border */
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden; /* For pseudo-element effects */
+}
+
+.menu-item:hover {
+    background-color: #003366; /* Світліший синій при наведенні */
+    transform: translateY(-2px); /* Slight lift effect */
+    /* НЕОНОВЕ СВІТІННЯ ПРИ НАВЕДЕННІ */
+    box-shadow: 0 0 15px #33ccff, inset 0 1px 5px rgba(255,255,255,0.3);
+}
+
+.menu-item:active {
+    background-color: #001122; /* Ще темніший при натисканні */
+    transform: translateY(0);
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Icons for menu items */
+.menu-item .icon {
+    margin-right: 10px;
+    color: #33ccff; /* Яскравий блакитний для іконки */
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+/* Specific icon for language */
+.menu-item .icon:first-child {
+    font-family: sans-serif; /* Ensure correct font for the R icon */
+}
+
+
+/* Achievement count styling */
+.achievement-count {
+    float: right;
+    color: #33ccff; /* Яскравий блакитний для лічильника */
+    font-weight: bold;
+}
+
+/* Language/Voice row styling */
+.language-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #002244; /* Той самий колір кнопки */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #004488;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
+}
+
+.language-row .menu-item {
+    display: inline; /* Keep text inline */
+    background: none; /* No background for the link itself */
+    padding: 0;
+    text-decoration: none;
+    text-align: left;
+    border: none;
+    box-shadow: none;
+    color: #fff; /* Ensure text color is white */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.language-row .menu-item:hover {
+    color: #33ccff; /* Блакитний при наведенні для мови/озвучки */
+    transform: none; /* No lift effect for these */
+    box-shadow: none; /* Прибираємо будь-яке світіння, якщо воно було додано через .menu-item:hover */
+}
+
+.language-value {
+    color: #33ccff; /* Яскравий блакитний для "Русский" */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Exit Button Specific Styling */
+.exit-button {
+    background-color: #4d0000; /* Темно-червоний для кнопки виходу (залишаємо червоною) */
+    border: 1px solid #800000;
+    margin-top: 20px; /* Space above exit button */
+    font-size: 1.2em;
+    text-align: center; /* Center text for exit button */
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.exit-button:hover {
+    background-color: #660000; /* Світліший червоний на наведенні */
+    box-shadow: none; /* Прибираємо будь-яке світіння, якщо воно було додано через .menu-item:hover */
 }
