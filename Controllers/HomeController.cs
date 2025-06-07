@@ -1,5 +1,5 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using NovelProject.Models;
 
 namespace NovelProject.Controllers
@@ -18,7 +18,7 @@ namespace NovelProject.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult NewGame()
         {
             return View();
         }
