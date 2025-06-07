@@ -1,11 +1,3 @@
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.AssemblyInfoInputs.cache
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.AssemblyInfo.cs
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.csproj.CoreCompileInputs.cache
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.RazorAssemblyInfo.cache
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.RazorAssemblyInfo.cs
-C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.sourcelink.json
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\bin\Debug\net8.0\appsettings.json
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\bin\Debug\net8.0\NovelProject.staticwebassets.runtime.json
@@ -15,6 +7,14 @@ C:\Users\artem\OneDrive\Документи\GitHub\Novel\bin\Debug\net8.0\NovelPr
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\bin\Debug\net8.0\NovelProject.runtimeconfig.json
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\bin\Debug\net8.0\NovelProject.dll
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\bin\Debug\net8.0\NovelProject.pdb
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.AssemblyInfoInputs.cache
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.AssemblyInfo.cs
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.csproj.CoreCompileInputs.cache
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.RazorAssemblyInfo.cache
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.RazorAssemblyInfo.cs
+C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\NovelProject.sourcelink.json
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\scopedcss\bundle\NovelProject.styles.css
 C:\Users\artem\OneDrive\Документи\GitHub\Novel\obj\Debug\net8.0\scopedcss\projectbundle\NovelProject.bundle.scp.css

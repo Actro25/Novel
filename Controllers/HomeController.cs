@@ -1,6 +1,6 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using NovelProject.Models;
+using System.Diagnostics;
+using NovelProject.Models; 
 
 namespace NovelProject.Controllers
 {
@@ -8,21 +8,27 @@ namespace NovelProject.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        
         public IActionResult Index()
         {
-            return View();
+            
+            return View(); 
         }
 
-        public IActionResult Privacy()
+        
+        public IActionResult NewGame()
         {
-            return View();
+            
+            return View(); 
         }
 
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

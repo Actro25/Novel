@@ -1,20 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Для назви, якщо треба піксельний шрифт */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* Базовий шрифт */
-    overflow: hidden; /* Prevent scrollbars */
-    display: flex; /* Використовуємо flexbox */
-    align-items: center; /* Центруємо по вертикалі */
-    min-height: 100vh; /* Full viewport height */
-    background-color: #000033; /* Дуже темно-синій фон для контрасту з неоном */
-    position: relative; /* For z-index context */
-    padding-left: 50px; /* Або будь-яке інше значення, наприклад, 5% */
-    box-sizing: border-box; /* Важливо для padding */
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000033;
+    position: relative;
+    padding-left: 50px;
+    box-sizing: border-box;
 }
 
-/* ОСНОВНИЙ SPLINE VIEWER ЯК ПОВНИЙ ЗАДНІЙ ФОН - ЦЕЙ БЛОК ТЕПЕР МОЖНА ВИДАЛИТИ АБО ЗАКОМЕНТУВАТИ,
-   ОСКІЛЬКИ SPLINE БІЛЬШЕ НЕ БУДЕ ЗАВАНТАЖУВАТИСЯ */
 /*
 .full-background-spline {
     position: fixed;
@@ -26,29 +24,26 @@ body {
 }
 */
 
-/* Menu Container Styling */
 .menu-container {
-    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for the menu */
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 30px 40px;
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
     text-align: center;
-    position: relative; /* Ensures it sits above Spline */
-    z-index: 10; /* Make sure menu is clickable */
-    max-width: 400px; /* Adjust as needed */
-    width: 90%; /* Responsive width */
-    border: 2px solid #001a33; /* Темний синьо-фіолетовий border */
-    backdrop-filter: blur(8px); /* Frosted glass effect */
-
-    margin-right: auto; /* Це "відштовхне" меню вліво */
+    position: relative;
+    z-index: 10;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid #001a33;
+    backdrop-filter: blur(8px);
+    margin-right: auto;
 }
 
-/* MiSide Title Styling */
 .menu-title {
-    font-family: 'Press Start 2P', cursive; /* Optional: for pixel font */
+    font-family: 'Press Start 2P', cursive;
     font-size: 3em;
-    color: #33ccff; /* Яскравий блакитний */
-    text-shadow: 0 0 10px #33ccff, 0 0 20px #33ccff, 0 0 30px #33ccff; /* Неонове світіння */
+    color: #33ccff;
+    text-shadow: 0 0 10px #33ccff, 0 0 20px #33ccff, 0 0 30px #33ccff;
     margin-bottom: 5px;
     letter-spacing: 2px;
 }
@@ -56,9 +51,9 @@ body {
 .menu-title::before {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%2333ccff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
     display: inline-block;
-    width: 20px; /* Adjust size */
-    height: 20px; /* Adjust size */
-    margin-right: 5px; /* Space between heart and text */
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
     vertical-align: middle;
 }
 
@@ -70,7 +65,6 @@ body {
     font-weight: normal;
 }
 
-/* Main Menu List */
 .main-menu {
     list-style: none;
     padding: 0;
@@ -81,10 +75,9 @@ body {
     margin-bottom: 10px;
 }
 
-/* Menu Item Buttons */
 .menu-item {
     display: block;
-    background-color: #002244; /* Темно-синій колір кнопки */
+    background-color: #002244;
     color: #fff;
     padding: 12px 20px;
     text-decoration: none;
@@ -92,52 +85,47 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     font-size: 1.1em;
     font-weight: bold;
-    text-align: left; /* Align text to left inside button */
-    border: 1px solid #004488; /* Світліший синій для border */
+    text-align: left;
+    border: 1px solid #004488;
     box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
     position: relative;
-    overflow: hidden; /* For pseudo-element effects */
+    overflow: hidden;
 }
 
 .menu-item:hover {
-    background-color: #003366; /* Світліший синій при наведенні */
-    transform: translateY(-2px); /* Slight lift effect */
-    /* НЕОНОВЕ СВІТІННЯ ПРИ НАВЕДЕННІ */
+    background-color: #003366;
+    transform: translateY(-2px);
     box-shadow: 0 0 15px #33ccff, inset 0 1px 5px rgba(255,255,255,0.3);
 }
 
 .menu-item:active {
-    background-color: #001122; /* Ще темніший при натисканні */
+    background-color: #001122;
     transform: translateY(0);
     box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
 }
 
-/* Icons for menu items */
 .menu-item .icon {
     margin-right: 10px;
-    color: #33ccff; /* Яскравий блакитний для іконки */
+    color: #33ccff;
     font-size: 1.2em;
     vertical-align: middle;
 }
-/* Specific icon for language */
+
 .menu-item .icon:first-child {
-    font-family: sans-serif; /* Ensure correct font for the R icon */
+    font-family: sans-serif;
 }
 
-
-/* Achievement count styling */
 .achievement-count {
     float: right;
-    color: #33ccff; /* Яскравий блакитний для лічильника */
+    color: #33ccff;
     font-weight: bold;
 }
 
-/* Language/Voice row styling */
 .language-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #002244; /* Той самий колір кнопки */
+    background-color: #002244;
     color: #fff;
     padding: 12px 20px;
     border-radius: 8px;
@@ -147,42 +135,154 @@ body {
 }
 
 .language-row .menu-item {
-    display: inline; /* Keep text inline */
-    background: none; /* No background for the link itself */
+    display: inline;
+    background: none;
     padding: 0;
     text-decoration: none;
     text-align: left;
     border: none;
     box-shadow: none;
-    color: #fff; /* Ensure text color is white */
+    color: #fff;
     font-weight: bold;
     font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
 .language-row .menu-item:hover {
-    color: #33ccff; /* Блакитний при наведенні для мови/озвучки */
-    transform: none; /* No lift effect for these */
-    box-shadow: none; /* Прибираємо будь-яке світіння, якщо воно було додано через .menu-item:hover */
+    color: #33ccff;
+    transform: none;
+    box-shadow: none;
 }
 
 .language-value {
-    color: #33ccff; /* Яскравий блакитний для "Русский" */
+    color: #33ccff;
     font-weight: bold;
     font-size: 1.1em;
 }
 
-/* Exit Button Specific Styling */
 .exit-button {
-    background-color: #4d0000; /* Темно-червоний для кнопки виходу (залишаємо червоною) */
+    background-color: #4d0000;
     border: 1px solid #800000;
-    margin-top: 20px; /* Space above exit button */
+    margin-top: 20px;
     font-size: 1.2em;
-    text-align: center; /* Center text for exit button */
+    text-align: center;
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 .exit-button:hover {
-    background-color: #660000; /* Світліший червоний на наведенні */
-    box-shadow: none; /* Прибираємо будь-яке світіння, якщо воно було додано через .menu-item:hover */
+    background-color: #660000;
+    box-shadow: none;
+}
+
+.novel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url('https://via.placeholder.com/1280x720.png?text=Novel+Background'); /* Заміни на своє фонове зображення */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.novel-text-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 1.4em;
+    padding: 25px 40px;
+    border-radius: 10px;
+    border: 2px solid #33ccff;
+    box-shadow: 0 0 20px rgba(51, 204, 255, 0.7);
+    max-width: 80%;
+    min-height: 120px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.novel-controls {
+    display: flex;
+    gap: 20px;
+}
+
+.novel-button {
+    background-color: #002244;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #004488;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.novel-button:hover {
+    background-color: #003366;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #33ccff, inset 0 1px 5px rgba(255,255,255,0.3);
+}
+
+.novel-button:active {
+    background-color: #001122;
+    transform: translateY(0);
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.novel-button.back-button {
+    background-color: #4d0000;
+    border: 1px solid #800000;
+}
+
+.novel-button.back-button:hover {
+    background-color: #660000;
+    box-shadow: none;
+}
+
+/* Додаткові стилі для кнопок вибору */
+.choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.choice-button {
+    background-color: #004488;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #0055aa;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.choice-button:hover {
+    background-color: #0055aa;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #33ccff, inset 0 1px 5px rgba(255,255,255,0.3);
+}
+
+.choice-button:active {
+    background-color: #003366;
+    transform: translateY(0);
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
 }
