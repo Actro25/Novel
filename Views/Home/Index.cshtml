@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Dream Inspired Menu";
-    
-    Layout = null;
+    Layout = null; // Залишаємо null, щоб контролювати весь HTML самостійно
 }
 
 <!DOCTYPE html>
@@ -10,16 +9,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/css/site.css">   
+    <link rel="stylesheet" href="~/css/site.css">
+    @*
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.2/build/spline-viewer.js"></script>
+    <script type="module" src="~/js/spline-loader.js"></script>
+    *@
 </head>
 <body>
     <div class="menu-container">
         <h1 class="menu-title">Dream</h1>
         <h2 class="menu-subtitle">ГЛАВНОЕ МЕНЮ</h2>
         <ul class="main-menu">
-            <li><a href="#" class="menu-item"><span class="icon">♥</span> МИРНЫЙ РЕЖИМ</a></li>
-            <li><a href="#" class="menu-item">ПРОДОЛЖИТЬ</a></li>
-            <li><a href="#" class="menu-item">НОВАЯ ИГРА</a></li>
+            <li><a href="#" class="menu-item">МИРНЫЙ РЕЖИМ</a></li>
+            <li><a href="@Url.Action("NewGame", "Home")?action=new" class="menu-item">НОВАЯ ИГРА</a></li>
             <li><a href="#" class="menu-item">ЗАГРУЗИТЬ</a></li>
             <li><a href="#" class="menu-item">ПЕРСОНАЖИ</a></li>
             <li><a href="#" class="menu-item">ОДЕЖДА</a></li>
