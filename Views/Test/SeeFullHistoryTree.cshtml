@@ -1,0 +1,35 @@
+﻿@using NovelProject.AlterModels
+@model SceneViewModel
+@{
+    ViewData["Title"] = "Trre History";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+
+<body>
+    <h2>Сцени:</h2>
+    @foreach (var scene in Model.Scene)
+    {
+        <p>@scene.text_scene</p><br/>
+    }
+
+    <h2>Відповіді:</h2>
+    @foreach (var ans in Model.Answers)
+    {
+        <p>@ans.asnwer_for_scene</p>
+        <br/>
+    }
+
+    <h2>Частина:</h2>
+    <p>@Model.Parts - @Model.Parts</p>
+    <br/>
+</body>
+</html>
