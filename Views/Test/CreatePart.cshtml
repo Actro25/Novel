@@ -1,0 +1,26 @@
+﻿@using NovelProject.AlterModels
+@model PartOneAndAllModel
+
+<form asp-action="CreatePart" method="post">
+    <h3>Part</h3>
+    <label>Start Part Text</label>
+    <input asp-for="Parts.start_part_text" class="form-control" />
+    <label>End Part Text</label>
+    <input asp-for="Parts.end_part_text" class="form-control" />
+
+    <hr />
+    <button type="submit">Зберегти</button>
+    <br />
+    <hr />
+</form>
+<form asp-action="DetailPart" method="get">
+    <h3>Змінити part</h3>
+    <select name="id" class="form-control">
+        @foreach (var part in Model.AllParts)
+        {
+            <option value="@part.id">@part.start_part_text → @part.end_part_text</option>
+        }
+    </select>
+    <button type="submit">Деталі парта</button>
+</form>
+

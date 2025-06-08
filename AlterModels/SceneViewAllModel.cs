@@ -2,7 +2,7 @@
 
 namespace NovelProject.AlterModels
 {
-    public class SceneViewModel
+    public class SceneViewAllModel
     {
         public List<ScenesModel> Scene { get; set; }
         public List<AnswersModel> Answers { get; set; }

@@ -1,0 +1,33 @@
+﻿@model NovelProject.AlterModels.PartOneAndAllModel
+
+@{
+    ViewData["Title"] = "Edit Part";
+}
+
+<h2>Edit Part</h2>
+
+<form asp-action="EditPart" method="post">
+    <input type="hidden" asp-for="Parts.id" />
+
+    <div class="form-group">
+        <label asp-for="Parts.start_part_text"></label>
+        <input asp-for="Parts.start_part_text" class="form-control" />
+        <span asp-validation-for="Parts.start_part_text" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Parts.end_part_text"></label>
+        <input asp-for="Parts.end_part_text" class="form-control" />
+        <span asp-validation-for="Parts.end_part_text" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+</form>
+
+<hr />
+
+<form asp-action="DeletePart" asp-route-id="@Model.Parts.id" method="post" onsubmit="return confirm('Ви впевнені, що хочете видалити цей парт?');">
+    <button type="submit" class="btn btn-danger">Видалити</button>
+</form>
+
+<a asp-action="CreatePart" class="btn btn-secondary">Назад до списку</a>

@@ -9,6 +9,7 @@
       "NovelProject/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.5.1",
+          "Microsoft.EntityFrameworkCore": "9.0.5",
           "Microsoft.EntityFrameworkCore.Design": "9.0.5",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.5",
           "MySql.Data": "9.3.0",
