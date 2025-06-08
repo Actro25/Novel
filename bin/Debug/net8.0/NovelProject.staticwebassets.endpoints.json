@@ -99,7 +99,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6972"
+          "Value": "6305"
         },
         {
           "Name": "Content-Type",
@@ -107,11 +107,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a2b1fzZa11kOjqZOv8a2c+i0QlqSKf0D3EhvQ5gSKf4=\""
+          "Value": "\"JOiw93Eya28bqRreHrT7hPbQyAB9CfZVEvmYNqJPBrU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 14:23:20 GMT"
+          "Value": "Sat, 07 Jun 2025 13:29:57 GMT"
         }
       ],
       "EndpointProperties": [
@@ -121,16 +121,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-a2b1fzZa11kOjqZOv8a2c+i0QlqSKf0D3EhvQ5gSKf4="
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
+          "Value": "sha256-JOiw93Eya28bqRreHrT7hPbQyAB9CfZVEvmYNqJPBrU="
         }
       ]
     },
     {
-      "Route": "css/site.css",
+      "Route": "css/site.gxrfhjxz8f.css",
       "AssetFile": "css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -144,7 +140,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6972"
+          "Value": "6305"
         },
         {
           "Name": "Content-Type",
@@ -152,17 +148,25 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a2b1fzZa11kOjqZOv8a2c+i0QlqSKf0D3EhvQ5gSKf4=\""
+          "Value": "\"JOiw93Eya28bqRreHrT7hPbQyAB9CfZVEvmYNqJPBrU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 07 Jun 2025 14:23:20 GMT"
+          "Value": "Sat, 07 Jun 2025 13:29:57 GMT"
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "gxrfhjxz8f"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-a2b1fzZa11kOjqZOv8a2c+i0QlqSKf0D3EhvQ5gSKf4="
+          "Value": "sha256-JOiw93Eya28bqRreHrT7hPbQyAB9CfZVEvmYNqJPBrU="
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
         }
       ]
     },

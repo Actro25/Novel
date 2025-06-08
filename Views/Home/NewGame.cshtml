@@ -1,5 +1,224 @@
 @{
     ViewData["Title"] = "Новая Игра - Новелла";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <style>
+        body {
+            padding-left: 0 !important;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .novel-container {
+            width: 100vw;
+            height: 100vh;
+            padding-bottom: 50px;
+        }
+
+        .choices-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .choice-button {
+            background-color: #004488;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid #0055aa;
+            box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .choice-button:hover {
+            background-color: #0055aa;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px #33ccff, inset 0 1px 5px rgba(255,255,255,0.3);
+        }
+
+        .choice-button:active {
+            background-color: #003366;
+            transform: translateY(0);
+            box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="novel-container">
+        <div class="novel-text-box">
+            <p id="dialogue-text"></p>
+        </div>
+        <div class="novel-controls">
+            <button id="next-button" class="novel-button">Далее</button>
+            <div id="choices" class="choices-container" style="display: none;"></div>
+            <button id="back-to-menu" class="novel-button back-button">В МЕНЮ</button>
+        </div>
+    </div>
+
+    <script>
+        const dialogueTextElement = document.getElementById('dialogue-text');
+        const nextButton = document.getElementById('next-button');
+        const backToMenuButton = document.getElementById('back-to-menu');
+        const choicesContainer = document.getElementById('choices');
+
+        const SAVE_KEY = 'novel_save_progress'; // Ключ для збереження в localStorage
+
+        const scenario = [
+            "Привіт, незнайомцю. Ласкаво просимо до моїх снів.",
+            "Я довго чекала тебе, але не знала, коли ти прийдеш.",
+            "Цей світ - моя уява, і тепер він належить нам обом.",
+            "Що ж, почнімо нашу історію...",
+            {
+                type: "choice",
+                text: "Яке твоє перше враження від цього світу?",
+                choices: [
+                    { text: "Він прекрасний і таємничий.", nextLine: "pathA_start" },
+                    { text: "Я збентежений і трохи наляканий.", nextLine: "pathB_start" }
+                ],
+                savePoint: true // Позначаємо цю точку як точку збереження
+            },
+            // Гілка А
+            { id: "pathA_start", text: "Я радий, що тобі подобається. Сподіваюся, ти знайдеш тут щось особливе." },
+            "Давай дослідимо його разом.",
+            "Це кінець гілки А. Повернися в меню або почни знову.",
+            { id: "pathA_end_final", text: "Гілка А завершена." }, // Кінцева точка гілки А
+
+
+            // Гілка Б
+            { id: "pathB_start", text: "Я розумію. Цей світ може бути незвичним, але не бійся." },
+            "Я тут, щоб допомогти тобі орієнтуватися.",
+            "Це кінець гілки Б. Повернися в меню або почни знову.",
+            { id: "pathB_end_final", text: "Гілка Б завершена." } // Кінцева точка гілки Б
+        ];
+
+        let currentLineIndex = 0;
+
+        // Функція для збереження прогресу
+        function saveProgress() {
+            localStorage.setItem(SAVE_KEY, currentLineIndex);
+            console.log("Прогрес збережено:", currentLineIndex);
+        }
+
+        // Функція для завантаження прогресу
+        function loadProgress() {
+            const savedIndex = localStorage.getItem(SAVE_KEY);
+            if (savedIndex !== null) {
+                currentLineIndex = parseInt(savedIndex);
+                console.log("Прогрес завантажено:", currentLineIndex);
+                // Якщо завантажена точка є вибором, переконаємося, що ми показуємо вибір, а не наступний рядок
+                const currentItem = scenario[currentLineIndex];
+                if (typeof currentItem === 'object' && currentItem.type === 'choice') {
+                    // Все добре, displayCurrentContent() виведе вибір
+                } else if (currentLineIndex < scenario.length - 1) {
+                    // Якщо завантажена точка не є вибором, а ми на ній вже були,
+                    // потрібно пересунутися на один крок вперед, щоб показати наступний діалог.
+                    // Це важливо, якщо збереження відбувається ПІСЛЯ відображення рядка, але ДО натискання "Далее".
+                    // Може знадобитися доналаштування залежно від точної логіки збереження.
+                    // Наразі, будемо вважати, що збереження відбувається *після* відображення вибору або діалогу.
+                }
+                return true; // Прогрес завантажено
+            }
+            return false; // Прогрес не знайдено
+        }
+
+        function displayCurrentContent() {
+            const currentItem = scenario[currentLineIndex];
+
+            if (!currentItem) {
+                // Якщо дійшли до кінця сценарію
+                dialogueTextElement.textContent = "Кінець новели. Дякую за гру!";
+                nextButton.style.display = 'none';
+                choicesContainer.style.display = 'none';
+                localStorage.removeItem(SAVE_KEY); // Очищаємо збереження, коли гра закінчилася
+                return;
+            }
+
+            if (typeof currentItem === 'string') {
+                dialogueTextElement.textContent = currentItem;
+                nextButton.style.display = 'block';
+                choicesContainer.style.display = 'none';
+            } else if (typeof currentItem === 'object' && currentItem.type === 'choice') {
+                dialogueTextElement.textContent = currentItem.text;
+                nextButton.style.display = 'none';
+                choicesContainer.style.display = 'flex';
+                choicesContainer.innerHTML = '';
+
+                currentItem.choices.forEach(choice => {
+                    const button = document.createElement('button');
+                    button.classList.add('choice-button');
+                    button.textContent = choice.text;
+                    button.addEventListener('click', () => handleChoice(choice.nextLine));
+                    choicesContainer.appendChild(button);
+                });
+                saveProgress(); // Зберігаємо прогрес після показу вибору
+            } else if (typeof currentItem === 'object' && currentItem.id) {
+                dialogueTextElement.textContent = currentItem.text;
+                nextButton.style.display = 'block';
+                choicesContainer.style.display = 'none';
+                saveProgress(); // Зберігаємо прогрес на початку нової гілки
+            }
+        }
+
+        function nextLine() {
+            currentLineIndex++;
+            displayCurrentContent();
+        }
+
+        function handleChoice(nextLineId) {
+            const targetIndex = scenario.findIndex(item => typeof item === 'object' && item.id === nextLineId);
+
+            if (targetIndex !== -1) {
+                currentLineIndex = targetIndex;
+                displayCurrentContent();
+            } else {
+                console.error("Не знайдено наступну лінію за ID:", nextLineId);
+                nextLine();
+            }
+        }
+
+        nextButton.addEventListener('click', nextLine);
+        backToMenuButton.addEventListener('click', () => {
+            window.location.href = '@Url.Action("Index", "Home")';
+        });
+
+        // Ініціалізація новели
+        // Отримуємо параметр "action" з URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const action = urlParams.get('action');
+
+        if (action === 'continue') {
+            const loaded = loadProgress();
+            if (!loaded) {
+                // Якщо продовження, але збережень немає, починаємо нову гру
+                currentLineIndex = 0;
+            }
+        } else { // action === 'new' або будь-який інший випадок
+            currentLineIndex = 0; // Завжди починаємо з нуля для нової гри
+            localStorage.removeItem(SAVE_KEY); // Очищаємо старі збереження
+        }
+
+        displayCurrentContent(); // Відображаємо початковий/завантажений вміст
+    </script>
+</body>
+</html>
+@{
+    ViewData["Title"] = "Новая Игра - Новелла";
     Layout = null; // Залишаємо null, щоб контролювати весь HTML самостійно
 }
 
