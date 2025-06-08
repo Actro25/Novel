@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-1.png",
+      "PackagePath": "staticwebassets\\img\\layer-1.png"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-2.png",
+      "PackagePath": "staticwebassets\\img\\layer-2.png"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-3.png",
+      "PackagePath": "staticwebassets\\img\\layer-3.png"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-4.jpg",
+      "PackagePath": "staticwebassets\\img\\layer-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-5.jpg",
+      "PackagePath": "staticwebassets\\img\\layer-5.jpg"
+    },
+    {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -243,6 +263,10 @@
     {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\models\\character.glb",
+      "PackagePath": "staticwebassets\\models\\character.glb"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NovelProject.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
