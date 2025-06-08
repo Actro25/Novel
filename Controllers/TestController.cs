@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NovelProject.AlterModels;
 using NovelProject.Data;
 
 public class TestController : Controller
@@ -12,7 +13,21 @@ public class TestController : Controller
 
     public IActionResult Index()
     {
+        return RedirectToAction("SeeFullHistoryTree");
+    }
+    public IActionResult SeeFullHistoryTree()
+    {
         var scenes = _context.Scenes.ToList();
-        return Content($"{scenes}");
+        var answer = _context.Answers.ToList();
+        var parts = _context.Parts.ToList();
+        var res = new SceneViewModel
+        {
+            Scene = scenes,
+            Answers = answer,
+            Parts = parts
+        };
+
+
+        return View(res);
     }
 }
