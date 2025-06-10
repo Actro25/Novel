@@ -13,24 +13,8 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-1.png",
-      "PackagePath": "staticwebassets\\img\\layer-1.png"
-    },
-    {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-2.png",
-      "PackagePath": "staticwebassets\\img\\layer-2.png"
-    },
-    {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-3.png",
-      "PackagePath": "staticwebassets\\img\\layer-3.png"
-    },
-    {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-4.jpg",
-      "PackagePath": "staticwebassets\\img\\layer-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\layer-5.jpg",
-      "PackagePath": "staticwebassets\\img\\layer-5.jpg"
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\Dream.jpg",
+      "PackagePath": "staticwebassets\\img\\Dream.jpg"
     },
     {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\site.js",

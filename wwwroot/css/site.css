@@ -1,74 +1,149 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* Визначення CSS змінних для кольорів */
+:root {
+    --primary-bg-color: #00001a; /* Дуже темний фон */
+    --menu-bg-color: rgba(0, 0, 0, 0.7);
+    --menu-border-color: #005099;
+    --main-glow-color: #33ccff;
+    --title-color: #33ccff;
+    --subtitle-color: #e0f2f7;
+    --menu-item-bg: #1a1a33;
+    --menu-item-hover-bg: #002a5c;
+    --menu-item-border: #003366;
+    --text-color: #ffffff;
+    --exit-button-bg: #4d0000;
+    --exit-button-border: #800000;
+    --exit-button-hover-glow: #ff3333;
+    --achievement-color: #33ccff;
+}
+
+/* Темна тема */
+.dark-theme {
+    --primary-bg-color: #1a001a; /* Темніший фіолетовий */
+    --menu-bg-color: rgba(10, 0, 10, 0.7);
+    --menu-border-color: #660066;
+    --main-glow-color: #cc33ff; /* Фіолетове світіння */
+    --title-color: #cc33ff;
+    --subtitle-color: #f7e0f7;
+    --menu-item-bg: #331a33;
+    --menu-item-hover-bg: #5c005c;
+    --menu-item-border: #660066;
+    --text-color: #ffffff;
+    --exit-button-bg: #660000;
+    --exit-button-border: #800000;
+    --exit-button-hover-glow: #ff6666;
+    --achievement-color: #cc33ff;
+}
+
+/* Блакитна тема */
+.blue-theme {
+    --primary-bg-color: #001a1a; /* Темний бірюзовий */
+    --menu-bg-color: rgba(0, 10, 10, 0.7);
+    --menu-border-color: #006666;
+    --main-glow-color: #00ffff; /* Блакитно-зелене світіння */
+    --title-color: #00ffff;
+    --subtitle-color: #e0f7f7;
+    --menu-item-bg: #1a3333;
+    --menu-item-hover-bg: #005c5c;
+    --menu-item-border: #006666;
+    --text-color: #ffffff;
+    --exit-button-bg: #004d4d;
+    --exit-button-border: #008080;
+    --exit-button-hover-glow: #00cccc;
+    --achievement-color: #00ffff;
+}
+
+
+/* Загальні стилі для тіла сторінки */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    background-color: #000033;
+    background-color: var(--primary-bg-color); /* Використовуємо змінну */
     position: relative;
-    padding-left: 50px;
     box-sizing: border-box;
+    padding: 0;
+    padding-left: 50px;
+    transition: background-color 0.5s ease; /* Плавний перехід кольору фону */
 }
 
-/*
-.full-background-spline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+/* Логотип справа зверху */
+.logo-container {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 100;
 }
-*/
+
+.game-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--main-glow-color); /* Використовуємо змінну */
+    box-shadow: 0 0 15px var(--main-glow-color); /* Використовуємо змінну */
+    object-fit: cover;
+}
 
 .menu-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--menu-bg-color); /* Використовуємо змінну */
     padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 25px var(--main-glow-color), /* Використовуємо змінну */
+                0 0 50px rgba(51, 204, 255, 0.4); /* Це можна залишити, або замінити на var(--main-glow-color) з меншою прозорістю */
     text-align: center;
     position: relative;
     z-index: 10;
-    max-width: 400px;
+    max-width: 350px;
     width: 90%;
-    border: 2px solid #001a33;
-    backdrop-filter: blur(8px);
+    border: 1px solid var(--menu-border-color); /* Використовуємо змінну */
+    backdrop-filter: blur(5px);
     margin-right: auto;
+    margin-left: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Додано переходи для змінних */
 }
 
 .menu-title {
     font-family: 'Press Start 2P', cursive;
-    font-size: 3em;
-    color: #33ccff;
-    text-shadow: 0 0 10px #33ccff, 0 0 20px #33ccff, 0 0 30px #33ccff;
+    font-size: 2.8em;
+    color: var(--title-color); /* Використовуємо змінну */
+    text-shadow: 0 0 10px var(--title-color), 0 0 20px var(--title-color), 0 0 30px var(--title-color); /* Використовуємо змінну */
     margin-bottom: 5px;
     letter-spacing: 2px;
 }
 
 .menu-title::before {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%2333ccff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    vertical-align: middle;
+    content: none;
 }
 
 .menu-subtitle {
-    font-size: 1.2em;
-    color: #fff;
+    font-size: 1.0em;
+    color: var(--subtitle-color); /* Використовуємо змінну */
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-subtitle .icon {
+    margin-right: 8px;
+    color: var(--main-glow-color); /* Використовуємо змінну */
+    font-size: 1.1em;
+    vertical-align: middle;
 }
 
 .main-menu {
     list-style: none;
     padding: 0;
     margin: 0;
+    /* Використовуємо CSS змінну для масштабування шрифту */
+    font-size: var(--base-font-size, 1em); /* За замовчуванням 1em */
 }
 
 .main-menu li {
@@ -77,47 +152,38 @@ body {
 
 .menu-item {
     display: block;
-    background-color: #002244;
-    color: #fff;
-    padding: 12px 20px;
+    background-color: var(--menu-item-bg); /* Використовуємо змінну */
+    color: var(--text-color); /* Використовуємо змінну */
+    padding: 12px 15px;
     text-decoration: none;
     border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+    font-size: 1.0em; /* Відносний розмір, буде масштабуватися з main-menu font-size */
     font-weight: bold;
-    text-align: left;
-    border: 1px solid #004488;
-    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
+    text-align: center;
+    border: 1px solid var(--menu-item-border); /* Використовуємо змінну */
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.1),
+                0 2px 5px rgba(0,0,0,0.4);
     position: relative;
     overflow: hidden;
 }
 
 .menu-item:hover {
-    background-color: #003366;
+    background-color: var(--menu-item-hover-bg); /* Використовуємо змінну */
     transform: translateY(-2px);
-    box-shadow: 0 0 15px #33ccff, inset 0 1px 5px rgba(255,255,255,0.3);
+    box-shadow: 0 0 15px var(--main-glow-color), /* Використовуємо змінну */
+                inset 0 1px 5px rgba(255,255,255,0.2);
 }
 
 .menu-item:active {
-    background-color: #001122;
+    background-color: #001a33; /* Це значення можна залишити фіксованим або зробити змінною */
     transform: translateY(0);
     box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
 }
 
-.menu-item .icon {
-    margin-right: 10px;
-    color: #33ccff;
-    font-size: 1.2em;
-    vertical-align: middle;
-}
-
-.menu-item .icon:first-child {
-    font-family: sans-serif;
-}
-
 .achievement-count {
     float: right;
-    color: #33ccff;
+    color: var(--achievement-color); /* Використовуємо змінну */
     font-weight: bold;
 }
 
@@ -125,13 +191,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #002244;
-    color: #fff;
-    padding: 12px 20px;
+    background-color: var(--menu-item-bg); /* Використовуємо змінну */
+    color: var(--text-color); /* Використовуємо змінну */
+    padding: 12px 15px;
     border-radius: 8px;
     margin-bottom: 10px;
-    border: 1px solid #004488;
-    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
+    border: 1px solid var(--menu-item-border); /* Використовуємо змінну */
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.1), 0 2px 5px rgba(0,0,0,0.4);
 }
 
 .language-row .menu-item {
@@ -142,38 +208,228 @@ body {
     text-align: left;
     border: none;
     box-shadow: none;
-    color: #fff;
+    color: var(--text-color); /* Використовуємо змінну */
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.0em;
     transition: color 0.3s ease;
 }
 
 .language-row .menu-item:hover {
-    color: #33ccff;
+    color: var(--main-glow-color); /* Використовуємо змінну */
     transform: none;
     box-shadow: none;
 }
 
 .language-value {
-    color: #33ccff;
+    color: var(--achievement-color); /* Використовуємо змінну */
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.0em;
 }
 
 .exit-button {
-    background-color: #4d0000;
-    border: 1px solid #800000;
-    margin-top: 20px;
-    font-size: 1.2em;
+    background-color: var(--exit-button-bg); /* Використовуємо змінну */
+    border: 1px solid var(--exit-button-border); /* Використовуємо змінну */
+    margin-top: 15px;
+    font-size: 1.1em;
     text-align: center;
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 3px 5px rgba(0,0,0,0.3);
 }
 
 .exit-button:hover {
-    background-color: #660000;
-    box-shadow: none;
+    background-color: var(--exit-button-bg); /* Щоб не змінювався кардинально, але світіння інше */
+    box-shadow: 0 0 15px var(--exit-button-hover-glow), inset 0 1px 5px rgba(255,255,255,0.3); /* Використовуємо змінну */
 }
 
+/* -------------------- Стилі для меню авторів -------------------- */
+.authors-menu-container {
+    background-color: var(--menu-bg-color);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px var(--main-glow-color),
+                0 0 50px rgba(51, 204, 255, 0.4);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    max-width: 400px;
+    width: 90%;
+    border: 1px solid var(--menu-border-color);
+    backdrop-filter: blur(5px);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.authors-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8em;
+    color: var(--title-color);
+    text-shadow: 0 0 10px var(--title-color), 0 0 20px var(--title-color);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.authors-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.authors-list li {
+    margin-bottom: 10px;
+    color: var(--subtitle-color);
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.author-name {
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.close-button {
+    background-color: var(--menu-item-hover-bg); /* Використовуємо змінну для кнопки закриття */
+    border: 1px solid var(--menu-item-border);
+    color: var(--text-color);
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.0em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.1), 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.close-button:hover {
+    background-color: var(--menu-item-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--main-glow-color), inset 0 1px 5px rgba(255,255,255,0.2);
+}
+
+.close-button:active {
+    background-color: #001a33;
+    transform: translateY(0);
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+}
+
+/* -------------------- Стилі для меню налаштувань -------------------- */
+.settings-menu-container {
+    background-color: var(--menu-bg-color);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px var(--main-glow-color),
+                0 0 50px rgba(51, 204, 255, 0.4);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20; /* Переконатися, що воно поверх інших меню */
+    max-width: 400px;
+    width: 90%;
+    border: 1px solid var(--menu-border-color);
+    backdrop-filter: blur(5px);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.settings-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8em;
+    color: var(--title-color);
+    text-shadow: 0 0 10px var(--title-color), 0 0 20px var(--title-color);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.settings-section {
+    margin-bottom: 20px;
+    text-align: left; /* Вирівнюємо заголовки секцій та кнопки зліва */
+}
+
+.settings-section h4 {
+    color: var(--subtitle-color);
+    font-size: 1.0em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.setting-button {
+    display: inline-block; /* Щоб кнопки були в рядку */
+    background-color: var(--menu-item-bg);
+    color: var(--text-color);
+    padding: 8px 12px; /* Менші відступи для компактності */
+    border-radius: 5px;
+    border: 1px solid var(--menu-item-border);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px; /* Відступ між кнопками */
+    font-size: 0.9em; /* Трохи менший шрифт */
+    font-weight: bold;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.1);
+}
+
+.setting-button:hover {
+    background-color: var(--menu-item-hover-bg);
+    box-shadow: 0 0 10px var(--main-glow-color), inset 0 1px 3px rgba(255,255,255,0.2);
+}
+
+.setting-button:active {
+    background-color: #001a33; /* Можна залишити фіксованим */
+    transform: translateY(0);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Стилі для повзунка гучності (якщо буде використовуватися) */
+.slider {
+    width: 100%;
+    -webkit-appearance: none; /* Приховуємо стандартний вигляд */
+    height: 8px;
+    background: var(--menu-item-border);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 4px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--main-glow-color);
+    cursor: pointer;
+    border: 1px solid var(--text-color);
+    box-shadow: 0 0 8px var(--main-glow-color);
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--main-glow-color);
+    cursor: pointer;
+    border: 1px solid var(--text-color);
+    box-shadow: 0 0 8px var(--main-glow-color);
+}
+
+
+/* -------------------- Клас для приховування елементів -------------------- */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.8); /* Зменшуємо приховуваний елемент і трохи зміщуємо */
+}
+
+
+/* -------------------- Стилі для новели (без змін, якщо не використовуються тут) -------------------- */
 .novel-container {
     display: flex;
     flex-direction: column;
@@ -185,9 +441,9 @@ body {
     background-image: url('https://via.placeholder.com/1280x720.png?text=Novel+Background'); /* Заміни на своє фонове зображення */
     background-size: cover;
     background-position: center;
-    position: relative;
-    padding-bottom: 50px;
-    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .novel-text-box {
@@ -251,7 +507,6 @@ body {
     box-shadow: none;
 }
 
-/* Додаткові стилі для кнопок вибору */
 .choices-container {
     display: flex;
     flex-direction: column;
