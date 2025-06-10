@@ -36,10 +36,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdHYW1lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,8 +48,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGVQYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/CreateScene.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGVTY2VuZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/DetailPart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEZXRhaWxQYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/DetailScene.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEZXRhaWxTY2VuZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/SeeFullHistoryTree.cshtml]

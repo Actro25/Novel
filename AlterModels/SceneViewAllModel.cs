@@ -4,8 +4,8 @@ namespace NovelProject.AlterModels
 {
     public class SceneViewAllModel
     {
-        public List<ScenesModel> Scene { get; set; }
-        public List<AnswersModel> Answers { get; set; }
-        public List<PartsModel> Parts { get; set; }
+        public List<ScenesModel> Scene { get; set; } = new List<ScenesModel>();
+        public List<AnswersModel> Answers { get; set; } = new List<AnswersModel>();
+        public List<PartsModel> Parts { get; set; } = new List<PartsModel>();
     }
 }

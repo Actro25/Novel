@@ -7,28 +7,12 @@
       "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\detailpart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\detailpart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\detailscene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\detailscene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\createpart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\createpart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\altermodels\\sceneviewonemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:altermodels\\sceneviewonemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\models\\partsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:models\\partsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\altermodels\\partoneandallmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:altermodels\\partoneandallmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\seefullhistorytree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\seefullhistorytree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,85 +21,33 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 303,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CreatePart.cshtml",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreatePart.cshtml",
-              "RelativeDocumentMoniker": "Views\\Test\\CreatePart.cshtml",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreatePart.cshtml",
-              "RelativeToolTip": "Views\\Test\\CreatePart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAZAAAAAAAAAA==",
+              "Title": "SeeFullHistoryTree.cshtml",
+              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
+              "RelativeDocumentMoniker": "Views\\Test\\SeeFullHistoryTree.cshtml",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
+              "RelativeToolTip": "Views\\Test\\SeeFullHistoryTree.cshtml",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAwwIkAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-08T12:07:13.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:57:26.145Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PartOneAndAllModel.cs",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\AlterModels\\PartOneAndAllModel.cs",
-              "RelativeDocumentMoniker": "AlterModels\\PartOneAndAllModel.cs",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\AlterModels\\PartOneAndAllModel.cs",
-              "RelativeToolTip": "AlterModels\\PartOneAndAllModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:49:23.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PartsModel.cs",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Models\\PartsModel.cs",
-              "RelativeDocumentMoniker": "Models\\PartsModel.cs",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Models\\PartsModel.cs",
-              "RelativeToolTip": "Models\\PartsModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:37:07.509Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SceneViewOneModel.cs",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\AlterModels\\SceneViewOneModel.cs",
-              "RelativeDocumentMoniker": "AlterModels\\SceneViewOneModel.cs",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\AlterModels\\SceneViewOneModel.cs",
-              "RelativeToolTip": "AlterModels\\SceneViewOneModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:22:09.814Z",
+              "WhenOpened": "2025-06-10T17:28:27.668Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DetailPart.cshtml",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\DetailPart.cshtml",
-              "RelativeDocumentMoniker": "Views\\Test\\DetailPart.cshtml",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\DetailPart.cshtml",
-              "RelativeToolTip": "Views\\Test\\DetailPart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABSAAAAAAAAAA==",
+              "Title": "DetailScene.cshtml",
+              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\DetailScene.cshtml",
+              "RelativeDocumentMoniker": "Views\\Test\\DetailScene.cshtml",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\DetailScene.cshtml",
+              "RelativeToolTip": "Views\\Test\\DetailScene.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-08T11:59:24.474Z",
+              "WhenOpened": "2025-06-10T17:27:24.773Z",
               "EditorCaption": ""
             },
             {
@@ -124,9 +56,9 @@
               "Title": "TestController.cs",
               "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "Controllers\\TestController.cs",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\TestController.cs*",
-              "RelativeToolTip": "Controllers\\TestController.cs*",
-              "ViewState": "AgIAACEAAAAAAAAAAAAqwDMAAAAmAAAAAAAAAA==",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\TestController.cs",
+              "RelativeToolTip": "Controllers\\TestController.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAIwL0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T13:37:05.27Z",
               "EditorCaption": ""

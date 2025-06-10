@@ -29,6 +29,9 @@ namespace NovelProject.Migrations
                     b.Property<int>("id_scene")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("next_scene_id")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("id");
 
                     b.ToTable("Answers");
@@ -44,9 +47,19 @@ namespace NovelProject.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("end_scene_id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("start_part_text")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("start_scene_id")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("id");
 
@@ -73,7 +86,6 @@ namespace NovelProject.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("text_scene")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
