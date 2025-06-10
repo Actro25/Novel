@@ -181,7 +181,6 @@ D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\bin\Debug\net8.0\ru\Micro
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\artem\OneDrive\Робочий стіл\Program MangaLib\Novel\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\artem\OneDrive\Робочий стіл\Program MangaLib\Novel\bin\Debug\net8.0\appsettings.json
 C:\Users\artem\OneDrive\Робочий стіл\Program MangaLib\Novel\bin\Debug\net8.0\NovelProject.staticwebassets.runtime.json
@@ -370,3 +369,4 @@ C:\Users\artem\OneDrive\Робочий стіл\Program MangaLib\Novel\obj\Debug
 C:\Users\artem\OneDrive\Робочий стіл\Program MangaLib\Novel\obj\Debug\net8.0\NovelProject.pdb
 C:\Users\artem\OneDrive\Робочий стіл\Program MangaLib\Novel\obj\Debug\net8.0\NovelProject.genruntimeconfig.cache
 C:\Users\artem\OneDrive\Робочий стіл\Program MangaLib\Novel\obj\Debug\net8.0\ref\NovelProject.dll
+D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

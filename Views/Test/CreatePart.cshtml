@@ -2,7 +2,8 @@
 @model PartOneAndAllModel
 
 <form asp-action="CreatePart" method="post">
-    <h3>Part</h3>
+    <h3>Part Name</h3>
+    <input asp-for="Parts.name" class="form-control" />
     <label>Start Part Text</label>
     <input asp-for="Parts.start_part_text" class="form-control" />
     <label>End Part Text</label>
@@ -18,7 +19,7 @@
     <select name="id" class="form-control">
         @foreach (var part in Model.AllParts)
         {
-            <option value="@part.id">@part.start_part_text → @part.end_part_text</option>
+            <option value="@part.id">@part.name</option>
         }
     </select>
     <button type="submit">Деталі парта</button>

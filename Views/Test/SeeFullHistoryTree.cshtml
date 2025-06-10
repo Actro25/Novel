@@ -1,35 +1,160 @@
 ﻿@using NovelProject.AlterModels
 @model SceneViewAllModel
 @{
-    ViewData["Title"] = "Trre History";
+    ViewData["Title"] = "Дерево історії";
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/css/site.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #f8f9fc;
+            --accent-color: #2e59d9;
+            --text-color: #5a5c69;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fc;
+            color: var(--text-color);
+            padding: 2rem;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e3e6f0;
+            padding-bottom: 1rem;
+        }
+
+        .part-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .part-card {
+            background: white;
+            border-radius: 0.35rem;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .part-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 0.5rem 1.5rem 0 rgba(58, 59, 69, 0.2);
+            }
+
+        .part-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.35rem 0.35rem 0 0;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .scene-list {
+            padding: 1rem;
+        }
+
+        .scene-item {
+            background-color: var(--secondary-color);
+            border-left: 3px solid var(--primary-color);
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+        }
+
+            .scene-item:hover {
+                background-color: #e9ecef;
+                transform: translateX(5px);
+            }
+
+        .add-scene-btn {
+            display: block;
+            text-align: center;
+            padding: 0.75rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px dashed #d1d3e2;
+            border-radius: 0.35rem;
+            margin: 1rem;
+            transition: all 0.3s;
+        }
+
+            .add-scene-btn:hover {
+                background-color: rgba(78, 115, 223, 0.1);
+                border-color: var(--primary-color);
+                color: var(--accent-color);
+            }
+
+        .badge-answers {
+            background-color: #1cc88a;
+            margin-left: 0.5rem;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Сцени:</h2>
-    @foreach (var scene in Model.Scene)
-    {
-        <p>@scene.text_scene</p><br/>
-    }
+    <div class="container-fluid">
+        <div class="header">
+            <h1 class="h3 mb-0 text-gray-800"><i class="bi bi-diagram-3-fill me-2"></i>Дерево історії</h1>
+            <p class="text-muted">Перегляд усіх частин та сцен</p>
+        </div>
 
-    <h2>Відповіді:</h2>
-    @foreach (var ans in Model.Answers)
-    {
-        <p>@ans.asnwer_for_scene</p>
-        <br/>
-    }
+        <div class="part-container">
+            @foreach (var part in Model.Parts)
+            {
+                <div class="part-card">
+                    <div class="part-header">
+                        <span>@part.name</span>
+                        <span class="badge bg-white text-primary">@Model.Scene.Count(s => s.id_part == part.id) сцен</span>
+                    </div>
 
-    <h2>Частина:</h2>
-    <p>@Model.Parts - @Model.Parts</p>
-    <br/>
+                    <div class="scene-list">
+                        @foreach (var scene in Model.Scene.Where(s => s.id_part == part.id))
+                        {
+                            var answerCount = Model.Answers.Count(a => a.id_scene == scene.id);
+
+                            <a href="@Url.Action("DetailScene", "Test", new { id = scene.id })">
+                                <div class="scene-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span>
+                                            @(scene.text_scene?.Length > 50
+                                                ? scene.text_scene.Substring(0, 50) + "..."
+                                                : scene.text_scene ?? "[порожня сцена]")
+                                        </span>
+
+                                        @if (answerCount > 0)
+                                        {
+                                            <span class="badge badge-answers rounded-pill">@answerCount</span>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        }
+
+                        <a href="@Url.Action("CreateScene", "Test", new { partId = part.id })" class="add-scene-btn">
+                            <i class="bi bi-plus-circle me-1"></i>Додати сцену
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </html>

@@ -1,0 +1,131 @@
+﻿@using NovelProject.AlterModels
+@model DetailSceneModel
+
+<form asp-action="DetailScene" method="post" enctype="multipart/form-data">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <!-- Ідентифікатор сцени -->
+    <input type="hidden" asp-for="Scenes.id" />
+
+
+    <h3>Оновити сцену</h3>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Тип сцени:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" asp-for="Scenes.answer" id="textSceneRadio" value="false" checked="@(!Model.Scenes.answer)" onchange="toggleSceneType(false)" />
+            <label class="form-check-label" for="textSceneRadio">Текстова сцена</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" asp-for="Scenes.answer" id="answerSceneRadio" value="true" checked="@(Model.Scenes.answer)" onchange="toggleSceneType(true)" />
+            <label class="form-check-label" for="answerSceneRadio">Сцена з варіантами вибору</label>
+        </div>
+    </div>
+
+    <div id="textSceneSection" style="display: @(Model.Scenes.answer ? "none" : "block")">
+        <div class="form-group">
+            <label>Текст сцени</label>
+            <textarea asp-for="Scenes.text_scene" class="form-control" rows="5"></textarea>
+        </div>
+    </div>
+
+    <div id="answerSceneSection" style="display: @(Model.Scenes.answer ? "block" : "none")">
+        <h4>Варіанти відповідей</h4>
+        <div id="answersContainer">
+            @if (Model.Scenes.answer && Model.Answers != null)
+            {
+                for (int i = 0; i < Model.Answers.Count; i++)
+                {
+                    <div class="mb-2 p-2 border rounded">
+                        <input type="text" name="Answers[@i].asnwer_for_scene"
+                               value="@Model.Answers[i].asnwer_for_scene"
+                               class="form-control mb-1"
+                               placeholder="Варіант @(i + 1)" required />
+                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.parentNode.remove()">
+                            Видалити
+                        </button>
+                    </div>
+                }
+            }
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-primary mt-2" onclick="addAnswerField()">
+            + Додати варіант
+        </button>
+    </div>
+
+    <div class="form-group mb-3">
+        <h3>Яка сцена є попередньою для цієї?</h3>
+        <select name="preview_scene" class="form-control">
+            <option value="-1">(Початок історії, немає попередньої сцени)</option>
+            @if (Model.AllItems?.Scene != null)
+            {
+                foreach (var scene in Model.AllItems.Scene)
+                {
+                    <option value="@scene.id" selected="@(scene.id == Model.preview_scene)">
+                        @{
+                            var partName = Model.AllItems.Parts?.FirstOrDefault(p => p.id == scene.id_part)?.name ?? "Невідомий парт";
+                        }
+                        Парт "@partName" - @(scene.text_scene?.Length > 50 ? scene.text_scene.Substring(0, 50) + "..." : scene.text_scene ?? "[порожня сцена]")
+
+                    </option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Фонове зображення:</label>
+        <input type="file" asp-for="@Model.backgroundImage" class="form-control" />
+        @if (!string.IsNullOrEmpty(Model.Scenes.background_scene_img))
+        {
+            <div class="mt-2">
+                <p>Поточне зображення:</p>
+                <img src="@Url.Content(Model.Scenes.background_scene_img)" alt="Фон" style="max-width: 100%; max-height: 300px;" />
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Оновити сцену</button>
+
+</form>
+<form asp-action="DeleteScene" method="post">
+    <input type="hidden" name="id" value="@Model.Scenes.id" />
+    <button type="submit" class="btn btn-danger mt-3">Видалити сцену</button>
+</form>
+@section Scripts {
+    <script>
+        let answerIndex = @Model.Answers?.Count ?? 0;
+
+        function addAnswerField() {
+            const container = document.getElementById("answersContainer");
+
+            const div = document.createElement("div");
+            div.className = "mb-2 p-2 border rounded";
+
+            div.innerHTML = `
+                <input type="text" name="Answers[${answerIndex}].asnwer_for_scene"
+                       class="form-control mb-1"
+                       placeholder="Варіант ${answerIndex + 1}" required />
+                <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.parentNode.remove(); updateAnswerIndexes();">
+                    Видалити
+                </button>
+            `;
+
+            container.appendChild(div);
+            answerIndex++;
+        }
+
+        function updateAnswerIndexes() {
+            const container = document.getElementById("answersContainer");
+            const children = container.children;
+            answerIndex = 0;
+
+            for (let i = 0; i < children.length; i++) {
+                const input = children[i].querySelector('input[type="text"]');
+                input.name = `Answers[${i}].asnwer_for_scene`;
+                input.placeholder = `Варіант ${i + 1}`;
+                answerIndex = i + 1;
+            }
+        }
+    </script>
+}
