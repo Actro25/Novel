@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IljM/x7xi8oWUrHzUbp5WgK0nO/jrOeztg2Rdh8ajNA=",
+  "Hash": "jP5cB4L8PWPKuR8ABDVienjqoGic8HZdysB9HNqY93Y=",
   "Source": "NovelProject",
   "BasePath": "_content/NovelProject",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7zyu7wmlsy",
-      "Integrity": "k5NYXyq1c9QPQQV5vJQi5qNC/O1vKT5S0MDsYJ6vwDM=",
+      "Fingerprint": "pmph8nfwzo",
+      "Integrity": "AVALAn1Jx8RtNOTDepuHv50a/1id7m38O/uvMq9cOyo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1363,51 +1363,6 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.7zyu7wmlsy.css",
-      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "22871"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"k5NYXyq1c9QPQQV5vJQi5qNC/O1vKT5S0MDsYJ6vwDM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 11 Jun 2025 16:56:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "7zyu7wmlsy"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-k5NYXyq1c9QPQQV5vJQi5qNC/O1vKT5S0MDsYJ6vwDM="
-        }
-      ]
-    },
-    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1418,7 +1373,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22871"
+          "Value": "58682"
         },
         {
           "Name": "Content-Type",
@@ -1426,11 +1381,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"k5NYXyq1c9QPQQV5vJQi5qNC/O1vKT5S0MDsYJ6vwDM=\""
+          "Value": "\"AVALAn1Jx8RtNOTDepuHv50a/1id7m38O/uvMq9cOyo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Jun 2025 16:56:53 GMT"
+          "Value": "Wed, 11 Jun 2025 19:33:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1440,7 +1395,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-k5NYXyq1c9QPQQV5vJQi5qNC/O1vKT5S0MDsYJ6vwDM="
+          "Value": "sha256-AVALAn1Jx8RtNOTDepuHv50a/1id7m38O/uvMq9cOyo="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.pmph8nfwzo.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "58682"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AVALAn1Jx8RtNOTDepuHv50a/1id7m38O/uvMq9cOyo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Jun 2025 19:33:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pmph8nfwzo"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-AVALAn1Jx8RtNOTDepuHv50a/1id7m38O/uvMq9cOyo="
         }
       ]
     },
@@ -1631,7 +1631,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Jun 2025 17:04:29 GMT"
+          "Value": "Wed, 11 Jun 2025 19:27:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1668,7 +1668,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Jun 2025 17:04:29 GMT"
+          "Value": "Wed, 11 Jun 2025 19:27:51 GMT"
         },
         {
           "Name": "Cache-Control",
