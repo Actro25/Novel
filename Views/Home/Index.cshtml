@@ -23,7 +23,7 @@
                 <li><a href="#" class="menu-item" data-lang-key="peaceful_mode">МИРНИЙ РЕЖИМ</a></li>
                 <li><a href="#" class="menu-item" data-lang-key="continue_game">ПРОДОВЖИТИ</a></li>
                 <li><a href="#" class="menu-item" data-lang-key="new_game">НОВА ГРА</a></li>
-                <li><a href="#" class="menu-item" data-lang-key="load_game">ЗАВАНТАЖИТИ</a></li>
+                <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game">ЗАВАНТАЖИТИ</a></li>
                 <li><a href="#" class="menu-item" data-lang-key="characters">ПЕРСОНАЖІ</a></li>
                 <li><a href="#" class="menu-item" data-lang-key="clothes">ОДЯГ</a></li>
                 <li><a href="#" class="menu-item" id="settingsLink" data-lang-key="settings">НАЛАШТУВАННЯ</a></li>
@@ -41,7 +41,9 @@
                     </span>
                     <span class="language-value highlight-language-value" id="voiceoverValue">Українська</span>
                 </li>
-                <li><a href="#" class="menu-item exit-button" data-lang-key="exit" id="exitButton">ВИХІД</a></li>
+                <li>
+                    <span id="exitLabel" class="exit-label" tabindex="0" role="button" data-lang-key="exit">ВИХІД</span>
+                </li>
             </ul>
         </div>
     </div>
@@ -64,7 +66,8 @@
             <div class="theme-options">
                 <button class="setting-button theme-button" id="themeLight" data-lang-key="theme_light" data-theme="light">Світла</button>
                 <button class="setting-button theme-button" id="themeDark" data-lang-key="theme_dark" data-theme="dark">Темна</button>
-                <button class="setting-button theme-button" id="themeBlue" data-lang-key="theme_blue" data-theme="blue">Блакитна</button>
+                <button class="setting-button theme-button" id="themeWine" data-lang-key="theme_wine" data-theme="wine">Бордова</button>
+                <button class="setting-button theme-button" id="themeNeon" data-lang-key="theme_neon" data-theme="neon">Неонова</button>
             </div>
         </div>
 
@@ -74,6 +77,20 @@
                 <button class="setting-button scale-button" id="scaleSmall" data-lang-key="scale_small" data-scale="small">Дрібний</button>
                 <button class="setting-button scale-button" id="scaleNormal" data-lang-key="scale_normal" data-scale="normal">Звичайний</button>
                 <button class="setting-button scale-button" id="scaleLarge" data-lang-key="scale_large" data-scale="large">Великий</button>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h4>Музика:</h4>
+            <div class="music-controls">
+                <button id="musicToggle" class="setting-button">Увімкнено</button>
+                <input type="range" id="musicVolumeSlider" min="0" max="100" value="100" />
+                <span id="musicVolumeValue" class="volume-value">100</span>
+            </div>
+            <div class="music-player">
+                <button id="musicPrev" class="music-player-btn">⏮</button>
+                <span id="musicTitle" class="music-title">Мелодія 1</span>
+                <button id="musicNext" class="music-player-btn">⏭</button>
             </div>
         </div>
 
@@ -88,6 +105,15 @@
 
         <button id="closeSettingsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
     </div>
+
+    <div id="loadGameMenu" class="settings-menu-container hidden">
+        <h3 class="settings-title">ЗАВАНТАЖЕННЯ / ЗБЕРЕЖЕННЯ ГРИ</h3>
+        <ul class="savegame-list" id="savegameList">
+            <li class="savegame-empty" id="savegameEmpty">Збережень ще немає.</li>
+        </ul>
+        <button id="closeLoadGameMenu" class="close-button">ЗАКРИТИ</button>
+    </div>
     <script src="~/js/site.js"></script>
+    <audio id="bgMusic" src="audio/bg.mp3" loop autoplay muted></audio>
 </body>
 </html>

@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const settingsMenu = document.getElementById('settingsMenu');
     const closeSettingsMenuButton = document.getElementById('closeSettingsMenu');
 
+    const loadGameLink = document.getElementById('loadGameLink');
+    const loadGameMenu = document.getElementById('loadGameMenu');
+    const closeLoadGameMenu = document.getElementById('closeLoadGameMenu');
+    const saveNameInput = document.getElementById('saveName');
+    const saveNewBtn = document.getElementById('saveNewBtn');
+    const savegameList = document.getElementById('savegameList');
+    const savegameEmpty = document.getElementById('savegameEmpty');
+
     // const menuLabel = document.getElementById('menuLabel'); // Цей елемент більше не використовується для статичного меню
     const mainMenuContainer = document.getElementById('mainMenuContainer'); // Головний контейнер меню
 
@@ -16,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Кнопки для налаштувань теми
     const themeLightButton = document.getElementById('themeLight');
     const themeDarkButton = document.getElementById('themeDark');
-    const themeBlueButton = document.getElementById('themeBlue');
+    const themeWineButton = document.getElementById('themeWine');
+    const themeNeonButton = document.getElementById('themeNeon');
 
     // Кнопки для налаштувань масштабу
     const scaleSmallButton = document.getElementById('scaleSmall');
@@ -32,11 +41,50 @@ document.addEventListener('DOMContentLoaded', function() {
     const langRussianButton = document.getElementById('langRussian');
     const langEnglishButton = document.getElementById('langEnglish');
 
+    // Елементи для управління музикою
+    const bgMusic = document.getElementById('bgMusic');
+    const musicVolumeSlider = document.getElementById('musicVolumeSlider');
+    const musicVolumeValue = document.getElementById('musicVolumeValue');
+    const musicToggle = document.getElementById('musicToggle');
+    const exitLabel = document.getElementById('exitLabel');
+
+    const musicPrev = document.getElementById('musicPrev');
+    const musicNext = document.getElementById('musicNext');
+    const musicTitle = document.getElementById('musicTitle');
+
+    // Список треков с переводами названий
+    const musicTracks = [
+        {
+            src: "audio/bg.mp3",
+            title: "Мелодія 1",
+            title_ukrainian: "Мелодія 1",
+            title_russian: "Мелодия 1",
+            title_english: "Melody 1"
+        },
+        {
+            src: "audio/bg2.mp3",
+            title: "Мелодія 2",
+            title_ukrainian: "Мелодія 2",
+            title_russian: "Мелодия 2",
+            title_english: "Melody 2"
+        },
+        {
+            src: "audio/bg3.mp3",
+            title: "Мелодія 3",
+            title_ukrainian: "Мелодія 3",
+            title_russian: "Мелодия 3",
+            title_english: "Melody 3"
+        }
+    ];
+    let currentTrack = 0;
+
     // -------------------- Поточні налаштування та переклади --------------------
     let currentSettings = {
         theme: 'light',      // 'light', 'dark', 'blue'
         scale: 'normal',     // 'small', 'normal', 'large'
-        language: 'ukrainian'
+        language: 'ukrainian',
+        musicVolume: 100,
+        musicEnabled: true
     };
 
     const translations = {
@@ -66,6 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "interface_themes": "Теми інтерфейсу:",
             "theme_light": "Світла",
             "theme_dark": "Темна",
+            "theme_wine": "Бордо",
+            "theme_neon": "Неонова",
             "theme_blue": "Блакитна",
             "interface_scale": "Масштаб інтерфейсу:",
             "scale_small": "Дрібний",
@@ -76,7 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "lang_russian": "Російська",
             "lang_english": "Англійська",
             "current_language": "Українська",
-            "current_voiceover": "Українська"
+            "current_voiceover": "Українська",
+            "music_on": "Увімкнено",
+            "music_off": "Вимкнено"
         },
         russian: {
             "menu_title": "Dream",
@@ -104,6 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "interface_themes": "Темы интерфейса:",
             "theme_light": "Светлая",
             "theme_dark": "Темная",
+            "theme_wine": "Бордо",
+            "theme_neon": "Неоновая",
             "theme_blue": "Голубая",
             "interface_scale": "Масштаб интерфейса:",
             "scale_small": "Мелкий",
@@ -114,7 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "lang_russian": "Русский",
             "lang_english": "Английский",
             "current_language": "Русский",
-            "current_voiceover": "Русский"
+            "current_voiceover": "Русский",
+            "music_on": "Включено",
+            "music_off": "Выключено"
         },
         english: {
             "menu_title": "Dream",
@@ -142,6 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "interface_themes": "Interface Themes:",
             "theme_light": "Light",
             "theme_dark": "Dark",
+            "theme_wine": "Wine",
+            "theme_neon": "Neon",
             "theme_blue": "Blue",
             "interface_scale": "Interface Scale:",
             "scale_small": "Small",
@@ -152,7 +210,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "lang_russian": "Russian",
             "lang_english": "English",
             "current_language": "English",
-            "current_voiceover": "English"
+            "current_voiceover": "English",
+            "music_on": "On",
+            "music_off": "Off"
         }
     };
 
@@ -225,20 +285,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // -------------------- Основні функції застосування налаштувань --------------------
 
-    /**
-     * Застосовує всі налаштування (тема, масштаб, мова) до DOM.
-     * @param {object} settings - Об'єкт з поточними налаштуваннями.
-     */
     function applySettings(settings) {
-        // Застосування теми
-        body.classList.remove('dark-theme', 'blue-theme');
+        // Исправлено: корректно переключаем все темы!
+        body.classList.remove('dark-theme', 'blue-theme', 'cyan-theme', 'orange-theme', 'neon-theme', 'wine-theme', 'purple-theme', 'green-theme');
         if (settings.theme === 'dark') {
             body.classList.add('dark-theme');
         } else if (settings.theme === 'blue') {
             body.classList.add('blue-theme');
-        } else {
-            // Якщо тема не "dark" і не "blue", то це "light" (дефолтна)
-            // Переконайтеся, що 'light-theme' не додається, бо це дефолтний стан
+        } else if (settings.theme === 'wine') {
+            body.classList.add('wine-theme');
+        } else if (settings.theme === 'neon') {
+            body.classList.add('neon-theme');
+        } else if (settings.theme === 'orange') {
+            body.classList.add('orange-theme');
+        } else if (settings.theme === 'purple') {
+            body.classList.add('purple-theme');
+        } else if (settings.theme === 'green') {
+            body.classList.add('green-theme');
         }
 
         // Застосування масштабу (оновлено для використання класів CSS)
@@ -258,6 +321,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
 
+        // Музыка: включение/выключение и громкость
+        if (musicToggle) {
+            musicToggle.textContent = settings.musicEnabled ? 'Увімкнено' : 'Вимкнено';
+            musicToggle.classList.toggle('active', settings.musicEnabled);
+        }
+        if (bgMusic) {
+            bgMusic.muted = !settings.musicEnabled;
+            bgMusic.volume = (settings.musicVolume ?? 100) / 100;
+            if (settings.musicEnabled && bgMusic.paused) {
+                bgMusic.play().catch(()=>{});
+            }
+            if (!settings.musicEnabled && !bgMusic.paused) {
+                bgMusic.pause();
+            }
+        }
+        if (musicVolumeSlider) musicVolumeSlider.value = settings.musicVolume ?? 100;
+        if (musicVolumeValue) musicVolumeValue.textContent = settings.musicVolume ?? 100;
+
         // Оновлення активних кнопок налаштувань
         // Для тем
         updateActiveButton('theme-button', settings.theme);
@@ -268,6 +349,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Оновлюємо текст інтерфейсу згідно з вибраною мовою
         updateLanguageText(settings.language);
+
+        setMusicTrack(currentTrack);
     }
 
     /**
@@ -284,30 +367,32 @@ document.addEventListener('DOMContentLoaded', function() {
         // Оновлення елементів з data-lang-key
         document.querySelectorAll('[data-lang-key]').forEach(element => {
             const key = element.dataset.langKey;
-            if (currentLangPack[key] !== undefined) { // Перевіряємо, чи є ключ у пакунку
+            if (currentLangPack[key] !== undefined) {
                 if (element.classList.contains('menu-item') && element.querySelector('.achievement-count')) {
-                    // Спеціальна обробка для Achievement
+                    // Achievement
                     const countSpan = element.querySelector('.achievement-count').outerHTML;
                     element.innerHTML = currentLangPack[key] + ' ' + countSpan;
-                } else if (element.classList.contains('menu-subtitle')) { // Перевірка за класом для підзаголовка
-                    element.innerHTML = '<span class="icon">♥</span> ' + currentLangPack[key];
-                } else if (element.classList.contains('menu-title')) { // Для заголовка Dream
+                } else if (element.classList.contains('menu-subtitle')) {
+                    // Для подзаголовка: сохранить иконку!
+                    const icon = element.querySelector('.icon');
+                    element.innerHTML = '';
+                    if (icon) element.appendChild(icon);
+                    element.append(document.createTextNode(' ' + currentLangPack[key]));
+                } else if (element.classList.contains('menu-title')) {
                     element.textContent = currentLangPack[key];
-                } else if (element.classList.contains('author-info')) { // Для авторів, якщо вони мають клас author-info
+                } else if (element.classList.contains('author-info')) {
                     const authorNameSpan = element.querySelector('.author-name');
                     if (authorNameSpan) {
-                        // Ми оновлюємо текстовий вузол перед authorNameSpan
                         const textNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
                         if (textNode) {
                             textNode.textContent = currentLangPack[key] + ' ';
-                        } else { // Якщо текстового вузла немає, додаємо його
+                        } else {
                             element.prepend(document.createTextNode(currentLangPack[key] + ' '));
                         }
                     } else {
                         element.textContent = currentLangPack[key];
                     }
-                }
-                else {
+                } else {
                     element.textContent = currentLangPack[key];
                 }
             } else {
@@ -327,6 +412,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // }
         if (document.title) { // Оновлення заголовка сторінки
             document.title = currentLangPack.menu_title || "Dream";
+        }
+
+        // --- Обновление текста кнопки музыки ---
+        if (musicToggle) {
+            musicToggle.textContent = currentSettings.musicEnabled
+                ? (currentLangPack.music_on || "Включено")
+                : (currentLangPack.music_off || "Выключено");
+        }
+
+        // --- Обновление названия текущей мелодии ---
+        if (musicTitle && musicTracks && musicTracks.length > 0) {
+            let track = musicTracks[currentTrack];
+            let localizedTitle = track["title_" + lang] || track.title;
+            musicTitle.textContent = localizedTitle;
         }
     }
 
@@ -382,32 +481,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    /**
-     * Перемикає видимість головного меню (використовується для in-game-menu).
-     * Якщо меню приховується, зберігає налаштування.
-     */
-    // function toggleMainMenu() { // Ця функція більше не потрібна, якщо меню завжди видиме
-    //     hideAllSubMenus(); // Приховуємо будь-які відкриті підменю
-    //     if (mainMenuContainer) {
-    //         mainMenuContainer.classList.toggle('hidden');
-    //         if (mainMenuContainer.classList.contains('hidden')) {
-    //             saveSettingsToDb(currentSettings); // Зберігаємо налаштування при закритті головного меню
-    //         }
-    //     }
-    // }
-
-    // -------------------- Обробники подій --------------------
-
-    // Обробник для напису "МЕНЮ" (актуально для in-game-menu) - Видалено, оскільки меню тепер статичне
-    // if (menuLabel) {
-    //     menuLabel.addEventListener('click', toggleMainMenu);
-    // } else {
-    //     // Якщо menuLabel відсутній, це, ймовірно, статичне головне меню.
-    //     // Перевіряємо, чи має головне меню бути видимим за замовчуванням.
-    //     if (mainMenuContainer && mainMenuContainer.classList.contains('hidden')) {
-    //          mainMenuContainer.classList.remove('hidden');
-    //     }
-    // }
 
     // Обробники для кнопок закриття додаткових меню
     if (closeAuthorsMenuButton) {
@@ -424,6 +497,13 @@ document.addEventListener('DOMContentLoaded', function() {
             saveSettingsToDb(currentSettings);
         });
     }
+    if (closeLoadGameMenu) {
+        closeLoadGameMenu.addEventListener('click', function() {
+            // Скрываем только loadGameMenu, не трогаем mainMenuContainer (пусть showSubMenu(null) сам покажет главное меню)
+            loadGameMenu.classList.add('hidden');
+            if (mainMenuContainer) mainMenuContainer.classList.remove('hidden');
+        });
+    }
 
     // Обробники для посилань у головному меню
     if (authorsLink && authorsMenu) {
@@ -438,6 +518,13 @@ document.addEventListener('DOMContentLoaded', function() {
             showSubMenu(settingsMenu);
         });
     }
+    if (loadGameLink && loadGameMenu) {
+        loadGameLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showSubMenu(loadGameMenu);
+            renderSaves();
+        });
+    }
 
     // Обробники для кнопок вибору теми
     if (themeLightButton) themeLightButton.addEventListener('click', function() {
@@ -448,8 +535,12 @@ document.addEventListener('DOMContentLoaded', function() {
         currentSettings.theme = 'dark';
         applySettings(currentSettings);
     });
-    if (themeBlueButton) themeBlueButton.addEventListener('click', function() {
-        currentSettings.theme = 'blue';
+    if (themeWineButton) themeWineButton.addEventListener('click', function() {
+        currentSettings.theme = 'wine';
+        applySettings(currentSettings);
+    });
+    if (themeNeonButton) themeNeonButton.addEventListener('click', function() {
+        currentSettings.theme = 'neon';
         applySettings(currentSettings);
     });
 
@@ -485,17 +576,299 @@ document.addEventListener('DOMContentLoaded', function() {
     const exitButton = document.getElementById('exitButton');
     if (exitButton) {
         exitButton.addEventListener('click', () => {
-            alert('Вихід з гри (функціонал залежить від реалізації гри або браузера)');
-            // У реальній грі тут може бути:
-            // window.location.href = '/home'; // Перехід на головну сторінку
-            // window.close(); // Спроба закрити вікно (часто блокується браузерами)
+            // Попытка закрити вкладку/окно (работает только если окно открыто скриптом)
+            window.open('', '_self');
+            window.close();
+            // Если не сработало — перенаправить на about:blank
+            setTimeout(() => {
+                window.location.href = 'about:blank';
+            }, 200);
         });
     }
+
+    // Обработчик для включения/выключения музыки
+    if (musicToggle) {
+        musicToggle.addEventListener('click', function() {
+            currentSettings.musicEnabled = !currentSettings.musicEnabled;
+            applySettings(currentSettings);
+        });
+    }
+
+    // Обработчик для изменения громкости музыки
+    if (musicVolumeSlider) {
+        musicVolumeSlider.addEventListener('input', function() {
+            currentSettings.musicVolume = parseInt(musicVolumeSlider.value, 10);
+            if (musicVolumeValue) musicVolumeValue.textContent = currentSettings.musicVolume;
+            if (bgMusic) bgMusic.volume = currentSettings.musicVolume / 100;
+        });
+    }
+
+    // Обработчик для надписи "ВИХІД"
+    if (exitLabel) {
+        exitLabel.addEventListener('click', () => {
+            window.open('', '_self');
+            window.close();
+            setTimeout(() => {
+                window.location.href = 'about:blank';
+            }, 200);
+        });
+        exitLabel.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                exitLabel.click();
+            }
+        });
+    }
+
+    // Мини-плеер: кнопки переключения треков
+    function setMusicTrack(idx, keepTime = false) {
+        currentTrack = ((idx % musicTracks.length) + musicTracks.length) % musicTracks.length;
+        if (bgMusic) {
+            let prevTime = keepTime ? bgMusic.currentTime : 0;
+            let wasPlaying = !bgMusic.paused && !bgMusic.muted && currentSettings.musicEnabled;
+            bgMusic.pause();
+            bgMusic.src = musicTracks[currentTrack].src;
+            bgMusic.load();
+            bgMusic.oncanplay = function() {
+                if (keepTime && prevTime > 0 && bgMusic.duration > prevTime) {
+                    bgMusic.currentTime = prevTime;
+                }
+                if (wasPlaying) {
+                    bgMusic.muted = false;
+                    bgMusic.play().catch(()=>{});
+                }
+                bgMusic.oncanplay = null;
+            };
+        }
+        // --- обновить название мелодии с учетом языка ---
+        if (musicTitle && musicTracks && musicTracks.length > 0) {
+            let lang = currentSettings.language || "ukrainian";
+            let track = musicTracks[currentTrack];
+            let localizedTitle = track["title_" + lang] || track.title;
+            musicTitle.textContent = localizedTitle;
+        }
+    }
+
+    if (musicPrev) {
+        musicPrev.addEventListener('click', function() {
+            setMusicTrack(currentTrack - 1, false);
+        });
+    }
+    if (musicNext) {
+        musicNext.addEventListener('click', function() {
+            setMusicTrack(currentTrack + 1, false);
+        });
+    }
+
+    // --- Save/Load logic ---
+    // Только загрузка (без создания/удаления/копирования)
+    function getSaves() {
+        return JSON.parse(localStorage.getItem('novel_saves') || '[]');
+    }
+    function renderSaves() {
+        if (!savegameList || !savegameEmpty) return;
+        const saves = getSaves();
+        savegameList.innerHTML = '';
+        if (!saves.length) {
+            savegameEmpty.style.display = '';
+            savegameList.appendChild(savegameEmpty);
+            return;
+        }
+        savegameEmpty.style.display = 'none';
+        saves.forEach((save, idx) => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${save.name} <small style="color:#aaa;">(${save.date})</small></span>
+                <span class="savegame-actions">
+                    <button class="setting-button" data-idx="${idx}" data-action="load">Завантажити</button>
+                </span>`;
+            savegameList.appendChild(li);
+        });
+    }
+    function handleSaveAction(e) {
+        const btn = e.target.closest('button[data-action]');
+        if (!btn) return;
+        const idx = parseInt(btn.getAttribute('data-idx'), 10);
+        const saves = getSaves();
+        if (btn.getAttribute('data-action') === 'load') {
+            alert('Завантажено: ' + saves[idx].name + '\n(Тут має бути логіка завантаження гри)');
+        }
+    }
+
+    // --- Show/hide load game menu ---
+    if (loadGameLink && loadGameMenu) {
+        loadGameLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showSubMenu(loadGameMenu);
+            renderSaves();
+        });
+    }
+    if (closeLoadGameMenu) {
+        closeLoadGameMenu.addEventListener('click', function() {
+            // Скрываем только loadGameMenu, не трогаем mainMenuContainer (пусть showSubMenu(null) сам покажет главное меню)
+            loadGameMenu.classList.add('hidden');
+            if (mainMenuContainer) mainMenuContainer.classList.remove('hidden');
+        });
+    }
+    if (savegameList) savegameList.onclick = handleSaveAction;
 
     // -------------------- Ініціалізація налаштувань при завантаженні --------------------
     loadSettingsFromDb(); // Завантажуємо та застосовуємо налаштування з БД при старті
     // Оскільки меню завжди видиме, прибираємо логіку, яка його приховувала при DOMContentLoaded
     if (mainMenuContainer) {
         mainMenuContainer.classList.remove('hidden');
+    }
+
+    // Автоматично включити музику при першому взаємодії користувача
+    if (bgMusic) {
+        const enableMusic = () => {
+            if (currentSettings.musicEnabled) {
+                bgMusic.muted = false;
+                bgMusic.play().catch(()=>{});
+            }
+            window.removeEventListener('click', enableMusic);
+            window.removeEventListener('keydown', enableMusic);
+        };
+        window.addEventListener('click', enableMusic);
+        window.addEventListener('keydown', enableMusic);
+    }
+
+    // При іниціалізації
+    setMusicTrack(0, false);
+
+    // -------------------- События для динамических элементов --------------------
+    // Делегирование событий для динамических кнопок в savegameList
+    if (savegameList) {
+        savegameList.addEventListener('click', handleSaveAction);
+    }
+
+    // --- Character modal logic ---
+    const characters = [
+        {
+            id: 'char1',
+            name: 'Аліса',
+            image: 'img/char_alisa_full.png',
+            description: 'Аліса — головна героїня, добра, рішуча та мрійлива. Вона завжди допомагає друзям і не боїться труднощів. Її мрія — знайти справжнє щастя.',
+            stats: { Вік: 18, Сила: 7, Інтелект: 9, Харизма: 8 }
+        },
+        {
+            id: 'char2',
+            name: 'Максим',
+            image: 'img/char_max_full.png',
+            description: 'Максим — веселий друг, завжди підтримує у складних ситуаціях. Любить пригоди та має гостре почуття гумору.',
+            stats: { Вік: 19, Сила: 8, Інтелект: 7, Харизма: 7 }
+        }
+        // ...добавьте других персонажей...
+    ];
+
+    function createCharacterModal() {
+        if (document.getElementById('characterModal')) return;
+        const modal = document.createElement('div');
+        modal.id = 'characterModal';
+        modal.className = 'character-modal hidden';
+        modal.innerHTML = `
+            <div class="character-modal-bg"></div>
+            <div class="character-modal-content character-modal-big">
+                <button class="character-modal-close" aria-label="Закрити">&times;</button>
+                <div class="character-modal-flex">
+                    <div class="character-modal-image-parallax">
+                        <img id="characterModalImg" src="" alt="Персонаж">
+                    </div>
+                    <div class="character-modal-info">
+                        <h2 id="characterModalName"></h2>
+                        <p id="characterModalDesc"></p>
+                        <ul id="characterModalStats"></ul>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        modal.querySelector('.character-modal-close').onclick = closeCharacterModal;
+        modal.querySelector('.character-modal-bg').onclick = closeCharacterModal;
+    }
+
+    function openCharacterModal(character) {
+        createCharacterModal();
+        const modal = document.getElementById('characterModal');
+        modal.className = 'character-modal'; // Убираем все классы, чтобы тема применялась
+        // Применяем текущую тему к модалке персонажа
+        if (body.classList.contains('dark-theme')) modal.classList.add('dark-theme');
+        if (body.classList.contains('blue-theme')) modal.classList.add('blue-theme');
+        if (body.classList.contains('wine-theme')) modal.classList.add('wine-theme');
+        if (body.classList.contains('neon-theme')) modal.classList.add('neон-theme');
+        if (body.classList.contains('orange-theme')) modal.classList.add('orange-theme');
+        if (body.classList.contains('purple-theme')) modal.classList.add('purple-theme');
+        if (body.classList.contains('green-theme')) modal.classList.add('green-theme');
+        document.getElementById('characterModalImg').src = character.image;
+        document.getElementById('characterModalImg').alt = character.name;
+        document.getElementById('characterModalName').textContent = character.name;
+        document.getElementById('characterModalDesc').textContent = character.description;
+        const statsList = document.getElementById('characterModalStats');
+        statsList.innerHTML = '';
+        for (const [key, value] of Object.entries(character.stats)) {
+            statsList.innerHTML += `<li><b>${key}:</b> ${value}</li>`;
+        }
+        // Parallax effect (full height)
+        const imgContainer = modal.querySelector('.character-modal-image-parallax');
+        imgContainer.onmousemove = function(e) {
+            const rect = imgContainer.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            imgContainer.querySelector('img').style.transform = `scale(1.08) translate(${x*40}px, ${y*40}px)`;
+        };
+        imgContainer.onmouseleave = function() {
+            imgContainer.querySelector('img').style.transform = '';
+        };
+    }
+
+    function closeCharacterModal() {
+        const modal = document.getElementById('characterModal');
+        if (modal) modal.classList.add('hidden');
+    }
+
+    // --- Обработчик для открытия модального окна персонажей ---
+    const charactersLink = document.querySelector('.menu-item[data-lang-key="characters"]');
+    if (charactersLink) {
+        charactersLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Открываем модальное окно персонажей, а не новую страницу!
+            if (characters.length > 1) {
+                showCharacterListModal();
+            } else {
+                openCharacterModal(characters[0]);
+            }
+        });
+    }
+
+    function showCharacterListModal() {
+        createCharacterModal();
+        const modal = document.getElementById('characterModal');
+        modal.className = 'character-modal'; // Убираем все классы, чтобы тема применялась
+        // Применяем текущую тему к модалке персонажа
+        if (body.classList.contains('dark-theme')) modal.classList.add('dark-theme');
+        if (body.classList.contains('blue-theme')) modal.classList.add('blue-theme');
+        if (body.classList.contains('wine-theme')) modal.classList.add('wine-theme');
+        if (body.classList.contains('neon-theme')) modal.classList.add('neон-theme');
+        if (body.classList.contains('orange-theme')) modal.classList.add('orange-theme');
+        if (body.classList.contains('purple-theme')) modal.classList.add('purple-theme');
+        if (body.classList.contains('green-theme')) modal.classList.add('green-theme');
+        // ...existing code...
+        const content = modal.querySelector('.character-modal-content');
+        content.innerHTML = `
+            <button class="character-modal-close" aria-label="Закрити">&times;</button>
+            <h2 style="color:#33ccff;margin-bottom:1.2rem;">Оберіть персонажа</h2>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;">
+                ${characters.map(char => `
+                    <button class="character-btn" data-char-id="${char.id}">
+                        <img src="${char.image}" alt="${char.name}" class="character-btn-img"><span>${char.name}</span>
+                    </button>
+                `).join('')}
+            </div>
+        `;
+        content.querySelector('.character-modal-close').onclick = closeCharacterModal;
+        content.querySelectorAll('.character-btn').forEach(btn => {
+            btn.onclick = () => {
+                const char = characters.find(c => c.id === btn.getAttribute('data-char-id'));
+                openCharacterModal(char);
+            };
+        });
     }
 });

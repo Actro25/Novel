@@ -29,6 +29,12 @@ namespace NovelProject.Controllers
         }
 
         
+        public IActionResult LoadGame()
+        {
+            return View();
+        }
+
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

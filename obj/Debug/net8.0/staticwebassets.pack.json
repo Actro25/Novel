@@ -9,6 +9,22 @@
       "PackagePath": "staticwebassets\\audio\\bg.mp3"
     },
     {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg2.mp3",
+      "PackagePath": "staticwebassets\\audio\\bg2.mp3"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg3.mp3",
+      "PackagePath": "staticwebassets\\audio\\bg3.mp3"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\characters.css",
+      "PackagePath": "staticwebassets\\css\\characters.css"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\loadgame.css",
+      "PackagePath": "staticwebassets\\css\\loadgame.css"
+    },
+    {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -19,6 +35,18 @@
     {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\Dream.jpg",
       "PackagePath": "staticwebassets\\img\\Dream.jpg"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\NovelaGirl.jpg",
+      "PackagePath": "staticwebassets\\img\\NovelaGirl.jpg"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\characters-page.js",
+      "PackagePath": "staticwebassets\\js\\characters-page.js"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\loadgame.js",
+      "PackagePath": "staticwebassets\\js\\loadgame.js"
     },
     {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\site.js",

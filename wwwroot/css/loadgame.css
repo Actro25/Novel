@@ -1,0 +1,75 @@
+.savegame-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: var(--menu-bg-color, #222);
+    border-radius: 12px;
+    box-shadow: 0 0 20px var(--main-glow-color, #33ccff);
+    padding: 2rem 2.5rem;
+    color: var(--text-color, #fff);
+}
+.savegame-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    color: var(--main-glow-color, #33ccff);
+    text-align: center;
+}
+.savegame-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+.savegame-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--menu-item-bg, #1a1a33);
+    border-radius: 6px;
+    margin-bottom: 0.7rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--menu-item-border, #003366);
+}
+.savegame-actions button {
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    border: 1px solid var(--main-glow-color, #33ccff);
+    background: var(--menu-item-hover-bg, #002a5c);
+    color: var(--main-glow-color, #33ccff);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.savegame-actions button:hover {
+    background: var(--main-glow-color, #33ccff);
+    color: #000;
+}
+.savegame-empty {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+.savegame-add {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+.savegame-add input {
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+    border: 1px solid var(--main-glow-color, #33ccff);
+    margin-right: 0.7rem;
+}
+.savegame-add button {
+    padding: 0.3rem 1.1rem;
+    border-radius: 5px;
+    border: 1px solid var(--main-glow-color, #33ccff);
+    background: var(--main-glow-color, #33ccff);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+.savegame-add button:hover {
+    background: #fff;
+    color: var(--main-glow-color, #33ccff);
+}

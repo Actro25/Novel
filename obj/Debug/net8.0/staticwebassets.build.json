@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MZ9YNjhTCJ3pZq0sS0Pd7HyuBaxwsC8MlRhDLpFT9sk=",
+  "Hash": "xPWRApJ/bM04SdaxQWFJJ6+1Eig3pQJahWFP59jndHY=",
   "Source": "NovelProject",
   "BasePath": "_content/NovelProject",
   "Mode": "Default",
@@ -80,6 +80,90 @@
       "OriginalItemSpec": "wwwroot\\audio\\bg.mp3"
     },
     {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg2.mp3",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "audio/bg2#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i3k1xib886",
+      "Integrity": "AutZWvQtZFTtsVWwJg9g1kBSamzBxx6bYjwu5MfEswA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\bg2.mp3"
+    },
+    {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg3.mp3",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "audio/bg3#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vqz82yjzkv",
+      "Integrity": "CZ/byVKJFPm7LH2QoTOZhUOSNilLUl9fhuU+BmHG4Ts=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\bg3.mp3"
+    },
+    {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\characters.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "css/characters#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s808xnjn6t",
+      "Integrity": "xN8nNmfpvxTV+imJJCeD1dhUkYgQSWcv7lB+Mcklcmg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\characters.css"
+    },
+    {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\loadgame.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "css/loadgame#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1aqj7y5ng6",
+      "Integrity": "N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\loadgame.css"
+    },
+    {
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
@@ -94,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5kcfvo0n7r",
-      "Integrity": "VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po=",
+      "Fingerprint": "k5cfsu3ohl",
+      "Integrity": "uBDQDQGVbMWGqBphLi0AgmJ/qwlJJBKcyXMNvMqouH0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -143,6 +227,69 @@
       "OriginalItemSpec": "wwwroot\\img\\Dream.jpg"
     },
     {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\NovelaGirl.jpg",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "img/NovelaGirl#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xjhk9kfh61",
+      "Integrity": "3T7IOQaODSsbYVPLTrTJt6FdiQM8mVmldC86oIbREmA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\NovelaGirl.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\characters-page.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "js/characters-page#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w7naa7pw3w",
+      "Integrity": "DOqFkBTm+i52GQ419gbpg6mAg3alHi97Qv9gkHKg0P4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\characters-page.js"
+    },
+    {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\loadgame.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "js/loadgame#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cth8n4uc2m",
+      "Integrity": "0AxpD4zrnkOEqFnLAFKe12Ri5BHP/sGwEUNgsLjsSpk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\loadgame.js"
+    },
+    {
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\site.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
@@ -157,8 +304,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ieq3q16xiz",
-      "Integrity": "akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4=",
+      "Fingerprint": "o4nyqhdnjm",
+      "Integrity": "mHee6cQQTPVQXeZHVOKmBdXLKVcL1DXObXgDyKq+ak0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -1445,8 +1592,8 @@
       ]
     },
     {
-      "Route": "css/site.5kcfvo0n7r.css",
-      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
+      "Route": "audio/bg2.i3k1xib886.mp3",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg2.mp3",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1455,19 +1602,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "31519"
+          "Value": "10656182"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/css"
+          "Value": "audio/mpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po=\""
+          "Value": "\"AutZWvQtZFTtsVWwJg9g1kBSamzBxx6bYjwu5MfEswA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 16:46:26 GMT"
+          "Value": "Thu, 12 Jun 2025 20:04:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1477,15 +1624,298 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5kcfvo0n7r"
+          "Value": "i3k1xib886"
         },
         {
           "Name": "label",
-          "Value": "css/site.css"
+          "Value": "audio/bg2.mp3"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po="
+          "Value": "sha256-AutZWvQtZFTtsVWwJg9g1kBSamzBxx6bYjwu5MfEswA="
+        }
+      ]
+    },
+    {
+      "Route": "audio/bg2.mp3",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg2.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10656182"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AutZWvQtZFTtsVWwJg9g1kBSamzBxx6bYjwu5MfEswA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 20:04:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AutZWvQtZFTtsVWwJg9g1kBSamzBxx6bYjwu5MfEswA="
+        }
+      ]
+    },
+    {
+      "Route": "audio/bg3.mp3",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg3.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9160034"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CZ/byVKJFPm7LH2QoTOZhUOSNilLUl9fhuU+BmHG4Ts=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 20:15:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CZ/byVKJFPm7LH2QoTOZhUOSNilLUl9fhuU+BmHG4Ts="
+        }
+      ]
+    },
+    {
+      "Route": "audio/bg3.vqz82yjzkv.mp3",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg3.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9160034"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CZ/byVKJFPm7LH2QoTOZhUOSNilLUl9fhuU+BmHG4Ts=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 20:15:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vqz82yjzkv"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/bg3.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CZ/byVKJFPm7LH2QoTOZhUOSNilLUl9fhuU+BmHG4Ts="
+        }
+      ]
+    },
+    {
+      "Route": "css/characters.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\characters.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3146"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xN8nNmfpvxTV+imJJCeD1dhUkYgQSWcv7lB+Mcklcmg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 22:06:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xN8nNmfpvxTV+imJJCeD1dhUkYgQSWcv7lB+Mcklcmg="
+        }
+      ]
+    },
+    {
+      "Route": "css/characters.s808xnjn6t.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\characters.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3146"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xN8nNmfpvxTV+imJJCeD1dhUkYgQSWcv7lB+Mcklcmg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 22:06:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s808xnjn6t"
+        },
+        {
+          "Name": "label",
+          "Value": "css/characters.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xN8nNmfpvxTV+imJJCeD1dhUkYgQSWcv7lB+Mcklcmg="
+        }
+      ]
+    },
+    {
+      "Route": "css/loadgame.1aqj7y5ng6.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\loadgame.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1983"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 20:03:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1aqj7y5ng6"
+        },
+        {
+          "Name": "label",
+          "Value": "css/loadgame.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng="
+        }
+      ]
+    },
+    {
+      "Route": "css/loadgame.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\loadgame.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1983"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 20:03:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng="
         }
       ]
     },
@@ -1500,7 +1930,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "31519"
+          "Value": "58099"
         },
         {
           "Name": "Content-Type",
@@ -1508,11 +1938,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po=\""
+          "Value": "\"uBDQDQGVbMWGqBphLi0AgmJ/qwlJJBKcyXMNvMqouH0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 16:46:26 GMT"
+          "Value": "Thu, 12 Jun 2025 21:55:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1522,7 +1952,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po="
+          "Value": "sha256-uBDQDQGVbMWGqBphLi0AgmJ/qwlJJBKcyXMNvMqouH0="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.k5cfsu3ohl.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "58099"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uBDQDQGVbMWGqBphLi0AgmJ/qwlJJBKcyXMNvMqouH0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 21:55:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k5cfsu3ohl"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uBDQDQGVbMWGqBphLi0AgmJ/qwlJJBKcyXMNvMqouH0="
         }
       ]
     },
@@ -1691,8 +2166,8 @@
       ]
     },
     {
-      "Route": "js/site.ieq3q16xiz.js",
-      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\site.js",
+      "Route": "img/NovelaGirl.jpg",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\NovelaGirl.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1701,19 +2176,56 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "25248"
+          "Value": "1146603"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/javascript"
+          "Value": "image/jpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4=\""
+          "Value": "\"3T7IOQaODSsbYVPLTrTJt6FdiQM8mVmldC86oIbREmA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 16:36:13 GMT"
+          "Value": "Tue, 10 Jun 2025 17:31:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3T7IOQaODSsbYVPLTrTJt6FdiQM8mVmldC86oIbREmA="
+        }
+      ]
+    },
+    {
+      "Route": "img/NovelaGirl.xjhk9kfh61.jpg",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\NovelaGirl.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1146603"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3T7IOQaODSsbYVPLTrTJt6FdiQM8mVmldC86oIbREmA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 17:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1723,15 +2235,179 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ieq3q16xiz"
+          "Value": "xjhk9kfh61"
         },
         {
           "Name": "label",
-          "Value": "js/site.js"
+          "Value": "img/NovelaGirl.jpg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4="
+          "Value": "sha256-3T7IOQaODSsbYVPLTrTJt6FdiQM8mVmldC86oIbREmA="
+        }
+      ]
+    },
+    {
+      "Route": "js/characters-page.js",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\characters-page.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2979"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DOqFkBTm+i52GQ419gbpg6mAg3alHi97Qv9gkHKg0P4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 22:06:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DOqFkBTm+i52GQ419gbpg6mAg3alHi97Qv9gkHKg0P4="
+        }
+      ]
+    },
+    {
+      "Route": "js/characters-page.w7naa7pw3w.js",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\characters-page.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2979"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DOqFkBTm+i52GQ419gbpg6mAg3alHi97Qv9gkHKg0P4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 22:06:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w7naa7pw3w"
+        },
+        {
+          "Name": "label",
+          "Value": "js/characters-page.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DOqFkBTm+i52GQ419gbpg6mAg3alHi97Qv9gkHKg0P4="
+        }
+      ]
+    },
+    {
+      "Route": "js/loadgame.cth8n4uc2m.js",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\loadgame.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1873"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0AxpD4zrnkOEqFnLAFKe12Ri5BHP/sGwEUNgsLjsSpk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 20:03:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cth8n4uc2m"
+        },
+        {
+          "Name": "label",
+          "Value": "js/loadgame.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0AxpD4zrnkOEqFnLAFKe12Ri5BHP/sGwEUNgsLjsSpk="
+        }
+      ]
+    },
+    {
+      "Route": "js/loadgame.js",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\loadgame.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1873"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0AxpD4zrnkOEqFnLAFKe12Ri5BHP/sGwEUNgsLjsSpk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 20:03:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0AxpD4zrnkOEqFnLAFKe12Ri5BHP/sGwEUNgsLjsSpk="
         }
       ]
     },
@@ -1746,7 +2422,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "25248"
+          "Value": "42175"
         },
         {
           "Name": "Content-Type",
@@ -1754,11 +2430,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4=\""
+          "Value": "\"mHee6cQQTPVQXeZHVOKmBdXLKVcL1DXObXgDyKq+ak0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 16:36:13 GMT"
+          "Value": "Thu, 12 Jun 2025 22:07:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1768,7 +2444,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4="
+          "Value": "sha256-mHee6cQQTPVQXeZHVOKmBdXLKVcL1DXObXgDyKq+ak0="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.o4nyqhdnjm.js",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "42175"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mHee6cQQTPVQXeZHVOKmBdXLKVcL1DXObXgDyKq+ak0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 22:07:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o4nyqhdnjm"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mHee6cQQTPVQXeZHVOKmBdXLKVcL1DXObXgDyKq+ak0="
         }
       ]
     },
