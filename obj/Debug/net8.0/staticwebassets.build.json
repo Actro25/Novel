@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "91Ub4YuKpqm7BYcpL0xlB+THxPd0fRl7784pK8JALJ8=",
+  "Hash": "MZ9YNjhTCJ3pZq0sS0Pd7HyuBaxwsC8MlRhDLpFT9sk=",
   "Source": "NovelProject",
   "BasePath": "_content/NovelProject",
   "Mode": "Default",
@@ -59,6 +59,27 @@
       "OriginalItemSpec": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg.mp3",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+      "BasePath": "_content/NovelProject",
+      "RelativePath": "audio/bg#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m6zposzsfm",
+      "Integrity": "okkXJMXzVxaKs3rc572Me+ORiP2SJD+TDpqR34AUlhI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\bg.mp3"
+    },
+    {
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
@@ -73,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "r1zp40frgn",
-      "Integrity": "UU7orvtlLz/A+12fhlQo3mtIFWcbVwgSH/ALgHNS0RI=",
+      "Fingerprint": "5kcfvo0n7r",
+      "Integrity": "VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -136,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "2tg4hk3fo5",
-      "Integrity": "6mDVvWBP7WXFo9DkvLV93VeQN0AiE/PllQnmVxP6e/c=",
+      "Fingerprint": "ieq3q16xiz",
+      "Integrity": "akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -1342,6 +1363,133 @@
   ],
   "Endpoints": [
     {
+      "Route": "audio/bg.m6zposzsfm.mp3",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4991268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"okkXJMXzVxaKs3rc572Me+ORiP2SJD+TDpqR34AUlhI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 16:29:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m6zposzsfm"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/bg.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-okkXJMXzVxaKs3rc572Me+ORiP2SJD+TDpqR34AUlhI="
+        }
+      ]
+    },
+    {
+      "Route": "audio/bg.mp3",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4991268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"okkXJMXzVxaKs3rc572Me+ORiP2SJD+TDpqR34AUlhI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 16:29:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-okkXJMXzVxaKs3rc572Me+ORiP2SJD+TDpqR34AUlhI="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.5kcfvo0n7r.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31519"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 12 Jun 2025 16:46:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5kcfvo0n7r"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1352,7 +1500,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21770"
+          "Value": "31519"
         },
         {
           "Name": "Content-Type",
@@ -1360,11 +1508,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UU7orvtlLz/A+12fhlQo3mtIFWcbVwgSH/ALgHNS0RI=\""
+          "Value": "\"VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 13:08:54 GMT"
+          "Value": "Thu, 12 Jun 2025 16:46:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1374,52 +1522,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UU7orvtlLz/A+12fhlQo3mtIFWcbVwgSH/ALgHNS0RI="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.r1zp40frgn.css",
-      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "21770"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"UU7orvtlLz/A+12fhlQo3mtIFWcbVwgSH/ALgHNS0RI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 13:08:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "r1zp40frgn"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-UU7orvtlLz/A+12fhlQo3mtIFWcbVwgSH/ALgHNS0RI="
+          "Value": "sha256-VYzvt5ZuplE//WkkiwJlydauZhVKH0SdF3pqQC0B3Po="
         }
       ]
     },
@@ -1588,7 +1691,7 @@
       ]
     },
     {
-      "Route": "js/site.2tg4hk3fo5.js",
+      "Route": "js/site.ieq3q16xiz.js",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1598,7 +1701,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30808"
+          "Value": "25248"
         },
         {
           "Name": "Content-Type",
@@ -1606,11 +1709,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6mDVvWBP7WXFo9DkvLV93VeQN0AiE/PllQnmVxP6e/c=\""
+          "Value": "\"akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 13:14:08 GMT"
+          "Value": "Thu, 12 Jun 2025 16:36:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1620,7 +1723,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2tg4hk3fo5"
+          "Value": "ieq3q16xiz"
         },
         {
           "Name": "label",
@@ -1628,7 +1731,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6mDVvWBP7WXFo9DkvLV93VeQN0AiE/PllQnmVxP6e/c="
+          "Value": "sha256-akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4="
         }
       ]
     },
@@ -1643,7 +1746,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30808"
+          "Value": "25248"
         },
         {
           "Name": "Content-Type",
@@ -1651,11 +1754,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6mDVvWBP7WXFo9DkvLV93VeQN0AiE/PllQnmVxP6e/c=\""
+          "Value": "\"akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 13:14:08 GMT"
+          "Value": "Thu, 12 Jun 2025 16:36:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1665,7 +1768,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6mDVvWBP7WXFo9DkvLV93VeQN0AiE/PllQnmVxP6e/c="
+          "Value": "sha256-akbGMRF7NbEOGNdoRaQil/1++WMwcBUrO2kgxC6MbS4="
         }
       ]
     },
@@ -6366,7 +6469,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 12:43:36 GMT"
+          "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6403,7 +6506,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 12:43:36 GMT"
+          "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6448,7 +6551,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 12:43:36 GMT"
+          "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6493,7 +6596,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 12 Jun 2025 12:43:36 GMT"
+          "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
         },
         {
           "Name": "Cache-Control",

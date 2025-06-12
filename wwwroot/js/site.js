@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSettings = {
         theme: 'light',      // 'light', 'dark', 'blue'
         scale: 'normal',     // 'small', 'normal', 'large'
-        language: 'russian' // Змінив дефолтну мову на "russian" згідно з вашим HTML
+        language: 'ukrainian'
     };
 
     const translations = {
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentSettings = { // Застосовуємо дефолтні налаштування
                         theme: 'light',
                         scale: 'normal',
-                        language: 'russian' // Дефолтна мова "російська"
+                        language: 'ukrainian' // Дефолтна мова "російська"
                     };
                     await saveSettingsToDb(currentSettings); // Зберігаємо дефолтні налаштування
                 } else {
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentSettings = { // Застосовуємо дефолтні налаштування у випадку помилки
                     theme: 'light',
                     scale: 'normal',
-                    language: 'russian'
+                    language: 'ukrainian'
                 };
                 await saveSettingsToDb(currentSettings); // Спробуємо зберегти дефолтні
             }
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentSettings = { // Застосовуємо дефолтні налаштування у випадку помилки мережі
                 theme: 'light',
                 scale: 'normal',
-                language: 'russian'
+                language: 'ukrainian'
             };
             await saveSettingsToDb(currentSettings); // Спробуємо зберегти дефолтні
         } finally {

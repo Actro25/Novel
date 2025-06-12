@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\NovelProject.s9srjbwerr.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg.mp3",
+      "PackagePath": "staticwebassets\\audio\\bg.mp3"
+    },
+    {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
