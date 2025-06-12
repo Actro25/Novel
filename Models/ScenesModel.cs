@@ -8,8 +8,9 @@ namespace NovelProject.Models
         public int id_next_scene { get; set; }
         public string? text_scene { get; set; } = string.Empty;
         public bool answer { get; set; }
-        [BindNever]
         public string background_scene_img { get; set; } = string.Empty;
+        public string personage_scene_img { get; set; } = string.Empty;
+        public string additional_scene_img { get; set; } = string.Empty;
         public int id_part { get; set; }
     }
 }

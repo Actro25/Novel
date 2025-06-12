@@ -7,6 +7,10 @@ public class TestController : Controller
 {
     private readonly AppDbContext _context;
 
+    public List<string> BackgroundImagePaths { get; private set; }
+    public List<string> PersonageImagePaths { get; private set; }
+    public List<string> AdditionalImagePaths { get; private set; }
+
     public TestController(AppDbContext context)
     {
         _context = context;
@@ -97,39 +101,27 @@ public class TestController : Controller
         AllItems.Scene = _context.Scenes.ToList();
         AllItems.Answers = _context.Answers.ToList();
         AllItems.Parts = _context.Parts.ToList();
-        var temp = new CreateSceneModel {
+        var temp = new CreateSceneModel
+        {
             Scenes = new ScenesModel(),
             Answers = new List<AnswersModel>(),
             partId = partId,
-            AllItems = AllItems
+            AllItems = AllItems,
+            BackgroundImagePaths = Directory.GetFiles("wwwroot/scene_images/backgrounds").Select(f => "/scene_images/backgrounds/" + Path.GetFileName(f)).ToList(),
+            PersonageImagePaths = Directory.GetFiles("wwwroot/scene_images/personage_images").Select(f => "/scene_images/personage_images/" + Path.GetFileName(f)).ToList(),
+            AdditionalImagePaths = Directory.GetFiles("wwwroot/scene_images/additional_images").Select(f => "/scene_images/additional_images/" + Path.GetFileName(f)).ToList()
         };
+
         return View(temp);
     }
     [HttpPost]
     public IActionResult CreateScene(CreateSceneModel items)
     {
-        if(items.Scenes.text_scene == null)
-        {
-            items.Scenes.text_scene = string.Empty;
-        }
         if (!ModelState.IsValid)
             return View(items);
-
-        // — 1. Зберігаємо фон, якщо є
-        if (items.backgroundImage?.Length > 0)
-        {
-            var imagesFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "scene_images");
-            Directory.CreateDirectory(imagesFolder);
-
-            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(items.backgroundImage.FileName)}";
-            var filePath = Path.Combine(imagesFolder, fileName);
-
-            using var fs = new FileStream(filePath, FileMode.Create);
-            items.backgroundImage.CopyTo(fs);
-
-            items.Scenes.background_scene_img = $"/scene_images/{fileName}";
-        }
-
+        items.Scenes.background_scene_img = items.backgroundImagePath ?? string.Empty;
+        items.Scenes.personage_scene_img = items.personageImagePath ?? string.Empty;
+        items.Scenes.additional_scene_img = items.additionalImagePath ?? string.Empty;
         // — 2. Додаємо нову сцену
         _context.Scenes.Add(items.Scenes);
         _context.SaveChanges();
@@ -145,13 +137,32 @@ public class TestController : Controller
             }
             _context.SaveChanges();
         }
-        if (items.preview_scene != -1)
+        if (items.preview_scene_ids != null)
         {
-            var temp_preview_scene = _context.Scenes.FirstOrDefault(s => s.id == items.preview_scene);
-            _context.Scenes.Update(temp_preview_scene);
+            foreach (var previewId in items.preview_scene_ids)
+            {
+                var temp_preview_scene = _context.Scenes.FirstOrDefault(s => s.id == previewId);
+                if (temp_preview_scene != null)
+                {
+                    temp_preview_scene.id_next_scene = items.Scenes.id;
+                    _context.Scenes.Update(temp_preview_scene);
+                }
+            }
         }
-        // Після успіху — перекидаємо кудись (наприклад, список сцен)
-        return RedirectToAction(nameof(Index));
+        else if(items.preview_scene_ids != null)
+        {
+            foreach (var previewId in items.preview_answer_ids)
+            {
+                var temp_preview_answer = _context.Answers.FirstOrDefault(a => a.id == previewId);
+                if (temp_preview_answer != null)
+                {
+                    temp_preview_answer.next_scene_id = items.Scenes.id;
+                    _context.Answers.Update(temp_preview_answer);
+                }
+            }
+        }
+            // Після успіху — перекидаємо кудись (наприклад, список сцен)
+            return RedirectToAction(nameof(Index));
     }
 
 
@@ -165,13 +176,23 @@ public class TestController : Controller
             .Where(a => a.id_scene == id)
             .ToList(); // Отримуємо **всі** відповіді
 
-        var previewSceneId = currentScene.id_next_scene;
+        var preview_scene_ids_temp = _context.Scenes
+            .Where(s => s.id_next_scene == currentScene.id)
+            .Where(s => s.answer == false)
+            .ToList(); // Отримуємо всі сцени, які ведуть до поточної сцени
 
+        var preview_answer_ids_temp = _context.Answers
+            .Where(a => a.next_scene_id == currentScene.id)
+            .ToList(); // Отримуємо всі відповіді, які ведуть до поточної сцени
         var model = new DetailSceneModel
         {
             Scenes = currentScene,
             Answers = answersForScene, // Передаємо список відповідей
-            preview_scene = previewSceneId,
+            preview_scene_ids = preview_scene_ids_temp.Select(s => s.id).ToList(), // Передаємо ID сцен
+            preview_answer_ids = preview_answer_ids_temp.Select(a => a.id).ToList(), // Передаємо ID відповідей
+            BackgroundImagePaths = Directory.GetFiles("wwwroot/scene_images/backgrounds").Select(f => "/scene_images/backgrounds/" + Path.GetFileName(f)).ToList(),
+            PersonageImagePaths = Directory.GetFiles("wwwroot/scene_images/personage_images").Select(f => "/scene_images/personage_images/" + Path.GetFileName(f)).ToList(),
+            AdditionalImagePaths = Directory.GetFiles("wwwroot/scene_images/additional_images").Select(f => "/scene_images/additional_images/" + Path.GetFileName(f)).ToList(),
             AllItems = new SceneViewAllModel
             {
                 Scene = _context.Scenes.ToList(),
@@ -206,23 +227,32 @@ public class TestController : Controller
         // Оновлюємо значення сцени
         scene.text_scene = model.Scenes.text_scene;
         scene.answer = model.Scenes.answer;
-        scene.id_next_scene = model.preview_scene;
-
-        // Збереження зображення, якщо передано нове
-        if (model.backgroundImage != null && model.backgroundImage.Length > 0)
+        scene.background_scene_img = model.Scenes.background_scene_img;
+        scene.personage_scene_img = model.Scenes.personage_scene_img;
+        scene.additional_scene_img = model.Scenes.additional_scene_img;
+        if (model.preview_scene_ids != null)
         {
-            var uploadsDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "іcene_images");
-            Directory.CreateDirectory(uploadsDir);
-
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(model.backgroundImage.FileName);
-            var filePath = Path.Combine(uploadsDir, fileName);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            foreach (var previewId in model.preview_scene_ids)
             {
-                model.backgroundImage.CopyTo(stream);
+                var temp_preview_scene = _context.Scenes.FirstOrDefault(s => s.id == previewId);
+                if (temp_preview_scene != null)
+                {
+                    temp_preview_scene.id_next_scene = model.Scenes.id;
+                    _context.Scenes.Update(temp_preview_scene);
+                }
             }
-
-            scene.background_scene_img = "/іcene_images/" + fileName;
+        }
+        else if (model.preview_scene_ids != null)
+        {
+            foreach (var previewId in model.preview_answer_ids)
+            {
+                var temp_preview_answer = _context.Answers.FirstOrDefault(a => a.id == previewId);
+                if (temp_preview_answer != null)
+                {
+                    temp_preview_answer.next_scene_id = model.Scenes.id;
+                    _context.Answers.Update(temp_preview_answer);
+                }
+            }
         }
 
         // Видаляємо старі відповіді
@@ -279,4 +309,81 @@ public class TestController : Controller
         return RedirectToAction("Index"); // або інша сторінка після видалення
     }
     //Scenes actions end <----------------------------------------------------------
+
+    //Add Images start <--------------------------------------------------------
+    public IActionResult AddImageToScene()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult AddImageToScene(List<IFormFile> scenePhotos)
+    {
+        if (scenePhotos != null && scenePhotos.Any())
+        {
+            var imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "scene_images/backgrounds");
+            Directory.CreateDirectory(imageFolder);
+
+            foreach (var photo in scenePhotos)
+            {
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(photo.FileName)}";
+                var filePath = Path.Combine(imageFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    photo.CopyTo(stream);
+                }
+            }
+        }
+        return Redirect("SeeFullHistoryTree");
+    }
+
+    public IActionResult AddPersonageToScene()
+    {
+        return RedirectToAction("AddImageToScene");
+    }
+    [HttpPost]
+    public IActionResult AddPersonageToScene(List<IFormFile> characterPhotos)
+    {
+        if (characterPhotos != null && characterPhotos.Any())
+        {
+            var imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "scene_images/personage_images");
+            Directory.CreateDirectory(imageFolder);
+            foreach (var photo in characterPhotos)
+            {
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(photo.FileName)}";
+                var filePath = Path.Combine(imageFolder, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    photo.CopyTo(stream);
+                }
+            }
+        }
+        return Redirect("SeeFullHistoryTree");
+    }
+
+    public IActionResult AddAdditionalToScene()
+    {
+        return RedirectToAction("AddImageToScene");
+    }
+    [HttpPost]
+    public IActionResult AddAdditionalToScene(List<IFormFile> extraPhotos)
+    {
+        if (extraPhotos != null && extraPhotos.Any())
+        {
+            var imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "scene_images/additional_images");
+            Directory.CreateDirectory(imageFolder);
+            foreach (var photo in extraPhotos)
+            {
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(photo.FileName)}";
+                var filePath = Path.Combine(imageFolder, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    photo.CopyTo(stream);
+                }
+            }
+        }
+        return Redirect("SeeFullHistoryTree");
+    }
+    //Add Images end <----------------------------------------------------------
 }

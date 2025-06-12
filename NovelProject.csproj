@@ -19,7 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\scene_images\" />
+    <Folder Include="wwwroot\scene_images\backgrounds\" />
+    <Folder Include="wwwroot\scene_images\additional_images\" />
+    <Folder Include="wwwroot\scene_images\personage_images\" />
   </ItemGroup>
 
 </Project>

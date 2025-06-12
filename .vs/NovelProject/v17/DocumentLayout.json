@@ -13,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\seefullhistorytree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\seefullhistorytree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\createscene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\createscene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,15 +30,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SeeFullHistoryTree.cshtml",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
-              "RelativeDocumentMoniker": "Views\\Test\\SeeFullHistoryTree.cshtml",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
-              "RelativeToolTip": "Views\\Test\\SeeFullHistoryTree.cshtml",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAwwIkAAABYAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "CreateScene.cshtml",
+              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreateScene.cshtml",
+              "RelativeDocumentMoniker": "Views\\Test\\CreateScene.cshtml",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreateScene.cshtml",
+              "RelativeToolTip": "Views\\Test\\CreateScene.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-10T17:28:27.668Z",
+              "WhenOpened": "2025-06-12T15:03:13.434Z",
               "EditorCaption": ""
             },
             {
@@ -45,9 +49,9 @@
               "RelativeDocumentMoniker": "Views\\Test\\DetailScene.cshtml",
               "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\DetailScene.cshtml",
               "RelativeToolTip": "Views\\Test\\DetailScene.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAiwKYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-10T17:27:24.773Z",
+              "WhenOpened": "2025-06-12T14:24:06.332Z",
               "EditorCaption": ""
             },
             {
@@ -58,9 +62,22 @@
               "RelativeDocumentMoniker": "Controllers\\TestController.cs",
               "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\TestController.cs",
               "RelativeToolTip": "Controllers\\TestController.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAIwMwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAQwOUAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T13:37:05.27Z",
+              "WhenOpened": "2025-06-12T14:10:51.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SeeFullHistoryTree.cshtml",
+              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
+              "RelativeDocumentMoniker": "Views\\Test\\SeeFullHistoryTree.cshtml",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
+              "RelativeToolTip": "Views\\Test\\SeeFullHistoryTree.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAHkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T13:53:58.138Z",
               "EditorCaption": ""
             }
           ]
