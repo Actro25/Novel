@@ -1,12 +1,33 @@
 ﻿@using NovelProject.AlterModels
 @model DetailSceneModel
+<style>
+    .image-option {
+        border: 2px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+        .image-option input:checked + img {
+            border: 2px solid #007bff;
+        }
+
+    .selectable-image {
+        width: 100px;
+        height: auto;
+        border-radius: 8px;
+        transition: transform 0.2s;
+    }
+
+        .selectable-image:hover {
+            transform: scale(1.05);
+        }
+</style>
 
 <form asp-action="DetailScene" method="post" enctype="multipart/form-data">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <!-- Ідентифікатор сцени -->
     <input type="hidden" asp-for="Scenes.id" />
-
 
     <h3>Оновити сцену</h3>
 
@@ -54,36 +75,105 @@
     </div>
 
     <div class="form-group mb-3">
-        <h3>Яка сцена є попередньою для цієї?</h3>
-        <select name="preview_scene" class="form-control">
-            <option value="-1">(Початок історії, немає попередньої сцени)</option>
+        <h3>Які сцени (або відповіді) є попередніми для цієї?</h3>
+
+        <label class="form-label">Сцени</label>
+        <select name="preview_scene_ids[]" class="form-control" multiple size="5">
+            @if (Model.preview_scene_ids != null)
+            {
+                bool isSelectedStartScene = Model.preview_scene_ids.Contains(-1);
+                <option value="-1" selected="@(isSelectedStartScene)">
+                    (Початок історії, немає попередньої сцени)
+                </option>
+            }
+
             @if (Model.AllItems?.Scene != null)
             {
                 foreach (var scene in Model.AllItems.Scene)
                 {
-                    <option value="@scene.id" selected="@(scene.id == Model.preview_scene)">
-                        @{
-                            var partName = Model.AllItems.Parts?.FirstOrDefault(p => p.id == scene.id_part)?.name ?? "Невідомий парт";
-                        }
-                        Парт "@partName" - @(scene.text_scene?.Length > 50 ? scene.text_scene.Substring(0, 50) + "..." : scene.text_scene ?? "[порожня сцена]")
-
+                    bool isSelected = Model.preview_scene_ids?.Contains(scene.id) == true;
+                    var partName = Model.AllItems.Parts?.FirstOrDefault(p => p.id == scene.id_part)?.name ?? "Невідомий парт";
+                    var shortText = scene.text_scene.Length > 50 ? scene.text_scene.Substring(0, 50) + "..." : scene.text_scene;
+                    <option value="@scene.id" selected="@(isSelected)">
+                        Парт "@partName" - @shortText
                     </option>
                 }
             }
         </select>
+
+        <label class="form-label mt-3">Відповіді</label>
+        <select name="preview_answer_ids[]" class="form-control" multiple size="3">
+            @if (Model.preview_answer_ids != null)
+            {
+                bool isSelectedStartAnswer = Model.preview_answer_ids.Contains(-1);
+                <option value="-1" selected="@(isSelectedStartAnswer)">
+                    (Початок історії, немає попередньої відповіді)
+                </option>
+            }
+
+            @if (Model.AllItems?.Answers != null)
+            {
+                foreach (var answer in Model.AllItems.Answers)
+                {
+                    bool isSelected = Model.preview_answer_ids?.Contains(answer.id) == true;
+                    var shortAnswer = answer.asnwer_for_scene.Length > 50 ? answer.asnwer_for_scene.Substring(0, 50) + "..." : answer.asnwer_for_scene;
+                    <option value="@answer.id" selected="@(isSelected)">
+                        Відповідь: @shortAnswer
+                    </option>
+                }
+            }
+        </select>
+
     </div>
 
-    <div class="form-group mb-3">
-        <label class="form-label">Фонове зображення:</label>
-        <input type="file" asp-for="@Model.backgroundImage" class="form-control" />
-        @if (!string.IsNullOrEmpty(Model.Scenes.background_scene_img))
-        {
-            <div class="mt-2">
-                <p>Поточне зображення:</p>
-                <img src="@Url.Content(Model.Scenes.background_scene_img)" alt="Фон" style="max-width: 100%; max-height: 300px;" />
+    <h4 class="mt-4">Оберіть зображення</h4>
+    <div class="d-flex gap-4 overflow-auto mb-4">
+        <!-- Backgrounds -->
+        <div>
+            <p class="fw-bold">Фон</p>
+            <div class="d-flex flex-row gap-2 flex-wrap image-selector">
+                @foreach (var file in Model.BackgroundImagePaths)
+                {
+                    <label class="image-option">
+                        <input type="radio" asp-for="Scenes.background_scene_img" value="@file"
+                               checked="@(Model.Scenes.background_scene_img == file)" />
+                        <img src="@file" alt="background" class="selectable-image" />
+                    </label>
+                }
             </div>
-        }
+        </div>
+
+        <!-- Personages -->
+        <div>
+            <p class="fw-bold">Персонаж</p>
+            <div class="d-flex flex-row gap-2 flex-wrap image-selector">
+                @foreach (var file in Model.PersonageImagePaths)
+                {
+                    <label class="image-option">
+                        <input type="radio" asp-for="Scenes.personage_scene_img" value="@file"
+                               checked="@(Model.Scenes.personage_scene_img == file)" />
+                        <img src="@file" alt="personage" class="selectable-image" />
+                    </label>
+                }
+            </div>
+        </div>
+
+        <!-- Additional -->
+        <div>
+            <p class="fw-bold">Додаткове</p>
+            <div class="d-flex flex-row gap-2 flex-wrap image-selector">
+                @foreach (var file in Model.AdditionalImagePaths)
+                {
+                    <label class="image-option">
+                        <input type="radio" asp-for="Scenes.additional_scene_img" value="@file"
+                               checked="@(Model.Scenes.additional_scene_img == file)" />
+                        <img src="@file" alt="additional" class="selectable-image" />
+                    </label>
+                }
+            </div>
+        </div>
     </div>
+
 
     <button type="submit" class="btn btn-primary mt-3">Оновити сцену</button>
 
@@ -94,6 +184,7 @@
 </form>
 @section Scripts {
     <script>
+
         let answerIndex = @Model.Answers?.Count ?? 0;
 
         function addAnswerField() {
