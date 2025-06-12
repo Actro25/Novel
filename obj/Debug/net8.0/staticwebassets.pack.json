@@ -249,10 +249,6 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\models\\character.glb",
-      "PackagePath": "staticwebassets\\models\\character.glb"
-    },
-    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NovelProject.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
