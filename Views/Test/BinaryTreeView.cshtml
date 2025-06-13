@@ -1,0 +1,136 @@
+﻿@using Microsoft.AspNetCore.Html
+@using NovelProject.AlterModels
+@model SceneViewAllAndIdPartModel
+
+@{
+    var parts = Model.SceneViewAll.Parts;
+    var selected = parts.FirstOrDefault(p => p.id == Model.IdPart);
+    var startScene = Model.SceneViewAll.Scene
+                        .FirstOrDefault(s => s.id == selected?.start_scene_id);
+}
+
+<h2>Дерево сцен для частини «@selected?.name»</h2>
+
+@if (startScene != null)
+{
+    <ul class="tree">
+        @RenderSceneTree(startScene)
+    </ul>
+}
+else
+{
+    <p class="text-danger">Немає стартової сцени.</p>
+}
+
+@functions {
+    // Уся логіка Trim-подібного обрізання тепер тут
+    private string Truncate(string txt)
+    {
+        if (string.IsNullOrEmpty(txt)) return "";
+        return txt.Length > 40 ? txt.Substring(0, 40) + "…" : txt;
+    }
+
+    // Рекурсивний рендер дерева
+    public IHtmlContent RenderSceneTree(ScenesModel current)
+    {
+        var sb = new System.Text.StringBuilder();
+
+        // 1) Вузол із лінком на DetailScene
+        var detailUrl = Url.Action("DetailScene", "Test", new { id = current.id });
+        sb.AppendLine("<li>");
+        sb.AppendLine($@"  <div class=""scene-node"">
+                            <a href=""{detailUrl}"">
+                              <strong>Сцена {current.id}:</strong> {Truncate(current.text_scene)}
+                            </a>
+                          </div>");
+
+        // 2) Знаходимо всіх дітей (куди current веде як parent)
+        var children = Model.SceneViewAll.Scene
+                            .Where(s => s.id_next_scene == current.id)
+                            .ToList();
+
+        if (children.Any())
+        {
+            sb.AppendLine("  <ul>");
+            foreach (var child in children)
+            {
+                // рекурсивно вбудовуємо піддерево
+                sb.Append(RenderSceneTree(child).ToString());
+            }
+            sb.AppendLine("  </ul>");
+        }
+        else
+        {
+            // 3) Якщо дітей нема — виводимо кнопку додати нову сцену
+            var createUrl = Url.Action("CreateScene", "Test", new { partId = Model.IdPart });
+            sb.AppendLine("  <ul>");
+            sb.AppendLine($@"    <li>
+                                 <div class=""mt-2"">
+                                   <a class=""btn btn-sm btn-outline-primary""
+                                      href=""{createUrl}"">
+                                     + Додати сцену
+                                   </a>
+                                 </div>
+                               </li>");
+            sb.AppendLine("  </ul>");
+        }
+
+        sb.AppendLine("</li>");
+        return new HtmlString(sb.ToString());
+    }
+}
+
+<style>  
+    ul.tree, ul.tree ul {  
+        list-style-type: none;  
+        padding-left: 20px;  
+        position: relative;  
+    }  
+
+        ul.tree ul::before {  
+            content: '';  
+            position: absolute;  
+            top: 0;  
+            left: -10px;  
+            border-left: 1px solid #ccc;  
+            height: 100%;  
+        }  
+
+        ul.tree li {  
+            margin: 0 0 10px 0;  
+            padding-left: 10px;  
+            position: relative;  
+        }  
+
+            ul.tree li::before {  
+                content: '';  
+                position: absolute;  
+                top: 10px;  
+                left: -10px;  
+                border-top: 1px solid #ccc;  
+                width: 10px;  
+            }  
+
+    .scene-node {  
+        background-color: #f9f9f9;  
+        padding: 8px 12px;  
+        border: 1px solid #ddd;  
+        border-radius: 6px;  
+        transition: all 0.2s;  
+    }  
+
+        .scene-node:hover {  
+            background-color: #f0f0f0;  
+            border-color: #bbb;  
+        }  
+
+    .tree a {  
+        color: #333;  
+    }  
+
+        .tree a:hover {  
+            color: #0d6efd;  
+        }  
+</style>  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
