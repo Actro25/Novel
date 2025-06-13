@@ -28,9 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeNeonButton = document.getElementById('themeNeon');
 
     // Кнопки для налаштувань масштабу
+    const scaleTinyButton = document.getElementById('scaleTiny');
     const scaleSmallButton = document.getElementById('scaleSmall');
     const scaleNormalButton = document.getElementById('scaleNormal');
     const scaleLargeButton = document.getElementById('scaleLarge');
+    const scaleHugeButton = document.getElementById('scaleHuge');
 
     // Елементи для відображення поточної мови та озвучки
     const languageValueSpan = document.getElementById('languageValue');
@@ -305,8 +307,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Застосування масштабу (оновлено для використання класів CSS)
-        body.classList.remove('scale-small', 'scale-normal', 'scale-large'); // Виправив назви класів
+        body.classList.remove('scale-tiny', 'scale-small', 'scale-normal', 'scale-large', 'scale-huge');
         switch (settings.scale) {
+            case 'tiny':
+                body.classList.add('scale-tiny');
+                break;
             case 'small':
                 body.classList.add('scale-small');
                 break;
@@ -316,24 +321,38 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'large':
                 body.classList.add('scale-large');
                 break;
+            case 'huge':
+                body.classList.add('scale-huge');
+                break;
             default:
                 body.classList.add('scale-normal'); // Дефолтне значення
                 break;
         }
 
-        // Музыка: включение/выключение и громкость
+        // Музыка: включение/выключение и громкость (без перезапуска трека)
         if (musicToggle) {
             musicToggle.textContent = settings.musicEnabled ? 'Увімкнено' : 'Вимкнено';
             musicToggle.classList.toggle('active', settings.musicEnabled);
         }
         if (bgMusic) {
+            // Сохраняем текущий трек и позицию
+            const prevSrc = bgMusic.src;
+            const prevTime = bgMusic.currentTime;
+            const wasPlaying = !bgMusic.paused && !bgMusic.muted && settings.musicEnabled;
+
             bgMusic.muted = !settings.musicEnabled;
             bgMusic.volume = (settings.musicVolume ?? 100) / 100;
+
+            // Не сбрасываем трек и позицию при смене настроек!
             if (settings.musicEnabled && bgMusic.paused) {
                 bgMusic.play().catch(()=>{});
             }
             if (!settings.musicEnabled && !bgMusic.paused) {
                 bgMusic.pause();
+            }
+            // Если трек не сменился, возвращаем позицию
+            if (bgMusic.src === prevSrc && Math.abs(bgMusic.currentTime - prevTime) > 0.1) {
+                bgMusic.currentTime = prevTime;
             }
         }
         if (musicVolumeSlider) musicVolumeSlider.value = settings.musicVolume ?? 100;
@@ -350,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Оновлюємо текст інтерфейсу згідно з вибраною мовою
         updateLanguageText(settings.language);
 
-        setMusicTrack(currentTrack);
+        setMusicTrack(currentTrack, true); // true = зберегти позицію
     }
 
     /**
@@ -545,6 +564,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Обробники для кнопок вибору масштабу
+    if (scaleTinyButton) scaleTinyButton.addEventListener('click', function() {
+        currentSettings.scale = 'tiny';
+        applySettings(currentSettings);
+    });
     if (scaleSmallButton) scaleSmallButton.addEventListener('click', function() {
         currentSettings.scale = 'small';
         applySettings(currentSettings);
@@ -555,6 +578,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     if (scaleLargeButton) scaleLargeButton.addEventListener('click', function() {
         currentSettings.scale = 'large';
+        applySettings(currentSettings);
+    });
+    if (scaleHugeButton) scaleHugeButton.addEventListener('click', function() {
+        currentSettings.scale = 'huge';
         applySettings(currentSettings);
     });
 
@@ -625,9 +652,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (bgMusic) {
             let prevTime = keepTime ? bgMusic.currentTime : 0;
             let wasPlaying = !bgMusic.paused && !bgMusic.muted && currentSettings.musicEnabled;
-            bgMusic.pause();
-            bgMusic.src = musicTracks[currentTrack].src;
-            bgMusic.load();
+            const prevSrc = bgMusic.src;
+            const newSrc = musicTracks[currentTrack].src;
+            if (bgMusic.src !== location.origin + '/' + newSrc && bgMusic.src !== newSrc) {
+                bgMusic.pause();
+                bgMusic.src = newSrc;
+                bgMusic.load();
+            }
             bgMusic.oncanplay = function() {
                 if (keepTime && prevTime > 0 && bgMusic.duration > prevTime) {
                     bgMusic.currentTime = prevTime;
@@ -740,135 +771,151 @@ document.addEventListener('DOMContentLoaded', function() {
         savegameList.addEventListener('click', handleSaveAction);
     }
 
-    // --- Character modal logic ---
+    // --- Character Data ---
+    // (Оставьте только это определение, если используете characters.js, иначе удалите)
     const characters = [
         {
             id: 'char1',
             name: 'Аліса',
-            image: 'img/char_alisa_full.png',
+            image: 'img/NovelaGirl.jpg',
             description: 'Аліса — головна героїня, добра, рішуча та мрійлива. Вона завжди допомагає друзям і не боїться труднощів. Її мрія — знайти справжнє щастя.',
-            stats: { Вік: 18, Сила: 7, Інтелект: 9, Харизма: 8 }
+            stats: [
+                { label: 'Вік', value: 18 },
+                { label: 'Сила', value: 7 },
+                { label: 'Інтелект', value: 9 },
+                { label: 'Харизма', value: 8 }
+            ]
         },
         {
             id: 'char2',
             name: 'Максим',
-            image: 'img/char_max_full.png',
+            image: 'img/char_max.png',
             description: 'Максим — веселий друг, завжди підтримує у складних ситуаціях. Любить пригоди та має гостре почуття гумору.',
-            stats: { Вік: 19, Сила: 8, Інтелект: 7, Харизма: 7 }
+            stats: [
+                { label: 'Вік', value: 19 },
+                { label: 'Сила', value: 8 },
+                { label: 'Інтелект', value: 7 },
+                { label: 'Харизма', value: 7 }
+            ]
         }
-        // ...добавьте других персонажей...
+        // ...додайте інших персонажів тут...
     ];
 
+    // --- Character Modal Logic ---
+    // Локальні функції для модального окна персонажей (если нет characters.js)
     function createCharacterModal() {
-        if (document.getElementById('characterModal')) return;
-        const modal = document.createElement('div');
+        let modal = document.getElementById('characterModal');
+        if (modal) return;
+        modal = document.createElement('div');
         modal.id = 'characterModal';
-        modal.className = 'character-modal hidden';
-        modal.innerHTML = `
-            <div class="character-modal-bg"></div>
-            <div class="character-modal-content character-modal-big">
-                <button class="character-modal-close" aria-label="Закрити">&times;</button>
-                <div class="character-modal-flex">
-                    <div class="character-modal-image-parallax">
-                        <img id="characterModalImg" src="" alt="Персонаж">
-                    </div>
-                    <div class="character-modal-info">
-                        <h2 id="characterModalName"></h2>
-                        <p id="characterModalDesc"></p>
-                        <ul id="characterModalStats"></ul>
-                    </div>
-                </div>
-            </div>
-        `;
+        modal.className = 'character-modal';
         document.body.appendChild(modal);
-        modal.querySelector('.character-modal-close').onclick = closeCharacterModal;
-        modal.querySelector('.character-modal-bg').onclick = closeCharacterModal;
+    }
+
+    function syncCharacterModalTheme() {
+        const modal = document.getElementById('characterModal');
+        if (!modal) return;
+        modal.className = 'character-modal';
+        const card = modal.querySelector('.character-modal-card');
+        if (card) card.className = 'character-modal-card';
+        const body = document.body;
+        [
+            'dark-theme', 'blue-theme', 'wine-theme', 'neon-theme',
+            'orange-theme', 'purple-theme', 'green-theme'
+        ].forEach(theme => {
+            if (body.classList.contains(theme)) {
+                modal.classList.add(theme);
+                if (card) card.classList.add(theme);
+            }
+        });
     }
 
     function openCharacterModal(character) {
         createCharacterModal();
         const modal = document.getElementById('characterModal');
-        modal.className = 'character-modal'; // Убираем все классы, чтобы тема применялась
-        // Применяем текущую тему к модалке персонажа
-        if (body.classList.contains('dark-theme')) modal.classList.add('dark-theme');
-        if (body.classList.contains('blue-theme')) modal.classList.add('blue-theme');
-        if (body.classList.contains('wine-theme')) modal.classList.add('wine-theme');
-        if (body.classList.contains('neon-theme')) modal.classList.add('neон-theme');
-        if (body.classList.contains('orange-theme')) modal.classList.add('orange-theme');
-        if (body.classList.contains('purple-theme')) modal.classList.add('purple-theme');
-        if (body.classList.contains('green-theme')) modal.classList.add('green-theme');
-        document.getElementById('characterModalImg').src = character.image;
-        document.getElementById('characterModalImg').alt = character.name;
-        document.getElementById('characterModalName').textContent = character.name;
-        document.getElementById('characterModalDesc').textContent = character.description;
-        const statsList = document.getElementById('characterModalStats');
-        statsList.innerHTML = '';
-        for (const [key, value] of Object.entries(character.stats)) {
-            statsList.innerHTML += `<li><b>${key}:</b> ${value}</li>`;
-        }
-        // Parallax effect (full height)
-        const imgContainer = modal.querySelector('.character-modal-image-parallax');
+        modal.innerHTML = `
+            <div class="character-modal-bg"></div>
+            <div class="character-modal-card">
+                <button class="character-modal-close" aria-label="Закрити">&times;</button>
+                <div class="character-modal-main">
+                    <div class="character-modal-img-parallax">
+                        <img src="${character.image}" alt="${character.name}" class="character-modal-img" draggable="false">
+                    </div>
+                    <div class="character-modal-info">
+                        <h2 class="character-modal-name">${character.name}</h2>
+                        <p class="character-modal-desc">${character.description}</p>
+                        <ul class="character-modal-stats">
+                            ${character.stats.map(stat =>
+                                `<li><span class="stat-label">${stat.label}:</span> <span class="stat-value">${stat.value}</span></li>`
+                            ).join('')}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+        syncCharacterModalTheme();
+        modal.querySelector('.character-modal-close').onclick = closeCharacterModal;
+        modal.querySelector('.character-modal-bg').onclick = closeCharacterModal;
+        const imgContainer = modal.querySelector('.character-modal-img-parallax');
+        const img = imgContainer.querySelector('img');
         imgContainer.onmousemove = function(e) {
             const rect = imgContainer.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width - 0.5;
             const y = (e.clientY - rect.top) / rect.height - 0.5;
-            imgContainer.querySelector('img').style.transform = `scale(1.08) translate(${x*40}px, ${y*40}px)`;
+            img.style.transform = `scale(1.08) translate(${x*32}px, ${y*32}px)`;
         };
         imgContainer.onmouseleave = function() {
-            imgContainer.querySelector('img').style.transform = '';
+            img.style.transform = '';
         };
     }
 
     function closeCharacterModal() {
         const modal = document.getElementById('characterModal');
-        if (modal) modal.classList.add('hidden');
+        if (modal) modal.remove();
     }
+
+    function showCharacterListModal() {
+        createCharacterModal();
+        const modal = document.getElementById('characterModal');
+        modal.innerHTML = `
+            <div class="character-modal-bg"></div>
+            <div class="character-modal-card character-modal-list">
+                <button class="character-modal-close" aria-label="Закрити">&times;</button>
+                <h2 class="character-modal-list-title">Оберіть персонажа</h2>
+                <div class="character-modal-list-grid">
+                    ${characters.map(char => `
+                        <button class="character-btn" data-char-id="${char.id}">
+                            <img src="${char.image}" alt="${char.name}" class="character-btn-img"><span>${char.name}</span>
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        syncCharacterModalTheme();
+        modal.querySelector('.character-modal-close').onclick = closeCharacterModal;
+        modal.querySelector('.character-modal-bg').onclick = closeCharacterModal;
+        modal.querySelectorAll('.character-btn').forEach(btn => {
+            btn.onclick = () => {
+                const char = characters.find(c => c.id === btn.getAttribute('data-char-id'));
+                openCharacterModal(char);
+            };
+        });
+    }
+
+    // --- Auto theme sync on body class change ---
+    const charThemeObserver = new MutationObserver(() => syncCharacterModalTheme());
+    charThemeObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
     // --- Обработчик для открытия модального окна персонажей ---
     const charactersLink = document.querySelector('.menu-item[data-lang-key="characters"]');
     if (charactersLink) {
         charactersLink.addEventListener('click', function(e) {
             e.preventDefault();
-            // Открываем модальное окно персонажей, а не новую страницу!
             if (characters.length > 1) {
                 showCharacterListModal();
-            } else {
+            } else if (characters.length === 1) {
                 openCharacterModal(characters[0]);
             }
-        });
-    }
-
-    function showCharacterListModal() {
-        createCharacterModal();
-        const modal = document.getElementById('characterModal');
-        modal.className = 'character-modal'; // Убираем все классы, чтобы тема применялась
-        // Применяем текущую тему к модалке персонажа
-        if (body.classList.contains('dark-theme')) modal.classList.add('dark-theme');
-        if (body.classList.contains('blue-theme')) modal.classList.add('blue-theme');
-        if (body.classList.contains('wine-theme')) modal.classList.add('wine-theme');
-        if (body.classList.contains('neon-theme')) modal.classList.add('neон-theme');
-        if (body.classList.contains('orange-theme')) modal.classList.add('orange-theme');
-        if (body.classList.contains('purple-theme')) modal.classList.add('purple-theme');
-        if (body.classList.contains('green-theme')) modal.classList.add('green-theme');
-        // ...existing code...
-        const content = modal.querySelector('.character-modal-content');
-        content.innerHTML = `
-            <button class="character-modal-close" aria-label="Закрити">&times;</button>
-            <h2 style="color:#33ccff;margin-bottom:1.2rem;">Оберіть персонажа</h2>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;">
-                ${characters.map(char => `
-                    <button class="character-btn" data-char-id="${char.id}">
-                        <img src="${char.image}" alt="${char.name}" class="character-btn-img"><span>${char.name}</span>
-                    </button>
-                `).join('')}
-            </div>
-        `;
-        content.querySelector('.character-modal-close').onclick = closeCharacterModal;
-        content.querySelectorAll('.character-btn').forEach(btn => {
-            btn.onclick = () => {
-                const char = characters.find(c => c.id === btn.getAttribute('data-char-id'));
-                openCharacterModal(char);
-            };
         });
     }
 });

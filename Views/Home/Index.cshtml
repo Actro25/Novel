@@ -42,7 +42,7 @@
                     <span class="language-value highlight-language-value" id="voiceoverValue">Українська</span>
                 </li>
                 <li>
-                    <span id="exitLabel" class="exit-label" tabindex="0" role="button" data-lang-key="exit">ВИХІД</span>
+                    <a href="#" id="exitLabel" class="exit-label" tabindex="0" role="button" data-lang-key="exit" style="position:static;left:auto;top:auto;">ВИХІД</a>
                 </li>
             </ul>
         </div>
@@ -51,10 +51,10 @@
     <div id="authorsMenu" class="authors-menu-container hidden">
         <h3 class="authors-title" data-lang-key="authors_novel_title">АВТОРИ НОВЕЛИ</h3>
         <ul class="authors-list">
-            <li><p data-lang-key="scenario_writer" class="author-info">Сценарист: <span class="author-name">Ім'я Сценариста</span></p></li>
-            <li><p data-lang-key="artist" class="author-info">Художник: <span class="author-name">Ім'я Художника</span></p></li>
-            <li><p data-lang-key="programmer" class="author-info">Програміст: <span class="author-name">Ім'я Програміста</span></p></li>
-            <li><p data-lang-key="music" class="author-info">Музика: <span class="author-name">Ім'я Композитора</span></p></li>
+            <li><p data-lang-key="scenario_writer" class="author-info">Сценарист: <span class="author-name">Alyona Okey</span></p></li>
+            <li><p data-lang-key="artist" class="author-info">Художник: <span class="author-name">Alyona Okey, Zorochka 🍃, Youbi</span></p></li>
+            <li><p data-lang-key="programmer" class="author-info">Програміст: <span class="author-name">_ТоРтІк_, 𝕯𝖎𝖘𝖆𝖏</span></p></li>
+            <li><p data-lang-key="music" class="author-info">Музика: <span class="author-name">𝕯𝖎𝖘𝖆𝖏</span></p></li>
         </ul>
         <button id="closeAuthorsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
     </div>
@@ -74,9 +74,11 @@
         <div class="settings-section">
             <h4 data-lang-key="interface_scale">Масштаб інтерфейсу:</h4>
             <div class="scale-options">
+                <button class="setting-button scale-button" id="scaleTiny" data-scale="tiny">Очень мелкий</button>
                 <button class="setting-button scale-button" id="scaleSmall" data-lang-key="scale_small" data-scale="small">Дрібний</button>
                 <button class="setting-button scale-button" id="scaleNormal" data-lang-key="scale_normal" data-scale="normal">Звичайний</button>
                 <button class="setting-button scale-button" id="scaleLarge" data-lang-key="scale_large" data-scale="large">Великий</button>
+                <button class="setting-button scale-button" id="scaleHuge" data-scale="huge">Огромный</button>
             </div>
         </div>
 

@@ -17,10 +17,6 @@
       "PackagePath": "staticwebassets\\audio\\bg3.mp3"
     },
     {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\characters.css",
-      "PackagePath": "staticwebassets\\css\\characters.css"
-    },
-    {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\loadgame.css",
       "PackagePath": "staticwebassets\\css\\loadgame.css"
     },
@@ -41,8 +37,8 @@
       "PackagePath": "staticwebassets\\img\\NovelaGirl.jpg"
     },
     {
-      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\characters-page.js",
-      "PackagePath": "staticwebassets\\js\\characters-page.js"
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\characters.js",
+      "PackagePath": "staticwebassets\\js\\characters.js"
     },
     {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\loadgame.js",

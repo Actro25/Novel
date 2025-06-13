@@ -1,3 +1,4 @@
+
 function getSaves() {
     return JSON.parse(localStorage.getItem('novel_saves') || '[]');
 }

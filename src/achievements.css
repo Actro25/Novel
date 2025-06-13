@@ -1,0 +1,41 @@
+.achievements-container {
+    padding: 16px;
+    background: #222;
+    color: #fff;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.achievements-container ul {
+    list-style: none;
+    padding: 0;
+}
+.achievements-container li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    background: #333;
+    transition: background 0.2s;
+}
+.achievements-container li.unlocked {
+    background: #2e7d32;
+    color: #fff;
+}
+.achievements-container li.locked {
+    opacity: 0.6;
+}
+.achievement-name {
+    flex: 1;
+    font-weight: bold;
+}
+.achievement-desc {
+    flex: 2;
+    margin-left: 12px;
+    font-size: 0.9em;
+}
+.achievement-status {
+    margin-left: 12px;
+    font-size: 1.2em;
+}

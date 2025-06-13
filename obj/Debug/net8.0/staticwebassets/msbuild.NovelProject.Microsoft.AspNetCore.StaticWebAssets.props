@@ -54,24 +54,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\audio\bg3.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\characters.css'))">
-      <SourceType>Package</SourceType>
-      <SourceId>NovelProject</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/NovelProject</BasePath>
-      <RelativePath>css/characters.css</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>tfg4jwptfj</Fingerprint>
-      <Integrity>x5CQ1VFTK8b9TUf/nWAu6BR+l/D33wgw0LT0ocw/SZ8=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\characters.css'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\loadgame.css'))">
       <SourceType>Package</SourceType>
       <SourceId>NovelProject</SourceId>
@@ -102,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>k5cfsu3ohl</Fingerprint>
-      <Integrity>uBDQDQGVbMWGqBphLi0AgmJ/qwlJJBKcyXMNvMqouH0=</Integrity>
+      <Fingerprint>ies95x21du</Fingerprint>
+      <Integrity>CqF3S9mN8pggJmWUELsVfVB7XxBq/YJPkubuZtNRW4c=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -162,23 +144,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\NovelaGirl.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\characters-page.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\characters.js'))">
       <SourceType>Package</SourceType>
       <SourceId>NovelProject</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/NovelProject</BasePath>
-      <RelativePath>js/characters-page.js</RelativePath>
+      <RelativePath>js/characters.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>mu2x73pb3f</Fingerprint>
-      <Integrity>ri/PN+RaB8dc/Vt5mX1AKy/CMqbTJXEHDph8j8S6O84=</Integrity>
+      <Fingerprint>6nx1i23s3m</Fingerprint>
+      <Integrity>kiobDG0e6PF2KZ6ZQ4HqZswQh55vodxgxHMZr2NUX2I=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\characters-page.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\characters.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\loadgame.js'))">
       <SourceType>Package</SourceType>
@@ -192,8 +174,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>cth8n4uc2m</Fingerprint>
-      <Integrity>0AxpD4zrnkOEqFnLAFKe12Ri5BHP/sGwEUNgsLjsSpk=</Integrity>
+      <Fingerprint>fn20m6ewld</Fingerprint>
+      <Integrity>a5uHM6VqTJY5DpN13K3S5s8v4fo/6PyGj1NvkUbmU8k=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\loadgame.js'))</OriginalItemSpec>
@@ -210,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>o4nyqhdnjm</Fingerprint>
-      <Integrity>mHee6cQQTPVQXeZHVOKmBdXLKVcL1DXObXgDyKq+ak0=</Integrity>
+      <Fingerprint>b8yo63f44c</Fingerprint>
+      <Integrity>S2Uamah6CJIQg07qZ7rP7ze5QlznAtWQRzfjP76yenc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</OriginalItemSpec>
