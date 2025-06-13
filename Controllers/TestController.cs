@@ -119,6 +119,8 @@ public class TestController : Controller
     {
         if (!ModelState.IsValid)
             return View(items);
+
+
         items.Scenes.background_scene_img = items.backgroundImagePath ?? string.Empty;
         items.Scenes.personage_scene_img = items.personageImagePath ?? string.Empty;
         items.Scenes.additional_scene_img = items.additionalImagePath ?? string.Empty;
@@ -149,7 +151,7 @@ public class TestController : Controller
                 }
             }
         }
-        else if(items.preview_scene_ids != null)
+        else if(items.preview_answer_ids != null)
         {
             foreach (var previewId in items.preview_answer_ids)
             {
@@ -161,8 +163,21 @@ public class TestController : Controller
                 }
             }
         }
-            // Після успіху — перекидаємо кудись (наприклад, список сцен)
-            return RedirectToAction(nameof(Index));
+
+        var temp_all_scenes = _context.Scenes.Where(s => s.id_part == items.partId).ToList();
+        var temp_part = _context.Parts.FirstOrDefault(p => p.id == items.partId);
+        if (temp_part != null)
+        {
+            if (temp_all_scenes.Count == 1)
+                temp_part.start_scene_id = items.Scenes.id;
+            else
+                temp_part.end_scene_id = items.Scenes.id;
+
+            _context.Parts.Update(temp_part);
+            _context.SaveChanges();
+        }
+
+        return RedirectToAction(nameof(Index));
     }
 
 
@@ -178,7 +193,6 @@ public class TestController : Controller
 
         var preview_scene_ids_temp = _context.Scenes
             .Where(s => s.id_next_scene == currentScene.id)
-            .Where(s => s.answer == false)
             .ToList(); // Отримуємо всі сцени, які ведуть до поточної сцени
 
         var preview_answer_ids_temp = _context.Answers
@@ -386,4 +400,23 @@ public class TestController : Controller
         return Redirect("SeeFullHistoryTree");
     }
     //Add Images end <----------------------------------------------------------
+    //Start binnary tree <--------------------------------------------------------
+    public IActionResult BinaryTreeView(int id)
+    {
+        var scenes = _context.Scenes.ToList();
+        var answer = _context.Answers.ToList();
+        var parts = _context.Parts.ToList();
+        var SceneViewBinarry = new SceneViewAllAndIdPartModel
+        {
+            SceneViewAll = new SceneViewAllModel
+            {
+                Scene = scenes,
+                Answers = answer,
+                Parts = parts
+            },
+            IdPart = id
+        };
+        return View(SceneViewBinarry);
+    }
+    //End binnary tree <----------------------------------------------------------
 }

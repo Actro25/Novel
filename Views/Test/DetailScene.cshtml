@@ -91,9 +91,11 @@
             {
                 foreach (var scene in Model.AllItems.Scene)
                 {
-                    bool isSelected = Model.preview_scene_ids?.Contains(scene.id) == true;
+                    bool isSelected = Model.preview_scene_ids.Contains(scene.id);
                     var partName = Model.AllItems.Parts?.FirstOrDefault(p => p.id == scene.id_part)?.name ?? "Невідомий парт";
-                    var shortText = scene.text_scene.Length > 50 ? scene.text_scene.Substring(0, 50) + "..." : scene.text_scene;
+                    var shortText = Model?.AllItems?.Scene != null && scene.text_scene != null 
+                    ? (scene.text_scene.Length > 50 ? scene.text_scene.Substring(0, 50) + "..." : scene.text_scene)
+                    : "No text available";
                     <option value="@scene.id" selected="@(isSelected)">
                         Парт "@partName" - @shortText
                     </option>
@@ -115,13 +117,17 @@
             {
                 foreach (var answer in Model.AllItems.Answers)
                 {
-                    bool isSelected = Model.preview_answer_ids?.Contains(answer.id) == true;
-                    var shortAnswer = answer.asnwer_for_scene.Length > 50 ? answer.asnwer_for_scene.Substring(0, 50) + "..." : answer.asnwer_for_scene;
+                    bool isSelected = Model.preview_answer_ids.Contains(answer.id);
+                    var shortAnswer = answer.asnwer_for_scene.Length > 50
+                    ? answer.asnwer_for_scene.Substring(0, 50) + "..."
+                    : answer.asnwer_for_scene;
+
                     <option value="@answer.id" selected="@(isSelected)">
                         Відповідь: @shortAnswer
                     </option>
                 }
             }
+
         </select>
 
     </div>

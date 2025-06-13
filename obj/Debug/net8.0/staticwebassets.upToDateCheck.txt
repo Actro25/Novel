@@ -58,8 +58,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\scene_images\additional_images\0afe5641-6bba-426b-9ad6-70ad3c991e6a.png
-wwwroot\scene_images\backgrounds\12c851c7-d13e-4f39-b97c-0930f141b450.png
-wwwroot\scene_images\backgrounds\6af62a8c-6a4e-41a6-b27b-21417685daa8.png
-wwwroot\scene_images\backgrounds\d7c3d38f-2fd9-48f8-9154-03260e7a3b07.png
-wwwroot\scene_images\personage_images\0341ab0d-e916-4d46-b305-d76e28167fdc.png
