@@ -25,23 +25,86 @@ public class TestController : Controller
         var scenes = _context.Scenes.ToList();
         var answer = _context.Answers.ToList();
         var parts = _context.Parts.ToList();
+        var acts = _context.Acts.ToList();
         var res = new SceneViewAllModel
         {
             Scene = scenes,
             Answers = answer,
-            Parts = parts
+            Parts = parts,
+            Acts = acts
         };
 
 
         return View(res);
     }
+    //Acts actions start <--------------------------------------------------------
+    public IActionResult CreateAct()
+    {
+        var temp = new CreateActsModel
+        {
+            Act = new ActsModel(),
+            AllActs = _context.Acts.ToList()
+        };
+        return View(temp);
+    }
+       // var temp = new ActsModel();
+    [HttpPost]
+    public IActionResult CreateAct(CreateActsModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        _context.Acts.Add(model.Act);
+        _context.SaveChanges();
+        return RedirectToAction("Index", "Test");
+    }
+    public IActionResult DetailAct(int id)
+    {
+        var act = _context.Acts.Find(id);
+        if (act == null)
+        {
+            return NotFound();
+        }
+        return View(act);
+    }
+    [HttpPost]
+    public IActionResult EditAct(ActsModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        _context.Acts.Update(model);
+        _context.SaveChanges();
+        return RedirectToAction("Index", "Test");
+    }
+    [HttpPost]
+    public IActionResult DeleteAct(int id)
+    {
+        var act = _context.Acts.FirstOrDefault(a => a.Id == id);
+        if (act == null)
+        {
+            return NotFound();
+        }
+        // Видалення всіх частин, пов'язаних з актом
+        var parts = _context.Parts.Where(p => p.act_id == id).ToList();
+        _context.Parts.RemoveRange(parts);
+        // Видалення акта
+        _context.Acts.Remove(act);
+        _context.SaveChanges();
+        return RedirectToAction("Index", "Test");
+    }
+    //Acts actions end <-----------------------------------------------------------
     //Parts actions start <--------------------------------------------------------
     public IActionResult CreatePart()
     {
         var temp = new PartOneAndAllModel
         {
             Parts = new PartsModel(),
-            AllParts = _context.Parts.ToList()
+            AllParts = _context.Parts.ToList(),
+            AllActs = _context.Acts.ToList(),
+
         };
         return View(temp);
     }
@@ -56,7 +119,28 @@ public class TestController : Controller
         _context.Parts.Add(model.Parts);
         _context.SaveChanges();
 
-        return RedirectToAction("CreatePart", "Test");
+        var part = _context.Parts.FirstOrDefault(p => p.id == model.Parts.id);
+        if (part == null)
+        {
+            return NotFound("Part not found after creation.");
+        }
+        var temp_Act = _context.Acts.FirstOrDefault(a => a.Id == part.act_id);
+        if (temp_Act != null)
+        {
+            var temp_Parts_For_Act = _context.Parts.Where(p => p.act_id == temp_Act.Id).ToList();
+            if (temp_Parts_For_Act.Count == 1)
+            {
+                temp_Act.StartPartId = part.id;
+            }
+            else
+            {
+                temp_Act.EndPartId = part.id;
+            }
+            _context.Acts.Update(temp_Act);
+            _context.SaveChanges();
+        }
+
+        return RedirectToAction("Index", "Test");
     }
     public IActionResult DetailPart(int id)
     {
@@ -139,7 +223,7 @@ public class TestController : Controller
             }
             _context.SaveChanges();
         }
-        if (items.preview_scene_ids != null)
+        if (items.preview_scene_ids.Count != 0)
         {
             foreach (var previewId in items.preview_scene_ids)
             {
@@ -151,7 +235,7 @@ public class TestController : Controller
                 }
             }
         }
-        else if(items.preview_answer_ids != null)
+        else if(items.preview_answer_ids.Count != 0)
         {
             foreach (var previewId in items.preview_answer_ids)
             {
@@ -163,6 +247,7 @@ public class TestController : Controller
                 }
             }
         }
+        _context.SaveChanges();
 
         var temp_all_scenes = _context.Scenes.Where(s => s.id_part == items.partId).ToList();
         var temp_part = _context.Parts.FirstOrDefault(p => p.id == items.partId);

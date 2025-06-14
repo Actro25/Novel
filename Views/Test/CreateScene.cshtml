@@ -93,8 +93,10 @@
                             selected="@(Model.preview_scene_ids?.Contains(scene.id) == true)">
                         @{
                             var partName = Model.AllItems.Parts?.FirstOrDefault(p => p.id == scene.id_part)?.name ?? "Невідомий парт";
+                            var text = scene.text_scene ?? "Без тексту";
+                            text = text.Length > 50 ? text.Substring(0, 50) + "..." : text;
                         }
-                        Парт "@partName" - @(scene.text_scene.Length > 50 ? scene.text_scene.Substring(0, 50) + "..." : scene.text_scene)
+                        Парт "@partName" - @text
                     </option>
                 }
             }

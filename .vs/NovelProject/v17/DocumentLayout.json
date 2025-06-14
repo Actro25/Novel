@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\playgame\\actionseescene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\playgame\\actionseescene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\controllers\\playgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:controllers\\playgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\createscene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\createscene.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\binarytreeview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\binarytreeview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\views\\test\\seefullhistorytree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:views\\test\\seefullhistorytree.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|d:\\programs\\vstudiofolder\\projects_folder\\novelproject\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D98BCAF-1490-4400-98EB-6BEC069644C6}|NovelProject.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,59 +25,59 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 303,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 950,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SeeFullHistoryTree.cshtml",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
-              "RelativeDocumentMoniker": "Views\\Test\\SeeFullHistoryTree.cshtml",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\SeeFullHistoryTree.cshtml",
-              "RelativeToolTip": "Views\\Test\\SeeFullHistoryTree.cshtml",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAkwIIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-13T13:16:42.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CreateScene.cshtml",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreateScene.cshtml",
-              "RelativeDocumentMoniker": "Views\\Test\\CreateScene.cshtml",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreateScene.cshtml",
-              "RelativeToolTip": "Views\\Test\\CreateScene.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-13T12:43:17.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BinaryTreeView.cshtml",
-              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\BinaryTreeView.cshtml",
-              "RelativeDocumentMoniker": "Views\\Test\\BinaryTreeView.cshtml",
-              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\BinaryTreeView.cshtml",
-              "RelativeToolTip": "Views\\Test\\BinaryTreeView.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-13T12:37:50.13Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "TestController.cs",
               "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "Controllers\\TestController.cs",
               "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\TestController.cs",
               "RelativeToolTip": "Controllers\\TestController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBYAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAANcAAAAAAAAAAAArwOEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T14:10:51.074Z",
+              "WhenOpened": "2025-06-14T12:29:27.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateScene.cshtml",
+              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreateScene.cshtml",
+              "RelativeDocumentMoniker": "Views\\Test\\CreateScene.cshtml",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\Test\\CreateScene.cshtml",
+              "RelativeToolTip": "Views\\Test\\CreateScene.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAkwGcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T12:24:57.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ActionSeeScene.cshtml",
+              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\PlayGame\\ActionSeeScene.cshtml",
+              "RelativeDocumentMoniker": "Views\\PlayGame\\ActionSeeScene.cshtml",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Views\\PlayGame\\ActionSeeScene.cshtml",
+              "RelativeToolTip": "Views\\PlayGame\\ActionSeeScene.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T12:12:46.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayGameController.cs",
+              "DocumentMoniker": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\PlayGameController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PlayGameController.cs",
+              "ToolTip": "D:\\PROGRAMS\\VSTUDIOFOLDER\\PROJECTS_FOLDER\\NovelProject\\Controllers\\PlayGameController.cs",
+              "RelativeToolTip": "Controllers\\PlayGameController.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAYwEcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T08:38:06.055Z",
               "EditorCaption": ""
             }
           ]

@@ -16,6 +16,35 @@ namespace NovelProject.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
 
+            modelBuilder.Entity("NovelProject.Models.ActsModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EndActText")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EndPartId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StartActText")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("StartPartId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Acts");
+                });
+
             modelBuilder.Entity("NovelProject.Models.AnswersModel", b =>
                 {
                     b.Property<int>("id")
@@ -41,6 +70,9 @@ namespace NovelProject.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("act_id")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("end_part_text")

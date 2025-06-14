@@ -1,0 +1,36 @@
+﻿@model ActsModel
+@{
+    ViewData["Title"] = "Create Act";
+}
+<h2>Detail Act</h2>
+<form asp-action="EditAct" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" value="@Model.Name"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StartActText"></label>
+        <input asp-for="StartActText" class="form-control" value="@Model.StartActText"/>
+        <span asp-validation-for="StartActText" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EndActText"></label>
+        <input asp-for="EndActText" class="form-control" value="@Model.EndActText"/>
+        <span asp-validation-for="EndActText" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+</form>
+
+<hr />
+
+<form asp-action="DeleteAct" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('Ви впевнені, що хочете видалити цей акт?');">
+    <button type="submit" class="btn btn-danger">Видалити</button>
+</form>
+
+<a asp-action="CreateAct" class="btn btn-secondary">Назад до списку</a>

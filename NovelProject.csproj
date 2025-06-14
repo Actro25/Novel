@@ -19,8 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\scene_images\backgrounds\" />
     <Folder Include="wwwroot\scene_images\additional_images\" />
+    <Folder Include="wwwroot\scene_images\background_action_scene\" />
     <Folder Include="wwwroot\scene_images\personage_images\" />
   </ItemGroup>
 
