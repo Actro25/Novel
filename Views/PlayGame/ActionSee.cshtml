@@ -1,0 +1,64 @@
+﻿@using NovelProject.AlterModels
+@model CheckActModel
+
+@{
+    ViewData["Title"] = $"Action {Model.Act.Name}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string actionUrl = Model.StartActOrEnd
+        ? Url.Action("ActionSeePart", "PlayGame", new { partId = Model.Act.StartPartId, actId = Model.Act.Id })
+        : Url.Action("EndAction", "PlayGame");
+}
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: url('/scene_images/background_action_scene/black_background_action.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+    }
+
+    .full-screen-wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .center-text {
+        color: white;
+        font-size: 2.5rem;
+        text-align: center;
+        text-shadow: 2px 2px 4px #000000;
+    }
+</style>
+
+<div class="full-screen-wrapper" onclick="redirectToAction()">
+    <div class="center-text">
+        @if (Model.StartActOrEnd)
+        {
+            <strong>Act: @Model.Act.Name</strong>
+            <br />
+
+            <br />
+            @Model.Act.StartActText
+        }
+        else
+        {
+            <strong>End of Act: @Model.Act.Name</strong>
+            <br />
+
+            <br />
+            @Model.Act.EndActText
+        }
+    </div>
+</div>
+
+<script>
+    function redirectToAction() {
+        window.location.href = '@Html.Raw(actionUrl)';
+    }
+</script>

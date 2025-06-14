@@ -10,14 +10,43 @@ using NovelProject.Data;
 namespace NovelProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250610132658_MigrationScenes")]
-    partial class MigrationScenes
+    [Migration("20250614114431_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
+
+            modelBuilder.Entity("NovelProject.Models.ActsModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EndActText")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EndPartId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StartActText")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("StartPartId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Acts");
+                });
 
             modelBuilder.Entity("NovelProject.Models.AnswersModel", b =>
                 {
@@ -44,6 +73,9 @@ namespace NovelProject.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("act_id")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("end_part_text")
@@ -75,6 +107,10 @@ namespace NovelProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("additional_scene_img")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("answer")
                         .HasColumnType("INTEGER");
 
@@ -88,8 +124,11 @@ namespace NovelProject.Migrations
                     b.Property<int>("id_part")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("text_scene")
+                    b.Property<string>("personage_scene_img")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("text_scene")
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");

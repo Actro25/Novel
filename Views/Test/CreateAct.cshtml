@@ -1,0 +1,28 @@
+﻿@using NovelProject.AlterModels
+@model CreateActsModel
+@{
+    ViewData["Title"] = "Create Act";
+}
+<h2>Create Act</h2>
+<form asp-action="CreateAct" method="post">
+    <h3>Act Name</h3>
+    <input asp-for="Act.Name" class="form-control" />
+    <label>Start Act Text</label>
+    <input asp-for="Act.StartActText" class="form-control" />
+    <label>End Act Text</label>
+    <input asp-for="Act.EndActText" class="form-control" />
+    <hr />
+    <button type="submit">Save</button>
+    <br />
+    <hr />
+</form>
+<h2>Change Act</h2>
+<form asp-action="DetailAct" method="get">
+    <select name="id" class="form-control">
+        @foreach (var act in Model.AllActs)
+        {
+            <option value="@act.Id">@act.Name</option>
+        }
+    </select>
+    <button type="submit">Act Details</button>
+</form>

@@ -36,6 +36,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdHYW1lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/PlayGame/ActionSee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUdhbWVcQWN0aW9uU2VlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/PlayGame/ActionSeePart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUdhbWVcQWN0aW9uU2VlUGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/PlayGame/ActionSeeScene.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUdhbWVcQWN0aW9uU2VlU2NlbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,12 +64,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxCaW5hcnlUcmVlVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/CreateAct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGVBY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/CreatePart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGVQYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/CreateScene.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGVTY2VuZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/DetailAct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEZXRhaWxBY3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PROGRAMS/VSTUDIOFOLDER/PROJECTS_FOLDER/NovelProject/Views/Test/DetailPart.cshtml]

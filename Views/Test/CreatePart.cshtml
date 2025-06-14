@@ -8,7 +8,13 @@
     <input asp-for="Parts.start_part_text" class="form-control" />
     <label>End Part Text</label>
     <input asp-for="Parts.end_part_text" class="form-control" />
-
+    <label>До якого акта воно іде?</label>
+    <select asp-for="Parts.act_id" class="form-control">
+        @foreach (var act in Model.AllActs)
+        {
+            <option value="@act.Id">@act.Name</option>
+        }
+    </select>
     <hr />
     <button type="submit">Зберегти</button>
     <br />

@@ -1,0 +1,99 @@
+﻿@model NovelProject.Models.ScenesModel
+@using NovelProject.Data
+@inject AppDbContext _context
+
+@{
+    ViewData["Title"] = $"Scene {Model.id}";
+
+    var answers = Model.answer ? _context.Answers.Where(a => a.id_scene == Model.id).ToList() : new List<NovelProject.Models.AnswersModel>();
+}
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background-color: black;
+    }
+
+    .scene-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .background {
+        z-index: 1;
+        background-image: url('@Url.Content($"~/scene_images/background/{Model.background_scene_img}")');
+    }
+
+    .additional {
+        z-index: 2;
+        background-image: url('@Url.Content($"~/scene_images/additional/{Model.additional_scene_img}")');
+    }
+
+    .character {
+        z-index: 3;
+        background-image: url('@Url.Content($"~/scene_images/character/{Model.personage_scene_img}")');
+    }
+
+    .scene-text, .answers {
+        position: absolute;
+        z-index: 4;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        text-shadow: 1px 1px 3px black;
+        font-size: 1.5rem;
+    }
+
+    .answer-button {
+        background-color: rgba(255,255,255,0.1);
+        border: 2px solid white;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        margin: 0.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .answer-button:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+</style>
+
+<div class="scene-layer background"></div>
+<div class="scene-layer additional"></div>
+<div class="scene-layer character"></div>
+
+<div class="scene-text">
+    @if (!Model.answer)
+    {
+        <form method="get" asp-controller="PlayGame" asp-action="ActionSeeScene">
+            <input type="hidden" name="sceneId" value="@Model.id_next_scene" />
+            <input type="hidden" name="partId" value="@Model.id_part" />
+            <button type="submit" class="answer-button">@Model.text_scene</button>
+        </form>
+    }
+</div>
+
+@if (Model.answer)
+{
+    <div class="answers">
+        @foreach (var answer in answers)
+        {
+            <form method="get" asp-controller="PlayGame" asp-action="ActionSeeScene">
+                <input type="hidden" name="sceneId" value="@answer.next_scene_id" />
+                <input type="hidden" name="partId" value="@Model.id_part" />
+                <button type="submit" class="answer-button">@answer.asnwer_for_scene</button>
+            </form>
+        }
+    </div>
+}

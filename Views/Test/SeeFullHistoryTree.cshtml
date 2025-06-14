@@ -116,16 +116,19 @@
             <p class="text-muted">Перегляд усіх частин та сцен</p>
             <a href="@Url.Action("AddImageToScene", "Test")" class="btn btn-primary mb-3">Add Photos</a>
             <a href="@Url.Action("CreatePart", "Test")" class="btn btn-primary mb-3">Add Part</a>
+            <a href="@Url.Action("CreateAct", "Test")" class="btn btn-primary mb-3">Add Act</a>
         </div>
 
         <div class="part-container">
             @foreach (var part in Model.Parts)
             {
                 var partScenes = Model.Scene.Where(s => s.id_part == part.id).ToList();
+                var partAct = Model.Acts.FirstOrDefault(a => a.Id == part.act_id);
                 <div class="part-card">
                     <a href="@Url.Action("BinaryTreeView", "Test", new { id = part.id })">
                         <div class="part-header">
                             <span>@part.name</span>
+                            <span>Act: @partAct.Name</span>
                             <span class="badge bg-white text-primary">@partScenes.Count сцен</span>
                         </div>
                     </a>
