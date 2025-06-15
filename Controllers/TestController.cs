@@ -2,6 +2,7 @@
 using NovelProject.AlterModels;
 using NovelProject.Data;
 using NovelProject.Models;
+using System.Xml;
 
 public class TestController : Controller
 {
@@ -47,7 +48,6 @@ public class TestController : Controller
         };
         return View(temp);
     }
-       // var temp = new ActsModel();
     [HttpPost]
     public IActionResult CreateAct(CreateActsModel model)
     {
@@ -55,28 +55,116 @@ public class TestController : Controller
         {
             return View(model);
         }
+        var temp_preview_act_Id = model.Act.NextActId;
+        model.Act.NextActId = 0;
+
+
         _context.Acts.Add(model.Act);
+        _context.SaveChanges();
+        var current_act = _context.Acts.FirstOrDefault(a => a.Id == model.Act.Id);
+        if (current_act == null)
+        {
+            return NotFound("Act not found after creation.");
+        }
+        if (temp_preview_act_Id != 0)
+        {
+            var temp_preview_act = _context.Acts.FirstOrDefault(a => a.Id == temp_preview_act_Id);
+            if (temp_preview_act == null)
+            {
+                return NotFound("Preview act not found.");
+            }
+            if (temp_preview_act.NextActId != 0)
+            {
+                var temp_next_act = _context.Acts.FirstOrDefault(a => a.Id == temp_preview_act.NextActId);
+                if (temp_next_act != null)
+                {
+                    temp_preview_act.NextActId = current_act.Id;
+                    current_act.NextActId = temp_next_act.Id;
+                    _context.Acts.Update(temp_next_act);
+                    _context.Acts.Update(temp_preview_act);
+                    _context.Acts.Update(current_act);
+                }
+            }
+            else
+            {
+                temp_preview_act.NextActId = current_act.Id;
+                _context.Acts.Update(temp_preview_act);
+            }
+        }
+
         _context.SaveChanges();
         return RedirectToAction("Index", "Test");
     }
     public IActionResult DetailAct(int id)
     {
         var act = _context.Acts.Find(id);
+        var allActs = _context.Acts.ToList();
         if (act == null)
         {
             return NotFound();
         }
-        return View(act);
+        var temp = new CreateActsModel
+        {
+            Act = act,
+            AllActs = allActs,
+            PreviewActId = 0
+        };
+        return View(temp);
     }
     [HttpPost]
-    public IActionResult EditAct(ActsModel model)
+    public IActionResult EditAct(CreateActsModel model)
     {
         if (!ModelState.IsValid)
         {
             return View(model);
         }
-        _context.Acts.Update(model);
+
+
+        _context.Acts.Update(model.Act);
         _context.SaveChanges();
+
+        var act = _context.Acts.FirstOrDefault(a => a.Id == model.Act.Id);
+        if (act == null)
+        {
+            return NotFound("Act not found after update.");
+        }
+        if (model.PreviewActId != 0)
+        {
+            var temp_preview_act = _context.Acts.FirstOrDefault(a => a.Id == model.PreviewActId);
+
+
+
+            var temp_all_preview_acts = _context.Acts.Where(a => a.NextActId == act.Id).ToList();
+            if (temp_all_preview_acts.Count > 0)
+            {
+                foreach (var previewAct in temp_all_preview_acts)
+                {
+                    previewAct.NextActId = 0;
+                    _context.Acts.Update(previewAct);
+                }
+            }
+            if (temp_preview_act == null)
+            {
+                return NotFound("Preview act not found.");
+            }
+
+            var nextAct = _context.Acts.FirstOrDefault(a => a.Id == temp_preview_act.NextActId);
+            if (nextAct != null)
+            {
+                temp_preview_act.NextActId = act.Id;
+                act.NextActId = nextAct.Id;
+                _context.Acts.Update(nextAct);
+                _context.Acts.Update(temp_preview_act);
+                _context.Acts.Update(act);
+            }
+            else
+            {
+                temp_preview_act.NextActId = act.Id;
+            }
+            
+        }
+        _context.SaveChanges();
+
         return RedirectToAction("Index", "Test");
     }
     [HttpPost]
@@ -86,6 +174,12 @@ public class TestController : Controller
         if (act == null)
         {
             return NotFound();
+        }
+        var previousAct = _context.Acts.FirstOrDefault(a => a.NextActId == id);
+        if (previousAct != null)
+        {
+            previousAct.NextActId = act.NextActId; // Перенаправляємо попередній акт на наступний
+            _context.Acts.Update(previousAct);
         }
         // Видалення всіх частин, пов'язаних з актом
         var parts = _context.Parts.Where(p => p.act_id == id).ToList();
@@ -115,15 +209,38 @@ public class TestController : Controller
         {
             return View(model);
         }
+        var temp_preview_part_Id = model.Parts.next_part_id;
+        model.Parts.next_part_id = 0;
 
         _context.Parts.Add(model.Parts);
         _context.SaveChanges();
 
+
+
+
         var part = _context.Parts.FirstOrDefault(p => p.id == model.Parts.id);
+
         if (part == null)
         {
             return NotFound("Part not found after creation.");
         }
+        if (temp_preview_part_Id != 0)
+        {
+            var temp_preview_part = _context.Parts.FirstOrDefault(p => p.id == temp_preview_part_Id);
+            if (temp_preview_part == null)
+            {
+                return NotFound();
+            }
+
+            var next_part = _context.Parts.FirstOrDefault(p => p.id == temp_preview_part.next_part_id);
+
+            temp_preview_part.next_part_id = part.id;
+            part.next_part_id = next_part != null ? next_part.id : 0;
+            _context.Parts.Update(temp_preview_part);
+            _context.Parts.Update(part);
+            _context.SaveChanges();
+        }
+
         var temp_Act = _context.Acts.FirstOrDefault(a => a.Id == part.act_id);
         if (temp_Act != null)
         {
@@ -131,14 +248,17 @@ public class TestController : Controller
             if (temp_Parts_For_Act.Count == 1)
             {
                 temp_Act.StartPartId = part.id;
+                temp_Act.EndPartId = part.id;
             }
             else
             {
                 temp_Act.EndPartId = part.id;
             }
             _context.Acts.Update(temp_Act);
-            _context.SaveChanges();
+            
         }
+
+        _context.SaveChanges();
 
         return RedirectToAction("Index", "Test");
     }
@@ -152,7 +272,8 @@ public class TestController : Controller
         var model = new PartOneAndAllModel
         {
             Parts = part,
-            AllParts = _context.Parts.ToList()
+            AllParts = _context.Parts.ToList(),
+            AllActs = _context.Acts.ToList()
         };
         return View(model);
     }
@@ -163,7 +284,7 @@ public class TestController : Controller
         }
         _context.Parts.Update(model.Parts);
         _context.SaveChanges();
-        return RedirectToAction("CreatePart", "Test");
+        return RedirectToAction("Index", "Test");
     }
     [HttpPost]
     public IActionResult DeletePart(int id) {
@@ -340,6 +461,15 @@ public class TestController : Controller
                     _context.Scenes.Update(temp_preview_scene);
                 }
             }
+            var temp_all_preview_scenes = _context.Scenes.Where(s => s.id_next_scene == model.Scenes.id).ToList();
+            if (temp_all_preview_scenes.Count > 0)
+            {
+                foreach (var previewScene in temp_all_preview_scenes)
+                {
+                    previewScene.id_next_scene = 0;
+                    _context.Scenes.Update(previewScene);
+                }
+            }
         }
         else if (model.preview_scene_ids != null)
         {
@@ -350,6 +480,15 @@ public class TestController : Controller
                 {
                     temp_preview_answer.next_scene_id = model.Scenes.id;
                     _context.Answers.Update(temp_preview_answer);
+                }
+            }
+            var temp_all_preview_answers = _context.Answers.Where(a => a.next_scene_id == model.Scenes.id).ToList();
+            if (temp_all_preview_answers.Count > 0)
+            {
+                foreach (var previewAnswer in temp_all_preview_answers)
+                {
+                    previewAnswer.next_scene_id = 0;
+                    _context.Answers.Update(previewAnswer);
                 }
             }
         }

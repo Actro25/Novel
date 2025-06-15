@@ -28,6 +28,9 @@
 
     <!-- Ідентифікатор сцени -->
     <input type="hidden" asp-for="Scenes.id" />
+    <input type="hidden" asp-for="Scenes.id_next_scene" />
+    <input type="hidden" asp-for="Scenes.answer" />
+    <input type="hidden" asp-for="Scenes.id_part" />
 
     <h3>Оновити сцену</h3>
 
@@ -82,7 +85,7 @@
             @if (Model.preview_scene_ids != null)
             {
                 bool isSelectedStartScene = Model.preview_scene_ids.Contains(-1);
-                <option value="-1" selected="@(isSelectedStartScene)">
+                <option value="0" selected="@(isSelectedStartScene)">
                     (Початок історії, немає попередньої сцени)
                 </option>
             }
@@ -108,7 +111,7 @@
             @if (Model.preview_answer_ids != null)
             {
                 bool isSelectedStartAnswer = Model.preview_answer_ids.Contains(-1);
-                <option value="-1" selected="@(isSelectedStartAnswer)">
+                <option value="0" selected="@(isSelectedStartAnswer)">
                     (Початок історії, немає попередньої відповіді)
                 </option>
             }

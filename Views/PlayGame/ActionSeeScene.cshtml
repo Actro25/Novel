@@ -1,11 +1,12 @@
-﻿@model NovelProject.Models.ScenesModel
+﻿@model PlayGameSceneChange
+@using NovelProject.AlterModels
 @using NovelProject.Data
 @inject AppDbContext _context
 
 @{
-    ViewData["Title"] = $"Scene {Model.id}";
+    ViewData["Title"] = $"Scene {Model.CurrentScene.id}";
 
-    var answers = Model.answer ? _context.Answers.Where(a => a.id_scene == Model.id).ToList() : new List<NovelProject.Models.AnswersModel>();
+    var answers = Model.CurrentScene.answer ? _context.Answers.Where(a => a.id_scene == Model.CurrentScene.id).ToList() : new List<NovelProject.Models.AnswersModel>();
 }
 
 <style>
@@ -29,17 +30,17 @@
 
     .background {
         z-index: 1;
-        background-image: url('@Url.Content($"~/scene_images/background/{Model.background_scene_img}")');
+        background-image: url('@Url.Content($"~/scene_images/background/{Model.CurrentScene.background_scene_img}")');
     }
 
     .additional {
         z-index: 2;
-        background-image: url('@Url.Content($"~/scene_images/additional/{Model.additional_scene_img}")');
+        background-image: url('@Url.Content($"~/scene_images/additional/{Model.CurrentScene.additional_scene_img}")');
     }
 
     .character {
         z-index: 3;
-        background-image: url('@Url.Content($"~/scene_images/character/{Model.personage_scene_img}")');
+        background-image: url('@Url.Content($"~/scene_images/character/{Model.CurrentScene.personage_scene_img}")');
     }
 
     .scene-text, .answers {
@@ -74,24 +75,28 @@
 <div class="scene-layer character"></div>
 
 <div class="scene-text">
-    @if (!Model.answer)
+    @if (!Model.CurrentScene.answer)
     {
         <form method="get" asp-controller="PlayGame" asp-action="ActionSeeScene">
-            <input type="hidden" name="sceneId" value="@Model.id_next_scene" />
-            <input type="hidden" name="partId" value="@Model.id_part" />
-            <button type="submit" class="answer-button">@Model.text_scene</button>
+            <input type="hidden" name="sceneId" value="@Model.CurrentScene.id_next_scene" />
+            <input type="hidden" name="actId" value="@Model.actId" />
+            <input type="hidden" name="StartPart" value="@Model.StartPart" />
+            <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
+            <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
         </form>
     }
 </div>
 
-@if (Model.answer)
+@if (Model.CurrentScene.answer)
 {
     <div class="answers">
         @foreach (var answer in answers)
         {
             <form method="get" asp-controller="PlayGame" asp-action="ActionSeeScene">
                 <input type="hidden" name="sceneId" value="@answer.next_scene_id" />
-                <input type="hidden" name="partId" value="@Model.id_part" />
+                <input type="hidden" name="actId" value="@Model.actId" />
+                <input type="hidden" name="StartPart" value="@Model.StartPart" />
+                <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
                 <button type="submit" class="answer-button">@answer.asnwer_for_scene</button>
             </form>
         }

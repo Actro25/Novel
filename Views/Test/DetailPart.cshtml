@@ -8,6 +8,9 @@
 
 <form asp-action="EditPart" method="post">
     <input type="hidden" asp-for="Parts.id" />
+    <input type="hidden" asp-for="Parts.act_id" />
+    <input type="hidden" asp-for="Parts.start_scene_id" />
+    <input type="hidden" asp-for="Parts.end_scene_id" />
 
     <div class="form-group">
         <label asp-for="Parts.name"></label>
@@ -26,6 +29,27 @@
         <input asp-for="Parts.end_part_text" class="form-control" />
         <span asp-validation-for="Parts.end_part_text" class="text-danger"></span>
     </div>
+
+    <label>Який предидущий парт?</label>
+    <select asp-for="Parts.next_part_id" class="form-control">
+        @{
+            var temp_preview_part = Model.AllParts.FirstOrDefault(p => p.next_part_id == Model.Parts.id);
+            bool hasNextPart = false;
+            if (temp_preview_part != null)
+            {
+                hasNextPart = temp_preview_part.next_part_id != 0;
+            }
+        }
+        <option value="0" selected="@(hasNextPart)">(Попереднього партра немає)</option>
+        @foreach (var part in Model.AllParts)
+        {
+            if (temp_preview_part != null)
+            {
+                hasNextPart = (part.id == temp_preview_part.next_part_id) ? true : false;
+            }
+            <option value="@part.id" selected="@(hasNextPart)">@part.id: @part.start_part_text - @part.end_part_text</option>
+        }
+    </select>
 
     <button type="submit" class="btn btn-primary">Зберегти зміни</button>
 </form>

@@ -84,7 +84,7 @@
         <!-- Попередні сцени -->
         <label class="form-label">Сцени</label>
         <select name="preview_scene_ids" class="form-control" multiple size="5">
-            <option value="-1">(Початок історії, немає попередньої сцени)</option>
+            <option value="0">(Початок історії, немає попередньої сцени)</option>
             @if (Model.AllItems?.Scene != null)
             {
                 foreach (var scene in Model.AllItems.Scene)

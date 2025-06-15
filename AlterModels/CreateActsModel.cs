@@ -6,5 +6,6 @@ namespace NovelProject.AlterModels
     {
         public ActsModel Act { get; set; } = new ActsModel();
         public List<ActsModel> AllActs { get; set; } = new List<ActsModel>();
+        public int PreviewActId { get; set; }
     }
 }

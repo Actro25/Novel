@@ -10,8 +10,8 @@ using NovelProject.Data;
 namespace NovelProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250614114431_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250615111059_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,9 @@ namespace NovelProject.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("NextActId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("StartActText")
                         .IsRequired()
@@ -88,6 +91,9 @@ namespace NovelProject.Migrations
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("next_part_id")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("start_part_text")
                         .IsRequired()

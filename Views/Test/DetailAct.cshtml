@@ -1,35 +1,63 @@
-﻿@model ActsModel
+﻿@using NovelProject.AlterModels
+@model CreateActsModel
 @{
     ViewData["Title"] = "Create Act";
 }
 <h2>Detail Act</h2>
 <form asp-action="EditAct" method="post">
-    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Act.Id" />
+    <input type="hidden" asp-for="Act.NextActId" />
+    <input type="hidden" asp-for="Act.StartPartId" />
+    <input type="hidden" asp-for="Act.EndPartId" />
 
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" value="@Model.Name"/>
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <label asp-for="Act.Name"></label>
+        <input asp-for="Act.Name" class="form-control" value="@Model.Act.Name"/>
+        <span asp-validation-for="Act.Name" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="StartActText"></label>
-        <input asp-for="StartActText" class="form-control" value="@Model.StartActText"/>
-        <span asp-validation-for="StartActText" class="text-danger"></span>
+        <label asp-for="Act.StartActText"></label>
+        <input asp-for="Act.StartActText" class="form-control" value="@Model.Act.StartActText" />
+        <span asp-validation-for="Act.StartActText" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="EndActText"></label>
-        <input asp-for="EndActText" class="form-control" value="@Model.EndActText"/>
-        <span asp-validation-for="EndActText" class="text-danger"></span>
+        <label asp-for="Act.EndActText"></label>
+        <input asp-for="Act.EndActText" class="form-control" value="@Model.Act.EndActText" />
+        <span asp-validation-for="Act.EndActText" class="text-danger"></span>
     </div>
+
+    <label>Який предидущий акт?</label>
+    <select asp-for="PreviewActId" class="form-control">
+        @{
+            var temp_preview_scene = Model.AllActs.FirstOrDefault(a => a.NextActId == Model.Act.Id);
+            bool hasNextAct = false;
+            if (temp_preview_scene != null)
+            {
+                hasNextAct = temp_preview_scene.NextActId != 0;
+            }
+        }
+        <option value="0" selected="@(!hasNextAct)">(Попереднього партра немає)</option>
+        @foreach (var chapter in Model.AllActs)
+        {
+            if (temp_preview_scene != null)
+            {
+                hasNextAct = (chapter.Id == temp_preview_scene.NextActId) ? true : false;
+            }
+            <option value="@chapter.Id" selected="@(hasNextAct)">@chapter.Id: @chapter.StartActText - @chapter.EndActText</option>
+        }
+    </select>
 
     <button type="submit" class="btn btn-primary">Зберегти зміни</button>
 </form>
 
 <hr />
 
-<form asp-action="DeleteAct" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('Ви впевнені, що хочете видалити цей акт?');">
+<form asp-action="DeleteAct"
+      asp-route-id="@Model.Act.Id"
+      method="post"
+      onsubmit="return confirm('Ви впевнені, що хочете видалити цей акт?');">
     <button type="submit" class="btn btn-danger">Видалити</button>
 </form>
 

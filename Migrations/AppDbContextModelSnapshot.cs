@@ -33,6 +33,9 @@ namespace NovelProject.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("NextActId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("StartActText")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -85,6 +88,9 @@ namespace NovelProject.Migrations
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("next_part_id")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("start_part_text")
                         .IsRequired()

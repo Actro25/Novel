@@ -5,8 +5,8 @@
     ViewData["Title"] = $"Action {Model.Act.Name}";
     Layout = "~/Views/Shared/_Layout.cshtml";
     string actionUrl = Model.StartActOrEnd
-        ? Url.Action("ActionSeePart", "PlayGame", new { partId = Model.Act.StartPartId, actId = Model.Act.Id })
-        : Url.Action("EndAction", "PlayGame");
+        ? Url.Action("ActionSeePart", "PlayGame", new { partId = Model.Act.StartPartId, actId = Model.Act.Id, StartAct = true })
+        : Url.Action("ActionSeePart", "PlayGame", new { partId = Model.Act.StartPartId, actId = Model.Act.Id, StartAct = false });
 }
 
 <style>

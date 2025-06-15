@@ -15,6 +15,14 @@
             <option value="@act.Id">@act.Name</option>
         }
     </select>
+    <label>До якого розділу воно іде?</label>
+    <select asp-for="Parts.next_part_id" class="form-control">
+        <option value="0">(Попереднього партра немає)</option>
+        @foreach (var chapter in Model.AllParts)
+        {
+            <option value="@chapter.id">@chapter.id: @chapter.start_part_text - @chapter.end_part_text</option>
+        }
+    </select>
     <hr />
     <button type="submit">Зберегти</button>
     <br />

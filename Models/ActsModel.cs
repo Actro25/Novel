@@ -3,6 +3,7 @@
     public class ActsModel
     {
         public int Id { get; set; }
+        public int NextActId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string StartActText { get; set; } = string.Empty;
         public string EndActText { get; set; } = string.Empty;

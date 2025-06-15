@@ -5,7 +5,7 @@
 namespace NovelProject.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,6 +16,7 @@ namespace NovelProject.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    NextActId = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     StartActText = table.Column<string>(type: "TEXT", nullable: false),
                     EndActText = table.Column<string>(type: "TEXT", nullable: false),
@@ -49,6 +50,7 @@ namespace NovelProject.Migrations
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     act_id = table.Column<int>(type: "INTEGER", nullable: false),
+                    next_part_id = table.Column<int>(type: "INTEGER", nullable: false),
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     start_part_text = table.Column<string>(type: "TEXT", nullable: false),
                     end_part_text = table.Column<string>(type: "TEXT", nullable: false),

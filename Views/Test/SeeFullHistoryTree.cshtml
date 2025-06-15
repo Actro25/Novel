@@ -54,6 +54,7 @@
             }
 
         .part-header {
+
             background-color: var(--primary-color);
             color: white;
             padding: 1rem;
@@ -106,6 +107,14 @@
             background-color: #1cc88a;
             margin-left: 0.5rem;
         }
+
+        .part-header .badge.bg-secondary {
+            max-width: 150px;
+            white-space: normal;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
     </style>
 </head>
 
@@ -119,33 +128,46 @@
             <a href="@Url.Action("CreateAct", "Test")" class="btn btn-primary mb-3">Add Act</a>
         </div>
 
-        <div class="part-container">
-            @foreach (var part in Model.Parts)
-            {
-                var partScenes = Model.Scene.Where(s => s.id_part == part.id).ToList();
-                var partAct = Model.Acts.FirstOrDefault(a => a.Id == part.act_id);
-                <div class="part-card">
-                    <a href="@Url.Action("BinaryTreeView", "Test", new { id = part.id })">
-                        <div class="part-header">
-                            <span>@part.name</span>
-                            <span>Act: @partAct.Name</span>
-                            <span class="badge bg-white text-primary">@partScenes.Count сцен</span>
-                        </div>
-                    </a>
-                    <div class="scene-list">
-                        @foreach (var scene in partScenes)
-                        {
-                            <a href="@Url.Action("DetailScene", "Test", new { id = scene.id })" class="scene-item d-block text-decoration-none text-dark">
-                                <strong>Сцена @scene.id:</strong> @(scene.text_scene?.Length > 40 ? scene.text_scene.Substring(0, 40) + "..." : scene.text_scene)
+        @foreach (var act in Model.Acts)
+        {
+            var partsInAct = Model.Parts.Where(p => p.act_id == act.Id).ToList();
+            var nextAct = Model.Acts.FirstOrDefault(a => a.Id == act.NextActId);
+            var name_nextAct = nextAct != null ? nextAct.Name : "Немає наступного акту";
+            if (partsInAct.Count == 0) continue;
+
+            <div class="mb-5">
+                <h3 class="mb-3 text-primary">Акт: @act.Name <br/> Наступний Акт: @(name_nextAct)</h3>
+                <div class="part-container">
+                    @foreach (var part in partsInAct)
+                    {
+                        var previewPart = Model.Parts.FirstOrDefault(p => p.id == part.next_part_id);
+                        var partScenes = Model.Scene.Where(s => s.id_part == part.id).ToList();
+                        <div class="part-card">
+                            <a href="@Url.Action("BinaryTreeView", "Test", new { id = part.id })">
+                                <div class="part-header">
+                                    <span>@part.name</span>
+                                    <span class="badge bg-white text-primary">@partScenes.Count сцен</span>
+                                    <span class="badge bg-secondary">
+                                        @(previewPart != null ? $"Наступна частина: {previewPart.name}" : "Наступної частини немає")
+                                    </span>
+                                </div>
                             </a>
-                        }
-                        <a class="add-scene-btn" href="@Url.Action("CreateScene", "Test", new { partId = part.id })">
-                            <i class="bi bi-plus-circle"></i> Додати сцену
-                        </a>
-                    </div>
+                            <div class="scene-list">
+                                @foreach (var scene in partScenes)
+                                {
+                                    <a href="@Url.Action("DetailScene", "Test", new { id = scene.id })" class="scene-item d-block text-decoration-none text-dark">
+                                        <strong>Сцена @scene.id:</strong> @(scene.text_scene?.Length > 40 ? scene.text_scene.Substring(0, 40) + "..." : scene.text_scene)
+                                    </a>
+                                }
+                                <a class="add-scene-btn" href="@Url.Action("CreateScene", "Test", new { partId = part.id })">
+                                    <i class="bi bi-plus-circle"></i> Додати сцену
+                                </a>
+                            </div>
+                        </div>
+                    }
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
