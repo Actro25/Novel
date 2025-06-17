@@ -6,6 +6,7 @@ namespace NovelProject.AlterModels
     {
         public PartsModel Part { get; set; } = new PartsModel();
         public int ActId { get; set; }
+        public int SceneId { get; set; }
         public bool StartPartOrEnd { get; set; } = true;
     }
 }

@@ -6,5 +6,6 @@ namespace NovelProject.AlterModels
     {
         public ActsModel Act { get; set; } = new ActsModel();
         public bool StartActOrEnd { get; set; } = true; // true for start, false for end
+        public int SceneId { get; set; }
     }
 }

@@ -52,9 +52,8 @@ public class TestController : Controller
     public IActionResult CreateAct(CreateActsModel model)
     {
         if (!ModelState.IsValid)
-        {
             return View(model);
-        }
+
         var temp_preview_act_Id = model.Act.NextActId;
         model.Act.NextActId = 0;
 
@@ -63,16 +62,14 @@ public class TestController : Controller
         _context.SaveChanges();
         var current_act = _context.Acts.FirstOrDefault(a => a.Id == model.Act.Id);
         if (current_act == null)
-        {
             return NotFound("Act not found after creation.");
-        }
+
         if (temp_preview_act_Id != 0)
         {
             var temp_preview_act = _context.Acts.FirstOrDefault(a => a.Id == temp_preview_act_Id);
             if (temp_preview_act == null)
-            {
                 return NotFound("Preview act not found.");
-            }
+
             if (temp_preview_act.NextActId != 0)
             {
                 var temp_next_act = _context.Acts.FirstOrDefault(a => a.Id == temp_preview_act.NextActId);
@@ -100,9 +97,8 @@ public class TestController : Controller
         var act = _context.Acts.Find(id);
         var allActs = _context.Acts.ToList();
         if (act == null)
-        {
             return NotFound();
-        }
+
         var temp = new CreateActsModel
         {
             Act = act,
@@ -115,19 +111,15 @@ public class TestController : Controller
     public IActionResult EditAct(CreateActsModel model)
     {
         if (!ModelState.IsValid)
-        {
             return View(model);
-        }
-
 
         _context.Acts.Update(model.Act);
         _context.SaveChanges();
 
         var act = _context.Acts.FirstOrDefault(a => a.Id == model.Act.Id);
         if (act == null)
-        {
             return NotFound("Act not found after update.");
-        }
+
         if (model.PreviewActId != 0)
         {
             var temp_preview_act = _context.Acts.FirstOrDefault(a => a.Id == model.PreviewActId);
@@ -144,9 +136,7 @@ public class TestController : Controller
                 }
             }
             if (temp_preview_act == null)
-            {
                 return NotFound("Preview act not found.");
-            }
 
             var nextAct = _context.Acts.FirstOrDefault(a => a.Id == temp_preview_act.NextActId);
             if (nextAct != null)
@@ -172,9 +162,8 @@ public class TestController : Controller
     {
         var act = _context.Acts.FirstOrDefault(a => a.Id == id);
         if (act == null)
-        {
             return NotFound();
-        }
+
         var previousAct = _context.Acts.FirstOrDefault(a => a.NextActId == id);
         if (previousAct != null)
         {
@@ -206,9 +195,8 @@ public class TestController : Controller
     public IActionResult CreatePart(PartOneAndAllModel model)
     {
         if (!ModelState.IsValid)
-        {
             return View(model);
-        }
+
         var temp_preview_part_Id = model.Parts.next_part_id;
         model.Parts.next_part_id = 0;
 
@@ -221,16 +209,13 @@ public class TestController : Controller
         var part = _context.Parts.FirstOrDefault(p => p.id == model.Parts.id);
 
         if (part == null)
-        {
             return NotFound("Part not found after creation.");
-        }
+
         if (temp_preview_part_Id != 0)
         {
             var temp_preview_part = _context.Parts.FirstOrDefault(p => p.id == temp_preview_part_Id);
             if (temp_preview_part == null)
-            {
                 return NotFound();
-            }
 
             var next_part = _context.Parts.FirstOrDefault(p => p.id == temp_preview_part.next_part_id);
 
@@ -266,9 +251,8 @@ public class TestController : Controller
     {
         var part = _context.Parts.Find(id);
         if (part == null)
-        {
             return NotFound();
-        }
+
         var model = new PartOneAndAllModel
         {
             Parts = part,
@@ -279,9 +263,9 @@ public class TestController : Controller
     }
     [HttpPost]
     public IActionResult EditPart(PartOneAndAllModel model) {
-        if (!ModelState.IsValid) {
+        if (!ModelState.IsValid)
             return View(model);
-        }
+
         _context.Parts.Update(model.Parts);
         _context.SaveChanges();
         return RedirectToAction("Index", "Test");
@@ -289,9 +273,8 @@ public class TestController : Controller
     [HttpPost]
     public IActionResult DeletePart(int id) {
         var part =  _context.Parts.FirstOrDefault(p => p.id == id);
-        if (part == null) { 
+        if (part == null)
             return NotFound();
-        }
 
         _context.Parts.Remove(part);
         _context.SaveChanges();
@@ -374,8 +357,10 @@ public class TestController : Controller
         var temp_part = _context.Parts.FirstOrDefault(p => p.id == items.partId);
         if (temp_part != null)
         {
-            if (temp_all_scenes.Count == 1)
+            if (temp_all_scenes.Count == 1) {
                 temp_part.start_scene_id = items.Scenes.id;
+                temp_part.end_scene_id = items.Scenes.id; 
+                }
             else
                 temp_part.end_scene_id = items.Scenes.id;
 
@@ -450,7 +435,7 @@ public class TestController : Controller
         scene.background_scene_img = model.Scenes.background_scene_img;
         scene.personage_scene_img = model.Scenes.personage_scene_img;
         scene.additional_scene_img = model.Scenes.additional_scene_img;
-        if (model.preview_scene_ids != null)
+        if (model.preview_scene_ids.Count != 0)
         {
             foreach (var previewId in model.preview_scene_ids)
             {
@@ -471,7 +456,7 @@ public class TestController : Controller
                 }
             }
         }
-        else if (model.preview_scene_ids != null)
+        else if (model.preview_answer_ids.Count != 0)
         {
             foreach (var previewId in model.preview_answer_ids)
             {
@@ -515,7 +500,7 @@ public class TestController : Controller
 
         _context.SaveChanges();
 
-        return RedirectToAction("Index"); // або інша сторінка після збереження
+        return RedirectToAction("Index");
     }
     [HttpPost]
     public IActionResult DeleteScene(int id)
@@ -524,21 +509,47 @@ public class TestController : Controller
         if (scene == null)
             return NotFound();
 
-        // 1. Видалення зображення з диску
-        if (!string.IsNullOrEmpty(scene.background_scene_img))
+        var temp_part = _context.Parts.FirstOrDefault(p => p.id == scene.id_part);
+        if (temp_part == null)
+            return NotFound("Part not found for the scene.");
+
+        else if (temp_part.start_scene_id == scene.id)
         {
-            // Отримуємо фізичний шлях
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", scene.background_scene_img.TrimStart('/'));
-            if (System.IO.File.Exists(filePath))
+            if(scene.id_next_scene != 0)
             {
-                System.IO.File.Delete(filePath);
+                var temp_scene = _context.Scenes.FirstOrDefault(s => s.id == scene.id_next_scene);
+
+                if (temp_scene != null)
+                    temp_part.start_scene_id = temp_scene.id;
+                else
+                    temp_part.start_scene_id = 0; // Якщо наступна сцена не знайдена, встановлюємо 0
+
+                _context.Parts.Update(temp_part);
             }
         }
+        else if (temp_part.end_scene_id == scene.id)
+        {
+            var temp_preview_scene = _context.Scenes.FirstOrDefault(s => s.id_next_scene == scene.id);
+
+            if (temp_preview_scene != null)
+                temp_part.end_scene_id = temp_preview_scene.id;
+            else
+                temp_part.end_scene_id = 0; // Якщо попередня сцена не знайдена, встановлюємо 0
+        }
+
+
+
 
         // 2. Видалення пов'язаних відповідей
         var answers = _context.Answers.Where(a => a.id_scene == id).ToList();
         _context.Answers.RemoveRange(answers);
-
+        // Видалленя для Answers наступну next_scene_id
+        var nextAnsw = _context.Answers.Where(a => a.next_scene_id == id).ToList();
+        foreach (var next in nextAnsw)
+        {
+            next.next_scene_id = 0;
+            _context.Answers.Update(next);
+        }
         // 3. Видалення сцени
         _context.Scenes.Remove(scene);
 
