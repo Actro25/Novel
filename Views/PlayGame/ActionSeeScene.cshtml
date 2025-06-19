@@ -75,16 +75,30 @@
 <div class="scene-layer character"></div>
 
 <div class="scene-text">
-    @if (!Model.CurrentScene.answer)
+@if (!Model.CurrentScene.answer)
+{
+    @if (Model.EndOfPartReached)
+    {
+        <form method="get" asp-controller="PlayGame" asp-action="ActionSeePart">
+            <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
+            <input type="hidden" name="actId" value="@Model.actId" />
+            <input type="hidden" name="StartAct" value="false" />
+                <input type="hidden" name="sceneID" value="@Model.NextSceneId" />
+            <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
+        </form>
+    }
+    else
     {
         <form method="get" asp-controller="PlayGame" asp-action="ActionSeeScene">
-            <input type="hidden" name="sceneId" value="@Model.CurrentScene.id_next_scene" />
+            <input type="hidden" name="sceneId" value="@Model.NextSceneId" />
             <input type="hidden" name="actId" value="@Model.actId" />
             <input type="hidden" name="StartPart" value="@Model.StartPart" />
             <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
             <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
         </form>
     }
+}
+
 </div>
 
 @if (Model.CurrentScene.answer)
