@@ -8,4 +8,4 @@ obj/
 
 # Файли конфігурації з секретами (якщо є)
 appsettings.Development.json
-appsettings.json
+appsettings.jsonbin/Debug/net8.0/appsettings.json 
