@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using NovelProject.Data;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
-
+DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(options =>
