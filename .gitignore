@@ -2,7 +2,6 @@
 .vs/
 # «б≥рков≥ файли
 appsettings*.json
-
 bin/
 obj/
 
