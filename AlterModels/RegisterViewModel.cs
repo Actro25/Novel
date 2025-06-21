@@ -5,7 +5,7 @@ namespace NovelProject.AlterModels
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "Вкажіть ім’я")]
-        public string FullName { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Вкажіть Email")]
         [EmailAddress(ErrorMessage = "Некоректний Email")]

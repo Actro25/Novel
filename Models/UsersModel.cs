@@ -2,7 +2,7 @@
 
 namespace NovelProject.Models
 {
-    public class User
+    public class UsersModel
     {
         [Key]
         public int Id { get; set; }

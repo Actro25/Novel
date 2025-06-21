@@ -11,5 +11,6 @@ namespace NovelProject.Data
         public DbSet<AnswersModel> Answers { get; set; }
         public DbSet<PartsModel> Parts { get; set; }
         public DbSet<ActsModel> Acts { get; set; }
+        public DbSet<UsersModel> Users { get; set; }
     }
 }

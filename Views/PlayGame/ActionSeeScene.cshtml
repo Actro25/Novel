@@ -6,6 +6,8 @@
 @{
     ViewData["Title"] = $"Scene {Model.CurrentScene.id}";
 
+    Layout = null;
+
     var answers = Model.CurrentScene.answer ? _context.Answers.Where(a => a.id_scene == Model.CurrentScene.id).ToList() : new List<NovelProject.Models.AnswersModel>();
 }
 
@@ -30,17 +32,17 @@
 
     .background {
         z-index: 1;
-        background-image: url('@Url.Content($"~/scene_images/background/{Model.CurrentScene.background_scene_img}")');
+        background-image: url('@Model.CurrentScene.background_scene_img');
     }
 
     .additional {
         z-index: 2;
-        background-image: url('@Url.Content($"~/scene_images/additional/{Model.CurrentScene.additional_scene_img}")');
+        background-image: url('@Model.CurrentScene.additional_scene_img');
     }
 
     .character {
         z-index: 3;
-        background-image: url('@Url.Content($"~/scene_images/character/{Model.CurrentScene.personage_scene_img}")');
+        background-image: url('@Model.CurrentScene.personage_scene_img');
     }
 
     .scene-text, .answers {
@@ -75,29 +77,29 @@
 <div class="scene-layer character"></div>
 
 <div class="scene-text">
-@if (!Model.CurrentScene.answer)
-{
-    @if (Model.EndOfPartReached)
+    @if (!Model.CurrentScene.answer)
     {
-        <form method="get" asp-controller="PlayGame" asp-action="ActionSeePart">
-            <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
-            <input type="hidden" name="actId" value="@Model.actId" />
-            <input type="hidden" name="StartAct" value="false" />
+        @if (Model.EndOfPartReached)
+        {
+            <form method="get" asp-controller="PlayGame" asp-action="ActionSeePart">
+                <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
+                <input type="hidden" name="actId" value="@Model.actId" />
+                <input type="hidden" name="StartAct" value="false" />
                 <input type="hidden" name="sceneID" value="@Model.NextSceneId" />
-            <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
-        </form>
+                <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
+            </form>
+        }
+        else
+        {
+            <form method="get" asp-controller="PlayGame" asp-action="ActionSeeScene">
+                <input type="hidden" name="sceneId" value="@Model.NextSceneId" />
+                <input type="hidden" name="actId" value="@Model.actId" />
+                <input type="hidden" name="StartPart" value="@Model.StartPart" />
+                <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
+                <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
+            </form>
+        }
     }
-    else
-    {
-        <form method="get" asp-controller="PlayGame" asp-action="ActionSeeScene">
-            <input type="hidden" name="sceneId" value="@Model.NextSceneId" />
-            <input type="hidden" name="actId" value="@Model.actId" />
-            <input type="hidden" name="StartPart" value="@Model.StartPart" />
-            <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
-            <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
-        </form>
-    }
-}
 
 </div>
 

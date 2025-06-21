@@ -1,4 +1,6 @@
-﻿@{
+﻿@using NovelProject.AlterModels
+@model AuthViewModel
+@{
     ViewData["Title"] = "Login/Register";
     Layout = null;
 }
@@ -18,7 +20,6 @@
             <button id="signupBtn" onclick="showSignup()">Реєстрація</button>
         </div>
         <div id="formSlider" class="form-wrapper">
-            <!-- Login Form -->
             <div class="form-container login-form">
                 <div class="rings-container">
                     <i style="--clr:#4B0082;"></i>
@@ -27,24 +28,20 @@
                 </div>
                 <div class="form-content">
                     <h2>Login</h2>
-                    <form method="post" action="/Login/LoginUser">
+                    <form method="post" asp-controller="Login" asp-action="LoginUser">
                         <div class="inputBox">
-                            <input type="text" name="Email" placeholder="Email" required />
+                            <input type="text" asp-for="Login.Email" name="Email" value="@Model?.Login?.Email" placeholder="Email" required />
+                            <span asp-validation-for="Login.Email" class="text-danger"></span>
                         </div>
                         <div class="inputBox">
-                            <input type="password" name="Password" placeholder="Пароль" required />
-                        </div>
-                        <div class="links">
-                            <a href="#">Forgot password?</a>
-                            <a href="@Url.Action("Login", "Login")">Вхід через Google</a>
+                            <input type="password" asp-for="Login.Password" name="Password" value="@Model?.Login?.Password" placeholder="Пароль" required />
+                            <span asp-validation-for="Login.Password" class="text-danger"></span>
                         </div>
                         <button type="submit">Увійти</button>
                     </form>
                 </div>
             </div>
 
-
-            <!-- Signup Form -->
             <div class="form-container register-form">
                 <div class="rings-container">
                     <i style="--clr:#ff0057;"></i>
@@ -54,18 +51,22 @@
 
                 <div class="form-content">
                     <h2>Registration</h2>
-                    <form method="post" action="/Login/RegisterUser">
+                    <form method="post" asp-controller="Login" asp-action="RegisterUser">
                         <div class="inputBox">
-                            <input type="text" name="FullName" placeholder="Name" required />
+                            <input type="text" asp-for="Register.Name" name="Name" value="@Model.Register.Name" placeholder="Name" required />
+                            <span asp-validation-for="Register.Name" class="text-danger"></span>
                         </div>
                         <div class="inputBox">
-                            <input type="text" name="Email" placeholder="Email" required />
+                            <input type="text" asp-for="Register.Email" name="Email" value="@Model.Register.Email" placeholder="Email" required />
+                            <span asp-validation-for="Register.Email" class="text-danger"></span>
                         </div>
                         <div class="inputBox">
-                            <input type="password" name="Password" placeholder="Password" required />
+                            <input type="password" asp-for="Register.Password" name="Password" value="@Model.Register.Password" placeholder="Password" required />
+                            <span asp-validation-for="Register.Password" class="text-danger"></span>
                         </div>
                         <div class="inputBox">
-                            <input type="password" name="ConfirmPassword" placeholder="Confirm password" required />
+                            <input type="password" asp-for="Register.ConfirmPassword" name="ConfirmPassword" value="@Model.Register.ConfirmPassword" placeholder="Confirm password" required />
+                            <span asp-validation-for="Register.ConfirmPassword" class="text-danger"></span>
                         </div>
                         <div class="links">
                             <a href="@Url.Action("Login", "Login")">Вхід через Google</a>
@@ -122,6 +123,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateRingsColors();
             showLogin();
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var showRegister = '@Model.ShowRegisterForm'.toLowerCase() === 'true';
+            if (showRegister) {
+                showSignup();
+            } else {
+                showLogin();
+            }
         });
     </script>
 </body>
