@@ -1,8 +1,7 @@
 @{
     ViewData["Title"] = "Dream Inspired Menu";
-    Layout = null; // Не використовуємо layout, щоб мати повний контроль над HTML
+    Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -12,40 +11,34 @@
     <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
-    <div class="logo-and-menu-wrapper">
-        <div class="logo-container">
-            <img src="~/img/Dream.jpg" alt="Логотип гри" class="game-logo" >
-        </div>
-        <div class="menu-container" id="mainMenuContainer">
-            <h1 class="menu-title">Dream</h1>
-            <h2 class="menu-subtitle"><span class="icon">♥</span> ГОЛОВНЕ МЕНЮ</h2>
-            <ul class="main-menu">
-                <li><a href="#" class="menu-item" data-lang-key="peaceful_mode">МИРНИЙ РЕЖИМ</a></li>
-                <li><a href="#" class="menu-item" data-lang-key="continue_game">ПРОДОВЖИТИ</a></li>
-                <li><a href="#" class="menu-item" data-lang-key="new_game">НОВА ГРА</a></li>
-                <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game">ЗАВАНТАЖИТИ</a></li>
-                <li><a href="#" class="menu-item" data-lang-key="characters">ПЕРСОНАЖІ</a></li>
-                <li><a href="#" class="menu-item" data-lang-key="clothes">ОДЯГ</a></li>
-                <li><a href="#" class="menu-item" id="settingsLink" data-lang-key="settings">НАЛАШТУВАННЯ</a></li>
-                <li><a href="#" class="menu-item" data-lang-key="achievements">ДОСЯГНЕННЯ <span class="achievement-count">26/26</span></a></li>
-                <li><a href="#" class="menu-item" id="authorsLink" data-lang-key="authors">АВТОРИ</a></li>
-                <li class="language-row highlight-language-row">
-                    <span class="menu-item language-label" data-lang-key="language">
-                        <span class="lang-icon" aria-hidden="true">🌐</span> МОВА
-                    </span>
-                    <span class="language-value highlight-language-value" id="languageValue">Українська</span>
-                </li>
-                <li class="language-row highlight-language-row">
-                    <span class="menu-item language-label" data-lang-key="voiceover">
-                        <span class="lang-icon" aria-hidden="true">🔊</span> ОЗВУЧКА
-                    </span>
-                    <span class="language-value highlight-language-value" id="voiceoverValue">Українська</span>
-                </li>
-                <li>
-                    <a href="#" id="exitLabel" class="exit-label" tabindex="0" role="button" data-lang-key="exit" style="position:static;left:auto;top:auto;">ВИХІД</a>
-                </li>
-            </ul>
-        </div>
+    <div class="menu-container" id="mainMenuContainer">
+        <h1 class="menu-title center-title"><span>DREAM</span><span class="alt">.EXE</span></h1>
+        <ul class="main-menu">
+            <li><a href="#" class="menu-item" data-lang-key="peaceful_mode"><span>МИРНИЙ РЕЖИМ</span> <span class="icon">🌙</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span> <span class="icon">🐾</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span> <span class="icon">🆕</span></a></li>
+            <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span> <span class="icon">💾</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span> <span class="icon">👤</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="clothes"><span>ОДЯГ</span> <span class="icon">👗</span></a></li>
+            <li><a href="#" class="menu-item" id="settingsLink" data-lang-key="settings"><span>НАЛАШТУВАННЯ</span> <span class="icon">⚙️</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="achievements"><span>ДОСЯГНЕННЯ</span> <span class="icon">🛡️</span> <span class="achievement-count">26/26</span></a></li>
+            <li><a href="#" class="menu-item" id="authorsLink" data-lang-key="authors"><span>АВТОРИ</span> <span class="icon">👥</span></a></li>
+            <li class="language-row highlight-language-row">
+                <span class="menu-item language-label" data-lang-key="language">
+                    <span class="lang-icon" aria-hidden="true">🌐</span> Мова
+                </span>
+                <span class="language-value highlight-language-value" id="languageValue">Українська</span>
+            </li>
+            <li class="language-row highlight-language-row">
+                <span class="menu-item language-label" data-lang-key="voiceover">
+                    <span class="lang-icon" aria-hidden="true">🔊</span> Озвучка
+                </span>
+                <span class="language-value highlight-language-value" id="voiceoverValue">Українська</span>
+            </li>
+            <li>
+                <a href="#" id="exitLabel" class="exit-label" tabindex="0" role="button" data-lang-key="exit">ВИХІД</a>
+            </li>
+        </ul>
     </div>
 
     <div id="authorsMenu" class="authors-menu-container hidden">
@@ -62,60 +55,48 @@
     <div id="settingsMenu" class="settings-menu-container hidden">
         <h3 class="settings-title" data-lang-key="settings_title">НАЛАШТУВАННЯ</h3>
         <div class="settings-section">
-            <h4 data-lang-key="interface_themes">Теми інтерфейсу:</h4>
+            <h4 data-lang-key="interface_themes">ТЕМИ ІНТЕРФЕЙСУ</h4>
             <div class="theme-options">
-                <button class="setting-button theme-button" id="themeLight" data-lang-key="theme_light" data-theme="light">Світла</button>
-                <button class="setting-button theme-button" id="themeDark" data-lang-key="theme_dark" data-theme="dark">Темна</button>
-                <button class="setting-button theme-button" id="themeWine" data-lang-key="theme_wine" data-theme="wine">Бордова</button>
-                <button class="setting-button theme-button" id="themeNeon" data-lang-key="theme_neon" data-theme="neon">Неонова</button>
+                <button class="theme-button" id="themeLight" data-lang-key="theme_light">СВІТЛА</button>
+                <button class="theme-button" id="themeDark" data-lang-key="theme_dark">ТЕМНА</button>
             </div>
         </div>
-
         <div class="settings-section">
-            <h4 data-lang-key="interface_scale">Масштаб інтерфейсу:</h4>
+            <h4 data-lang-key="interface_scale">МАСШТАБ ІНТЕРФЕЙСУ</h4>
             <div class="scale-options">
-                <button class="setting-button scale-button" id="scaleTiny" data-scale="tiny">Очень мелкий</button>
-                <button class="setting-button scale-button" id="scaleSmall" data-lang-key="scale_small" data-scale="small">Дрібний</button>
-                <button class="setting-button scale-button" id="scaleNormal" data-lang-key="scale_normal" data-scale="normal">Звичайний</button>
-                <button class="setting-button scale-button" id="scaleLarge" data-lang-key="scale_large" data-scale="large">Великий</button>
-                <button class="setting-button scale-button" id="scaleHuge" data-scale="huge">Огромный</button>
+                <button class="scale-button" id="scaleSmall" data-scale="small">ДРІБНИЙ</button>
+                <button class="scale-button" id="scaleNormal" data-scale="normal">ЗВИЧАЙНИЙ</button>
+                <button class="scale-button" id="scaleLarge" data-scale="large">ВЕЛИКИЙ</button>
             </div>
         </div>
-
         <div class="settings-section">
-            <h4>Музика:</h4>
+            <h4 data-lang-key="language">МОВА</h4>
+            <div class="language-settings-options">
+                <button class="lang-button" data-lang="uk">Українська</button>
+                <button class="lang-button" data-lang="ru">Російська</button>
+                <button class="lang-button" data-lang="en">Англійська</button>
+            </div>
+        </div>
+        <div class="settings-section">
+            <h4 data-lang-key="music">МУЗИКА</h4>
             <div class="music-controls">
-                <button id="musicToggle" class="setting-button">Увімкнено</button>
-                <input type="range" id="musicVolumeSlider" min="0" max="100" value="100" />
-                <span id="musicVolumeValue" class="volume-value">100</span>
+                <button class="music-toggle" id="musicOnBtn" style="display:none;">Включити</button>
+                <button class="music-toggle" id="musicOffBtn" style="display:none;">Вимкнути</button>
+                <input type="range" min="0" max="100" value="0" class="music-slider" id="musicSlider">
+                <span class="music-volume-value" id="musicVolumeValue">0</span>
+                <span class="music-volume-max">/100</span>
             </div>
             <div class="music-player">
-                <button id="musicPrev" class="music-player-btn">⏮</button>
-                <span id="musicTitle" class="music-title">Мелодія 1</span>
-                <button id="musicNext" class="music-player-btn">⏭</button>
+                <button class="music-title-btn" id="musicPrev">&lt;</button>
+                <span id="musicTitle">МЕЛОДІЯ 1</span>
+                <button class="music-title-btn" id="musicNext">&gt;</button>
             </div>
         </div>
-
-        <div class="settings-section">
-            <h4 data-lang-key="language_settings">Мова:</h4>
-            <div class="language-settings-options">
-                <button class="setting-button lang-button" id="langUkrainian" data-lang-value="ukrainian">Українська</button>
-                <button class="setting-button lang-button" id="langRussian" data-lang-value="russian">Російська</button>
-                <button class="setting-button lang-button" id="langEnglish" data-lang-value="english">Англійська</button>
-            </div>
-        </div>
-
         <button id="closeSettingsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
     </div>
 
-    <div id="loadGameMenu" class="settings-menu-container hidden">
-        <h3 class="settings-title">ЗАВАНТАЖЕННЯ / ЗБЕРЕЖЕННЯ ГРИ</h3>
-        <ul class="savegame-list" id="savegameList">
-            <li class="savegame-empty" id="savegameEmpty">Збережень ще немає.</li>
-        </ul>
-        <button id="closeLoadGameMenu" class="close-button">ЗАКРИТИ</button>
-    </div>
     <script src="~/js/site.js"></script>
-    <audio id="bgMusic" src="audio/bg.mp3" loop autoplay muted></audio>
+    <audio id="bgMusic" preload="auto"></audio>
 </body>
+</html>
 </html>
