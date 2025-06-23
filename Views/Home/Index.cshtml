@@ -9,31 +9,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji">
 </head>
 <body>
+    <div
+      aria-label="User Login Button"
+      tabindex="0"
+      role="button"
+      class="user-profile"
+      style="position: absolute; top: 28px; right: 48px; z-index: 100;"
+      onclick="window.location.href='@Url.Action("Login", "Home")'"
+      onkeydown="if(event.key==='Enter'){window.location.href='@Url.Action("Login", "Home")'}"
+    >
+      <div class="user-profile-inner">
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <g data-name="Layer 2" id="Layer_2">
+            <path
+              d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"
+            ></path>
+          </g>
+        </svg>
+        <p>Log In</p>
+      </div>
+    </div>
     <div class="menu-container" id="mainMenuContainer">
         <h1 class="menu-title center-title"><span>DREAM</span><span class="alt">.EXE</span></h1>
         <ul class="main-menu">
-            <li><a href="#" class="menu-item" data-lang-key="peaceful_mode"><span>МИРНИЙ РЕЖИМ</span> <span class="icon">🌙</span></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span> <span class="icon">🐾</span></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span> <span class="icon">🆕</span></a></li>
-            <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span> <span class="icon">💾</span></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span> <span class="icon">👤</span></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="clothes"><span>ОДЯГ</span> <span class="icon">👗</span></a></li>
-            <li><a href="#" class="menu-item" id="settingsLink" data-lang-key="settings"><span>НАЛАШТУВАННЯ</span> <span class="icon">⚙️</span></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="achievements"><span>ДОСЯГНЕННЯ</span> <span class="icon">🛡️</span> <span class="achievement-count">26/26</span></a></li>
-            <li><a href="#" class="menu-item" id="authorsLink" data-lang-key="authors"><span>АВТОРИ</span> <span class="icon">👥</span></a></li>
-            <li class="language-row highlight-language-row">
-                <span class="menu-item language-label" data-lang-key="language">
-                    <span class="lang-icon" aria-hidden="true">🌐</span> Мова
-                </span>
-                <span class="language-value highlight-language-value" id="languageValue">Українська</span>
-            </li>
-            <li class="language-row highlight-language-row">
-                <span class="menu-item language-label" data-lang-key="voiceover">
-                    <span class="lang-icon" aria-hidden="true">🔊</span> Озвучка
-                </span>
-                <span class="language-value highlight-language-value" id="voiceoverValue">Українська</span>
+            <li><a href="#" class="menu-item" data-lang-key="peaceful_mode"><span>МИРНИЙ РЕЖИМ</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span></a></li>
+            <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="clothes"><span>ОДЯГ</span></a></li>
+            <li><a href="#" class="menu-item" id="settingsLink" data-lang-key="settings"><span>НАЛАШТУВАННЯ</span></a></li>
+            <li><a href="#" class="menu-item" data-lang-key="achievements"><span>ДОСЯГНЕННЯ</span> <span class="achievement-count">26/26</span></a></li>
+            <li><a href="#" class="menu-item" id="authorsLink" data-lang-key="authors"><span>АВТОРИ</span></a></li>
+            <li style="display: flex; gap: 1.2em; justify-content: flex-start; background: none; box-shadow: none; border: none;">
+                <div class="lang-voice-block">
+                    <div class="lang-voice-title">Мова</div>
+                    <div class="lang-voice-value">Українська</div>
+                </div>
+                <div class="lang-voice-block">
+                    <div class="lang-voice-title">Озвучка</div>
+                    <div class="lang-voice-value">Українська</div>
+                </div>
             </li>
             <li>
                 <a href="#" id="exitLabel" class="exit-label" tabindex="0" role="button" data-lang-key="exit">ВИХІД</a>
@@ -98,5 +121,10 @@
     <script src="~/js/site.js"></script>
     <audio id="bgMusic" preload="auto"></audio>
 </body>
+</html>
+</html>
+</html>
+</html>
+</html>
 </html>
 </html>

@@ -41,6 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Масштабирование всех меню
+    function applyMenuScale(scale) {
+        const scaleValue = scale === 'small' ? 0.85 : scale === 'large' ? 1.18 : 1;
+        document.querySelectorAll('.menu-container, .settings-menu-container, .authors-menu-container').forEach(el => {
+            el.style.transform = `scale(${scaleValue})`;
+            el.style.transformOrigin = 'top left';
+        });
+    }
+
     function setScale(scale) {
         // Удаляем все классы масштаба
         body.classList.remove('scale-small', 'scale-normal', 'scale-large');
@@ -49,14 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
         scaleButtons.forEach(btn => {
             btn.classList.toggle('active', btn.id === 'scale' + scale.charAt(0).toUpperCase() + scale.slice(1));
         });
-        // Меняем масштаб всех меню через transform: scale()
-        const scaleValue = scale === 'small' ? 0.85 : scale === 'large' ? 1.18 : 1;
-        document.querySelectorAll('.menu-container, .settings-menu-container, .authors-menu-container').forEach(el => {
-            el.style.transform = `scale(${scaleValue})`;
-            el.style.transformOrigin = 'top left';
-        });
+        applyMenuScale(scale);
         updateScaleLabel(scale);
     }
+    // При загрузке страницы применяем масштаб
     let savedScale = localStorage.getItem('novel_scale');
     if (!savedScale) savedScale = 'normal';
     setScale(savedScale);
@@ -66,18 +71,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Плавное открытие/закрытие меню и подменю как всплывающее окно ---
     function showMenu(menu) {
-        document.querySelectorAll('.settings-menu-container, .authors-menu-container').forEach(el => el.classList.add('hidden'));
-        if (menu) {
-            menu.classList.remove('hidden');
-            menu.classList.add('active');
-            // Позиционируем справа от экрана (а не от главного меню)
-            menu.style.position = 'fixed';
-            menu.style.left = 'calc(50vw + 60px)';
-            menu.style.top = '60px';
-            menu.style.right = '40px';
-            menu.style.zIndex = 100;
-            menu.style.maxWidth = '420px';
+        // Если меню уже активно — скрыть его
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            setTimeout(() => menu.classList.add('hidden'), 300);
+            return;
         }
+        // Скрыть все меню
+        document.querySelectorAll('.settings-menu-container, .authors-menu-container').forEach(el => {
+            el.classList.remove('active');
+            setTimeout(() => el.classList.add('hidden'), 300);
+        });
+        // Показать выбранное меню
+        menu.classList.remove('hidden');
+        setTimeout(() => menu.classList.add('active'), 10);
+        // Позиционируем справа от экрана (а не от главного меню)
+        menu.style.position = 'fixed';
+        menu.style.left = 'calc(50vw + 60px)';
+        menu.style.top = '60px';
+        menu.style.right = '40px';
+        menu.style.zIndex = 100;
+        menu.style.maxWidth = '420px';
     }
     function hideMenus() {
         document.querySelectorAll('.settings-menu-container, .authors-menu-container').forEach(el => {
@@ -92,12 +106,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const authorsMenu = document.getElementById('authorsMenu');
     const closeSettingsMenu = document.getElementById('closeSettingsMenu');
     const closeAuthorsMenu = document.getElementById('closeAuthorsMenu');
-    if (settingsLink && settingsMenu) settingsLink.onclick = e => { e.preventDefault(); showMenu(settingsMenu); };
-    if (authorsLink && authorsMenu) authorsLink.onclick = e => { e.preventDefault(); showMenu(authorsMenu); };
-    if (closeSettingsMenu) closeSettingsMenu.onclick = hideMenus;
-    if (closeAuthorsMenu) closeAuthorsMenu.onclick = hideMenus;
+
+    if (settingsLink && settingsMenu) {
+        settingsLink.onclick = e => {
+            e.preventDefault();
+            // Снять активность со всех .menu-item
+            document.querySelectorAll('.menu-item').forEach(btn => btn.classList.remove('active'));
+            // Если меню уже открыто, закрыть и убрать активность
+            if (settingsMenu.classList.contains('active')) {
+                settingsMenu.classList.remove('active');
+                setTimeout(() => settingsMenu.classList.add('hidden'), 300);
+            } else {
+                settingsLink.classList.add('active');
+                showMenu(settingsMenu);
+            }
+        };
+    }
+    if (authorsLink && authorsMenu) {
+        authorsLink.onclick = e => {
+            e.preventDefault();
+            document.querySelectorAll('.menu-item').forEach(btn => btn.classList.remove('active'));
+            if (authorsMenu.classList.contains('active')) {
+                authorsMenu.classList.remove('active');
+                setTimeout(() => authorsMenu.classList.add('hidden'), 300);
+            } else {
+                authorsLink.classList.add('active');
+                showMenu(authorsMenu);
+            }
+        };
+    }
+    if (closeSettingsMenu) closeSettingsMenu.onclick = function() {
+        hideMenus();
+        // Снять активность с кнопки меню "Настройки"
+        if (settingsLink) settingsLink.classList.remove('active');
+        // Снять активность со всех .menu-item (убрать наведение)
+        document.querySelectorAll('.menu-item').forEach(btn => btn.classList.remove('active'));
+    };
+    if (closeAuthorsMenu) closeAuthorsMenu.onclick = function() {
+        hideMenus();
+        // Снять активность с кнопки меню "Авторы"
+        if (authorsLink) authorsLink.classList.remove('active');
+        document.querySelectorAll('.menu-item').forEach(btn => btn.classList.remove('active'));
+    };
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') hideMenus();
+        if (e.key === 'Escape') {
+            hideMenus();
+            // Снять активность с кнопок меню
+            if (settingsLink) settingsLink.classList.remove('active');
+            if (authorsLink) authorsLink.classList.remove('active');
+            document.querySelectorAll('.menu-item').forEach(btn => btn.classList.remove('active'));
+        }
     });
 
     // --- Язык ---
@@ -129,7 +187,20 @@ document.addEventListener('DOMContentLoaded', function() {
             scenario_writer: 'Сценарист:',
             artist: 'Художник:',
             programmer: 'Програміст:',
-            music_author: 'Музика:'
+            music_author: 'Музика:',
+            // Кнопки музыки
+            music_on: 'Включити',
+            music_off: 'Вимкнути',
+            // Кнопки мелодий
+            prev: 'Назад',
+            next: 'Вперед',
+            // Кнопки масштаба
+            scale_small: 'ДРІБНИЙ',
+            scale_normal: 'ЗВИЧАЙНИЙ',
+            scale_large: 'ВЕЛИКИЙ',
+            // Кнопки темы
+            theme_light_btn: 'СВІТЛА',
+            theme_dark_btn: 'ТЕМНА'
         },
         ru: {
             peaceful_mode: 'МИРНЫЙ РЕЖИМ',
@@ -155,7 +226,20 @@ document.addEventListener('DOMContentLoaded', function() {
             scenario_writer: 'Сценарист:',
             artist: 'Художник:',
             programmer: 'Программист:',
-            music_author: 'Музыка:'
+            music_author: 'Музыка:',
+            // Кнопки музыки
+            music_on: 'Включить',
+            music_off: 'Выключить',
+            // Кнопки мелодий
+            prev: 'Назад',
+            next: 'Вперёд',
+            // Кнопки масштаба
+            scale_small: 'МЕЛКИЙ',
+            scale_normal: 'ОБЫЧНЫЙ',
+            scale_large: 'КРУПНЫЙ',
+            // Кнопки темы
+            theme_light_btn: 'СВЕТЛАЯ',
+            theme_dark_btn: 'ТЁМНАЯ'
         },
         en: {
             peaceful_mode: 'PEACEFUL MODE',
@@ -181,7 +265,20 @@ document.addEventListener('DOMContentLoaded', function() {
             scenario_writer: 'Scenario:',
             artist: 'Artist:',
             programmer: 'Programmer:',
-            music_author: 'Music:'
+            music_author: 'Music:',
+            // Кнопки музыки
+            music_on: 'Turn On',
+            music_off: 'Turn Off',
+            // Кнопки мелодий
+            prev: 'Prev',
+            next: 'Next',
+            // Кнопки масштаба
+            scale_small: 'SMALL',
+            scale_normal: 'NORMAL',
+            scale_large: 'LARGE',
+            // Кнопки темы
+            theme_light_btn: 'LIGHT',
+            theme_dark_btn: 'DARK'
         }
     };
     function updateLangUI(lang) {
@@ -200,6 +297,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 lang === 'ru' ? 'Російська' :
                 lang === 'en' ? 'Англійська' : '';
         }
+        // Кнопки музыки
+        const musicOnBtn = document.getElementById('musicOnBtn');
+        const musicOffBtn = document.getElementById('musicOffBtn');
+        if (musicOnBtn) musicOnBtn.textContent = translations[lang].music_on;
+        if (musicOffBtn) musicOffBtn.textContent = translations[lang].music_off;
+        // Кнопки масштабов
+        const scaleSmallBtn = document.getElementById('scaleSmall');
+        const scaleNormalBtn = document.getElementById('scaleNormal');
+        const scaleLargeBtn = document.getElementById('scaleLarge');
+        if (scaleSmallBtn) scaleSmallBtn.textContent = translations[lang].scale_small;
+        if (scaleNormalBtn) scaleNormalBtn.textContent = translations[lang].scale_normal;
+        if (scaleLargeBtn) scaleLargeBtn.textContent = translations[lang].scale_large;
+        // Кнопки тем
+        const themeLightBtn = document.getElementById('themeLight');
+        const themeDarkBtn = document.getElementById('themeDark');
+        if (themeLightBtn) themeLightBtn.textContent = translations[lang].theme_light_btn;
+        if (themeDarkBtn) themeDarkBtn.textContent = translations[lang].theme_dark_btn;
+        // Кнопки мелодий (если хотите перевести)
+        const musicPrev = document.getElementById('musicPrev');
+        const musicNext = document.getElementById('musicNext');
+        if (musicPrev) musicPrev.textContent = translations[lang].prev || '<';
+        if (musicNext) musicNext.textContent = translations[lang].next || '>';
         updateScaleLabel(localStorage.getItem('novel_scale') || 'normal');
     }
     function setLang(lang) {
@@ -223,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const musicPrev = document.getElementById('musicPrev');
     const musicNext = document.getElementById('musicNext');
     // Пример мелодий
-    const melodies = ['МЕЛОДІЯ 1', 'МЕЛОДІЯ 2', 'МЕЛОДІЯ 3'];
+    const melodies = ['1', '2', '3'];
     let melodyIndex = Number(localStorage.getItem('novel_melody') || 0);
     let musicOn = localStorage.getItem('novel_music_on') === 'true';
     let musicVolume = Number(localStorage.getItem('novel_music_volume') || 50);
@@ -353,172 +472,71 @@ document.addEventListener('DOMContentLoaded', function() {
         var settingsMenu = document.getElementById('settingsMenu');
         var authorsMenu = document.getElementById('authorsMenu');
 
-        // Открыть настройки
+        // Универсальная функция для показа/скрытия меню
+        function toggleMenu(menuToShow) {
+            // Если меню уже активно — скрыть его
+            if (menuToShow.classList.contains('active')) {
+                menuToShow.classList.remove('active');
+                setTimeout(() => menuToShow.classList.add('hidden'), 300);
+                return;
+            }
+            // Скрыть оба меню
+            [settingsMenu, authorsMenu].forEach(menu => {
+                if (menu) {
+                    menu.classList.remove('active');
+                    setTimeout(() => menu.classList.add('hidden'), 300);
+                }
+            });
+            // Показать выбранное меню
+            menuToShow.classList.remove('hidden');
+            setTimeout(() => menuToShow.classList.add('active'), 10);
+
+            
+
+        // Клик по "Настройки"
         if (settingsLink && settingsMenu) {
             settingsLink.addEventListener('click', function (e) {
                 e.preventDefault();
-                settingsMenu.classList.add('active');
-                settingsMenu.classList.remove('hidden');
-                if (authorsMenu) authorsMenu.classList.remove('active', 'hidden');
+                toggleMenu(settingsMenu);
             });
         }
-        // Открыть авторов
+        // Клик по "Авторы"
         if (authorsLink && authorsMenu) {
             authorsLink.addEventListener('click', function (e) {
                 e.preventDefault();
-                authorsMenu.classList.add('active');
-                authorsMenu.classList.remove('hidden');
-                if (settingsMenu) settingsMenu.classList.remove('active', 'hidden');
+                toggleMenu(authorsMenu);
             });
         }
-        // Закрыть настройки
+        // Кнопка закрытия "Настройки"
         if (closeSettingsMenu && settingsMenu) {
             closeSettingsMenu.addEventListener('click', function () {
                 settingsMenu.classList.remove('active');
                 setTimeout(function () { settingsMenu.classList.add('hidden'); }, 300);
             });
         }
-        // Закрыть авторов
+        // Кнопка закрытия "Авторы"
         if (closeAuthorsMenu && authorsMenu) {
             closeAuthorsMenu.addEventListener('click', function () {
                 authorsMenu.classList.remove('active');
                 setTimeout(function () { authorsMenu.classList.add('hidden'); }, 300);
             });
         }
-        // ESC закрывает окна
+        // ESC закрывает оба меню
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
-                if (settingsMenu) settingsMenu.classList.remove('active');
-                if (authorsMenu) authorsMenu.classList.remove('active');
+                [settingsMenu, authorsMenu].forEach(menu => {
+                    if (menu) menu.classList.remove('active');
+                });
                 setTimeout(function () {
-                    if (settingsMenu) settingsMenu.classList.add('hidden');
-                    if (authorsMenu) authorsMenu.classList.add('hidden');
+                    [settingsMenu, authorsMenu].forEach(menu => {
+                        if (menu) menu.classList.add('hidden');
+                    });
                 }, 300);
             }
         });
+    } // <-- Add this closing brace to end the IIFE function
+   
 
-        // Масштаб интерфейса
-        var scaleBtns = document.querySelectorAll('.scale-button');
-        Array.prototype.forEach.call(scaleBtns, function(btn) {
-            btn.addEventListener('click', function () {
-                document.body.classList.remove('scale-small', 'scale-normal', 'scale-large');
-                if (btn.dataset.scale === 'small') document.body.classList.add('scale-small');
-                if (btn.dataset.scale === 'normal') document.body.classList.add('scale-normal');
-                if (btn.dataset.scale === 'large') document.body.classList.add('scale-large');
-                Array.prototype.forEach.call(scaleBtns, function(b) { b.classList.remove('active'); });
-                btn.classList.add('active');
-            });
-        });
-
-        // Темы интерфейса
-        var themeLight = document.getElementById('themeLight');
-        var themeDark = document.getElementById('themeDark');
-        if (themeLight) themeLight.addEventListener('click', function () {
-            document.body.classList.remove('theme-dark');
-            themeLight.classList.add('active');
-            if (themeDark) themeDark.classList.remove('active');
-        });
-        if (themeDark) themeDark.addEventListener('click', function () {
-            document.body.classList.add('theme-dark');
-            themeDark.classList.add('active');
-            if (themeLight) themeLight.classList.remove('active');
-        });
-
-        // Язык интерфейса (пример, можно доработать)
-        var langBtns = document.querySelectorAll('.lang-button');
-        Array.prototype.forEach.call(langBtns, function(btn) {
-            btn.addEventListener('click', function () {
-                Array.prototype.forEach.call(langBtns, function(b) { b.classList.remove('active'); });
-                btn.classList.add('active');
-            });
-        });
-
-        // Музыка (пример)
-        var musicToggle = document.getElementById('musicToggle');
-        var musicSlider = document.getElementById('musicSlider');
-        var musicVolumeValue = document.getElementById('musicVolumeValue');
-        var bgMusic = document.getElementById('bgMusic');
-        if (musicToggle && musicSlider && bgMusic) {
-            musicToggle.addEventListener('click', function () {
-                if (bgMusic.paused) {
-                    bgMusic.volume = musicSlider.value / 100;
-                    bgMusic.play();
-                    musicToggle.textContent = 'УВІМКНЕНО';
-                    musicToggle.classList.add('active');
-                } else {
-                    bgMusic.pause();
-                    musicToggle.textContent = 'ВИМКНУТО';
-                    musicToggle.classList.remove('active');
-                }
-            });
-            musicSlider.addEventListener('input', function () {
-                bgMusic.volume = musicSlider.value / 100;
-                musicVolumeValue.textContent = musicSlider.value;
-            });
-        }
-    })();
-
-    // --- Адаптация меню для разных экранов ---
-    function adaptMenus() {
-        // Главный контейнер меню
-        const menuContainer = document.querySelector('.menu-container');
-        const settingsMenu = document.getElementById('settingsMenu');
-        const authorsMenu = document.getElementById('authorsMenu');
-        // Получаем ширину экрана
-        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-        // Главный блок
-        if (menuContainer) {
-            if (vw < 600) {
-                menuContainer.style.width = '95vw';
-                menuContainer.style.left = '2.5vw';
-                menuContainer.style.top = '10px';
-                menuContainer.style.maxWidth = 'none';
-                menuContainer.style.borderRadius = '18px';
-            } else if (vw < 900) {
-                menuContainer.style.width = '340px';
-                menuContainer.style.left = '30px';
-                menuContainer.style.top = '30px';
-                menuContainer.style.maxWidth = '90vw';
-                menuContainer.style.borderRadius = '20px';
-            } else {
-                menuContainer.style.width = '320px';
-                menuContainer.style.left = '40px';
-                menuContainer.style.top = '40px';
-                menuContainer.style.maxWidth = '360px';
-                menuContainer.style.borderRadius = '22px';
-            }
-        }
-        // Настройки/авторы
-        [settingsMenu, authorsMenu].forEach(menu => {
-            if (menu) {
-                if (vw < 600) {
-                    menu.style.position = 'fixed';
-                    menu.style.left = '2.5vw';
-                    menu.style.top = '60px';
-                    menu.style.right = '2.5vw';
-                    menu.style.maxWidth = '95vw';
-                    menu.style.borderRadius = '18px';
-                } else if (vw < 900) {
-                    menu.style.position = 'fixed';
-                    menu.style.left = 'calc(50vw - 160px)';
-                    menu.style.top = '60px';
-                    menu.style.right = '30px';
-                    menu.style.maxWidth = '420px';
-                    menu.style.borderRadius = '20px';
-                } else {
-                    menu.style.position = 'fixed';
-                    menu.style.left = 'calc(50vw + 60px)';
-                    menu.style.top = '60px';
-                    menu.style.right = '40px';
-                    menu.style.maxWidth = '420px';
-                    menu.style.borderRadius = '22px';
-                }
-            }
-        });
-    }
-    window.addEventListener('resize', adaptMenus);
-    adaptMenus();
-
-    // Всё управление адаптацией и плавностью реализовано через CSS transitions и keyframes.
-    // JS только добавляет/убирает класс .hidden для плавного появления/скрытия меню и подменю.
-});
+   
+    })(); // <-- Call the IIFE to execute the code  
+}       );

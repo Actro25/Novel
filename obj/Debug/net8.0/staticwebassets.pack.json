@@ -41,6 +41,14 @@
       "PackagePath": "staticwebassets\\img\\NovelaGirl.jpg"
     },
     {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\bg-dark.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-dark.jpg"
+    },
+    {
+      "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\bg-light.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-light.jpg"
+    },
+    {
       "Id": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\characters.js",
       "PackagePath": "staticwebassets\\js\\characters.js"
     },
