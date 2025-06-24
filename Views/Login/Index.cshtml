@@ -1,0 +1,138 @@
+﻿@using NovelProject.AlterModels
+@model AuthViewModel
+@{
+    ViewData["Title"] = "Login/Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/auth.css" />
+</head>
+<body>
+    <div class="auth-container">
+        <div class="form-toggle">
+            <button id="loginBtn" class="active" onclick="showLogin()">Вхід</button>
+            <button id="signupBtn" onclick="showSignup()">Реєстрація</button>
+        </div>
+        <div id="formSlider" class="form-wrapper">
+            <div class="form-container login-form">
+                <div class="rings-container">
+                    <i style="--clr:#4B0082;"></i>
+                    <i style="--clr:#720e9e;"></i>
+                    <i style="--clr:#EE82EE;"></i>
+                </div>
+                <div class="form-content">
+                    <h2>Login</h2>
+                    <form method="post" asp-controller="Login" asp-action="LoginUser">
+                        <div class="inputBox">
+                            <input type="text" asp-for="Login.Email" name="Email" value="@Model?.Login?.Email" placeholder="Email" required />
+                            <span asp-validation-for="Login.Email" class="text-danger"></span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" asp-for="Login.Password" name="Password" value="@Model?.Login?.Password" placeholder="Пароль" required />
+                            <span asp-validation-for="Login.Password" class="text-danger"></span>
+                        </div>
+                        <button type="submit">Увійти</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="form-container register-form">
+                <div class="rings-container">
+                    <i style="--clr:#ff0057;"></i>
+                    <i style="--clr:#fffd44;"></i>
+                    <i style="--clr:#00ff0a;"></i>
+                </div>
+
+                <div class="form-content">
+                    <h2>Registration</h2>
+                    <form method="post" asp-controller="Login" asp-action="RegisterUser">
+                        <div class="inputBox">
+                            <input type="text" asp-for="Register.Name" name="Name" value="@Model.Register.Name" placeholder="Name" required />
+                            <span asp-validation-for="Register.Name" class="text-danger"></span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" asp-for="Register.Email" name="Email" value="@Model.Register.Email" placeholder="Email" required />
+                            <span asp-validation-for="Register.Email" class="text-danger"></span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" asp-for="Register.Password" name="Password" value="@Model.Register.Password" placeholder="Password" required />
+                            <span asp-validation-for="Register.Password" class="text-danger"></span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" asp-for="Register.ConfirmPassword" name="ConfirmPassword" value="@Model.Register.ConfirmPassword" placeholder="Confirm password" required />
+                            <span asp-validation-for="Register.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="links">
+                            <a href="@Url.Action("Login", "Login")">Вхід через Google</a>
+                        </div>
+                        <button type="submit">Зареєструватися</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ініціалізація стану
+            showLogin();
+
+            // Обробники подій
+            document.getElementById('loginBtn').addEventListener('click', showLogin);
+            document.getElementById('signupBtn').addEventListener('click', showSignup);
+        });
+
+        function showLogin() {
+            const formSlider = document.getElementById('formSlider');
+            const loginBtn = document.getElementById('loginBtn');
+            const signupBtn = document.getElementById('signupBtn');
+
+            formSlider.style.transform = 'translateX(0)';
+            loginBtn.classList.add('active');
+            signupBtn.classList.remove('active');
+
+            // Оновлення кілець для логіну
+            updateRingsColors('#4B0082', '#720e9e', '#EE82EE');
+        }
+
+        function showSignup() {
+            const formSlider = document.getElementById('formSlider');
+            const loginBtn = document.getElementById('loginBtn');
+            const signupBtn = document.getElementById('signupBtn');
+
+            formSlider.style.transform = 'translateX(-50%)';
+            signupBtn.classList.add('active');
+            loginBtn.classList.remove('active');
+
+            // Оновлення кілець для реєстрації
+            updateRingsColors('#00ff0a', '#ff0057', '#fffd44');
+        }
+        function updateRingsColors(color1, color2, color3) {  // Додаємо параметри
+            const rings = document.querySelectorAll('.rings-container i');
+            rings[0].style.borderColor = color1;  // Використовуємо передані кольори
+            rings[1].style.borderColor = color2;
+            rings[2].style.borderColor = color3;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateRingsColors();
+            showLogin();
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var showRegister = '@Model.ShowRegisterForm'.toLowerCase() === 'true';
+            if (showRegister) {
+                showSignup();
+            } else {
+                showLogin();
+            }
+        });
+    </script>
+</body>
+</html>

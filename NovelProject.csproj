@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+<<<<<<< HEAD
+=======
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
+>>>>>>> Vergil_Main
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,4 +22,15 @@
     <PackageReference Include="MySql.EntityFrameworkCore" Version="9.0.3" />
   </ItemGroup>
 
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\scene_images\background_action_scene\" />
+    <Folder Include="wwwroot\scene_images\backgrounds\" />
+    <Folder Include="wwwroot\scene_images\additional_images\" />
+    <Folder Include="wwwroot\scene_images\personage_images\" />
+  </ItemGroup>
+
+>>>>>>> Vergil_Main
 </Project>

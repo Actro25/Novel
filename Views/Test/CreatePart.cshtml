@@ -1,0 +1,41 @@
+﻿@using NovelProject.AlterModels
+@model PartOneAndAllModel
+
+<form asp-action="CreatePart" method="post">
+    <h3>Part Name</h3>
+    <input asp-for="Parts.name" class="form-control" />
+    <label>Start Part Text</label>
+    <input asp-for="Parts.start_part_text" class="form-control" />
+    <label>End Part Text</label>
+    <input asp-for="Parts.end_part_text" class="form-control" />
+    <label>До якого акта воно іде?</label>
+    <select asp-for="Parts.act_id" class="form-control">
+        @foreach (var act in Model.AllActs)
+        {
+            <option value="@act.Id">@act.Name</option>
+        }
+    </select>
+    <label>До якого розділу воно іде?</label>
+    <select asp-for="Parts.next_part_id" class="form-control">
+        <option value="0">(Попереднього партра немає)</option>
+        @foreach (var chapter in Model.AllParts)
+        {
+            <option value="@chapter.id">@chapter.id: @chapter.start_part_text - @chapter.end_part_text</option>
+        }
+    </select>
+    <hr />
+    <button type="submit">Зберегти</button>
+    <br />
+    <hr />
+</form>
+<form asp-action="DetailPart" method="get">
+    <h3>Змінити part</h3>
+    <select name="id" class="form-control">
+        @foreach (var part in Model.AllParts)
+        {
+            <option value="@part.id">@part.name</option>
+        }
+    </select>
+    <button type="submit">Деталі парта</button>
+</form>
+

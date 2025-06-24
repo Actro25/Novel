@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 @{
     ViewData["Title"] = "Dream Inspired Menu";
     Layout = null;
 }
 <!DOCTYPE html>
 <html lang="uk">
+=======
+﻿@{
+    ViewData["Title"] = "Dream Inspired Menu";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+>>>>>>> Vergil_Main
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji">
 </head>
 <body>
@@ -134,3 +145,75 @@
 </html>
 </html>
 </html>
+=======
+
+    <style>
+        .top-right-buttons {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+            .top-right-buttons a {
+                padding: 8px 16px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid white;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+
+                .top-right-buttons a:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                }
+    </style>
+</head>
+<body>
+    @if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
+    {
+
+        <div class="top-right-buttons">
+            <label class="text-white">
+                @Context.User.Identity.Name
+            </label>
+            <a href="@Url.Action("Logout", "Login")">Вихід</a>
+        </div>
+    }
+    else
+    {
+        <div class="top-right-buttons">
+            <a href="@Url.Action("Index", "Login")">Вхід</a>
+        </div>
+    }
+
+    <div class="menu-container">
+        <h1 class="menu-title">Dream</h1>
+        <h2 class="menu-subtitle">ГЛАВНОЕ МЕНЮ</h2>
+        <ul class="main-menu">
+            <li><a href="#" class="menu-item">МИРНЫЙ РЕЖИМ</a></li>
+            <li><a href="@Url.Action("NewGame", "Home")?action=continue" class="menu-item">ПРОДОЛЖИТЬ</a></li>
+            <li><a href="@Url.Action("NewGame", "Home")?action=new" class="menu-item">НОВАЯ ИГРА</a></li>
+            <li><a href="#" class="menu-item">ЗАГРУЗИТЬ</a></li>
+            <li><a href="#" class="menu-item">ПЕРСОНАЖИ</a></li>
+            <li><a href="#" class="menu-item">ОДЕЖДА</a></li>
+            <li><a href="#" class="menu-item">НАСТРОЙКИ</a></li>
+            <li><a href="#" class="menu-item">ДОСТИЖЕНИЯ <span class="achievement-count">26/26</span></a></li>
+            <li><a href="@Url.Action("SeeFullHistoryTree", "Test")" class="menu-item">ДОБАВИТЬ ИСТОРИЮ</a></li>
+            <li class="language-row">
+                <a href="#" class="menu-item">ЯЗЫК</a>
+                <span class="language-value">Русский</span>
+            </li>
+            <li class="language-row">
+                <a href="#" class="menu-item">ОЗВУЧКА</a>
+                <span class="language-value">Русский</span>
+            </li>
+            <li><a href="#" class="menu-item exit-button">ВЫХОД</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+>>>>>>> Vergil_Main

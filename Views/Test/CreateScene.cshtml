@@ -1,0 +1,251 @@
+﻿@model CreateSceneModel
+
+
+<style>
+    .selectable-image {
+        max-width: 120px;
+        max-height: 100px;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: transform 0.2s, border-color 0.2s;
+        cursor: pointer;
+    }
+
+        .selectable-image:hover {
+            transform: scale(1.1);
+            border-color: #0d6efd;
+        }
+
+    .image-option input:checked + .selectable-image {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+    }
+
+    .selectable-image {
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+</style>
+
+<form asp-action="CreateScene" method="post" enctype="multipart/form-data">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input type="hidden" asp-for="Scenes.id_part" value="@Model.partId" />
+    <input type="hidden" asp-for="partId" value="@Model.partId" />
+    <h3>Додати нову сцену</h3>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Тип сцени:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" asp-for="Scenes.answer" id="textSceneRadio" value="false" checked="@(!Model.Scenes.answer)" onchange="toggleSceneType(false)" />
+            <label class="form-check-label" for="textSceneRadio">Текстова сцена</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" asp-for="Scenes.answer" id="answerSceneRadio" value="true" checked="@(Model.Scenes.answer)" onchange="toggleSceneType(true)" />
+            <label class="form-check-label" for="answerSceneRadio">Сцена з варіантами вибору</label>
+        </div>
+    </div>
+
+    <div id="textSceneSection" style="display: @(Model.Scenes.answer ? "none" : "block")">
+        <div class="form-group">
+            <label>Текст сцени</label>
+            <textarea asp-for="Scenes.text_scene" class="form-control" rows="5"></textarea>
+        </div>
+    </div>
+
+    <div id="answerSceneSection" style="display: @(Model.Scenes.answer ? "block" : "none")">
+        <h4>Варіанти відповідей</h4>
+        <div id="answersContainer">
+            @if (Model.Scenes.answer && Model.Answers != null)
+            {
+                for (int i = 0; i < Model.Answers.Count; i++)
+                {
+                    <div class="mb-2 p-2 border rounded">
+                        <input type="text" name="Answers[@i].asnwer_for_scene"
+                               value="@Model.Answers[i].asnwer_for_scene"
+                               class="form-control mb-1"
+                               placeholder="Варіант @(i + 1)" required />
+                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.parentNode.remove()">
+                            Видалити
+                        </button>
+                    </div>
+                }
+            }
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-primary mt-2" onclick="addAnswerField()">
+            + Додати варіант
+        </button>
+    </div>
+
+    <!-- Інші поля форми -->
+    <div class="form-group mb-3">
+        <h3>Які сцени (або відповіді) є попередніми для цієї?</h3>
+
+        <!-- Попередні сцени -->
+        <label class="form-label">Сцени</label>
+        <select name="preview_scene_ids" class="form-control" multiple size="5">
+            <option value="0">(Початок історії, немає попередньої сцени)</option>
+            @if (Model.AllItems?.Scene != null)
+            {
+                foreach (var scene in Model.AllItems.Scene)
+                {
+                    <option value="@scene.id"
+                            selected="@(Model.preview_scene_ids?.Contains(scene.id) == true)">
+                        @{
+                            var partName = Model.AllItems.Parts?.FirstOrDefault(p => p.id == scene.id_part)?.name ?? "Невідомий парт";
+                            var text = scene.text_scene ?? "Без тексту";
+                            text = text.Length > 50 ? text.Substring(0, 50) + "..." : text;
+                        }
+                        Парт "@partName" - @text
+                    </option>
+                }
+            }
+        </select>
+
+        <!-- Попередні відповіді -->
+        <label class="form-label mt-3">Відповіді</label>
+        <select name="preview_answer_ids" class="form-control" multiple size="3">
+            <option value="-1">(Початок історії, немає попередньої відповіді)</option>
+            @if (Model.AllItems?.Answers != null)
+            {
+                foreach (var answer in Model.AllItems.Answers)
+                {
+                    <option value="@answer.id"
+                            selected="@(Model.preview_answer_ids?.Contains(answer.id) == true)">
+                        Відповідь: @(answer.asnwer_for_scene.Length > 50 ? answer.asnwer_for_scene.Substring(0, 50) + "..." : answer.asnwer_for_scene)
+                    </option>
+                }
+            }
+        </select>
+    </div>
+
+    <h4 class="mt-4">Оберіть зображення</h4>
+    <div class="d-flex gap-4 overflow-auto mb-4">
+        <!-- Backgrounds -->
+        <div>
+            <p class="fw-bold">Фон</p>
+            <div class="d-flex flex-row gap-2 flex-wrap image-selector">
+                @foreach (var path in Model.BackgroundImagePaths)
+                {
+                    <label class="image-option">
+                        <input type="radio" asp-for="@Model.backgroundImagePath" value="@path" hidden />
+                        <img src="@path" alt="background" class="selectable-image" />
+                    </label>
+                }
+            </div>
+        </div>
+
+        <!-- Personages -->
+        <div>
+            <p class="fw-bold">Персонаж</p>
+            <div class="d-flex flex-row gap-2 flex-wrap image-selector">
+                @foreach (var path in Model.PersonageImagePaths)
+                {
+                    <label class="image-option">
+                        <input type="radio" asp-for="@Model.personageImagePath" value="@path" hidden />
+                        <img src="@path" alt="personage" class="selectable-image" />
+                    </label>
+                }
+            </div>
+        </div>
+
+        <!-- Additional -->
+        <div>
+            <p class="fw-bold">Додаткове</p>
+            <div class="d-flex flex-row gap-2 flex-wrap image-selector">
+                @foreach (var path in Model.AdditionalImagePaths)
+                {
+                    <label class="image-option">
+                        <input type="radio" asp-for="@Model.additionalImagePath" value="@path" hidden />
+                        <img src="@path" alt="additional" class="selectable-image" />
+                    </label>
+                }
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Зберегти сцену</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.image-option').forEach(option => {
+            option.addEventListener('click', function () {
+                const input = this.querySelector('input[type="radio"]');
+                if (input) {
+                    input.checked = true;
+
+                    // Підсвітка активної картинки (можеш стилізувати по-іншому)
+                    document.querySelectorAll('.image-option img').forEach(img => {
+                        img.classList.remove('border', 'border-primary', 'border-3');
+                    });
+                    const img = this.querySelector('img');
+                    if (img) {
+                        img.classList.add('border', 'border-primary', 'border-3');
+                    }
+                }
+            });
+        });
+        let answerCounter = @(Model.Answers?.Count ?? 0);
+
+        // Ініціалізація при завантаженні сторінки
+        document.addEventListener('DOMContentLoaded', function() {
+            // Якщо це сцена з варіантами, додамо перше поле, якщо воно відсутнє
+            if (@Model.Scenes.answer.ToString().ToLower() && answerCounter === 0) {
+                addAnswerField();
+            }
+        });
+
+        function toggleSceneType(isAnswer) {
+            const textSection = document.getElementById('textSceneSection');
+            const answerSection = document.getElementById('answerSceneSection');
+
+            textSection.style.display = isAnswer ? 'none' : 'block';
+            answerSection.style.display = isAnswer ? 'block' : 'none';
+
+            // Якщо переключили на сцену з варіантами і немає жодного поля - додаємо
+            if (isAnswer && answerCounter === 0) {
+                addAnswerField();
+            }
+        }
+
+        function addAnswerField() {
+            const container = document.getElementById('answersContainer');
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mb-2 p-2 border rounded';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = `Answers[${answerCounter}].asnwer_for_scene`;
+            input.placeholder = `Варіант ${answerCounter + 1}`;
+            input.className = 'form-control mb-1';
+            input.required = true;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.type = 'button';
+            deleteBtn.className = 'btn btn-sm btn-outline-danger';
+            deleteBtn.textContent = 'Видалити';
+            deleteBtn.onclick = function() {
+                container.removeChild(wrapper);
+                answerCounter--;
+                // Оновлюємо індекси для всіх полів
+                updateAnswerIndexes();
+            };
+
+            wrapper.appendChild(input);
+            wrapper.appendChild(deleteBtn);
+            container.appendChild(wrapper);
+
+            answerCounter++;
+        }
+
+        function updateAnswerIndexes() {
+            const containers = document.querySelectorAll('#answersContainer > div');
+            containers.forEach((container, index) => {
+                const input = container.querySelector('input');
+                input.name = `Answers[${index}].asnwer_for_scene`;
+                input.placeholder = `Варіант ${index + 1}`;
+            });
+        }
+    </script>
+}

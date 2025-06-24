@@ -1,0 +1,10 @@
+# Visual Studio temporary files
+.vs/
+# Збіркові файли
+appsettings*.json
+bin/
+obj/
+
+# Файли конфігурації з секретами (якщо є)
+appsettings.Development.json
+appsettings.jsonbin/Debug/net8.0/appsettings.json 

@@ -1,0 +1,12 @@
+﻿using NovelProject.Models;
+
+namespace NovelProject.AlterModels
+{
+    public class PartOneAndAllModel
+    {
+        public PartsModel Parts { get; set; }
+        public List<PartsModel> AllParts { get; set; } = new();
+        public List<ActsModel> AllActs { get; set; } = new();
+        public int PreviewPartId { get; set; }
+    }
+}
