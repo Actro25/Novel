@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const musicPrev = document.getElementById('musicPrev');
     const musicNext = document.getElementById('musicNext');
     // Пример мелодий
-    const melodies = ['1', '2', '3'];
+    const melodies = ['Мелодія-1', 'Мелодія-2', 'Мелодія-3'];
     let melodyIndex = Number(localStorage.getItem('novel_melody') || 0);
     let musicOn = localStorage.getItem('novel_music_on') === 'true';
     let musicVolume = Number(localStorage.getItem('novel_music_volume') || 50);

@@ -1,0 +1,381 @@
+body {
+    background: #0a1020 !important;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Press Start 2P', 'Orbitron', Arial, sans-serif;
+    position: relative;
+    background-image: none !important;
+}
+.auth-center-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* для фонового логотипа */
+}
+.auth-container {
+    background: linear-gradient(180deg, #020A20 0%, #082A86 100%);
+    border: 1px solid #00D2FF;
+    border-radius: 16px;
+    box-shadow: 0 0 40px #00eaff33;
+    padding: 32px 24px 28px 24px; /* уменьшен паддинг */
+    width: 380px; /* уменьшена ширина */
+    max-width: 96vw;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    overflow: hidden; /* чтобы фон-логотип не выходил за границы */
+}
+.bg-logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.18;
+    max-width: 80%;
+    max-height: 420px;
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(0.5px) drop-shadow(0 0 32px #3a8fff);
+}
+.logo {
+    width: 120px; /* уменьшен размер логотипа */
+    max-width: 40vw;
+    height: auto;
+    position: static;
+    display: block;
+    filter: drop-shadow(0 0 24px #3a8fff);
+    transition: width 0.2s;
+    margin: 0 auto 8px auto;
+}
+@media (max-width: 900px) {
+    .auth-container {
+        width: 98vw;
+        padding: 24px 8px 24px 8px;
+    }
+    .logo {
+        width: 90px;
+        max-width: 80vw;
+        margin-bottom: 8px;
+    }
+    .inputBox input,
+    .login-btn,
+    .signup-btn {
+        max-width: 96vw;
+        width: 96%;
+        height: 32px;
+        font-size: 0.88rem;
+        padding: 5px 8px;
+    }
+}
+@media (max-width: 700px) {
+    .auth-container {
+        width: 98vw;
+        padding: 12px 2vw 12px 2vw;
+    }
+    .logo {
+        width: 60px;
+        max-width: 80vw;
+        margin-bottom: 4px;
+    }
+    .inputBox input,
+    .login-btn,
+    .signup-btn {
+        max-width: 98vw;
+        width: 98%;
+        height: 28px;
+        font-size: 0.82rem;
+        padding: 4px 4px;
+    }
+    .links, .register-link {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 600px) {
+    .auth-container {
+        width: 100vw;
+        padding: 8vw 2vw 8vw 2vw;
+        border-radius: 0;
+    }
+    .logo {
+        width: 40px;
+        max-width: 90vw;
+        margin-bottom: 6px;
+    }
+    .inputBox input,
+    .login-btn,
+    .signup-btn {
+        max-width: 96vw;
+        width: 96%;
+        height: 32px;
+        font-size: 0.88rem;
+        padding: 5px 8px;
+    }
+    .links, .register-link {
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 400px) {
+    .auth-container {
+        width: 100vw;
+        padding: 2vw 1vw 2vw 1vw;
+        border-radius: 0;
+    }
+    .logo {
+        width: 40px;
+        max-width: 90vw;
+        margin-bottom: 2px;
+    }
+    .inputBox input,
+    .login-btn,
+    .signup-btn {
+        max-width: 99vw;
+        width: 99%;
+        height: 22px;
+        font-size: 0.7rem;
+        padding: 2px 2px;
+    }
+    .links, .register-link {
+        font-size: 0.7rem;
+    }
+}
+.title {
+    font-family: 'Orbitron', 'Press Start 2P', Arial, sans-serif;
+    font-size: 2.2rem;
+    color: #3a8fff;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    font-weight: bold;
+    text-shadow: 0 0 12px #3a8fff, 0 0 24px #3a8fff99;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+.inputBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    /* убираем белый фон */
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    position: relative;
+    z-index: 2;
+}
+.inputBox input {
+    width: 85%;
+    max-width: 260px;
+    height: 36px;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 6px 10px;
+    background: linear-gradient(90deg, rgba(2, 10, 32, 0.8) 0%, rgba(8, 42, 134, 0.8) 100%);
+    border: 1px solid #00D2FF;
+    color: #fff;
+    font-family: 'Orbitron', 'Press Start 2P', Arial, sans-serif;
+    font-size: 0.92rem;
+    box-shadow: 0 0 12px #3a8fff33;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    margin: 8px 0;
+}
+.inputBox input:focus {
+    border: 2px solid #7f5fff;
+    box-shadow: 0 0 20px #7f5fff99;
+}
+.links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+    color: #b3cfff;
+}
+.links a:first-child {
+    width: 156px;
+    height: 19px;
+    position: relative;
+    top: 0;
+    left: 0;
+    font-family: 'Aldrich', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    color: #fff;
+}
+.links a:last-child {
+    width: 156px;
+    height: 19px;
+    position: relative;
+    top: 0;
+    left: 0;
+    font-family: 'Aldrich', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    background: none;
+    color: #fff;
+    border-radius: 4px;
+}
+.login-btn {
+    width: 85%;
+    max-width: 260px;
+    height: 38px;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    padding: 8px 16px;
+    gap: 10px;
+    background: linear-gradient(90deg, rgba(4, 195, 230, 0.8) 0%, rgba(75, 26, 237, 0.8) 100%);
+    color: #181c2f;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Orbitron', 'Press Start 2P', Arial, sans-serif;
+    margin-bottom: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 16px #00eaff44, 0 2px 0 #3a8fff inset;
+    transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px #00eaff99;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login-btn:hover {
+    background: linear-gradient(90deg, #3a8fff 0%, #00fff0 100%);
+    color: #fff;
+    box-shadow: 0 0 32px #3a8fff99, 0 2px 0 #00eaff inset;
+}
+.signup-btn {
+    width: 85%;
+    max-width: 260px;
+    height: 55px;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    border-width: 2px;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    gap: 10px;
+    background: #020A20;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', 'Press Start 2P', Arial, sans-serif;
+    cursor: pointer;
+    margin-bottom: 0;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.signup-btn:hover {
+    background: #fff;
+    color: #020A20;
+    border: 2px solid #00eaff;
+}
+.register-link {
+    margin-top: 18px;
+    text-align: center;
+    color: #b3cfff;
+    font-size: 1rem;
+}
+.register-link a {
+    color: #3a8fff;
+    text-decoration: underline;
+    margin-left: 8px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.register-link a:hover {
+    color: #00eaff;
+}
+.stars-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    background: transparent;
+}
+.stars-rays-svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: lighten;
+}
+.star {
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.7;
+    box-shadow: 0 0 8px #fff;
+    animation: twinkle 2s infinite ease-in-out;
+    z-index: 3;
+}
+.cat-star {
+    background: #ff4fa3 !important;
+    width: 8px !important;
+    height: 8px !important;
+    box-shadow: 0 0 32px #ff4fa3, 0 0 16px #fff !important;
+    opacity: 1 !important;
+    z-index: 10 !important;
+    animation: none !important;
+    border: 2px solid #fff !important;
+}
+.cat-constellation-svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 11;
+    mix-blend-mode: lighten;
+}
+.cat-constellation-svg line {
+    stroke: #ff4fa3 !important;
+}
+@keyframes twinkle {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+@media (min-width: 2000px), (min-height: 1200px) {
+    body, .auth-center-wrap {
+        overflow-y: auto !important;
+    }
+}
+
+
