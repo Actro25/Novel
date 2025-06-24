@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "cPCnLcVyqLo79rxBWeWfIOTdRLCGpcQ2/mTArGOl+yc=",
+=======
+  "Hash": "WV7Qs1c+QiiDT4G8eX5oOF8SD8wbyxwKtcbOgQSHQ0E=",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
   "Source": "NovelProject",
   "BasePath": "_content/NovelProject",
   "Mode": "Default",
@@ -10,17 +14,28 @@
     {
       "Name": "NovelProject\\wwwroot",
       "Source": "NovelProject",
+<<<<<<< HEAD
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css",
       "SourceId": "NovelProject",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "NovelProject#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,6 +50,7 @@
       "Integrity": "4EaAQxoE5tY3D/KvOpZ279XeF6Jy7a7btYt/NiZfH6k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css"
     },
     {
@@ -42,6 +58,15 @@
       "SourceId": "NovelProject",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+=======
+      "OriginalItemSpec": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "NovelProject#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,6 +81,7 @@
       "Integrity": "4EaAQxoE5tY3D/KvOpZ279XeF6Jy7a7btYt/NiZfH6k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css"
     },
     {
@@ -168,6 +194,15 @@
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "OriginalItemSpec": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\css\\site.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -178,17 +213,29 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "7mon6kxr7x",
       "Integrity": "ob0zLHu6LL7FHnNde2Y/VlSwFsAbRX2WlITSgQYF4as=",
+=======
+      "Fingerprint": "k9tbw8qnux",
+      "Integrity": "6AjDYLJaQDU39mT7eT0NdNVtBmLHuqdpNSS9z2rP6Xg=",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\favicon.ico",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\favicon.ico",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -206,6 +253,7 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\bg-dark.jpg",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
@@ -399,6 +447,12 @@
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\js\\site.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -409,13 +463,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "e5nlzzoy38",
       "Integrity": "ctd1pi/cbJ06wxzMgONDEbqaUdoBy96sXl3te78feP8=",
+=======
+      "Fingerprint": "xtxxf3hu2r",
+      "Integrity": "hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\stars.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
@@ -441,6 +501,12 @@
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -458,10 +524,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -479,10 +552,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -500,10 +580,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -521,10 +608,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -542,10 +636,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -563,10 +664,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -584,10 +692,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -605,10 +720,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -626,10 +748,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -647,10 +776,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -668,10 +804,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -689,10 +832,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -710,10 +860,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -731,10 +888,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -752,10 +916,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -773,10 +944,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -794,10 +972,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -815,10 +1000,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -836,10 +1028,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -857,10 +1056,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -878,10 +1084,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -899,10 +1112,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -920,10 +1140,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -941,10 +1168,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -962,10 +1196,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -983,10 +1224,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1004,10 +1252,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1025,10 +1280,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1046,10 +1308,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1067,10 +1336,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1088,10 +1364,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1109,10 +1392,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1130,10 +1420,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1151,10 +1448,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1172,10 +1476,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1193,10 +1504,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1214,10 +1532,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1235,10 +1560,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1256,10 +1588,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1277,10 +1616,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1298,10 +1644,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1319,10 +1672,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1340,10 +1700,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1361,10 +1728,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -1382,10 +1756,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1403,10 +1784,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1424,10 +1812,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1445,10 +1840,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1466,10 +1868,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1487,10 +1896,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1508,10 +1924,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1529,10 +1952,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -1550,10 +1980,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1571,10 +2008,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1592,10 +2036,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1613,10 +2064,17 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "NovelProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "NovelProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "BasePath": "_content/NovelProject",
       "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1636,8 +2094,13 @@
   ],
   "Endpoints": [
     {
+<<<<<<< HEAD
       "Route": "audio/bg.m6zposzsfm.mp3",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg.mp3",
+=======
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\css\\site.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1646,6 +2109,7 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "4991268"
         },
         {
@@ -1704,6 +2168,21 @@
         {
           "Name": "Last-Modified",
           "Value": "Thu, 12 Jun 2025 16:29:07 GMT"
+=======
+          "Value": "6691"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6AjDYLJaQDU39mT7eT0NdNVtBmLHuqdpNSS9z2rP6Xg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 14:37:27 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -1713,13 +2192,22 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
+<<<<<<< HEAD
           "Value": "sha256-okkXJMXzVxaKs3rc572Me+ORiP2SJD+TDpqR34AUlhI="
+=======
+          "Value": "sha256-6AjDYLJaQDU39mT7eT0NdNVtBmLHuqdpNSS9z2rP6Xg="
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         }
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "audio/bg2.i3k1xib886.mp3",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\audio\\bg2.mp3",
+=======
+      "Route": "css/site.k9tbw8qnux.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\css\\site.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1728,6 +2216,7 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "10656182"
         },
         {
@@ -1741,6 +2230,21 @@
         {
           "Name": "Last-Modified",
           "Value": "Thu, 12 Jun 2025 20:04:46 GMT"
+=======
+          "Value": "6691"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6AjDYLJaQDU39mT7eT0NdNVtBmLHuqdpNSS9z2rP6Xg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 14:37:27 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -1750,6 +2254,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
+<<<<<<< HEAD
           "Value": "i3k1xib886"
         },
         {
@@ -2079,6 +2584,9 @@
         {
           "Name": "fingerprint",
           "Value": "7mon6kxr7x"
+=======
+          "Value": "k9tbw8qnux"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "label",
@@ -2086,6 +2594,7 @@
         },
         {
           "Name": "integrity",
+<<<<<<< HEAD
           "Value": "sha256-ob0zLHu6LL7FHnNde2Y/VlSwFsAbRX2WlITSgQYF4as="
         }
       ]
@@ -2124,12 +2633,19 @@
         {
           "Name": "integrity",
           "Value": "sha256-ob0zLHu6LL7FHnNde2Y/VlSwFsAbRX2WlITSgQYF4as="
+=======
+          "Value": "sha256-6AjDYLJaQDU39mT7eT0NdNVtBmLHuqdpNSS9z2rP6Xg="
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         }
       ]
     },
     {
       "Route": "favicon.61n19gt1b8.ico",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\favicon.ico",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\favicon.ico",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2150,7 +2666,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -2174,7 +2694,11 @@
     },
     {
       "Route": "favicon.ico",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\favicon.ico",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\favicon.ico",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2195,7 +2719,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -2210,8 +2738,13 @@
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "img/bg-dark.jpg",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\img\\bg-dark.jpg",
+=======
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\js\\site.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2220,6 +2753,7 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "116034"
         },
         {
@@ -2713,6 +3247,9 @@
         {
           "Name": "Content-Length",
           "Value": "5971"
+=======
+          "Value": "231"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Content-Type",
@@ -2720,6 +3257,7 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"kiobDG0e6PF2KZ6ZQ4HqZswQh55vodxgxHMZr2NUX2I=\""
         },
         {
@@ -2770,6 +3308,13 @@
         {
           "Name": "Last-Modified",
           "Value": "Fri, 13 Jun 2025 15:28:28 GMT"
+=======
+          "Value": "\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -2779,13 +3324,22 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
+<<<<<<< HEAD
           "Value": "sha256-kiobDG0e6PF2KZ6ZQ4HqZswQh55vodxgxHMZr2NUX2I="
+=======
+          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         }
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "js/loadgame.fn20m6ewld.js",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\js\\loadgame.js",
+=======
+      "Route": "js/site.xtxxf3hu2r.js",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\js\\site.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2794,7 +3348,11 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "1875"
+=======
+          "Value": "231"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Content-Type",
@@ -2802,11 +3360,19 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"a5uHM6VqTJY5DpN13K3S5s8v4fo/6PyGj1NvkUbmU8k=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Fri, 13 Jun 2025 15:04:41 GMT"
+=======
+          "Value": "\"hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -2816,6 +3382,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
+<<<<<<< HEAD
           "Value": "fn20m6ewld"
         },
         {
@@ -2981,6 +3548,9 @@
         {
           "Name": "fingerprint",
           "Value": "e5nlzzoy38"
+=======
+          "Value": "xtxxf3hu2r"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "label",
@@ -2988,6 +3558,7 @@
         },
         {
           "Name": "integrity",
+<<<<<<< HEAD
           "Value": "sha256-ctd1pi/cbJ06wxzMgONDEbqaUdoBy96sXl3te78feP8="
         }
       ]
@@ -3108,12 +3679,19 @@
         {
           "Name": "integrity",
           "Value": "sha256-NjOh6UQxU55TExaLGviP15b2FqlvtBzyxISL2siZabo="
+=======
+          "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         }
       ]
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3134,7 +3712,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3150,7 +3732,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3171,7 +3757,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3187,7 +3777,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.st1cbwfwo5.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3208,7 +3802,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3232,7 +3830,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.5p029spbuu.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3253,7 +3855,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3277,7 +3883,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3298,7 +3908,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3314,7 +3928,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.5vj65cig9w.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3335,7 +3953,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3359,7 +3981,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3380,7 +4006,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3396,7 +4026,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.nakmwdwsxp.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3417,7 +4051,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3441,7 +4079,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3462,7 +4104,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3478,7 +4124,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.2q4vfeazbq.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3499,7 +4149,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3523,7 +4177,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3544,7 +4202,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3560,7 +4222,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.e6q6xbwqzk.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3581,7 +4247,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3605,7 +4275,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3626,7 +4300,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3642,7 +4320,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3663,7 +4345,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3679,7 +4365,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.o371a8zbv2.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3700,7 +4390,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3724,7 +4418,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.dy6jgresuo.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3745,7 +4443,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3769,7 +4471,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3790,7 +4496,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3806,7 +4516,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.jeal3x0ldm.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3827,7 +4541,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3851,7 +4569,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3872,7 +4594,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3888,7 +4614,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3909,7 +4639,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3925,7 +4659,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3946,7 +4684,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -3962,7 +4704,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.okkk44j0xs.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3983,7 +4729,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4007,7 +4757,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.z7kmom2977.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4028,7 +4782,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4052,7 +4810,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.mk8rdyw69w.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4073,7 +4835,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4097,7 +4863,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.97yrjpyf9r.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4118,7 +4888,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4142,7 +4916,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4163,7 +4941,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4179,7 +4961,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.cwzlr5n8x4.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4200,7 +4986,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4224,7 +5014,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4245,7 +5039,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4261,7 +5059,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4282,7 +5084,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4298,7 +5104,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4319,7 +5129,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4335,7 +5149,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.wmug9u23qg.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4356,7 +5174,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4380,7 +5202,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.y53cy5s2zj.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4401,7 +5227,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4425,7 +5255,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4446,7 +5280,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4462,7 +5300,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.j75batdsum.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4483,7 +5325,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4507,7 +5353,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4528,7 +5378,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4544,7 +5398,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.2yn17lgxub.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4565,7 +5423,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4589,7 +5451,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4610,7 +5476,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4626,7 +5496,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4647,7 +5521,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4663,7 +5541,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.vy0bq9ydhf.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4684,7 +5566,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4708,7 +5594,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4729,7 +5619,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4745,7 +5639,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.ab1c3rmv7g.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4766,7 +5664,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4790,7 +5692,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4811,7 +5717,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4827,7 +5737,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4848,7 +5762,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4864,7 +5782,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.56d2bn4wt9.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4885,7 +5807,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4909,7 +5835,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4930,7 +5860,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4946,7 +5880,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.ik6i2hrs65.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4967,7 +5905,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -4991,7 +5933,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.ophe14yye5.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5012,7 +5958,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5036,7 +5986,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.z9shlbduue.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5057,7 +6011,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5081,7 +6039,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5102,7 +6064,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5118,7 +6084,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5139,7 +6109,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5163,7 +6137,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5184,7 +6162,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5200,7 +6182,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.6gzpyzhau4.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5221,7 +6207,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5245,7 +6235,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5266,7 +6260,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5282,7 +6280,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5303,7 +6305,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5327,7 +6333,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5348,7 +6358,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5364,7 +6378,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.ozu22stjof.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5385,7 +6403,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5409,7 +6431,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5430,7 +6456,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5446,7 +6476,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5467,7 +6501,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5491,7 +6529,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5512,7 +6554,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5528,7 +6574,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.gjcw7pocpk.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5549,7 +6599,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5573,7 +6627,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.6l4ir0ityv.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5594,7 +6652,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5618,7 +6680,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5639,7 +6705,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5655,7 +6725,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5676,7 +6750,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5700,7 +6778,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5721,7 +6803,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5737,7 +6823,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.1piudyfv7h.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5758,7 +6848,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5782,7 +6876,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.f6zq8v6eb3.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5803,7 +6901,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5827,7 +6929,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5848,7 +6954,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5864,7 +6974,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.kbynt5jhd9.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5885,7 +6999,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5909,7 +7027,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5930,7 +7052,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5946,7 +7072,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.89qbw8ngem.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5967,7 +7097,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -5991,7 +7125,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6012,7 +7150,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6028,7 +7170,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.c2nslu3uf3.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6049,7 +7195,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6073,7 +7223,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6094,7 +7248,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6110,7 +7268,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6131,7 +7293,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6147,7 +7313,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.2lgwfvgpvi.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6168,7 +7338,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6192,7 +7366,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6213,7 +7391,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6229,7 +7411,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.jqwzsa9uv6.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6250,7 +7436,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6274,7 +7464,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6295,7 +7489,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6311,7 +7509,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6332,7 +7534,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6348,7 +7554,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.wsezl0heh6.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6369,7 +7579,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6393,7 +7607,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.n5w6o92d9r.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6414,7 +7632,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6438,7 +7660,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6459,7 +7685,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6475,7 +7705,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.6ukhryfubh.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6496,7 +7730,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6520,7 +7758,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6541,7 +7783,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6557,7 +7803,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.4908xmbfjr.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6578,7 +7828,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6602,7 +7856,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6623,7 +7881,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6639,7 +7901,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6660,7 +7926,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6676,7 +7946,11 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.u33ctipx7g.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6697,7 +7971,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6721,7 +7999,11 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\LICENSE",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\LICENSE",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6742,7 +8024,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6758,7 +8044,11 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE.81b7ukuj9c",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\bootstrap\\LICENSE",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\bootstrap\\LICENSE",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6779,7 +8069,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6803,7 +8097,11 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.03hjc8e09r.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6824,7 +8122,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6848,7 +8150,11 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6869,7 +8175,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6885,7 +8195,11 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.48y08845bh.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6906,7 +8220,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6930,7 +8248,11 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6951,7 +8273,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -6967,7 +8293,11 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.356vix0kms.txt",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6988,7 +8318,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7012,7 +8346,11 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7033,7 +8371,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7049,7 +8391,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.ay5nd8zt9x.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7070,7 +8416,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7094,7 +8444,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7115,7 +8469,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7131,7 +8489,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.9oaff4kq20.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7152,7 +8514,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7176,7 +8542,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7197,7 +8567,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7213,7 +8587,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.6d0lkjaslc.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7234,7 +8612,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7258,7 +8640,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7279,7 +8665,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7295,7 +8685,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7316,7 +8710,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7332,7 +8730,11 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.l1zq2mitth.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7353,7 +8755,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7377,7 +8783,11 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.md",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7398,7 +8808,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7414,7 +8828,11 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.x0q3zqp4vz.md",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7435,7 +8853,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7459,7 +8881,11 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.7s2n0ol71w.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7480,7 +8906,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7504,7 +8934,11 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7525,7 +8959,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7541,7 +8979,11 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.5pze98is44.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7562,7 +9004,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7586,7 +9032,11 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.ehgnz7f14e.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7607,7 +9057,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7631,7 +9085,11 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.js",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7652,7 +9110,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7668,7 +9130,11 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.map",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7689,7 +9155,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7705,7 +9175,11 @@
     },
     {
       "Route": "lib/jquery/LICENSE.mlv21k5csn.txt",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\LICENSE.txt",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\LICENSE.txt",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7726,7 +9200,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7750,7 +9228,11 @@
     },
     {
       "Route": "lib/jquery/LICENSE.txt",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\lib\\jquery\\LICENSE.txt",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\wwwroot\\lib\\jquery\\LICENSE.txt",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7771,7 +9253,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Sat, 07 Jun 2025 12:46:06 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7787,7 +9273,11 @@
     },
     {
       "Route": "NovelProject.bundle.scp.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7808,7 +9298,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7824,7 +9318,11 @@
     },
     {
       "Route": "NovelProject.s9srjbwerr.bundle.scp.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\NovelProject.bundle.scp.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7845,7 +9343,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7869,7 +9371,11 @@
     },
     {
       "Route": "NovelProject.s9srjbwerr.styles.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7890,7 +9396,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
@@ -7914,7 +9424,11 @@
     },
     {
       "Route": "NovelProject.styles.css",
+<<<<<<< HEAD
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css",
+=======
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Робочий стіл\\Program MangaLib\\Novel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NovelProject.styles.css",
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7935,7 +9449,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Thu, 12 Jun 2025 16:08:55 GMT"
+=======
+          "Value": "Sat, 07 Jun 2025 14:35:23 GMT"
+>>>>>>> b9f552db78cc951e10e3b39ceaf12d4d6073c5ea
         },
         {
           "Name": "Cache-Control",
