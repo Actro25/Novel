@@ -1,59 +1,57 @@
-<<<<<<< HEAD
-@{
-    ViewData["Title"] = "Dream Inspired Menu";
-    Layout = null;
-}
+
 <!DOCTYPE html>
 <html lang="uk">
-=======
 ﻿@{
     ViewData["Title"] = "Dream Inspired Menu";
     Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="en">
->>>>>>> Vergil_Main
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css">
-<<<<<<< HEAD
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji">
 </head>
 <body>
-    <div
-      aria-label="User Login Button"
-      tabindex="0"
-      role="button"
-      class="user-profile"
-      style="position: absolute; top: 28px; right: 48px; z-index: 100;"
-      onclick="window.location.href='@Url.Action("Login", "Home")'"
-      onkeydown="if(event.key==='Enter'){window.location.href='@Url.Action("Login", "Home")'}"
-    >
-      <div class="user-profile-inner">
-        <svg
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <g data-name="Layer 2" id="Layer_2">
-            <path
-              d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"
-            ></path>
-          </g>
-        </svg>
-        <p>Log In</p>
-      </div>
-    </div>
+    @if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
+    {
+        <div class="top-right-buttons" style="position: absolute; top: 15px; right: 20px; z-index: 100;">
+            <label class="text-white">
+                @Context.User.Identity.Name
+            </label>
+            <a href="@Url.Action("LogOut", "Login")">Вихід</a>
+        </div>
+    }
+    else
+    {
+        <div aria-label="User Login Button"
+             tabindex="0"
+             role="button"
+             class="user-profile"
+             style="position: absolute; top: 28px; right: 48px; z-index: 100;"
+             onclick="window.location.href='@Url.Action("LoginUser", "Login")'"
+             onkeydown="if(event.key==='Enter'){window.location.href='@Url.Action("LoginUser", "Login")'}">
+            <div class="user-profile-inner">
+                <svg aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24">
+                    <g data-name="Layer 2" id="Layer_2">
+                        <path d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"></path>
+                    </g>
+                </svg>
+                <p>Log In</p>
+            </div>
+        </div>
+    }
     <div class="main-flex-wrap" style="display: flex; align-items: flex-start; gap: 32px;">
       <div class="menu-container" id="mainMenuContainer">
           <h1 class="menu-title center-title"><span>DREAM</span><span class="alt">.EXE</span></h1>
           <div class="main-menu-label">ГОЛОВНЕ МЕНЮ</div>
           <ul class="main-menu">
               <li><a href="#" class="menu-item" data-lang-key="peaceful_mode"><span>МИРНИЙ РЕЖИМ</span></a></li>
-              <li><a href="#" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span></a></li>
+              <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span></a></li>
               <li><a href="#" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span></a></li>
               <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span></a></li>
               <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span></a></li>
@@ -139,81 +137,3 @@
     <audio id="bgMusic" preload="auto"></audio>
 </body>
 </html>
-</html>
-</html>
-</html>
-</html>
-</html>
-</html>
-=======
-
-    <style>
-        .top-right-buttons {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-            .top-right-buttons a {
-                padding: 8px 16px;
-                background-color: rgba(255, 255, 255, 0.1);
-                border: 1px solid white;
-                color: white;
-                text-decoration: none;
-                border-radius: 6px;
-                font-weight: bold;
-                transition: background-color 0.3s ease;
-            }
-
-                .top-right-buttons a:hover {
-                    background-color: rgba(255, 255, 255, 0.3);
-                }
-    </style>
-</head>
-<body>
-    @if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
-    {
-
-        <div class="top-right-buttons">
-            <label class="text-white">
-                @Context.User.Identity.Name
-            </label>
-            <a href="@Url.Action("Logout", "Login")">Вихід</a>
-        </div>
-    }
-    else
-    {
-        <div class="top-right-buttons">
-            <a href="@Url.Action("Index", "Login")">Вхід</a>
-        </div>
-    }
-
-    <div class="menu-container">
-        <h1 class="menu-title">Dream</h1>
-        <h2 class="menu-subtitle">ГЛАВНОЕ МЕНЮ</h2>
-        <ul class="main-menu">
-            <li><a href="#" class="menu-item">МИРНЫЙ РЕЖИМ</a></li>
-            <li><a href="@Url.Action("NewGame", "Home")?action=continue" class="menu-item">ПРОДОЛЖИТЬ</a></li>
-            <li><a href="@Url.Action("NewGame", "Home")?action=new" class="menu-item">НОВАЯ ИГРА</a></li>
-            <li><a href="#" class="menu-item">ЗАГРУЗИТЬ</a></li>
-            <li><a href="#" class="menu-item">ПЕРСОНАЖИ</a></li>
-            <li><a href="#" class="menu-item">ОДЕЖДА</a></li>
-            <li><a href="#" class="menu-item">НАСТРОЙКИ</a></li>
-            <li><a href="#" class="menu-item">ДОСТИЖЕНИЯ <span class="achievement-count">26/26</span></a></li>
-            <li><a href="@Url.Action("SeeFullHistoryTree", "Test")" class="menu-item">ДОБАВИТЬ ИСТОРИЮ</a></li>
-            <li class="language-row">
-                <a href="#" class="menu-item">ЯЗЫК</a>
-                <span class="language-value">Русский</span>
-            </li>
-            <li class="language-row">
-                <a href="#" class="menu-item">ОЗВУЧКА</a>
-                <span class="language-value">Русский</span>
-            </li>
-            <li><a href="#" class="menu-item exit-button">ВЫХОД</a></li>
-        </ul>
-    </div>
-</body>
-</html>
->>>>>>> Vergil_Main

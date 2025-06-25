@@ -1,3 +1,5 @@
+@using NovelProject.AlterModels
+@model RegisterViewModel
 @{
     ViewData["Title"] = "Register";
 }
@@ -20,21 +22,25 @@
                     <img class="logo" src="/img/Frame1.png" alt="cat logo" />
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="Name" placeholder="Name" required />
+                    <input type="text" asp-for="Name" name="Name" value="@Model.Name" placeholder="Name" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="Email" placeholder="Email" required />
+                    <input type="text" asp-for="Email" name="Email" value="@Model.Email" placeholder="Email" required />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="Password" placeholder="Password" required />
+                    <input type="password" asp-for="Password" name="Password" value="@Model.Password" placeholder="Password" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="ConfirmPassword" placeholder="Confirm Password" required />
+                    <input type="password" asp-for="ConfirmPassword" name="ConfirmPassword" value="@Model.ConfirmPassword" placeholder="Confirm password" required />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
                 <button type="submit" class="login-btn">Register</button>
                 <div class="register-link">
                     <span>Already have an account?</span>
-                    <a href="/Home/Login">Log in</a>
+                    <a href="@Url.Action("LoginUser", "Login")">Log in</a>
                 </div>
             </form>
         </div>

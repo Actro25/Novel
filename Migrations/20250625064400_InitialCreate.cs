@@ -11,12 +11,31 @@ namespace NovelProject.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Acts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NextActId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    StartActText = table.Column<string>(type: "TEXT", nullable: false),
+                    EndActText = table.Column<string>(type: "TEXT", nullable: false),
+                    StartPartId = table.Column<int>(type: "INTEGER", nullable: false),
+                    EndPartId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Acts", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Answers",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     asnwer_for_scene = table.Column<string>(type: "TEXT", nullable: false),
+                    next_scene_id = table.Column<int>(type: "INTEGER", nullable: false),
                     id_scene = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -31,7 +50,12 @@ namespace NovelProject.Migrations
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     start_part_text = table.Column<string>(type: "TEXT", nullable: false),
-                    end_part_text = table.Column<string>(type: "TEXT", nullable: false)
+                    end_part_text = table.Column<string>(type: "TEXT", nullable: false),
+                    act_id = table.Column<int>(type: "INTEGER", nullable: false),
+                    next_part_id = table.Column<int>(type: "INTEGER", nullable: false),
+                    name = table.Column<string>(type: "TEXT", nullable: false),
+                    start_scene_id = table.Column<int>(type: "INTEGER", nullable: false),
+                    end_scene_id = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,17 +72,38 @@ namespace NovelProject.Migrations
                     text_scene = table.Column<string>(type: "TEXT", nullable: false),
                     answer = table.Column<bool>(type: "INTEGER", nullable: false),
                     background_scene_img = table.Column<string>(type: "TEXT", nullable: false),
+                    personage_scene_img = table.Column<string>(type: "TEXT", nullable: false),
+                    additional_scene_img = table.Column<string>(type: "TEXT", nullable: false),
                     id_part = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Scenes", x => x.id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FullName = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    PasswordHash = table.Column<string>(type: "TEXT", nullable: false),
+                    GameNickname = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Acts");
+
             migrationBuilder.DropTable(
                 name: "Answers");
 
@@ -67,6 +112,9 @@ namespace NovelProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "Scenes");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

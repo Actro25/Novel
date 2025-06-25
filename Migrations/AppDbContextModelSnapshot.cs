@@ -16,8 +16,6 @@ namespace NovelProject.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("NovelProject.Models.ActsModel", b =>
                 {
                     b.Property<int>("Id")
@@ -50,7 +48,6 @@ namespace NovelProject.Migrations
                     b.ToTable("Acts");
                 });
 
->>>>>>> Vergil_Main
             modelBuilder.Entity("NovelProject.Models.AnswersModel", b =>
                 {
                     b.Property<int>("id")
@@ -64,12 +61,9 @@ namespace NovelProject.Migrations
                     b.Property<int>("id_scene")
                         .HasColumnType("INTEGER");
 
-<<<<<<< HEAD
-=======
                     b.Property<int>("next_scene_id")
                         .HasColumnType("INTEGER");
 
->>>>>>> Vergil_Main
                     b.HasKey("id");
 
                     b.ToTable("Answers");
@@ -81,18 +75,13 @@ namespace NovelProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-<<<<<<< HEAD
-=======
                     b.Property<int>("act_id")
                         .HasColumnType("INTEGER");
 
->>>>>>> Vergil_Main
                     b.Property<string>("end_part_text")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
-=======
                     b.Property<int>("end_scene_id")
                         .HasColumnType("INTEGER");
 
@@ -103,17 +92,13 @@ namespace NovelProject.Migrations
                     b.Property<int>("next_part_id")
                         .HasColumnType("INTEGER");
 
->>>>>>> Vergil_Main
                     b.Property<string>("start_part_text")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
-=======
                     b.Property<int>("start_scene_id")
                         .HasColumnType("INTEGER");
 
->>>>>>> Vergil_Main
                     b.HasKey("id");
 
                     b.ToTable("Parts");
@@ -125,13 +110,10 @@ namespace NovelProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-<<<<<<< HEAD
-=======
                     b.Property<string>("additional_scene_img")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
->>>>>>> Vergil_Main
                     b.Property<bool>("answer")
                         .HasColumnType("INTEGER");
 
@@ -145,12 +127,6 @@ namespace NovelProject.Migrations
                     b.Property<int>("id_part")
                         .HasColumnType("INTEGER");
 
-<<<<<<< HEAD
-                    b.Property<string>("text_scene")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-=======
                     b.Property<string>("personage_scene_img")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -158,13 +134,10 @@ namespace NovelProject.Migrations
                     b.Property<string>("text_scene")
                         .HasColumnType("TEXT");
 
->>>>>>> Vergil_Main
                     b.HasKey("id");
 
                     b.ToTable("Scenes");
                 });
-<<<<<<< HEAD
-=======
 
             modelBuilder.Entity("NovelProject.Models.UsersModel", b =>
                 {
@@ -191,7 +164,6 @@ namespace NovelProject.Migrations
 
                     b.ToTable("Users");
                 });
->>>>>>> Vergil_Main
 #pragma warning restore 612, 618
         }
     }

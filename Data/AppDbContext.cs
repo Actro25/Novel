@@ -10,10 +10,9 @@ namespace NovelProject.Data
         public DbSet<ScenesModel> Scenes { get; set; }
         public DbSet<AnswersModel> Answers { get; set; }
         public DbSet<PartsModel> Parts { get; set; }
-<<<<<<< HEAD
-=======
+
         public DbSet<ActsModel> Acts { get; set; }
         public DbSet<UsersModel> Users { get; set; }
->>>>>>> Vergil_Main
+
     }
 }

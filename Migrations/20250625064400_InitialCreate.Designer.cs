@@ -10,8 +10,8 @@ using NovelProject.Data;
 namespace NovelProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250621161418_UserMigration")]
-    partial class UserMigration
+    [Migration("20250625064400_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -135,11 +135,38 @@ namespace NovelProject.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("text_scene")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
 
                     b.ToTable("Scenes");
+                });
+
+            modelBuilder.Entity("NovelProject.Models.UsersModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GameNickname")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using NovelProject.AlterModels
+@model LoginViewModel
+@{
     ViewData["Title"] = "Login or Register";
 }
 <!DOCTYPE html>
@@ -16,19 +18,22 @@
     <div class="auth-center-wrap">
         <div class="auth-container">
             <img src="/img/Frame1.png" alt="cat logo" class="logo" />
-            <form method="post" action="/Login/LoginUser">
+            <form method="post" asp-action="LoginUser">
                 <div class="inputBox">
-                    <input type="text" name="Email" placeholder="Email" required />
-                    <input type="password" name="Password" placeholder="Password" required />
+                    <input type="text" asp-for="Email" name="Email" value="@Model.Email" placeholder="Email" required />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                    <input type="password" asp-for="Password" name="Password" value="@Model.Password" placeholder="Пароль" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="links">
-                    <a href="#">Sign in with Google</a>
+                    <a href="@Url.Action("Login", "Login")">Sign in with Google</a>
                     <a href="#">Forgot password?</a>
                 </div>
                 <button type="submit" class="login-btn">Log in</button>
                 <div class="register-link">
                     <span>Don't have an account?</span>
-                    <a href="/Home/Register">Register</a>
+                    <a href="@Url.Action("RegisterUser", "Login")">Register</a>
                 </div>
             </form>
         </div>

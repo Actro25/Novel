@@ -1,12 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NovelProject.Data;
-<<<<<<< HEAD
-
-
-=======
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
->>>>>>> Vergil_Main
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(options =>
@@ -25,10 +20,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> Vergil_Main
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

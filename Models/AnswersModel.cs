@@ -3,12 +3,8 @@
     public class AnswersModel
     {
         public int id { get; set; }
-<<<<<<< HEAD
-        public required string asnwer_for_scene { get; set; } 
-=======
         public string asnwer_for_scene { get; set; } = string.Empty;
         public int next_scene_id { get; set; }
->>>>>>> Vergil_Main
         public int id_scene { get; set; }
     }
 }

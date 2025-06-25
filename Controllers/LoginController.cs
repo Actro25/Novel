@@ -19,9 +19,17 @@ namespace NovelProject.Controllers
             _logger = logger;
             _context = context;
         }
-        public IActionResult Index()
+
+        [HttpGet]
+        public IActionResult LoginUser()
         {
-            var model = new AuthViewModel();
+            var model = new LoginViewModel();
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult RegisterUser()
+        {
+            var model = new RegisterViewModel();
             return View(model);
         }
         [HttpPost]
@@ -29,14 +37,14 @@ namespace NovelProject.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Index", new AuthViewModel { Login = model });
+                return View(model);
             }
 
             var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
             if (user == null)
             {
                 ModelState.AddModelError("Email", "User not found.");
-                return View("Index", new AuthViewModel { Login = model });
+                return View(model);
             }
 
             var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(null, user.PasswordHash, model.Password);
@@ -59,7 +67,7 @@ namespace NovelProject.Controllers
             else
             {
                 ModelState.AddModelError("Password", "Incorrect password.");
-                return View("Index", new AuthViewModel { Login = model });
+                return View(model);
             }
         }
         [HttpPost]
@@ -67,21 +75,21 @@ namespace NovelProject.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Index", new AuthViewModel { Register = model, ShowRegisterForm = true });
+                return View(model);
             }
 
             var nameExists = _context.Users.Any(u => u.FullName == model.Name);
             if (nameExists)
             {
                 ModelState.AddModelError("Name", "This name already exists.");
-                return View("Index", new AuthViewModel { Register = model, ShowRegisterForm = true });
+                return View(model);
             }
 
             var userExists = _context.Users.Any(u => u.Email == model.Email);
             if (userExists)
             {
                 ModelState.AddModelError("Email", "Email already exists.");
-                return View("Index", new AuthViewModel { Register = model, ShowRegisterForm = true });
+                return View(model);
             }
 
             var user = new Models.UsersModel
@@ -92,7 +100,7 @@ namespace NovelProject.Controllers
             };
             _context.Users.Add(user);
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("LoginUser");
         }
         public async Task Login()
         {
@@ -116,7 +124,7 @@ namespace NovelProject.Controllers
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

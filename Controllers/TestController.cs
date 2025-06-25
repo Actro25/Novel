@@ -1,24 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
 using NovelProject.Data;
-=======
 using NovelProject.AlterModels;
-using NovelProject.Data;
 using NovelProject.Models;
 using System.Xml;
->>>>>>> Vergil_Main
 
 public class TestController : Controller
 {
     private readonly AppDbContext _context;
-
-<<<<<<< HEAD
-=======
     public List<string> BackgroundImagePaths { get; private set; }
     public List<string> PersonageImagePaths { get; private set; }
     public List<string> AdditionalImagePaths { get; private set; }
 
->>>>>>> Vergil_Main
     public TestController(AppDbContext context)
     {
         _context = context;
@@ -26,11 +18,6 @@ public class TestController : Controller
 
     public IActionResult Index()
     {
-<<<<<<< HEAD
-        var scenes = _context.Scenes.ToList();
-        return Content($"{scenes}");
-    }
-=======
         return RedirectToAction("SeeFullHistoryTree");
     }
     public IActionResult SeeFullHistoryTree()
@@ -666,5 +653,4 @@ public class TestController : Controller
         return View(SceneViewBinarry);
     }
     //End binnary tree <----------------------------------------------------------
->>>>>>> Vergil_Main
 }

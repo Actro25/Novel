@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-<<<<<<< HEAD
+
 using NovelProject.Models; 
-=======
-using NovelProject.Models;
->>>>>>> Vergil_Main
+
 
 namespace NovelProject.Controllers
 {
@@ -25,7 +23,7 @@ namespace NovelProject.Controllers
             return View(); 
         }
 
-<<<<<<< HEAD
+
         
         public IActionResult NewGame()
         {
@@ -35,12 +33,10 @@ namespace NovelProject.Controllers
 
         
         public IActionResult LoadGame()
-=======
-        public IActionResult NewGame()
->>>>>>> Vergil_Main
         {
             return View();
         }
+
 
         
         public IActionResult Login()
