@@ -23,10 +23,10 @@ body.theme-dark {
 .menu-container,
 .settings-menu-container,
 .authors-menu-container {
-    background: linear-gradient(135deg, rgba(21,201,250,0.18) 0%, rgba(190,166,252,0.18) 100%);
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.5) 0%, rgba(190, 166, 252, 0.5) 100%);
     border-radius: 22px;
     box-shadow: 0 0 32px 0 #7E4DF966, 0 0 0 2px #BEA6FC88;
-    border: 2px solid #BEA6FC55;
+    border: 2px solid #BEA6FC;
     padding: 18px 12px; /* уменьшен паддинг */
     max-width: 340px; /* уменьшена максимальная ширина */
     min-width: 220px;
@@ -35,7 +35,7 @@ body.theme-dark {
     max-height: 90vh;  /* Ограничиваем максимальную высоту окна */
     overflow-y: auto;  /* Добавляем прокрутку при переполнении */
     position: absolute;
-    top: 10px;
+    top: 121px;
     left: 60px;
     border-radius: 25px;
     border-width: 2px;
@@ -52,6 +52,7 @@ body.theme-dark {
     justify-content: flex-start;
     font-size: 0.92rem; /* уменьшен базовый размер */
     transform: none;
+    height: 810;
 }
 
 /* Заголовок DREAM.EXE */
@@ -113,7 +114,7 @@ body.theme-dark {
 .menu-item {
     display: flex;
     align-items: center;
-    justify-content: center; /* Центрируем текст и иконки */
+    justify-content: left; /* Центрируем текст и иконки */
     background: linear-gradient(90deg, #15C9FA 0%, #7E4DF9 100%);
     color: #fff;
     border: none;
@@ -133,7 +134,7 @@ body.theme-dark {
 }
 .menu-item:hover,
 .menu-item.active {
-    background: #c578f4; /* Ярко-фиолетовый */
+    background: #A787FC; /* Ярко-фиолетовый */
     color: #fff;
     box-shadow: 0 0 24px #a020f0, 0 0 12px #BEA6FC;
     transform: scale(1.04);
@@ -664,19 +665,17 @@ body.theme-light .authors-title {
     min-width: 120px;
 }
 .main-menu-label {
-    font-family: 'Aldrich', Arial, sans-serif;
-    font-size: 13px;
+    width: 149;
+    height: 18;
+    left: 113px;
+    font-family: Aldrich;
     font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: 0.5px;
-    color: #e3e6f9;
-    background: none;
-    border: none;
-    margin-top: -8px;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
-    display: block;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: left;
+
+
 }
 
 /* Темная тема: стили для кнопок */

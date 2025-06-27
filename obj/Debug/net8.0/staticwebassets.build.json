@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jwBuzYbUsIWkrfjrlvidc3yB3DO44LjAHW2DJ4c4JQI=",
+  "Hash": "8MUr0dUrU8HxNVQqL0sHPf6UjdfQ9ioOLnlRxeC4CL8=",
   "Source": "NovelProject",
   "BasePath": "_content/NovelProject",
   "Mode": "Default",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dby5f1j7rx",
-      "Integrity": "B8CfU+y46u/oXWoWXvY7+qZNH0m1LFoffmlk9IjDj60=",
+      "Fingerprint": "3k53x7bncw",
+      "Integrity": "4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -2296,6 +2296,51 @@
       ]
     },
     {
+      "Route": "css/site.3k53x7bncw.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23231"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Jun 2025 03:11:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3k53x7bncw"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -2306,7 +2351,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "15012"
+          "Value": "23231"
         },
         {
           "Name": "Content-Type",
@@ -2314,11 +2359,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"B8CfU+y46u/oXWoWXvY7+qZNH0m1LFoffmlk9IjDj60=\""
+          "Value": "\"4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 27 Jun 2025 01:48:02 GMT"
+          "Value": "Fri, 27 Jun 2025 03:11:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2328,52 +2373,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-B8CfU+y46u/oXWoWXvY7+qZNH0m1LFoffmlk9IjDj60="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.dby5f1j7rx.css",
-      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "15012"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"B8CfU+y46u/oXWoWXvY7+qZNH0m1LFoffmlk9IjDj60=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 27 Jun 2025 01:48:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "dby5f1j7rx"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-B8CfU+y46u/oXWoWXvY7+qZNH0m1LFoffmlk9IjDj60="
+          "Value": "sha256-4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs="
         }
       ]
     },
