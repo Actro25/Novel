@@ -123,7 +123,6 @@ namespace NovelProject.Controllers
 
                 if (previousScenes.Count > 0)
                 {
-                    // Оптимізовано: зібрати всі part_id разом і дістати їх одним запитом
                     var prevPartIds = previousScenes.Select(s => s.id_part).Distinct().ToList();
                     var prevParts = _context.Parts
                         .Where(p => prevPartIds.Contains(p.id))

@@ -182,4 +182,3 @@ D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\refint\N
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\NovelProject.pdb
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\NovelProject.genruntimeconfig.cache
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\ref\NovelProject.dll
-D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
