@@ -9,17 +9,46 @@
         : Url.Action("ChangePart", "PlayGame", new { partId = Model.PartId, actId = Model.Act.Id, sceneId = Model.SceneId});
 }
 
+<!-- Подключаем необходимые скрипты -->
+<script src="~/js/site.js" defer></script>
+
 <style>
     html, body {
         margin: 0;
         padding: 0;
         height: 100%;
-        background: url('/scene_images/background_action_scene/black_background_action.jpg') no-repeat center center fixed;
-        background-size: cover;
         font-family: Arial, sans-serif;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .scene-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .background {
+        z-index: 1;
+        background-image: url('/scene_images/background_action_scene/black_background_action.jpg');
+    }
+
+    .additional {
+        z-index: 2;
+        background-image: none;
+    }
+
+    .front {
+        z-index: 3;
+        background-image: none;
     }
 
     .full-screen-wrapper {
+        position: relative;
+        z-index: 4;
         height: 100%;
         width: 100%;
         display: flex;
@@ -35,6 +64,38 @@
         text-shadow: 2px 2px 4px #000000;
     }
 </style>
+<link rel="stylesheet" href="~/css/game-menu.css" />
+
+<!-- Кнопка меню -->
+<button class="game-menu-button" onclick="showGameMenu()">Меню</button>
+
+<!-- Оверлей меню -->
+<div id="gameMenuOverlay" class="game-menu-overlay"></div>
+
+<!-- Основное меню -->
+<div id="gameMenu" class="game-menu">
+    <button class="game-menu-item" onclick="showSaveSlots()">Зберегти</button>
+    <button class="game-menu-item" onclick="loadGame()">Загрузити</button>
+    <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
+    <button class="game-menu-item" onclick="goToMainMenu()">Головне меню</button>
+    <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
+</div>
+
+<!-- Слоты сохранения -->
+<div id="saveSlots" class="save-slots">
+    <button class="save-slot" onclick="showSaveNameInput(1)">Слот 1</button>
+    <button class="save-slot" onclick="showSaveNameInput(2)">Слот 2</button>
+    <button class="save-slot" onclick="showSaveNameInput(3)">Слот 3</button>
+    <button class="save-slot" onclick="hideGameMenu()">Назад</button>
+</div>
+
+<!-- Ввод имени сохранения -->
+<div id="saveNameInput" class="save-name-input">
+    <input type="hidden" id="selectedSlot" value="" />
+    <input type="text" id="saveName" placeholder="Введіть назву збереження" />
+    <button onclick="saveGame()">Зберегти</button>
+    <button onclick="hideGameMenu()">Скасувати</button>
+</div>
 
 <div class="full-screen-wrapper" onclick="redirectToAction()">
     <div class="center-text">
@@ -56,6 +117,10 @@
         }
     </div>
 </div>
+
+<div class="scene-layer background"></div>
+<div class="scene-layer additional"></div>
+<div class="scene-layer front"></div>
 
 <script>
     function redirectToAction() {

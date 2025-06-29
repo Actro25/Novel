@@ -50,9 +50,9 @@ else
         <h1 class="menu-title center-title"><span>DREAM</span><span class="alt">.EXE</span></h1>
         <div class="main-menu-label">ГОЛОВНЕ МЕНЮ</div>
         <ul class="main-menu">
-            <li><a href="#" class="menu-item" data-lang-key="peaceful_mode"><span>ГРАТИ</span><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a></li>
-            <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16a4 4 0 0 0 8 0v-4"/></svg></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span><svg class="menu-icon new-game-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="2" ry="2"/><path d="M16 3v4M8 3v4"/></svg></a></li>
+            <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="peaceful_mode"><span>ГРАТИ</span><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a></li>
+            <li><a href="#" class="menu-item" id="continueGameLink" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16a4 4 0 0 0 8 0v-4"/></svg></a></li>
+            <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span><svg class="menu-icon new-game-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="2" ry="2"/><path d="M16 3v4M8 3v4"/></svg></a></li>
             <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></li>
             <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></a></li>
             <li><a href="#" class="menu-item" data-lang-key="settings" id="settingsLink"><span>НАЛАШТУВАННЯ</span><svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V19a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H5a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H11a1.65 1.65 0 0 0 1-1.51V5a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51z"/></svg></a></li>
@@ -72,6 +72,7 @@ else
                 <a href="#" id="exitLabel" class="exit-label" tabindex="0" role="button" data-lang-key="exit">ВИХІД</a>
             </li>
         </ul>
+
     </div>
     <div id="authorsMenu" class="authors-menu-container hidden">
         <h3 class="authors-title" data-lang-key="authors_novel_title">АВТОРИ НОВЕЛИ</h3>
@@ -132,7 +133,43 @@ else
         <button id="closeSettingsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
     </div>
 </div>
+@await Html.PartialAsync("_LoadMenu")
 <script src="~/js/site.js"></script>
+<script>
+    document.getElementById('loadGameLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        const loadMenu = document.getElementById('loadMenu');
+        const settingsMenu = document.getElementById('settingsMenu');
+        const authorsMenu = document.getElementById('authorsMenu');
+
+        // Hide other menus
+        if (settingsMenu && !settingsMenu.classList.contains('hidden')) {
+            settingsMenu.classList.add('hidden');
+        }
+        if (authorsMenu && !authorsMenu.classList.contains('hidden')) {
+            authorsMenu.classList.add('hidden');
+        }
+
+        // Toggle load menu with animation classes
+        if (loadMenu.classList.contains('hidden')) {
+            loadMenu.classList.remove('hidden');
+            setTimeout(() => loadMenu.classList.add('active'), 10);
+        } else {
+            loadMenu.classList.remove('active');
+            setTimeout(() => loadMenu.classList.add('hidden'), 300);
+        }
+    });
+
+    // Обработчик для кнопки "ПРОДОВЖИТИ" - загрузка последнего сохранения
+    document.getElementById('continueGameLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        // Здесь должна быть логика загрузки последнего сохранения
+        // Пока что просто перенаправляем к игре
+        console.log('Загрузка последнего сохранения...');
+        window.location.href = '@Url.Action("Index", "PlayGame")';
+    });
+</script>
+
 <audio id="bgMusic" preload="auto"></audio>
 </body>
 </html>

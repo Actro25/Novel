@@ -1,3 +1,50 @@
+// Game menu functions
+function showGameMenu() {
+    document.getElementById('gameMenuOverlay').style.display = 'block';
+    document.getElementById('gameMenu').style.display = 'block';
+}
+
+function hideGameMenu() {
+    document.getElementById('gameMenuOverlay').style.display = 'none';
+    document.getElementById('gameMenu').style.display = 'none';
+    document.getElementById('saveSlots').style.display = 'none';
+    document.getElementById('saveNameInput').style.display = 'none';
+}
+
+function showSaveSlots() {
+    document.getElementById('gameMenu').style.display = 'none';
+    document.getElementById('saveSlots').style.display = 'block';
+}
+
+function showSaveNameInput(slot) {
+    document.getElementById('selectedSlot').value = slot;
+    document.getElementById('saveSlots').style.display = 'none';
+    document.getElementById('saveNameInput').style.display = 'block';
+}
+
+function saveGame() {
+    const slot = document.getElementById('selectedSlot').value;
+    const name = document.getElementById('saveName').value;
+    // TODO: Implement save functionality
+    hideGameMenu();
+}
+
+function loadGame() {
+    // Basic placeholder implementation for load functionality
+    alert('Load game functionality is not yet implemented.');
+    hideGameMenu();
+}
+
+function openSettings() {
+    // Basic placeholder implementation for settings functionality
+    alert('Settings functionality is not yet implemented.');
+    hideGameMenu();
+}
+
+function goToMainMenu() {
+    window.location.href = '/';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // --- Тема ---
     const themeLightBtn = document.getElementById('themeLight');
@@ -461,4 +508,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Enter' || e.key === ' ') exitLabel.click();
         });
     }
+
+    // --- ИГРОВЫЕ КНОПКИ ---
+    // Обработчики для кнопок игры
+    const gameButtons = document.querySelectorAll('[data-lang-key="peaceful_mode"], [data-lang-key="new_game"]');
+    gameButtons.forEach(button => {
+        if (button.tagName === 'A' && button.href && button.href.includes('PlayGame')) {
+            // Кнопка уже имеет правильную ссылку, ничего не делаем
+            return;
+        }
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Перенаправляем на игру
+            window.location.href = '/PlayGame/Index';
+        });
+    });
 });

@@ -29,7 +29,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:29:26 GMT"
+          "Value": "Sun, 29 Jun 2025 22:55:48 GMT"
         }
       ],
       "EndpointProperties": [
@@ -74,7 +74,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:29:26 GMT"
+          "Value": "Sun, 29 Jun 2025 22:55:48 GMT"
         }
       ],
       "EndpointProperties": [
@@ -413,8 +413,8 @@
       ]
     },
     {
-      "Route": "css/loadgame.1aqj7y5ng6.css",
-      "AssetFile": "css/loadgame.css",
+      "Route": "css/game-menu.ajb5e9fgqi.css",
+      "AssetFile": "css/game-menu.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -427,7 +427,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1983"
+          "Value": "2658"
         },
         {
           "Name": "Content-Type",
@@ -435,31 +435,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng=\""
+          "Value": "\"WrTNRYl2MpzA5ZSqzfeMUqEsp647aeQC2L7WSvhwhxY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:30:38 GMT"
+          "Value": "Sun, 29 Jun 2025 23:15:27 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1aqj7y5ng6"
+          "Value": "ajb5e9fgqi"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng="
+          "Value": "sha256-WrTNRYl2MpzA5ZSqzfeMUqEsp647aeQC2L7WSvhwhxY="
         },
         {
           "Name": "label",
-          "Value": "css/loadgame.css"
+          "Value": "css/game-menu.css"
         }
       ]
     },
     {
-      "Route": "css/loadgame.css",
-      "AssetFile": "css/loadgame.css",
+      "Route": "css/game-menu.css",
+      "AssetFile": "css/game-menu.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -472,7 +472,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1983"
+          "Value": "2658"
         },
         {
           "Name": "Content-Type",
@@ -480,17 +480,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng=\""
+          "Value": "\"WrTNRYl2MpzA5ZSqzfeMUqEsp647aeQC2L7WSvhwhxY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:30:38 GMT"
+          "Value": "Sun, 29 Jun 2025 23:15:27 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-N7WZcGKTyv6adoAqvOom49lleYbarr+FvRpr/GqVYng="
+          "Value": "sha256-WrTNRYl2MpzA5ZSqzfeMUqEsp647aeQC2L7WSvhwhxY="
         }
       ]
     },
@@ -577,51 +577,6 @@
       ]
     },
     {
-      "Route": "css/site.7qpvvklr8e.css",
-      "AssetFile": "css/site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "23322"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 28 Jun 2025 04:31:03 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "7qpvvklr8e"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs="
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        }
-      ]
-    },
-    {
       "Route": "css/site.css",
       "AssetFile": "css/site.css",
       "Selectors": [],
@@ -636,7 +591,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23322"
+          "Value": "28853"
         },
         {
           "Name": "Content-Type",
@@ -644,17 +599,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs=\""
+          "Value": "\"txCW3MBf6H+VJDmyoTs7k9seYfd+rHLr2cD2ssl5gOA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Jun 2025 04:31:03 GMT"
+          "Value": "Sun, 29 Jun 2025 22:44:52 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs="
+          "Value": "sha256-txCW3MBf6H+VJDmyoTs7k9seYfd+rHLr2cD2ssl5gOA="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.tjsv5ymwit.css",
+      "AssetFile": "css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28853"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"txCW3MBf6H+VJDmyoTs7k9seYfd+rHLr2cD2ssl5gOA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 29 Jun 2025 22:44:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tjsv5ymwit"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-txCW3MBf6H+VJDmyoTs7k9seYfd+rHLr2cD2ssl5gOA="
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
         }
       ]
     },
@@ -1315,88 +1315,6 @@
       ]
     },
     {
-      "Route": "js/loadgame.fn20m6ewld.js",
-      "AssetFile": "js/loadgame.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1875"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a5uHM6VqTJY5DpN13K3S5s8v4fo/6PyGj1NvkUbmU8k=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:30:38 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "fn20m6ewld"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-a5uHM6VqTJY5DpN13K3S5s8v4fo/6PyGj1NvkUbmU8k="
-        },
-        {
-          "Name": "label",
-          "Value": "js/loadgame.js"
-        }
-      ]
-    },
-    {
-      "Route": "js/loadgame.js",
-      "AssetFile": "js/loadgame.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1875"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"a5uHM6VqTJY5DpN13K3S5s8v4fo/6PyGj1NvkUbmU8k=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:30:38 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-a5uHM6VqTJY5DpN13K3S5s8v4fo/6PyGj1NvkUbmU8k="
-        }
-      ]
-    },
-    {
       "Route": "js/login.5ipweew5fc.js",
       "AssetFile": "js/login.js",
       "Selectors": [],
@@ -1493,7 +1411,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20567"
+          "Value": "22839"
         },
         {
           "Name": "Content-Type",
@@ -1501,22 +1419,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RTK6EBvOYl3Wk064WPWu6/0kueWXwPTe2EZ5KkslGWs=\""
+          "Value": "\"uXvT3916pzZuqyWokoaJdeytTS28AebcM7l+KQHJM4c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Jun 2025 04:14:37 GMT"
+          "Value": "Sun, 29 Jun 2025 23:18:29 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-RTK6EBvOYl3Wk064WPWu6/0kueWXwPTe2EZ5KkslGWs="
+          "Value": "sha256-uXvT3916pzZuqyWokoaJdeytTS28AebcM7l+KQHJM4c="
         }
       ]
     },
     {
-      "Route": "js/site.z6cwowzg4v.js",
+      "Route": "js/site.lp6b50qvq0.js",
       "AssetFile": "js/site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1530,7 +1448,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20567"
+          "Value": "22839"
         },
         {
           "Name": "Content-Type",
@@ -1538,21 +1456,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RTK6EBvOYl3Wk064WPWu6/0kueWXwPTe2EZ5KkslGWs=\""
+          "Value": "\"uXvT3916pzZuqyWokoaJdeytTS28AebcM7l+KQHJM4c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Jun 2025 04:14:37 GMT"
+          "Value": "Sun, 29 Jun 2025 23:18:29 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z6cwowzg4v"
+          "Value": "lp6b50qvq0"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-RTK6EBvOYl3Wk064WPWu6/0kueWXwPTe2EZ5KkslGWs="
+          "Value": "sha256-uXvT3916pzZuqyWokoaJdeytTS28AebcM7l+KQHJM4c="
         },
         {
           "Name": "label",
