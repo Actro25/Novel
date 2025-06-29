@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8MUr0dUrU8HxNVQqL0sHPf6UjdfQ9ioOLnlRxeC4CL8=",
+  "Hash": "tNn6Q58VLEnPBjOHcnMVXQWnUhG89HyVMBw0XQ5LYXw=",
   "Source": "NovelProject",
   "BasePath": "_content/NovelProject",
   "Mode": "Default",
@@ -178,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vzq7xiyfdb",
-      "Integrity": "lVKewBcEfh+KippBjUuUjfSD9jqJd6/ZFQB/TRBw5oU=",
+      "Fingerprint": "9qactdgjdu",
+      "Integrity": "r+3QVDD4n3yhTtdVU3tTeDcvta6KA4hKiKtCYPsq5+g=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "3k53x7bncw",
-      "Integrity": "4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs=",
+      "Fingerprint": "7qpvvklr8e",
+      "Integrity": "AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -2214,6 +2214,51 @@
       ]
     },
     {
+      "Route": "css/login.9qactdgjdu.css",
+      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3367"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r+3QVDD4n3yhTtdVU3tTeDcvta6KA4hKiKtCYPsq5+g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Jun 2025 03:32:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9qactdgjdu"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-r+3QVDD4n3yhTtdVU3tTeDcvta6KA4hKiKtCYPsq5+g="
+        }
+      ]
+    },
+    {
       "Route": "css/login.css",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\login.css",
       "Selectors": [],
@@ -2224,7 +2269,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8995"
+          "Value": "3367"
         },
         {
           "Name": "Content-Type",
@@ -2232,11 +2277,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"lVKewBcEfh+KippBjUuUjfSD9jqJd6/ZFQB/TRBw5oU=\""
+          "Value": "\"r+3QVDD4n3yhTtdVU3tTeDcvta6KA4hKiKtCYPsq5+g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:30:38 GMT"
+          "Value": "Sat, 28 Jun 2025 03:32:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2246,57 +2291,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-lVKewBcEfh+KippBjUuUjfSD9jqJd6/ZFQB/TRBw5oU="
+          "Value": "sha256-r+3QVDD4n3yhTtdVU3tTeDcvta6KA4hKiKtCYPsq5+g="
         }
       ]
     },
     {
-      "Route": "css/login.vzq7xiyfdb.css",
-      "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\login.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8995"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"lVKewBcEfh+KippBjUuUjfSD9jqJd6/ZFQB/TRBw5oU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 26 Jun 2025 15:30:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vzq7xiyfdb"
-        },
-        {
-          "Name": "label",
-          "Value": "css/login.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-lVKewBcEfh+KippBjUuUjfSD9jqJd6/ZFQB/TRBw5oU="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.3k53x7bncw.css",
+      "Route": "css/site.7qpvvklr8e.css",
       "AssetFile": "C:\\Users\\artem\\OneDrive\\Документи\\GitHub\\Novel\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2306,7 +2306,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23231"
+          "Value": "23322"
         },
         {
           "Name": "Content-Type",
@@ -2314,11 +2314,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs=\""
+          "Value": "\"AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 27 Jun 2025 03:11:59 GMT"
+          "Value": "Sat, 28 Jun 2025 04:31:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2328,7 +2328,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3k53x7bncw"
+          "Value": "7qpvvklr8e"
         },
         {
           "Name": "label",
@@ -2336,7 +2336,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs="
+          "Value": "sha256-AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs="
         }
       ]
     },
@@ -2351,7 +2351,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23231"
+          "Value": "23322"
         },
         {
           "Name": "Content-Type",
@@ -2359,11 +2359,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs=\""
+          "Value": "\"AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 27 Jun 2025 03:11:59 GMT"
+          "Value": "Sat, 28 Jun 2025 04:31:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2373,7 +2373,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4+uziNmGg4hg5Z/1uJoEfgU+JUwpfikdHTrg38BYZbs="
+          "Value": "sha256-AQ09ATldNHCxfa1I2NhE1X1hDwXSN7nZEr4Z84GzLWs="
         }
       ]
     },
@@ -3220,7 +3220,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 27 Jun 2025 01:42:30 GMT"
+          "Value": "Sat, 28 Jun 2025 04:14:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3257,7 +3257,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 27 Jun 2025 01:42:30 GMT"
+          "Value": "Sat, 28 Jun 2025 04:14:37 GMT"
         },
         {
           "Name": "Cache-Control",
