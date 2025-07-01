@@ -176,6 +176,7 @@ D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwe
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwebassets.development.json
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\NovelPro.21708A27.Up2Date
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\NovelProject.dll
 D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\obj\Debug\net8.0\refint\NovelProject.dll

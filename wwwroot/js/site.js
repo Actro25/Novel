@@ -1,3 +1,50 @@
+// Game menu functions
+function showGameMenu() {
+    document.getElementById('gameMenuOverlay').style.display = 'block';
+    document.getElementById('gameMenu').style.display = 'block';
+}
+
+function hideGameMenu() {
+    document.getElementById('gameMenuOverlay').style.display = 'none';
+    document.getElementById('gameMenu').style.display = 'none';
+    document.getElementById('saveSlots').style.display = 'none';
+    document.getElementById('saveNameInput').style.display = 'none';
+}
+
+function showSaveSlots() {
+    document.getElementById('gameMenu').style.display = 'none';
+    document.getElementById('saveSlots').style.display = 'block';
+}
+
+function showSaveNameInput(slot) {
+    document.getElementById('selectedSlot').value = slot;
+    document.getElementById('saveSlots').style.display = 'none';
+    document.getElementById('saveNameInput').style.display = 'block';
+}
+
+function saveGame() {
+    const slot = document.getElementById('selectedSlot').value;
+    const name = document.getElementById('saveName').value;
+    // TODO: Implement save functionality
+    hideGameMenu();
+}
+
+function loadGame() {
+    // Basic placeholder implementation for load functionality
+    alert('Load game functionality is not yet implemented.');
+    hideGameMenu();
+}
+
+function openSettings() {
+    // Basic placeholder implementation for settings functionality
+    alert('Settings functionality is not yet implemented.');
+    hideGameMenu();
+}
+
+function goToMainMenu() {
+    window.location.href = '/';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // --- Тема ---
     const themeLightBtn = document.getElementById('themeLight');
@@ -462,81 +509,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Dream.EXE меню: отображение/скрытие окон
-    (function () {
-        // Кнопки
-        var settingsLink = document.getElementById('settingsLink');
-        var authorsLink = document.getElementById('authorsLink');
-        var closeSettingsMenu = document.getElementById('closeSettingsMenu');
-        var closeAuthorsMenu = document.getElementById('closeAuthorsMenu');
-        var settingsMenu = document.getElementById('settingsMenu');
-        var authorsMenu = document.getElementById('authorsMenu');
-
-        // Универсальная функция для показа/скрытия меню
-        function toggleMenu(menuToShow) {
-            // Если меню уже активно — скрыть его
-            if (menuToShow.classList.contains('active')) {
-                menuToShow.classList.remove('active');
-                setTimeout(() => menuToShow.classList.add('hidden'), 300);
-                return;
-            }
-            // Скрыть оба меню
-            [settingsMenu, authorsMenu].forEach(menu => {
-                if (menu) {
-                    menu.classList.remove('active');
-                    setTimeout(() => menu.classList.add('hidden'), 300);
-                }
-            });
-            // Показать выбранное меню
-            menuToShow.classList.remove('hidden');
-            setTimeout(() => menuToShow.classList.add('active'), 10);
-
-            
-
-        // Клик по "Настройки"
-        if (settingsLink && settingsMenu) {
-            settingsLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                toggleMenu(settingsMenu);
-            });
+    // --- ИГРОВЫЕ КНОПКИ ---
+    // Обработчики для кнопок игры
+    const gameButtons = document.querySelectorAll('[data-lang-key="peaceful_mode"], [data-lang-key="new_game"]');
+    gameButtons.forEach(button => {
+        if (button.tagName === 'A' && button.href && button.href.includes('PlayGame')) {
+            // Кнопка уже имеет правильную ссылку, ничего не делаем
+            return;
         }
-        // Клик по "Авторы"
-        if (authorsLink && authorsMenu) {
-            authorsLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                toggleMenu(authorsMenu);
-            });
-        }
-        // Кнопка закрытия "Настройки"
-        if (closeSettingsMenu && settingsMenu) {
-            closeSettingsMenu.addEventListener('click', function () {
-                settingsMenu.classList.remove('active');
-                setTimeout(function () { settingsMenu.classList.add('hidden'); }, 300);
-            });
-        }
-        // Кнопка закрытия "Авторы"
-        if (closeAuthorsMenu && authorsMenu) {
-            closeAuthorsMenu.addEventListener('click', function () {
-                authorsMenu.classList.remove('active');
-                setTimeout(function () { authorsMenu.classList.add('hidden'); }, 300);
-            });
-        }
-        // ESC закрывает оба меню
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                [settingsMenu, authorsMenu].forEach(menu => {
-                    if (menu) menu.classList.remove('active');
-                });
-                setTimeout(function () {
-                    [settingsMenu, authorsMenu].forEach(menu => {
-                        if (menu) menu.classList.add('hidden');
-                    });
-                }, 300);
-            }
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Перенаправляем на игру
+            window.location.href = '/PlayGame/Index';
         });
-    } // <-- Add this closing brace to end the IIFE function
-   
-
-   
-    })(); // <-- Call the IIFE to execute the code  
-}       );
+    });
+});

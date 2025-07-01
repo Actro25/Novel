@@ -1,0 +1,110 @@
+<div id="loadMenu" class="load-menu-container hidden">
+    <h3 class="load-title">ЗАВАНТАЖИТИ ГРУ</h3>
+    <div class="save-slots">
+        <div class="save-slot">
+            <div class="save-slot-header">
+                <span class="save-slot-number">Слот 1</span>
+                <span class="save-slot-date">Порожньо</span>
+            </div>
+            <div class="save-slot-name">-</div>
+        </div>
+        <div class="save-slot">
+            <div class="save-slot-header">
+                <span class="save-slot-number">Слот 2</span>
+                <span class="save-slot-date">Порожньо</span>
+            </div>
+            <div class="save-slot-name">-</div>
+        </div>
+        <div class="save-slot">
+            <div class="save-slot-header">
+                <span class="save-slot-number">Слот 3</span>
+                <span class="save-slot-date">Порожньо</span>
+            </div>
+            <div class="save-slot-name">-</div>
+        </div>
+    </div>
+    <button id="closeLoadMenu" class="close-button">ЗАКРИТИ</button>
+</div>
+
+<style>
+.load-menu-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid white;
+    padding: 20px;
+    color: white;
+    z-index: 1000;
+    min-width: 300px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.load-menu-container.active {
+    opacity: 1;
+}
+
+.load-menu-container.hidden {
+    display: none;
+}
+
+.load-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.save-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.save-slot {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-slot:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.save-slot-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.save-slot-name {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.close-button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+</style>
+
+<script>
+document.getElementById('closeLoadMenu').addEventListener('click', function() {
+    const loadMenu = document.getElementById('loadMenu');
+    loadMenu.classList.remove('active');
+    setTimeout(() => loadMenu.classList.add('hidden'), 300);
+});
+</script>

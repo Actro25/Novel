@@ -7,6 +7,9 @@
     ViewData["Title"] = $"Scene {Model.CurrentScene.id}";
 
     Layout = null;
+    
+    // Подключаем необходимые скрипты
+    <script src="~/js/site.js" defer></script>
 
     var answers = Model.CurrentScene.answer ? _context.Answers.Where(a => a.id_scene == Model.CurrentScene.id).ToList() : new List<NovelProject.Models.AnswersModel>();
 }
@@ -40,7 +43,7 @@
         background-image: url('@Model.CurrentScene.additional_scene_img');
     }
 
-    .character {
+    .front {
         z-index: 3;
         background-image: url('@Model.CurrentScene.personage_scene_img');
     }
@@ -71,10 +74,42 @@
             background-color: rgba(255,255,255,0.3);
         }
 </style>
+<link rel="stylesheet" href="~/css/game-menu.css" />
+
+<!-- Кнопка меню -->
+<button class="game-menu-button" onclick="showGameMenu()">Меню</button>
+
+<!-- Оверлей меню -->
+<div id="gameMenuOverlay" class="game-menu-overlay"></div>
+
+<!-- Основное меню -->
+<div id="gameMenu" class="game-menu">
+    <button class="game-menu-item" onclick="showSaveSlots()">Зберегти</button>
+    <button class="game-menu-item" onclick="loadGame()">Загрузити</button>
+    <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
+    <button class="game-menu-item" onclick="goToMainMenu()">Головне меню</button>
+    <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
+</div>
+
+<!-- Слоты сохранения -->
+<div id="saveSlots" class="save-slots">
+    <button class="save-slot" onclick="showSaveNameInput(1)">Слот 1</button>
+    <button class="save-slot" onclick="showSaveNameInput(2)">Слот 2</button>
+    <button class="save-slot" onclick="showSaveNameInput(3)">Слот 3</button>
+    <button class="save-slot" onclick="hideGameMenu()">Назад</button>
+</div>
+
+<!-- Ввод имени сохранения -->
+<div id="saveNameInput" class="save-name-input">
+    <input type="hidden" id="selectedSlot" value="" />
+    <input type="text" id="saveName" placeholder="Введіть назву збереження" />
+    <button onclick="saveGame()">Зберегти</button>
+    <button onclick="hideGameMenu()">Скасувати</button>
+</div>
 
 <div class="scene-layer background"></div>
 <div class="scene-layer additional"></div>
-<div class="scene-layer character"></div>
+<div class="scene-layer front"></div>
 
 <div class="scene-text">
     @if (!Model.CurrentScene.answer)
