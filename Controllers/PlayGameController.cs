@@ -2,6 +2,7 @@
 using NovelProject.AlterModels;
 using NovelProject.Data;
 using NovelProject.Models;
+using System.Security.Claims;
 
 namespace NovelProject.Controllers
 {
@@ -181,7 +182,6 @@ namespace NovelProject.Controllers
 
             var nextScene = _context.Scenes.FirstOrDefault(s => s.id == currentScene.id_next_scene);
 
-            // Зберігаємо інформацію про перехід у новий парт
             bool endOfPartReached = nextScene != null && nextScene.id_part != currentScene.id_part;
             int nextPartId = nextScene?.id_part ?? currentScene.id_part;
             var temp = new PlayGameSceneChange
@@ -194,8 +194,124 @@ namespace NovelProject.Controllers
                 NextPartId = nextPartId
             };
 
+            if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (!string.IsNullOrEmpty(userIdClaim) && int.TryParse(userIdClaim, out int userId))
+                {
+                    var SaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == userId);
+                    if (SaveFile != null)
+                    {
+                        temp.SaveFile = SaveFile;
+                    }
+                }
+            }
             return View(temp);
         }
+        [HttpPost]
+        public IActionResult SaveGame(int selectedSlot, string saveName, int partId, int actId, int sceneId)
+        {
+            var scene_save = 0;
+            if (selectedSlot == 0)
+                return BadRequest("Please select a valid slot.");
 
+            if (saveName == null)
+                return BadRequest("Please provide a save name.");
+
+            if(partId > 0 && sceneId == 0)
+            {
+                var current_part_save = _context.Parts.FirstOrDefault(p => p.id == partId);
+                if (current_part_save == null)
+                    return NotFound("Part not found.");
+                scene_save = current_part_save.end_scene_id;
+            }
+            else if (partId > 0 && sceneId > 0)
+            {
+                var current_scene_save = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
+                if (current_scene_save == null)
+                    return NotFound("Scene not found.");
+                scene_save = current_scene_save.id;
+            }
+            else if (partId == 0 && sceneId == 0)
+            {
+                var current_act_save = _context.Acts.FirstOrDefault(a => a.Id == actId);
+                if (current_act_save == null)
+                    return NotFound("Act not found.");
+                var current_part_save = _context.Parts.FirstOrDefault(p => p.id == current_act_save.EndPartId);
+                if (current_part_save == null)
+                    return NotFound("Part not found.");
+                scene_save = current_part_save.end_scene_id;
+            }
+            else if (partId == 0 && sceneId > 0)
+            {
+                scene_save = sceneId;
+            }
+            else
+            {
+                return BadRequest("Invalid part or scene ID.");
+            }
+
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("User not logged in.");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var SaveFile = new SaveFileModel();
+
+            switch (selectedSlot)
+            {
+                case 1:
+                    SaveFile.FirstSaveId = scene_save;
+                    SaveFile.FirstSaveName = saveName;
+                    break;
+                case 2:
+                    SaveFile.SecondSaveId = scene_save;
+                    SaveFile.SecondSaveName = saveName;
+                    break;
+                case 3:
+                    SaveFile.ThirdSaveId = scene_save;
+                    SaveFile.ThirdSaveName = saveName;
+                    break;
+            }
+
+            SaveFile.UserId = userId;
+
+            var perevirka = _context.SaveFile.FirstOrDefault(s => s.UserId == userId);
+            if (perevirka == null)
+            {
+                _context.SaveFile.Add(SaveFile);
+            }
+            else
+            {
+                switch (selectedSlot) {
+                    case 1:
+                        perevirka.FirstSaveId = scene_save;
+                        perevirka.FirstSaveName = saveName;
+                        break;
+                    case 2:
+                        perevirka.SecondSaveId = scene_save;
+                        perevirka.SecondSaveName = saveName;
+                        break;
+                    case 3:
+                        perevirka.ThirdSaveId = scene_save;
+                        perevirka.ThirdSaveName = saveName;
+                        break;
+                }
+                _context.SaveFile.Update(perevirka);
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("ActionSeeScene", new { partId, sceneId, StartPart = false , actId });
+        }
+        //public IActionResult DeleteAll()
+        //{
+        //    var allSaveFiles = _context .SaveFile.ToList();
+        //    _context.SaveFile.RemoveRange(allSaveFiles);
+        //    _context.SaveChanges();
+        //    return Content("Таблицю успішно очищено");
+        //}
     }
 }

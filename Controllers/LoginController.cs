@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NovelProject.AlterModels;
 using NovelProject.Data;
+using NovelProject.Models;
 using System.Security.Claims;
 
 namespace NovelProject.Controllers
@@ -111,16 +112,48 @@ namespace NovelProject.Controllers
         public async Task<IActionResult> GoogleResponse()
         {
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var claims = result.Principal.Claims;
 
-            var claim = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new {
-                claim.Issuer,
-                claim.OriginalIssuer,
-                claim.Type,
-                claim.Value
-            });
+            var email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            var name = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
 
-            return RedirectToAction("Index", "Home", new { claims = claim });
+            if (string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("LoginUser");
+            }
+
+            // Пошук користувача по Email
+            var user = _context.Users.FirstOrDefault(u => u.Email == email);
+            if (user == null)
+            {
+                // Якщо користувача немає — створюємо
+                user = new UsersModel
+                {
+                    FullName = name ?? "Google User",
+                    Email = email,
+                    PasswordHash = "[EXTERNAL]" // або встанови щось типу "External"
+                };
+
+                _context.Users.Add(user);
+                _context.SaveChanges();
+            }
+
+            // Авторизація через Claims
+            var userClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.FullName),
+                new Claim(ClaimTypes.Email, user.Email)
+            };
+
+            var identity = new ClaimsIdentity(userClaims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return RedirectToAction("Index", "Home");
         }
+
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync();

@@ -74,28 +74,11 @@
 
 <!-- Основное меню -->
 <div id="gameMenu" class="game-menu">
-    <button class="game-menu-item" onclick="showSaveSlots()">Зберегти</button>
-    <button class="game-menu-item" onclick="loadGame()">Загрузити</button>
     <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
     <button class="game-menu-item" onclick="goToMainMenu()">Головне меню</button>
     <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
 </div>
 
-<!-- Слоты сохранения -->
-<div id="saveSlots" class="save-slots">
-    <button class="save-slot" onclick="showSaveNameInput(1)">Слот 1</button>
-    <button class="save-slot" onclick="showSaveNameInput(2)">Слот 2</button>
-    <button class="save-slot" onclick="showSaveNameInput(3)">Слот 3</button>
-    <button class="save-slot" onclick="hideGameMenu()">Назад</button>
-</div>
-
-<!-- Ввод имени сохранения -->
-<div id="saveNameInput" class="save-name-input">
-    <input type="hidden" id="selectedSlot" value="" />
-    <input type="text" id="saveName" placeholder="Введіть назву збереження" />
-    <button onclick="saveGame()">Зберегти</button>
-    <button onclick="hideGameMenu()">Скасувати</button>
-</div>
 
 <div class="full-screen-wrapper" onclick="redirectToAction()">
     <div class="center-text">
