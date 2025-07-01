@@ -1,110 +1,236 @@
+
 <div id="loadMenu" class="load-menu-container hidden">
     <h3 class="load-title">ЗАВАНТАЖИТИ ГРУ</h3>
-    <div class="save-slots">
-        <div class="save-slot">
-            <div class="save-slot-header">
-                <span class="save-slot-number">Слот 1</span>
-                <span class="save-slot-date">Порожньо</span>
+
+    <div id="saveSlotsContainer" class="save-slots">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var save = Model[i];
+            <div class="save-slot">
+                <div class="save-slot-header">
+                    <span class="save-slot-number">Слот @(i + 1)</span>
+
+                </div>
+
+                @if (!string.IsNullOrEmpty(save.FileName))
+                {
+                    <div class="save-slot-name">@save.FileName</div>
+                    <div class="save-slot-info">
+                        <div>Акт: @save.ActName</div>
+                        <div>Частина: @save.PartName</div>
+                        <div class="scene-preview" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            @save.SceneFirstText
+                        </div>
+                    </div>
+                    <div class="slot-actions">
+                        <button class="action-btn load-btn" data-slot="@i">Завантажити</button>
+                        <button class="action-btn delete-btn" data-slot="@i">Видалити</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="slot-empty">Порожньо</div>
+                }
             </div>
-            <div class="save-slot-name">-</div>
-        </div>
-        <div class="save-slot">
-            <div class="save-slot-header">
-                <span class="save-slot-number">Слот 2</span>
-                <span class="save-slot-date">Порожньо</span>
-            </div>
-            <div class="save-slot-name">-</div>
-        </div>
-        <div class="save-slot">
-            <div class="save-slot-header">
-                <span class="save-slot-number">Слот 3</span>
-                <span class="save-slot-date">Порожньо</span>
-            </div>
-            <div class="save-slot-name">-</div>
-        </div>
+        }
     </div>
-    <button id="closeLoadMenu" class="close-button">ЗАКРИТИ</button>
+
+    <button id="closeLoadMenuBtn" class="close-button">ЗАКРИТИ</button>
 </div>
 
 <style>
-.load-menu-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.9);
-    border: 2px solid white;
-    padding: 20px;
-    color: white;
-    z-index: 1000;
-    min-width: 300px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+    .save-slot-info {
+        margin: 10px 0;
+        font-size: 0.9em;
+        color: #aaa;
+    }
 
-.load-menu-container.active {
-    opacity: 1;
-}
+    .scene-preview {
+        margin-top: 5px;
+        font-style: italic;
+        color: #888;
+    }
+    /* Ваші стилі залишаються майже без змін, я лише додав стилі для нових кнопок */
+    .load-menu-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(10, 20, 35, 0.95);
+        border: 2px solid #00aaff;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0, 170, 255, 0.5);
+        padding: 25px;
+        color: white;
+        z-index: 1000;
+        width: 90%;
+        max-width: 600px;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
 
-.load-menu-container.hidden {
-    display: none;
-}
+        .load-menu-container.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
 
-.load-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-}
+        .load-menu-container.hidden {
+            display: none;
+        }
 
-.save-slots {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
+    .load-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        color: #00aaff;
+        text-shadow: 0 0 10px #00aaff;
+    }
 
-.save-slot {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid white;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    .save-slots {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
 
-.save-slot:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
+    .save-slot {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 15px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
 
-.save-slot-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
+    .save-slot-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
 
-.save-slot-name {
-    font-size: 0.9em;
-    color: #ccc;
-}
+    .save-slot-name {
+        font-size: 1em;
+        color: #00d1ff;
+        margin-bottom: 15px;
+    }
 
-.close-button {
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid white;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    .save-slot-date {
+        font-size: 0.8em;
+        color: #ccc;
+    }
 
-.close-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
+    .slot-empty {
+        color: #888;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* Нові стилі для кнопок дій */
+    .slot-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .action-btn {
+        flex-grow: 1;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        background: transparent;
+        color: white;
+        font-weight: bold;
+        border: 1px solid;
+        transition: all 0.2s ease;
+    }
+
+    .load-btn {
+        border-color: #00ff8c;
+    }
+
+        .load-btn:hover {
+            background-color: #00ff8c;
+            color: #000;
+        }
+
+    .delete-btn {
+        border-color: #ff4d4d;
+    }
+
+        .delete-btn:hover {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+
+    .close-button {
+        width: 100%;
+        padding: 12px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 1em;
+    }
+
+        .close-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
 </style>
 
 <script>
-document.getElementById('closeLoadMenu').addEventListener('click', function() {
-    const loadMenu = document.getElementById('loadMenu');
-    loadMenu.classList.remove('active');
-    setTimeout(() => loadMenu.classList.add('hidden'), 300);
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadMenu = document.getElementById('loadMenu');
+        const closeLoadMenuBtn = document.getElementById('closeLoadMenuBtn');
+        const saveSlotsContainer = document.getElementById('saveSlotsContainer');
+
+        // Ця функція показує меню завантаження.
+        // Її потрібно викликати з головного меню гри.
+        function showLoadMenu() {
+            renderLoadSlots(); // Оновлюємо слоти перед показом
+            loadMenu.classList.remove('hidden');
+            setTimeout(() => loadMenu.classList.add('active'), 10);
+        }
+
+        // Функція для закриття меню
+        function hideLoadMenu() {
+            loadMenu.classList.remove('active');
+            setTimeout(() => loadMenu.classList.add('hidden'), 300);
+        }
+
+        // Прив'язуємо закриття до кнопки
+        closeLoadMenuBtn.addEventListener('click', hideLoadMenu);
+
+
+        // Обробка кліків на кнопках "Завантажити" та "Видалити"
+        saveSlotsContainer.addEventListener('click', function(e) {
+            const target = e.target;
+            const slotId = target.dataset.slot;
+
+            if (!slotId) return;
+
+            if (target.classList.contains('load-btn')) {
+                // Тут логіка завантаження гри
+                window.location.href = '@Url.Action("LoadGame", "PlayGame")?slot=' + slotId;
+            }
+
+            if (target.classList.contains('delete-btn')) {
+                if (confirm('Видалити це збереження?')) {
+                    // Тут логіка видалення збереження
+                    fetch('@Url.Action("DeleteSave", "Save")?slot=' + slotId, {
+                        method: 'POST'
+                    }).then(response => {
+                        if (response.ok) {
+                            location.reload(); // Оновити сторінку після видалення
+                        }
+                    });
+                }
+            }
+        });
+    });
 </script>
