@@ -15,7 +15,6 @@ namespace NovelProject.Controllers
         }
         public IActionResult Index()
         {
-
             var firstAct = _context.Acts.OrderBy(a => a.Id).FirstOrDefault();
             if (firstAct == null)
                 return NotFound("No acts found in the database.");
@@ -27,6 +26,20 @@ namespace NovelProject.Controllers
                 return NotFound("No scenes found for the first part.");
 
             return RedirectToAction("ActionSee", new { actId = firstAct.Id, StartAct = true, partId = firstPart.id, sceneId = firstScene.id });
+        }
+        [HttpGet]
+        public IActionResult LoadGame(int sceneId)
+        {
+            var currentScene = _context.Scenes.FirstOrDefault(s =   > s.id == sceneId);
+            if (currentScene == null)
+                return NotFound("Scene not found.");
+            var currentPart = _context.Parts.FirstOrDefault(p => p.id == currentScene.id_part);
+            if (currentPart == null)
+                return NotFound("Part not found.");
+            var currentAct = _context.Acts.FirstOrDefault(a => a.Id == currentPart.act_id);
+            if (currentAct == null)
+                return NotFound("Act not found.");
+            return RedirectToAction("ActionSeeScene", new { actId = currentAct.Id, StartAct = false, partId = currentPart.id, sceneID = currentScene.id });
         }
         public IActionResult ChangePart(int ActId, int PartId, int sceneId)
         {

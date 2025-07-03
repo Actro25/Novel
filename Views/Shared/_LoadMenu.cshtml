@@ -6,39 +6,56 @@
         @for (int i = 0; i < Model.Count; i++)
         {
             var save = Model[i];
-            <div class="save-slot">
-                <div class="save-slot-header">
-                    <span class="save-slot-number">Слот @(i + 1)</span>
-
-                </div>
-
-                @if (!string.IsNullOrEmpty(save.FileName))
-                {
+            if (!string.IsNullOrEmpty(save.FileName))
+            {
+                <a href="@Url.Action("LoadGame", "PlayGame", new { sceneId = save.SceneId })" class="save-slot @(string.IsNullOrEmpty(save.FileName) ? "disabled" : "")">
+                    <input type="hidden" name="sceneId" value="@save.SceneId" />
+                    <div class="save-slot-header">
+                        <span class="save-slot-number">Слот @(i + 1)</span>
+                    </div>
                     <div class="save-slot-name">@save.FileName</div>
                     <div class="save-slot-info">
                         <div>Акт: @save.ActName</div>
                         <div>Частина: @save.PartName</div>
-                        <div class="scene-preview" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-                            @save.SceneFirstText
-                        </div>
+                        <div class="scene-preview">@save.SceneFirstText</div>
                     </div>
-                    <div class="slot-actions">
-                        <button class="action-btn load-btn" data-slot="@i">Завантажити</button>
-                        <button class="action-btn delete-btn" data-slot="@i">Видалити</button>
+                </a>
+            }
+            else
+            {
+                <div class="save-slot disabled-slot">
+                    <div class="save-slot-header">
+                        <span class="save-slot-number">Слот @(i + 1)</span>
                     </div>
-                }
-                else
-                {
                     <div class="slot-empty">Порожньо</div>
-                }
-            </div>
+                </div>
+            }
         }
+
     </div>
 
     <button id="closeLoadMenuBtn" class="close-button">ЗАКРИТИ</button>
 </div>
 
 <style>
+    a {
+        text-decoration: none; /* прибирає підкреслення */
+        color: inherit; /* успадковує колір з батьківського елемента */
+    }
+
+    a:visited {
+        color: inherit; /* щоб після кліку не змінювався колір */
+    }
+
+    a:focus, a:active {
+        outline: none; /* прибирає рамку при кліку або фокусі */
+    }
+
+    .save-slot.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
     .save-slot-info {
         margin: 10px 0;
         font-size: 0.9em;
