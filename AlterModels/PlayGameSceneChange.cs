@@ -11,6 +11,7 @@ namespace NovelProject.AlterModels
         public bool EndOfPartReached { get; set; } 
         public int NextSceneId { get; set; }
         public int NextPartId { get; set; }
+        public List<AchivmentsModel> Achivments { get; set; } = new List<AchivmentsModel>();
         public SaveFileModel SaveFile { get; set; } = new SaveFileModel();
     }
 }

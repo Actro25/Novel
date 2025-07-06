@@ -99,8 +99,25 @@ namespace NovelProject.Controllers
                 Email = model.Email,
                 PasswordHash = _passwordHasher.HashPassword(null, model.Password)
             };
+
             _context.Users.Add(user);
             _context.SaveChanges();
+
+            var allAchivments = _context.Achivments.ToList();
+            if (allAchivments.Any())
+            {
+                foreach (var achivment in allAchivments)
+                {
+                    var userAchivment = new UserAchivmentsModel
+                    {
+                        UserId = user.Id,
+                        AchivmentId = achivment.Id
+                    };
+                    _context.UserAchivments.Add(userAchivment);
+                }
+                _context.SaveChanges();
+            }
+
             return RedirectToAction("LoginUser");
         }
         public async Task Login()
@@ -122,23 +139,32 @@ namespace NovelProject.Controllers
                 return RedirectToAction("LoginUser");
             }
 
-            // Пошук користувача по Email
             var user = _context.Users.FirstOrDefault(u => u.Email == email);
             if (user == null)
             {
-                // Якщо користувача немає — створюємо
                 user = new UsersModel
                 {
                     FullName = name ?? "Google User",
                     Email = email,
-                    PasswordHash = "[EXTERNAL]" // або встанови щось типу "External"
+                    PasswordHash = "[EXTERNAL]"
                 };
 
                 _context.Users.Add(user);
                 _context.SaveChanges();
+
+                var allAchivments = _context.Achivments.ToList();
+                foreach (var achivment in allAchivments)
+                {
+                    var userAchivment = new UserAchivmentsModel
+                    {
+                        UserId = user.Id,
+                        AchivmentId = achivment.Id
+                    };
+                    _context.UserAchivments.Add(userAchivment);
+                }
+                _context.SaveChanges();
             }
 
-            // Авторизація через Claims
             var userClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -153,6 +179,7 @@ namespace NovelProject.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
 
         public async Task<IActionResult> LogOut()
         {

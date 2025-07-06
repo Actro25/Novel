@@ -7,7 +7,7 @@
     ViewData["Title"] = $"Scene {Model.CurrentScene.id}";
 
     Layout = null;
-    
+
     // Подключаем необходимые скрипты
     <script src="~/js/site.js" defer></script>
 
@@ -75,6 +75,37 @@
         }
 </style>
 <link rel="stylesheet" href="~/css/game-menu.css" />
+
+@if (Model.Achivments != null && Model.Achivments.Any())
+{
+    <div id="achivment-popup" style="
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            min-width: 300px;
+            max-width: 90%;
+            text-align: center;
+            font-size: 1.2rem;
+        ">
+        <div style="font-weight: bold; font-size: 1.4rem; margin-bottom: 10px;">Досягнення отримано</div>
+        <div id="achivment-list">
+            @foreach (var a in Model.Achivments)
+            {
+                <div style="margin-bottom: 15px;">
+                    <strong>@a.Name</strong><br />
+                    <small>@a.Description</small>
+                </div>
+            }
+        </div>
+    </div>
+}
 
 <!-- Кнопка меню -->
 <button class="game-menu-button" onclick="showGameMenu()">Меню</button>
@@ -148,7 +179,6 @@
             </form>
         }
     }
-
 </div>
 
 @if (Model.CurrentScene.answer)
@@ -166,3 +196,30 @@
         }
     </div>
 }
+<script>
+    const achivmentIds = [
+        @string.Join(", ", Model.Achivments.Select(a => a.Id))
+    ];
+
+    async function updateAchivmentsAsync() {
+        if (achivmentIds.length === 0) return;
+
+        try {
+            await fetch('/PlayGame/UpdateAchivments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(achivmentIds)
+            });
+        } catch (error) {
+            console.error("Failed to update achivments:", error);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        updateAchivmentsAsync();
+    });
+</script>
+
+

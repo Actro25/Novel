@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using NovelProject.AlterModels;
 using NovelProject.Data;
 using NovelProject.Models;
+using System.Data.Entity;
 using System.Security.Claims;
 
 namespace NovelProject.Controllers
@@ -9,9 +11,11 @@ namespace NovelProject.Controllers
     public class PlayGameController : Controller
     {
         private readonly AppDbContext _context;
-        public PlayGameController(AppDbContext context)
+        private readonly ILogger<PlayGameController> _logger;
+        public PlayGameController(AppDbContext context, ILogger<PlayGameController> logger)
         {
             _context = context;
+            _logger = logger;
         }
         public IActionResult Index()
         {
@@ -30,7 +34,7 @@ namespace NovelProject.Controllers
         [HttpGet]
         public IActionResult LoadGame(int sceneId)
         {
-            var currentScene = _context.Scenes.FirstOrDefault(s =   > s.id == sceneId);
+            var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
             if (currentScene == null)
                 return NotFound("Scene not found.");
             var currentPart = _context.Parts.FirstOrDefault(p => p.id == currentScene.id_part);
@@ -148,7 +152,7 @@ namespace NovelProject.Controllers
                     {
                         return RedirectToAction("ChangePart", "PlayGame", new { partId, actId, sceneId });
                     }
-                    
+
                 }
             }
 
@@ -189,6 +193,38 @@ namespace NovelProject.Controllers
             if (sceneId == 0)
                 return RedirectToAction("ActionSeePart", new { partId, actId, StartAct = false, sceneID = sceneId });
 
+
+            List<AchivmentsModel> filteredAchivments;
+
+            var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            int? userId = null;
+
+            if (int.TryParse(userIdStr, out int parsedUserId))
+            {
+                userId = parsedUserId;
+
+                var currentSceneAchivments = _context.Achivments
+                    .Where(a => a.SceneId == sceneId)
+                    .ToList();
+
+                var unachievedAchivmentIds = _context.UserAchivments
+                    .Where(a => a.UserId == userId && !a.IsAchieved)
+                    .Select(a => a.AchivmentId)
+                    .ToList();
+
+                filteredAchivments = currentSceneAchivments
+                    .Where(a => unachievedAchivmentIds.Contains(a.Id))
+                    .ToList();
+            }
+            else
+            {
+                filteredAchivments = _context.Achivments
+                    .Where(a => a.SceneId == sceneId)
+                    .ToList();
+            }
+
+
+
             var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
             if (currentScene == null)
                 return NotFound("Scene not found.");
@@ -204,19 +240,16 @@ namespace NovelProject.Controllers
                 StartPart = StartPart,
                 EndOfPartReached = endOfPartReached,
                 NextSceneId = nextScene?.id ?? 0,
-                NextPartId = nextPartId
+                NextPartId = nextPartId,
+                Achivments = filteredAchivments,
             };
 
-            if (User.Identity != null && User.Identity.IsAuthenticated)
+            if (userId.HasValue)
             {
-                var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                if (!string.IsNullOrEmpty(userIdClaim) && int.TryParse(userIdClaim, out int userId))
+                var SaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == userId.Value);
+                if (SaveFile != null)
                 {
-                    var SaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == userId);
-                    if (SaveFile != null)
-                    {
-                        temp.SaveFile = SaveFile;
-                    }
+                    temp.SaveFile = SaveFile;
                 }
             }
             return View(temp);
@@ -231,7 +264,7 @@ namespace NovelProject.Controllers
             if (saveName == null)
                 return BadRequest("Please provide a save name.");
 
-            if(partId > 0 && sceneId == 0)
+            if (partId > 0 && sceneId == 0)
             {
                 var current_part_save = _context.Parts.FirstOrDefault(p => p.id == partId);
                 if (current_part_save == null)
@@ -317,14 +350,43 @@ namespace NovelProject.Controllers
             }
 
             _context.SaveChanges();
-            return RedirectToAction("ActionSeeScene", new { partId, sceneId, StartPart = false , actId });
+            return RedirectToAction("ActionSeeScene", new { partId, sceneId, StartPart = false, actId });
         }
-        //public IActionResult DeleteAll()
-        //{
-        //    var allSaveFiles = _context .SaveFile.ToList();
-        //    _context.SaveFile.RemoveRange(allSaveFiles);
-        //    _context.SaveChanges();
-        //    return Content("Таблицю успішно очищено");
-        //}
+        [HttpPost]
+        public async Task<IActionResult> UpdateAchivments([FromBody] List<int> achivmentIds)
+        {
+            try
+            {
+                if (achivmentIds == null || !achivmentIds.Any())
+                    return BadRequest("No achivment IDs provided");
+
+                var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (!int.TryParse(userIdStr, out int userId))
+                    return Unauthorized();
+
+                var achivments = _context.UserAchivments
+                    .Where(a => a.UserId == userId && achivmentIds.Contains(a.AchivmentId) && !a.IsAchieved)
+                    .ToList();
+
+                if (!achivments.Any())
+                    return Ok("No new achivments to update");
+
+                foreach (var ach in achivments)
+                {
+                    ach.IsAchieved = true;
+                    ach.AchievedAt = DateTime.UtcNow; // Додайте дату отримання
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok(achivments.Select(a => a.AchivmentId));
+            }
+            catch (Exception ex)
+            {
+                // Логування помилки
+                _logger.LogError(ex, "Error updating achivments");
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace NovelProject.Models
         public string personage_scene_img { get; set; } = string.Empty;
         public string additional_scene_img { get; set; } = string.Empty;
         public int id_part { get; set; }
+        public List<AchivmentsModel> achivmentsModels { get; set; } = new List<AchivmentsModel>();
     }
 }

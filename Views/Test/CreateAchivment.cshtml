@@ -1,0 +1,54 @@
+﻿@model NovelProject.Models.AchivmentsModel
+@using NovelProject.Models
+@{
+    ViewData["Title"] = "Управління досягненнями";
+    var achivments = ViewBag.Achivments as List<AchivmentsModel>;
+}
+
+<h2>Створити досягнення</h2>
+
+<form asp-action="CreateAchivment" asp-controller="Test" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Назва:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Опис:</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Зображення:</label>
+        <input type="file" name="ImageFile" accept="image/*" />
+    </div>
+    <button type="submit" class="btn btn-success">Створити</button>
+</form>
+
+<hr />
+
+<h2>Видалити досягнення</h2>
+
+@if (achivments != null && achivments.Any())
+{
+    <form asp-action="DeleteAchivment" asp-controller="Test" method="post">
+        <div>
+            <label>Виберіть досягнення:</label>
+            <select name="id" class="form-control">
+                @foreach (var a in achivments)
+                {
+                    <option value="@a.Id">@a.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-danger mt-2">Видалити</button>
+    </form>
+}
+else
+{
+    <p>Немає досягнень для видалення.</p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

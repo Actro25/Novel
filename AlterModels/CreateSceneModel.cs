@@ -15,6 +15,8 @@ public class CreateSceneModel
     public List<string> AdditionalImagePaths { get; set; } = new();
     public string? backgroundImagePath { get; set; } = string.Empty;
     public string? personageImagePath { get; set; } = string.Empty;
+    public List<AchivmentsModel> Achivments { get; set; } = new List<AchivmentsModel>();
+    public List<int> selectedAchivmentsIds { get; set; } = new();
     public string? additionalImagePath { get; set; } = string.Empty;
     [BindNever]
     public SceneViewAllModel? AllItems { get; set; }

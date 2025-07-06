@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NovelProject.Data;
 
@@ -10,9 +11,11 @@ using NovelProject.Data;
 namespace NovelProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250706084635_AchivmentMigration")]
+    partial class AchivmentMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
@@ -35,15 +38,7 @@ namespace NovelProject.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("SceneId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("ScenesModelid")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ScenesModelid");
 
                     b.ToTable("Achivments");
                 });
@@ -256,18 +251,6 @@ namespace NovelProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("NovelProject.Models.AchivmentsModel", b =>
-                {
-                    b.HasOne("NovelProject.Models.ScenesModel", null)
-                        .WithMany("achivmentsModels")
-                        .HasForeignKey("ScenesModelid");
-                });
-
-            modelBuilder.Entity("NovelProject.Models.ScenesModel", b =>
-                {
-                    b.Navigation("achivmentsModels");
                 });
 #pragma warning restore 612, 618
         }

@@ -37,6 +37,65 @@ public class TestController : Controller
 
         return View(res);
     }
+    //Achivments actions start <--------------------------------------------------------
+    public IActionResult CreateAchivment()
+    {
+        ViewBag.Achivments = _context.Achivments.ToList();
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult CreateAchivment(AchivmentsModel achivment, IFormFile ImageFile)
+    {
+        if (!ModelState.IsValid)
+        {
+            ViewBag.Achivments = _context.Achivments.ToList();
+            return View(achivment);
+        }
+        if (ImageFile != null && ImageFile.Length > 0)
+        {
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "achivments_images");
+            Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(ImageFile.FileName);
+            var filePath = Path.Combine(uploadsFolder, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                ImageFile.CopyTo(stream);
+            }
+
+            achivment.IconPath = "/achivments_images/" + fileName;
+        }
+
+        _context.Achivments.Add(achivment);
+        _context.SaveChanges();
+
+        return RedirectToAction("CreateAchivment");
+    }
+    [HttpPost]
+    public IActionResult DeleteAchivment(int id)
+    {
+        var achivment = _context.Achivments.FirstOrDefault(a => a.Id == id);
+        if (achivment == null)
+            return NotFound();
+
+        // Видалення зображення з wwwroot
+        if (!string.IsNullOrEmpty(achivment.IconPath))
+        {
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", achivment.IconPath.TrimStart('/'));
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
+            }
+        }
+
+        _context.Achivments.Remove(achivment);
+        _context.SaveChanges();
+        return RedirectToAction("CreateAchivment");
+    }
+
+    //Achivments actions ends <-----------------------------------------------------------
     //Acts actions start <--------------------------------------------------------
     public IActionResult CreateAct()
     {
@@ -296,7 +355,8 @@ public class TestController : Controller
             AllItems = AllItems,
             BackgroundImagePaths = Directory.GetFiles("wwwroot/scene_images/backgrounds").Select(f => "/scene_images/backgrounds/" + Path.GetFileName(f)).ToList(),
             PersonageImagePaths = Directory.GetFiles("wwwroot/scene_images/personage_images").Select(f => "/scene_images/personage_images/" + Path.GetFileName(f)).ToList(),
-            AdditionalImagePaths = Directory.GetFiles("wwwroot/scene_images/additional_images").Select(f => "/scene_images/additional_images/" + Path.GetFileName(f)).ToList()
+            AdditionalImagePaths = Directory.GetFiles("wwwroot/scene_images/additional_images").Select(f => "/scene_images/additional_images/" + Path.GetFileName(f)).ToList(),
+            Achivments = _context.Achivments.ToList()
         };
 
         return View(temp);
@@ -314,6 +374,16 @@ public class TestController : Controller
         // — 2. Додаємо нову сцену
         _context.Scenes.Add(items.Scenes);
         _context.SaveChanges();
+
+        foreach (var achivmentId in items.selectedAchivmentsIds)
+        {
+            var achivment = _context.Achivments.FirstOrDefault(a => a.Id == achivmentId);
+            if (achivment != null)
+            {
+                achivment.SceneId = items.Scenes.id;
+                _context.Achivments.Update(achivment);
+            }
+        }
 
         // — 3. Додаємо всі відповіді з форми
         if (items.Answers != null && items.Answers.Any())
