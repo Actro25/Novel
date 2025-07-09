@@ -90,6 +90,8 @@ public class TestController : Controller
             }
         }
 
+        var userAchivments = _context.UserAchivments.Where(ua => ua.AchivmentId == id).ToList();
+        _context.UserAchivments.RemoveRange(userAchivments);
         _context.Achivments.Remove(achivment);
         _context.SaveChanges();
         return RedirectToAction("CreateAchivment");

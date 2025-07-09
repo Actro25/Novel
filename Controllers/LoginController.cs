@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NovelProject.AlterModels;
 using NovelProject.Data;
 using NovelProject.Models;
@@ -19,6 +20,29 @@ namespace NovelProject.Controllers
         {
             _logger = logger;
             _context = context;
+        }
+        public async Task UpdateAchivments(int userId)
+        {
+            var userAchivmentIds = await _context.UserAchivments
+                .Where(ua => ua.UserId == userId)
+                .Select(ua => ua.AchivmentId)
+                .ToListAsync();
+
+            var missingAchivments = await _context.Achivments
+                .Where(a => !userAchivmentIds.Contains(a.Id))
+                .ToListAsync();
+
+            foreach (var achivment in missingAchivments)
+            {
+                _context.UserAchivments.Add(new UserAchivmentsModel
+                {
+                    UserId = userId,
+                    AchivmentId = achivment.Id,
+                    IsAchieved = false
+                });
+            }
+
+            await _context.SaveChangesAsync();
         }
 
         [HttpGet]
@@ -62,6 +86,10 @@ namespace NovelProject.Controllers
                 var principal = new ClaimsPrincipal(identity);
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                await UpdateAchivments(user.Id);
+
+
 
                 return RedirectToAction("Index", "Home", new { claims = claim });
             }
@@ -176,6 +204,8 @@ namespace NovelProject.Controllers
             var principal = new ClaimsPrincipal(identity);
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            await UpdateAchivments(user.Id);
 
             return RedirectToAction("Index", "Home");
         }

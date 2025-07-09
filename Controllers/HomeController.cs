@@ -22,6 +22,8 @@ namespace NovelProject.Controllers
 
         public IActionResult Index()
         {
+            var AllAchivments = new List<AchivmentsModel>();
+            var UserAchivment = new List<UserAchivmentsModel>();
             var saveFiles = new List<ShowSaveFileModel>
             {
                 new ShowSaveFileModel(),
@@ -38,7 +40,6 @@ namespace NovelProject.Controllers
 
                     if (saveFile != null)
                     {
-                        // Заповнення першого слоту
                         if (!string.IsNullOrEmpty(saveFile.FirstSaveName))
                         {
                             saveFiles[0] = FillSaveFileModel(
@@ -48,7 +49,6 @@ namespace NovelProject.Controllers
                             );
                         }
 
-                        // Заповнення другого слоту
                         if (!string.IsNullOrEmpty(saveFile.SecondSaveName))
                         {
                             saveFiles[1] = FillSaveFileModel(
@@ -58,7 +58,6 @@ namespace NovelProject.Controllers
                             );
                         }
 
-                        // Заповнення третього слоту
                         if (!string.IsNullOrEmpty(saveFile.ThirdSaveName))
                         {
                             saveFiles[2] = FillSaveFileModel(
@@ -68,10 +67,33 @@ namespace NovelProject.Controllers
                             );
                         }
                     }
+
+                    UserAchivment = _context.UserAchivments
+                        .Where(ua => ua.UserId == userId)
+                        .ToList();
+                    if (UserAchivment.Count > 0)
+                    {
+                        AllAchivments = _context.Achivments
+                            .Where(a => UserAchivment.Select(ua => ua.AchivmentId).Contains(a.Id))
+                            .ToList();
+                    }
+                    else
+                    {
+                        AllAchivments = _context.Achivments.ToList();
+                    }
                 }
             }
+            else
+                AllAchivments = _context.Achivments.ToList();
 
-            return View(saveFiles);
+            var result = new MenuShowModel
+            {
+                SaveFiles = saveFiles,
+                UserAchivments = UserAchivment,
+                AllAhivments = AllAchivments
+            };
+
+            return View(result);
         }
 
         private ShowSaveFileModel FillSaveFileModel(string fileName, int sceneId, AppDbContext context)

@@ -1,14 +1,13 @@
-
 <div id="loadMenu" class="load-menu-container hidden">
     <h3 class="load-title">ЗАВАНТАЖИТИ ГРУ</h3>
 
     <div id="saveSlotsContainer" class="save-slots">
-        @for (int i = 0; i < Model.Count; i++)
+        @for (int i = 0; i < Model.SaveFiles.Count; i++)
         {
-            var save = Model[i];
+            var save = Model.SaveFiles[i];
             if (!string.IsNullOrEmpty(save.FileName))
             {
-                <a href="@Url.Action("LoadGame", "PlayGame", new { sceneId = save.SceneId })" class="save-slot @(string.IsNullOrEmpty(save.FileName) ? "disabled" : "")">
+                <a href="@Url.Action("LoadGame", "PlayGame", new { sceneId = save.SceneId })" class="save-slot">
                     <input type="hidden" name="sceneId" value="@save.SceneId" />
                     <div class="save-slot-header">
                         <span class="save-slot-number">Слот @(i + 1)</span>
@@ -31,11 +30,11 @@
                 </div>
             }
         }
-
     </div>
 
     <button id="closeLoadMenuBtn" class="close-button">ЗАКРИТИ</button>
 </div>
+
 
 <style>
     a {
