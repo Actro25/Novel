@@ -2,42 +2,46 @@
 @model MenuShowModel
 <!DOCTYPE html>
 <html lang="uk">
-﻿@{
-ViewData["Title"] = "Dream Inspired Menu";
-Layout = null;
-}
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>@ViewData["Title"]</title>
+@{
+    ViewData["BodyClass"] = "main-page-background";
+}
 <link rel="stylesheet" href="~/css/site.css">
+<link rel="stylesheet" href="~/css/settings.css">
+<link rel="stylesheet" href="~/css/authors.css">
+
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji">
+
+<link rel="stylesheet" href="~/css/dark-theme.css">
 </head>
 <body>
 @if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
 {
 <div class="top-right-buttons" style="position: absolute; top: 15px; right: 20px; z-index: 100;">
-    <label class="text-white">
-        @Context.User.Identity.Name
-    </label>
-    <a href="@Url.Action("LogOut", "Login")">Вихід</a>
+<label class="text-white">
+    @Context.User.Identity.Name
+</label>
+<a href="@Url.Action("LogOut", "Login")">Вихід</a>
 </div>
 }
 else
 {
-    <div aria-label="User Login Button"
-        tabindex="0"
-        role="button"
-        class="user-profile"
-        style="position: absolute; top: 28px; right: 48px; z-index: 100;"
-        onclick="window.location.href='@Url.Action("LoginUser", "Login")'"
-        onkeydown="if(event.key==='Enter'){window.location.href='@Url.Action("LoginUser", "Login")'}">
-        <div class="user-profile-inner">
-            <p>Log In</p>
-        </div>
-    </div>
+<div aria-label="User Login Button"
+    tabindex="0"
+    role="button"
+    class="user-profile"
+    style="position: absolute; top: 28px; right: 48px; z-index: 100;"
+    onclick="window.location.href='@Url.Action("LoginUser", "Login")'"
+    onkeydown="if(event.key==='Enter'){window.location.href='@Url.Action("LoginUser", "Login")'}">
+<div class="user-profile-inner">
+    <class="menu-icon">
+    <p>Log In</p>
+</div>
+</div>
 }
 <div class="main-flex-wrap">
 <div class="menu-container" id="mainMenuContainer">
@@ -52,7 +56,7 @@ else
             <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span><i class="menu-icon"></i></a></li>
             <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span><i class="menu-icon"></i></a></li>
             <li><a href="#" class="menu-item" data-lang-key="settings" id="settingsLink"><span>НАЛАШТУВАННЯ</span><i class="menu-icon"></i></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="achievements"><span>ДОСЯГНЕННЯ</span> <span class="achievement-count">26/26</span><i class="menu-icon"></i></a></li>
+            <li><a href="#" id="loadAchivmentLink" class="menu-item" data-lang-key="achievements"><span>ДОСЯГНЕННЯ</span> <span class="achievement-count">26/26</span><i class="menu-icon"></i></a></li>
             <li><a href="#" class="menu-item" id="authorsLink" data-lang-key="authors"><span>АВТОРИ</span><i class="menu-icon"></i></a></li>
             <li style="display: flex; gap: 1.2em; justify-content: flex-start; background: none; box-shadow: none; border: none;">
                 <div class="lang-voice-block">
@@ -129,69 +133,66 @@ else
 @await Html.PartialAsync("_LoadMenu")
 @await Html.PartialAsync("_AchivmentMenu")
 <script src="~/js/site.js"></script>
-<script>
-    document.getElementById('loadGameLink').addEventListener('click', function(e) {
-        e.preventDefault();
-        const loadMenu = document.getElementById('loadMenu');
-        const settingsMenu = document.getElementById('settingsMenu');
-        const authorsMenu = document.getElementById('authorsMenu');
+<script src="~/js/translation.js"></script>
+    <script>
+        // Універсальна функція для відкриття одного меню та закриття інших
+        function showMenu(menuIdToShow) {
+            const allMenus = ['loadMenu', 'settingsMenu', 'authorsMenu', 'achivmentsMenu'];
+            allMenus.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
 
-        // Hide other menus
-        if (settingsMenu && !settingsMenu.classList.contains('hidden')) {
-            settingsMenu.classList.add('hidden');
-        }
-        if (authorsMenu && !authorsMenu.classList.contains('hidden')) {
-            authorsMenu.classList.add('hidden');
-        }
-
-        // Toggle load menu with animation classes
-        if (loadMenu.classList.contains('hidden')) {
-            loadMenu.classList.remove('hidden');
-            setTimeout(() => loadMenu.classList.add('active'), 10);
-        } else {
-            loadMenu.classList.remove('active');
-            setTimeout(() => loadMenu.classList.add('hidden'), 300);
-        }
-    });
-
-    // Обработчик для кнопки "ПРОДОВЖИТИ" - загрузка последнего сохранения
-    document.getElementById('continueGameLink').addEventListener('click', function(e) {
-        e.preventDefault();
-        // Здесь должна быть логика загрузки последнего сохранения
-        // Пока что просто перенаправляем к игре
-        console.log('Загрузка последнего сохранения...');
-        window.location.href = '@Url.Action("Index", "PlayGame")';
-    });
-
-    document.getElementById('loadAchivmentLink').addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const achMenu = document.getElementById('achivmentsMenu');
-        if (!achMenu) {
-            console.error("Елемент achivmentsMenu не знайдено!");
-            return;
+                if (id === menuIdToShow) {
+                    el.classList.remove('hidden');
+                    setTimeout(() => el.classList.add('active'), 10);
+                } else {
+                    el.classList.remove('active');
+                    setTimeout(() => el.classList.add('hidden'), 10);
+                }
+            });
         }
 
-        // Приховуємо всі інші меню
-        const otherMenus = ['loadMenu', 'settingsMenu', 'authorsMenu'];
-        otherMenus.forEach(menuId => {
-            const menu = document.getElementById(menuId);
-            if (menu && !menu.classList.contains('hidden')) {
-                menu.classList.remove('active');
-                setTimeout(() => menu.classList.add('hidden'), 10);
-            }
+        // --- Кнопки відкриття ---
+        document.getElementById('settingsLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showMenu('settingsMenu');
         });
 
-        if (achMenu.classList.contains('hidden')) {
-            achMenu.classList.remove('hidden');
-            setTimeout(() => achMenu.classList.add('active'), 10);
-        } else {
-            achMenu.classList.remove('active');
-            setTimeout(() => achMenu.classList.add('hidden'), 300);
-        }
-    });
-</script>
+        document.getElementById('authorsLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showMenu('authorsMenu');
+        });
+
+        document.getElementById('loadGameLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showMenu('loadMenu');
+        });
+
+        document.getElementById('loadAchivmentLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showMenu('achivmentsMenu');
+        });
+
+        document.getElementById('continueGameLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Загрузка останнього збереження...');
+            window.location.href = '@Url.Action("Index", "PlayGame")';
+        });
+
+        // --- Кнопки закриття ---
+        document.getElementById('closeSettingsMenu')?.addEventListener('click', () => {
+            const el = document.getElementById('settingsMenu');
+            el.classList.remove('active');
+            setTimeout(() => el.classList.add('hidden'), 10);
+        });
+
+        document.getElementById('closeAuthorsMenu')?.addEventListener('click', () => {
+            const el = document.getElementById('authorsMenu');
+            el.classList.remove('active');
+            setTimeout(() => el.classList.add('hidden'), 10);
+        });
+    </script>
+
 
 <audio id="bgMusic" preload="auto"></audio>
 </body>

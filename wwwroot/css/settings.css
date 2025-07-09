@@ -1,0 +1,323 @@
+
+.settings-menu-container {
+    /* Ваші існуючі стилі (фон, рамка, тінь і т.д.) */
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.6) 0%, rgba(190, 166, 252, 0.6) 100%);
+    border-radius: 25px;
+    border: 2px solid #BEA6FC;
+    box-shadow: 0px 0px 90px 0px #FFFFFF, 
+                inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    color: white;
+    width: 800px; 
+    position: fixed;
+    top: 120px;
+    gap: 25px;
+    left: 1000px;
+
+    /* ДОДАЙТЕ ЦІ ДВА РЯДКИ */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* --- Стиль для заголовка "НАЛАШТУВАННЯ" --- */
+.settings-title {
+    /* 1. Шрифт та вирівнювання */
+    font-family: "Franklin Gothic Heavy", "Arial Black", sans-serif;
+    font-weight: 900; /* Робить шрифт максимально жирним */
+    font-size: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    /* 2. Градієнт для тексту */
+    background: linear-gradient(105.67deg, #04C3E6 7.06%, #FFFFFF 54.91%, #7E4DF9 97.34%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    /* 3. Тінь/світіння тексту */
+    text-shadow: 0px 0px 56px #042AA6;
+}
+
+/* --- Стиль для подзаголовков секций --- */
+.settings-section h4 {
+    /* Шрифт */
+    font-family: 'Aldrich', sans-serif;
+    font-size: 18px;
+    font-weight: 400; /* Regular */
+    
+    /* Цвет и стиль текста */
+    color: #FFFFFF;
+    text-transform: uppercase;
+    
+    /* ОТСТУП УМЕНЬШЕН */
+    margin-bottom: 1px;
+}
+
+/* --- Контейнер для кнопок вибору теми --- */
+.theme-options {
+    display: flex; /* Вмикає гнучкий макет */
+    gap: 15px;     /* Проміжок між кнопками */
+    margin-bottom: 30px; /* Відступ до наступної секції */
+}
+
+/* --- Стиль для самих кнопок теми --- */
+.theme-button {
+    /* -- ВАШ НОВЫЙ ФОН ДЛЯ НЕ ВЫБРАННОЙ КНОПКИ -- */
+    background: linear-gradient(90deg, rgba(2, 10, 32, 0.4) 0%, rgba(8, 42, 134, 0.4) 100%);
+    border: 1px solid #BEA6FC;
+    color: #FFFFFF;
+
+    /* Общие стили */
+    border-radius: 8px;
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Эффект при наведении на любую из кнопок */
+.theme-button:hover {
+    border-color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+/* -- СТИЛЬ ДЛЯ ВЫБРАННОЙ КНОПКИ (с классом .active) -- */
+.theme-button.active {
+    /* Фон для выбранной кнопки */
+    background: linear-gradient(180deg, #16D9F7, #BEA6FC );
+    border: 1px solid #BEA6FC;
+    color: #082A86; /* Тёмный текст для читабельности */
+    box-shadow: 0 0 10px rgba(22, 217, 247, 0.5);
+}
+
+/* --- Контейнери для груп кнопок (Масштаб, Мова) --- */
+.scale-options,
+.language-settings-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* --- Загальний стиль для кнопок масштабу та мови --- */
+.scale-button,
+.lang-button {
+    /* Фон та рамка для НЕАКТИВНОЇ кнопки */
+    background: linear-gradient(172.69deg, rgba(22, 217, 247, 0.5) 5.64%, rgba(8, 42, 134, 0.5) 94.36%);
+    border: 1px solid #BEA6FC;
+    color: #FFFFFF;
+
+    /* Загальні стилі */
+    border-radius: 8px;
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Ефект при наведенні на будь-яку з кнопок */
+.scale-button:hover,
+.lang-button:hover {
+    border-color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+/* Стиль для АКТИВНОЇ/ВИБРАНОЇ кнопки (з класом .active) */
+.scale-button.active,
+.lang-button.active {
+    /* Яскравий фон для виділення */
+    background: linear-gradient(172.69deg, #16D9F7 5.64%, #BEA6FC 94.36%);
+    color: #082A86; /* Темний текст для читабельності */
+    
+    box-shadow: 0 0 10px rgba(22, 217, 247, 0.5);
+}
+
+/* --- Скидання стандартних стилів повзунка --- */
+.music-slider {
+    -webkit-appearance: none; /* Прибирає стандартний вигляд у Chrome/Safari */
+    appearance: none;
+    width: 235px; /* Ширина з вашого запиту */
+    height: 16px; /* Висота з вашого запиту */
+    background: transparent; /* Робимо сам повзунок прозорим, стилізувати будемо доріжку */
+    cursor: pointer;
+}
+
+/* --- Стиль для доріжки повзунка (Chrome, Safari, Edge) --- */
+.music-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(90.64deg, rgba(22, 217, 247, 0.8) 0.01%, rgba(8, 42, 134, 0.8) 99.99%);
+    border-radius: 5px;
+    box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Внутрішня тінь */
+    height: 100%;
+}
+
+/* --- Стиль для доріжки повзунка (Firefox) --- */
+.music-slider::-moz-range-track {
+    background: linear-gradient(90.64deg, rgba(22, 217, 247, 0.8) 0.01%, rgba(8, 42, 134, 0.8) 99.99%);
+    border-radius: 5px;
+    box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Внутрішня тінь */
+    height: 100%;
+    border: none; /* Firefox додає рамку за замовчуванням, прибираємо її */
+}
+
+/* --- Стиль для бігунка (ручки) (Chrome, Safari, Edge) --- */
+.music-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -4px; /* Вертикальне центрування бігунка на доріжці */
+    height: 24px;
+    width: 24px;
+    background: #FFFFFF;
+    border-radius: 50%; /* Робить його круглим */
+    border: 2px solid #BEA6FC;
+}
+
+/* --- Стиль для бігунка (ручки) (Firefox) --- */
+.music-slider::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: 2px solid #BEA6FC;
+}
+/* --- Контейнер для назви треку та стрілок --- */
+.music-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* ЦЕ ВІДЦЕНТРУЄ БЛОК */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* --- Блок для відображення назви треку --- */
+.music-title-block {
+    /* flex-grow: 1; <-- Цей рядок потрібно видалити, щоб блок не розтягувався */
+    text-align: center;
+    
+    /* Фон, рамка та світіння */
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #0365BA;
+    box-shadow: 0 0 93px #04C3E6;
+    
+    /* Відступи та стиль тексту */
+    border-radius: 8px;
+    padding: 12px 25px; /* Задаємо розмір через відступи */
+    font-weight: bold;
+    font-size: 16px;
+    color: #0365BA;
+}
+/* Стиль для АКТИВНОЇ кнопки (з класом .active) */
+.music-toggle.active {
+    background: #B496FF; /* Такий самий фон, як у блоків "Мова" */
+    color: #FFFFFF;
+    border-color: #A787FC;
+}
+/* --- Стиль для кнопки "Включити" / "Вимкнути" --- */
+.music-toggle {
+    /* ВАШ НОВИЙ СТИЛЬ */
+    background: linear-gradient(90deg, rgba(2, 10, 32, 0.4) 0%, rgba(8, 42, 134, 0.4) 100%);
+    border: 1px solid #BEA6FC;
+    color: #FFFFFF; /* Текст тепер білий для кращого контрасту */
+
+    /* Загальні стилі */
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Ефект при наведенні */
+.music-toggle:hover {
+    filter: brightness(1.1); /* Робимо кнопку трохи яскравішою */
+    border-color: #FFFFFF;
+}
+
+/* Стиль для АКТИВНОЇ кнопки (з класом .active) - залишається суцільним */
+.music-toggle.active {
+    background: linear-gradient(180deg, #16D9F7, #BEA6FC );
+    color: #FFFFFF;
+    border: 1px solid #BEA6FC;
+}
+/* --- Контейнер для елементів керування музикою --- */
+.music-controls {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* --- Стиль для цифр гучності (0 / 100) --- */
+.music-volume-value,
+.music-volume-max {
+    font-family: 'Aldrich', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF; /* Залишаємо білим для видимості */
+    line-height: 1;
+}
+
+/* --- Стиль для кнопки "Закрити" --- */
+#closeSettingsMenu {
+    /* Фон та рамка */
+    background: #7E4DF9;
+    border: 1px solid #BEA6FC;
+    border-radius: 8px;
+    padding: 12px;
+    width: 50%;
+    
+    /* ЦЕ ГОЛОВНА ЗМІНА - КНОПКА ПРИТИСКАЄТЬСЯ ДО НИЗУ */
+    margin-top: auto;
+    align-self: center; /* Це центрує кнопку по горизонталі */
+    
+    /* Стиль тексту */
+    font-family: 'Aldrich', sans-serif;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    
+    /* Інше */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#closeSettingsMenu:hover {
+    background-color: #9269ff;
+}
+
+/* --- Стиль для кнопок-стрілок "<" та ">" --- */
+.music-arrow-btn {
+    background: none;
+    border: none;
+    padding: 5px; /* Невеликий відступ для зручності натискання */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.music-arrow-btn:hover {
+    transform: scale(1.15); /* Трохи збільшуємо при наведенні */
+}
+
+/* Загальний стиль для іконок-стрілок всередині кнопок */
+.music-arrow-svg {
+    display: block;
+    width: 40px;  /* Налаштуйте розмір за потреби */
+    height: 40px; /* Налаштуйте розмір за потреби */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+

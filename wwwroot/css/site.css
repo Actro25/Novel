@@ -1,973 +1,497 @@
-/* --- Сброс --- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
-body {
-    min-height: 100vh;
-    font-family: 'Segoe UI', 'Arial', sans-serif;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-/* Темы фона */
-body.theme-light {
-    background: url('../img/bg-light.jpg') center center / cover no-repeat fixed;
-}
-body.theme-dark {
-    background: url('../img/bg-dark.jpg') center center / cover no-repeat fixed;
-}
-
-
-/* Основной контейнер меню и настроек */
-.menu-container,
-.settings-menu-container,
-.authors-menu-container {
-    background: linear-gradient(135deg, rgba(21, 94, 141, 0.85) 0%, rgba(126, 77, 249, 0.85) 50%, rgba(190, 166, 252, 0.85) 100%);
-    border-radius: 25px;
-    box-shadow: 0 0 40px rgba(126, 77, 249, 0.6), 0 0 80px rgba(21, 201, 250, 0.3), inset 0 0 0 2px rgba(190, 166, 252, 0.8);
-    border: 2px solid rgba(190, 166, 252, 0.9);
-    padding: 24px 20px;
-    max-width: min(400px, 90vw);
-    min-width: 280px;
-    width: auto;
-    min-height: 400px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: fixed;
-    top: 5vh;
-    left: 3vw;
-    color: #e35cc332;
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    font-size: 1rem;
-    transform-origin: top left;
-    transition: all 0.3s ease;
-}
-
-/* Светлая тема для контейнеров */
-body.theme-light .menu-container,
-body.theme-light .settings-menu-container,
-body.theme-light .authors-menu-container {
-    background: linear-gradient(135deg, rgba(245, 168, 248, 0.652) 0%, rgba(126, 185, 238, 0.131) 50%, rgba(214, 157, 240, 0.577) 100%);
-    border: 2px solid rgba(100, 149, 237, 0.8);
-    box-shadow: 0 0 30px rgba(100, 149, 237, 0.4), 0 0 60px rgba(135, 206, 250, 0.2), inset 0 0 0 2px rgba(176, 196, 222, 0.6);
-    color: #2c3e50;
-}
-
-/* Заголовок DREAM.EXE */
-.menu-title {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: 1rem;
-    text-align: left;
-    background: linear-gradient(90deg, #04C3E6 0%, #2F63E1 30%, #7E4DF9 70%, #BEA6FC 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 20px rgba(21, 201, 250, 0.8), 0 0 40px rgba(126, 77, 249, 0.6);
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(126, 77, 249, 0.6));
+/* Добавляем .main-page-background, чтобы стиль работал только на главной */
+body.main-page-background {
     position: relative;
-    z-index: 3;
+    background-color: #000;
 }
 
-.menu-title.center-title {
-    text-align: center;
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
+/* Общие стили для слоёв на главной странице */
+body.main-page-background::before,
+body.main-page-background::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Светлая тема для заголовка */
-body.theme-light .menu-title {
-    background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 30%, #6366f1 70%, #8b5cf6 100%);
+/* СЛОЙ ДЛЯ СВЕТЛОЙ ТЕМЫ */
+body.main-page-background::after {
+    background-image:
+        url('../img/1LIGHT1.png'),
+        url('../img/Налаштування_шар-1.png'),
+        url('../img/Налаштування-шар-2.png'), 
+        url('../img/Налаштування-шар-3.png');
+    
+    background-size: cover, cover, cover, cover; 
+    opacity: 1;
+}
+
+/* СЛОЙ ДЛЯ ТЁМНОЙ ТЕМЫ */
+body.main-page-background::before {
+    background-image:
+        url('../img/2DARK2.png'),
+        url('../img/зірочки-1.png'),
+        url('../img/контур-2.png'),
+        url('../img/фон-3.png'),
+        url('../img/останій-фон-4.png');
+        
+    background-size: cover, cover, cover, cover, cover; 
+    opacity: 0;
+}
+
+
+/* ЛОГИКА ПЕРЕКЛЮЧЕНИЯ */
+.dark-theme.main-page-background::before {
+    opacity: 1;
+}
+
+.dark-theme.main-page-background::after {
+    opacity: 0;
+}
+
+
+.main-flex-wrap {
+    display: flex;
+    justify-content: flex-start; /* Притискає до лівого краю */
+    padding: 0;                  /* Прибирає всі відступи */
+    gap: 32px;
+}
+
+/* Клас для приховування елементів */
+.hidden {
+    display: none !important;
+}
+
+.menu-container {
+    /* Полупрозрачный градиентный фон */
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.7) 0%, rgba(190, 166, 252, 0.7) 100%);
+    /* Скругление углов */
+    border-radius: 25px;
+    /* Рамка */
+    border: 2px solid #BEA6FC;
+    /* Тень для эффекта свечения */
+    box-shadow: 0px 0px 90px 0px #FFFFFF;
+    /* Внутренние отступы, чтобы контент не прилегал к краям */
+    padding: 25px;
+    /* Максимальная ширина, чтобы меню не растягивалось слишком сильно на больших экранах */
+    max-width: 430px;
+    width: 100%;
+    position: fixed;
+    left: 70px;
+    top: 50px;
+    z-index: 1000;
+}
+
+
+.menu-title {
+    /* Ваши существующие стили (градиент, размер шрифта и т.д.) */
+    background: linear-gradient(to right, #00c6ff, #5869d8, #9945ff);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 15px rgba(59, 130, 246, 0.6), 0 0 30px rgba(99, 102, 241, 0.4);
-    filter: drop-shadow(0 0 8px rgba(30, 58, 138, 0.6)) drop-shadow(0 0 15px rgba(99, 102, 241, 0.4));
-}
-
-/* Заголовок настроек */
-.settings-title {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 1.8rem;
+    color: transparent;
+    font-size: 4.2em;
     font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: 2rem;
-    text-align: center;
-    background: linear-gradient(90deg, #15C9FA 0%, #7E4DF9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 15px rgba(21, 201, 250, 0.8), 0 0 25px rgba(126, 77, 249, 0.6);
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+    text-transform: uppercase;
+
+    
+
+    /* ДОБАВЬТЕ ЭТИ ДВЕ СТРОКИ */
+    position: relative;
+    z-index: 1;
+}
+.menu-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Помещаем этот слой позади текста */
+
+    /* Создаём два свечения с помощью двух радиальных градиентов */
+    background: 
+        
+        radial-gradient(
+            ellipse 50% 80% at 15% 50%,
+            rgba(255, 255, 255, 0.846) 0%,
+            rgba(252, 254, 255, 0) 100%
+        ),
+        
+        radial-gradient(
+            ellipse 50% 80% at 85% 50%,
+            rgba(255, 255, 255, 0.833) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+    
+    /* Дополнительно сильно размываем для мягкости */
+    filter: blur(40px);
+    
+    /* Немного увеличим область свечения */
+    transform: scale(1.3);
 }
 
-/* Светлая тема для заголовка настроек */
-body.theme-light .settings-title {
-    background: linear-gradient(90deg, #1e40af 0%, #6366f1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 10px rgba(30, 64, 175, 0.6), 0 0 20px rgba(99, 102, 241, 0.4);
-    filter: drop-shadow(0 0 8px rgba(30, 64, 175, 0.4));
+.main-menu-label {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 18px;
+    font-weight: 400; /* Это значение соответствует начертанию Regular */
+    color: #FFFFFF; /* Белый цвет текста */
+    text-align: left;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
+    margin-bottom: 15px; /* Добавим немного отступа снизу */
 }
-
-/* Главное меню: список */
+/* Убираем стандартные маркеры и отступы у списка меню */
 .main-menu {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     width: 100%;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
 }
 
-/* Кнопки главного меню */
-.menu-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(21, 201, 250, 0.8) 0%, rgba(126, 77, 249, 0.8) 100%);
-    color: #fff;
-    border: 1px solid rgba(190, 166, 252, 0.6);
-    border-radius: 15px;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.8rem;
-    padding: 0.9rem 1.2rem;
-    box-shadow: 0 4px 20px rgba(126, 77, 249, 0.4), 0 2px 10px rgba(21, 201, 250, 0.3);
-    text-shadow: 0 0 10px rgba(21, 201, 250, 0.8), 0 0 5px rgba(255, 255, 255, 0.6);
-    transition: all 0.3s ease;
-    outline: none;
-    cursor: pointer;
-    text-decoration: none;
-    min-width: 200px;
-    position: relative;
-    overflow: hidden;
+/* Добавляем отступ между кнопками */
+.main-menu li {
+    margin-bottom: 12px;
 }
 
-.menu-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.menu-item:hover::before {
-    left: 100%;
-}
-
-.menu-item:hover,
-.menu-item.active {
-    background: linear-gradient(135deg, rgba(126, 77, 249, 0.9) 0%, rgba(190, 166, 252, 0.9) 100%);
-    color: #fff;
-    box-shadow: 0 0 30px rgba(126, 77, 249, 0.8), 0 0 15px rgba(190, 166, 252, 0.6);
-    transform: translateY(-2px) scale(1.02);
-    border-color: rgba(190, 166, 252, 0.9);
-}
-
-/* Светлая тема для кнопок меню */
-body.theme-light .menu-item {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(99, 102, 241, 0.8) 100%);
-    border: 1px solid rgba(147, 197, 253, 0.6);
-    color: #fff;
-    text-shadow: 0 0 8px rgba(59, 130, 246, 0.6), 0 0 4px rgba(255, 255, 255, 0.4);
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4), 0 2px 10px rgba(99, 102, 241, 0.3);
-}
-
-body.theme-light .menu-item:hover,
-body.theme-light .menu-item.active {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%);
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.7), 0 0 12px rgba(139, 92, 246, 0.5);
-    border-color: rgba(147, 197, 253, 0.9);
-}
-
-/* Акцентная кнопка (например, выход) */
-.exit-label {
-    background: linear-gradient(135deg, rgba(126, 77, 249, 0.9) 0%, rgba(255, 79, 163, 0.9) 100%);
-    color: #fff;
-    border: 1px solid rgba(255, 79, 163, 0.6);
-    border-radius: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.9rem 1.2rem;
-    box-shadow: 0 4px 20px rgba(255, 79, 163, 0.4), 0 2px 10px rgba(126, 77, 249, 0.3);
-    text-shadow: 0 0 10px rgba(255, 79, 163, 0.8), 0 0 5px rgba(255, 255, 255, 0.6);
-    transition: all 0.3s ease;
-    outline: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 200px;
-    margin-top: 2rem;
-    margin-bottom: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.exit-label::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.exit-label:hover::before {
-    left: 100%;
-}
-
-.exit-label:hover,
-.exit-label:focus {
-    background: linear-gradient(135deg, rgba(255, 79, 163, 0.9) 0%, rgba(126, 77, 249, 0.9) 100%);
-    color: #fff;
-    box-shadow: 0 0 30px rgba(255, 79, 163, 0.8), 0 0 15px rgba(126, 77, 249, 0.6);
-    transform: translateY(-2px) scale(1.02);
-    border-color: rgba(255, 79, 163, 0.9);
-}
-
-/* Светлая тема для кнопки выхода */
-body.theme-light .exit-label {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.8) 0%, rgba(220, 38, 127, 0.8) 100%);
-    border: 1px solid rgba(252, 165, 165, 0.6);
-    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4), 0 2px 10px rgba(220, 38, 127, 0.3);
-}
-
-body.theme-light .exit-label:hover,
-body.theme-light .exit-label:focus {
-    background: linear-gradient(135deg, rgba(220, 38, 127, 0.9) 0%, rgba(239, 68, 68, 0.9) 100%);
-    box-shadow: 0 0 25px rgba(220, 38, 127, 0.7), 0 0 12px rgba(239, 68, 68, 0.5);
-    border-color: rgba(252, 165, 165, 0.9);
-}
-
-/* Блок секции */
-.settings-section {
-    margin-bottom: 1.3rem;
-}
-.settings-section h4 {
-    color: #fff;
-    font-size: 1.08rem;
-    font-weight: bold;
-    margin-bottom: 0.7rem;
-    letter-spacing: 1px;
-    text-align: left;
-    opacity: 0.85;
-}
-
-/* Кнопки настроек (темы, масштаб, язык) */
-.theme-options, .scale-options, .language-settings-options {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.theme-button, .scale-button, .lang-button, .music-toggle, .music-title-btn {
-    background: linear-gradient(135deg, rgba(21, 201, 250, 0.7) 0%, rgba(190, 166, 252, 0.7) 100%);
-    color: #fff;
-    border: 1px solid rgba(190, 166, 252, 0.5);
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.8rem 1.2rem;
-    box-shadow: 0 3px 15px rgba(126, 77, 249, 0.3), 0 1px 5px rgba(21, 201, 250, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    outline: none;
-    min-width: 100px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.theme-button::before, .scale-button::before, .lang-button::before, 
-.music-toggle::before, .music-title-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.theme-button:hover::before, .scale-button:hover::before, .lang-button:hover::before,
-.music-toggle:hover::before, .music-title-btn:hover::before {
-    left: 100%;
-}
-
-.theme-button.active, .scale-button.active, .lang-button.active, .music-toggle.active {
-    background: linear-gradient(135deg, rgba(126, 77, 249, 0.9) 0%, rgba(21, 201, 250, 0.9) 100%);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(126, 77, 249, 0.6), 0 0 10px rgba(190, 166, 252, 0.4);
-    font-weight: bold;
-    border-color: rgba(190, 166, 252, 0.8);
-    transform: translateY(-1px);
-}
-
-.theme-button:hover, .scale-button:hover, .lang-button:hover, 
-.music-toggle:hover, .music-title-btn:hover {
-    background: linear-gradient(135deg, rgba(126, 77, 249, 0.8) 0%, rgba(190, 166, 252, 0.8) 100%);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(126, 77, 249, 0.5), 0 0 10px rgba(190, 166, 252, 0.3);
-    transform: translateY(-1px) scale(1.02);
-    border-color: rgba(190, 166, 252, 0.7);
-}
-
-/* Светлая тема для кнопок настроек */
-body.theme-light .theme-button, body.theme-light .scale-button, 
-body.theme-light .lang-button, body.theme-light .music-toggle, 
-body.theme-light .music-title-btn {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.7) 0%, rgba(147, 197, 253, 0.7) 100%);
-    border: 1px solid rgba(147, 197, 253, 0.5);
-    box-shadow: 0 3px 15px rgba(59, 130, 246, 0.3), 0 1px 5px rgba(99, 102, 241, 0.2);
-}
-
-body.theme-light .theme-button.active, body.theme-light .scale-button.active, 
-body.theme-light .lang-button.active, body.theme-light .music-toggle.active {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%);
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6), 0 0 10px rgba(147, 197, 253, 0.4);
-    border-color: rgba(147, 197, 253, 0.8);
-}
-
-body.theme-light .theme-button:hover, body.theme-light .scale-button:hover, 
-body.theme-light .lang-button:hover, body.theme-light .music-toggle:hover, 
-body.theme-light .music-title-btn:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.8) 0%, rgba(147, 197, 253, 0.8) 100%);
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), 0 0 10px rgba(147, 197, 253, 0.3);
-    border-color: rgba(147, 197, 253, 0.7);
-}
-
-/* Кнопка "Закрыть" */
-.close-button {
-    background: linear-gradient(90deg, #a47cff 0%, #7e4df9 100%);
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.13rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    margin-top: 1.8rem;
-    padding: 1rem 0;
-    box-shadow: 0 0 18px #a47cff55;
-    text-shadow: 0 0 8px #fff, 0 0 4px #7E4DF9;
-    transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
-    outline: none;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-}
-.close-button:hover, .close-button:focus {
-    background: #a020f0; /* Ярко-фиолетовый */
-    color: #fff;
-    box-shadow: 0 0 24px #a020f0, 0 0 12px #BEA6FC;
-    transform: scale(1.04);
-}
-
-/* Блоки языка и озвучки */
-.language-row, .highlight-language-row {
-    background: linear-gradient(90deg, #BEA6FC 0%, #7E4DF9 100%);
-    border-radius: 10px;
-    margin-bottom: 0.6rem;
-    padding: 0.7rem 1.1rem !important;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
+/* --- СТИЛЬ ДЛЯ ВСЕХ КНОПОК МЕНЮ (КРОМЕ ПЕРВОЙ) --- */
+.main-menu .menu-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.language-label {
-    display: flex;
-    align-items: center;
-    gap: 0.7em;
-    color: #fff;
-    font-weight: bold;
-}
-.lang-icon {
-    font-size: 1.1em;
-    color: #15C9FA;
-    filter: drop-shadow(0 0 6px #15C9FA);
-}
-.lang-voice-block {
-    background: rgba(28, 136, 206, 0.2);
-    border: 1px solid #1C88CE;
+
+    /* ГРАДИЕНТ С 30% ПРОЗРАЧНОСТЬЮ (БОЛЕЕ ПРОЗРАЧНЫЙ) */
+    background: linear-gradient(to bottom, rgba(22, 217, 247, 0.4), rgba(8, 42, 134, 0.4));
+    
+    /* Рамка и остальные стили */
+    border: 1px solid #BEA6FC;
     border-radius: 8px;
-    padding: 0.6em 0.7em;
-    min-width: 110px;
-    max-width: 190px;
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    box-sizing: border-box;
-    word-break: break-word;
-    box-shadow: 0 0 20px rgba(4, 195, 230, 0.2);
-}
-
-
-.lang-voice-title {
-    font-size: 1.18em;
-    color: #f3f6ff;
-    opacity: 0.97;
-    margin-bottom: 0.3em;
-    font-weight: 600;
-    text-align: center;
-}
-
-.lang-voice-value {
-    font-size: 1.08em;
-    color: #f3f6ff;
-    opacity: 0.88;
-    font-weight: 400;
-    text-align: center;
-}
-
-/* Настройки: заголовки */
-.settings-title, .authors-title {
-    color: #042AA6;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 1.25rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 1.1rem;
-    text-align: left;
-}
-
-/* Яркий стиль для заголовка "АВТОРЫ НОВЕЛЛЫ" */
-.authors-title {
-    font-size: 2.3rem;
-    text-align: center;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 2.2rem;
-    margin-top: 0.5rem;
-    background: linear-gradient(90deg, #ff4fa3 0%, #15C9FA 50%, #7E4DF9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    text-shadow: 0 0 24px #ff4fa3, 0 0 18px #15C9FA, 0 0 8px #fff;
-}
-
-/* В светлой теме делаем заголовок видимым */
-body.theme-light .authors-title {
-    background: none;
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
-    text-fill-color: initial;
-    color: #1a0066;
-    text-shadow: 0 0 8px #fff, 0 0 2px #7E4DF9, 0 2px 12px #ff4fa3;
-}
-
-/* Музыка: стили для управления */
-.music-controls {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-    margin-bottom: 1.1rem;
-    width: 100%;
-}
-.music-toggle {
-    min-width: 120px;
-    padding: 0.7rem 1.1rem;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 1.08rem;
-}
-.music-slider {
-    flex: 1;
-    accent-color: #15C9FA;
-    height: 4px;
-    border-radius: 2px;
-    margin: 0 0.7rem;
-    background: #fff;
-}
-.music-volume-value {
-    min-width: 32px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
-}
-.music-player {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    margin-bottom: 1.1rem;
-    width: 100%;
-}
-.music-title-btn {
-    min-width: 40px;
-    padding: 0.7rem 1.1rem;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 1.01rem;
-    background: linear-gradient(90deg, #15C9FA 0%, #BEA6FC 100%);
-    color: #7E4DF9;
-    border: none;
-    transition: background 0.18s, color 0.18s;
-}
-.music-title-btn.active, .music-title-btn:hover {
-    background: #a020f0; /* Ярко-фиолетовый */
-    color: #fff;
-}
-
-/* Значения громкости */
-.music-volume-max {
-    color: #fff;
-    opacity: 0.7;
-    font-size: 1rem;
-    margin-left: 0.2em;
-}
-
-/* Центрирование надписи "мирный режим" */
-.peace-mode-label {
-    display: block;
-    text-align: center;
-    margin: 0.7em 0;
-    font-weight: bold;
-    font-size: 1.15rem;
-}
-
-/* Анимация появления/скрытия меню */
-@keyframes menu-fade-in {
-    from { opacity: 0; transform: translateY(30px) scale(0.97);}
-    to   { opacity: 1; transform: translateY(0) scale(1);}
-}
-@keyframes menu-fade-out {
-    from { opacity: 1; transform: translateY(0) scale(1);}
-    to   { opacity: 0; transform: translateY(30px) scale(0.97);}
-}
-
-/* Общие стили для всех меню */
-.menu-container,
-.settings-menu-container,
-.authors-menu-container {
-    opacity: 1;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-/* Скрытое состояние */
-.menu-container.hidden,
-.settings-menu-container.hidden,
-.authors-menu-container.hidden {
-    opacity: 0;
-    pointer-events: none;
-    animation: menu-fade-out 0.3s forwards;
-}
-
-/* Активное (открытое) состояние */
-.menu-container.active,
-.settings-menu-container.active,
-.authors-menu-container.active {
-    opacity: 1;
-    pointer-events: auto;
-    animation: menu-fade-in 0.3s;
-}
-
-/* Дополнительные стили для активного состояния меню настроек */
-.settings-menu-container {
-    display: none;
-    position: relative;
-    z-index: 20;
-    margin: 48px auto 0 auto;
-    max-width: 1400px;
-    min-width: 600px;
-    width: 1100px;
-    flex: none;
-    transition: opacity 0.3s, transform 0.3s, width 0.3s, margin 0.3s;
-}
-.settings-menu-container.active,
-.settings-menu-container:not(.hidden) {
-    display: flex;
-}
-@media (max-width: 1500px) {
-    .settings-menu-container {
-        max-width: 98vw;
-        min-width: 0;
-        width: 90vw;
-        margin: 32px auto 0 auto;
-        padding: 24px 10px;
-        border-radius: 10px;
-        font-size: 0.96rem;
-        box-sizing: border-box;
-    }
-}
-@media (max-width: 900px) {
-    .settings-menu-container {
-        max-width: 100vw;
-        min-width: 0;
-        width: 100vw;
-        margin: 0 auto;
-        border-radius: 10px;
-        font-size: 0.96rem;
-        padding: 10px 2vw;
-        box-sizing: border-box;
-    }
-}
-.authors-menu-container {
-    max-width: 900px;
-    min-width: 220px;
-    width: 520px;
-    margin: 32px auto 0 auto;
-    right: 0;
-    left: 0;
-    flex: none;
-    font-size: 0.98rem;
-    padding: 12px 6px;
-    border-radius: 12px;
-    transition: opacity 0.3s, transform 0.3s, width 0.3s, margin 0.3s;
-    background: linear-gradient(135deg, rgba(21,201,250,0.18) 0%, rgba(190,166,252,0.18) 100%);
-    color: #2d0b4e;
-    border: 3px solid #7E4DF9;
-    box-shadow: 0 0 40px #b12fee88, 0 0 0 4px #fff2;
-    backdrop-filter: blur(18px) saturate(120%);
-    -webkit-backdrop-filter: blur(18px) saturate(120%);
-}
-
-@media (max-width: 1500px) {
-    .settings-menu-container {
-        max-width: 98vw;
-        min-width: 0;
-        width: 90vw;
-        margin: 32px auto 0 auto; /* Центрируем по горизонтали */
-        padding: 24px 10px;
-    }
-}
-@media (max-width: 1100px) {
-    .authors-menu-container {
-        max-width: 96vw;
-        min-width: 0;
-        width: 90vw;
-        margin: 32px auto 0 auto;
-        padding: 24px 10px;
-    }
-}
-@media (max-width: 1900px) {
-    .authors-menu-container {
-        max-width: 98vw;
-        min-width: 0;
-        width: 96vw;
-        margin: 32px auto 0 auto;
-        padding: 24px 10px;
-    }
-}
-@media (max-width: 900px) {
-    .settings-menu-container {
-        max-width: 100vw;
-        min-width: 0;
-        width: 100vw;
-        margin: 0;
-        left: 0 !important;
-        right: 0 !important;
-        border-radius: 10px !important;
-        font-size: 0.96rem !important;
-        padding: 10px 2vw !important;
-        box-sizing: border-box;
-    }
-    .authors-menu-container {
-        max-width: 100vw;
-        min-width: 0;
-        width: 100vw;
-        margin: 0;
-        left: 0 !important;
-        right: 0 !important;
-        border-radius: 10px !important;
-        font-size: 0.96rem !important;
-        padding: 10px 2vw !important;
-        box-sizing: border-box;
-    }
-}
-
-/* Яркий стиль для блока с авторами внутри меню авторов */
-.authors-list, .authors-block {
-    background: linear-gradient(90deg, #fff8 0%, #e0c3fc88 100%); /* прозрачность через 8 в hex */
-    color: #7E4DF9;
-    border-radius: 18px;
-    padding: 2.2rem 2.5rem;
-    margin: 2rem 0;
-    font-size: 1.45rem;
-    font-weight: bold;
-    box-shadow: 0 0 32px #b12fee44, 0 0 0 2px #7E4DF955;
-    text-align: center;
-    letter-spacing: 1.5px;
-    border: 2px solid #b12fee;
-    backdrop-filter: blur(6px) saturate(120%);
-    -webkit-backdrop-filter: blur(6px) saturate(120%);
-    /* Можно добавить opacity, но лучше прозрачность через цвета и фильтр */
-}
-
-/* From Uiverse.io by reglobby */
-.user-profile {
-  width: 131px;
-  height: 51px;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  background: linear-gradient(
-    to bottom right,
-    #2e8eff 0%,
-    rgba(137, 22, 209, 0) 30%
-  );
-  background-color: rgba(46, 142, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.user-profile:hover,
-.user-profile:focus {
-  background-color: rgba(46, 142, 255, 0.7);
-  box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
-  outline: none;
-}
-
-.user-profile-inner {
-  width: 127px;
-  height: 47px;
-  border-radius: 13px;
-  background: linear-gradient(90deg, #15C9FA 0%, #7E4DF9 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  color: #fff;
-  font-weight: 600;
-}
-
-.user-profile-inner svg {
-  width: 27px;
-  height: 27px;
-  fill: #fff;
-}
-
-/* Кнопка регистрации */
-.signup-btn {
-    width: 100%;
-    padding: 10px 0;
-    margin-top: 10px;
-    background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    border-radius: 6px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-}
-.signup-btn:hover {
-    background: #fff;
-    color: #1a2238;
-}
-
-/* Кнопка входа */
-.login-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(90deg, #15C9FA 0%, #7E4DF9 100%);
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.7rem;
-    padding: 0.7rem 0;
-    box-shadow: 0 4px 18px #9a72ff55;
-    text-shadow: 0 0 10px #15C9FA, 0 0 4px #fff;
-    transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
-    outline: none;
-    cursor: pointer;
+    padding: 12px 15px;
+    color: #FFFFFF;
     text-decoration: none;
-    min-width: 120px;
-}
-.main-menu-label {
-    width: 149;
-    height: 18;
-    left: 113px;
-    font-family: Aldrich;
-    font-weight: 400;
     font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-align: left;
-
-
-}
-
-/* Темная тема: стили для кнопок */
-body.theme-dark .menu-item,
-body.theme-dark .theme-button,
-body.theme-dark .scale-button,
-body.theme-dark .lang-button,
-body.theme-dark .music-toggle,
-body.theme-dark .music-title-btn,
-body.theme-dark .login-btn {
-    background: linear-gradient(90deg, rgba(2, 10, 32, 0.8) 0%, rgba(8, 42, 134, 0.8) 100%) !important;
-    color: #e3e6f9 !important;
-    box-shadow: 0 2px 12px #1a133055;
-    border: none;
-}
-body.theme-dark .menu-item:hover,
-body.theme-dark .menu-item.active,
-body.theme-dark .theme-button:hover,
-body.theme-dark .theme-button.active,
-body.theme-dark .scale-button:hover,
-body.theme-dark .scale-button.active,
-body.theme-dark .lang-button:hover,
-body.theme-dark .lang-button.active,
-body.theme-dark .music-toggle:hover,
-body.theme-dark .music-toggle.active,
-body.theme-dark .music-title-btn:hover,
-body.theme-dark .music-title-btn.active,
-body.theme-dark .login-btn:hover,
-body.theme-dark .login-btn.active {
-    background: linear-gradient(172.69deg, rgba(22, 217, 247, 0.5) 5.64%, rgba(8, 42, 134, 0.5) 94.36%) !important;
-    color: #fff !important;
-    box-shadow: 0 0 18px #16d9f7, 0 0 8px #082A86;
-}
-body.theme-dark .close-button,
-body.theme-dark .exit-label {
-    background: #3a1a6e !important;
-    color: #fff !important;
-    box-shadow: 0 0 18px #3a1a6eaa;
-    border: none;
-}
-body.theme-dark .close-button:hover,
-body.theme-dark .exit-label:hover {
-    background: #5a2fa3 !important;
-    color: #fff !important;
-    box-shadow: 0 0 24px #5a2fa3, 0 0 12px #7E4DF9;
-}
-body.theme-light .settings-title {
-    background: none !important;
-    color: #2d0b4e !important;
-    text-shadow: 0 0 8px #fff, 0 0 2px #7E4DF9;
-}
-
-/* --- Melody block styles --- */
-.music-title-block, .music-title-block-flat {
-    width: 147px;
-    height: 43px;
-    border-radius: 8px;
-    border: 1px solid #1C88CE;
-    background: #FFFFFF99;
-    box-shadow: 0px 0px 93.4px 0px #04C3E6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    margin: 0 10px;
-    position: relative;
-    gap: 0;
-}
-.music-title-block-flat {
-    box-shadow: 0px 0px 93.4px 0px #04C3E6;
-    background: #FFFFFF99;
-    border: 1px solid #1C88CE;
-    border-radius: 8px;
-    padding: 0 10px;
-    margin: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 147px;
-    height: 43px;
-}
-.music-title-block-flat #musicTitle {
-    font-size: 1.13rem;
     font-weight: bold;
-    color: #1C88CE;
-    letter-spacing: 1px;
-    text-shadow: 0 1px 8px #04C3E633, 0 0 2px #fff;
-    text-align: center;
-    width: 100%;
-}
-.music-arrow-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0 4px;
-    width: 36px;
-    height: 43px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.18s;
-}
-.music-arrow-btn:focus {
-    outline: 2px solid #1C88CE;
-}
-.music-arrow-btn:hover {
-    background: #e6f7ff;
-}
-.music-arrow-svg {
-    width: 28px;
-    height: 28px;
-    color: #1C88CE;
-    display: block;
-}
-body.theme-dark .music-title-block, body.theme-dark .music-title-block-flat {
-    background: #0a1a3b;
-    border: 1px solid #1C88CE;
-    box-shadow: 0px 0px 93.4px 0px #04C3E6;
-}
-body.theme-dark .music-title-block-flat #musicTitle {
-    color: #4ecaff;
-    text-shadow: 0 1px 8px #04C3E6, 0 0 2px #fff;
-}
-body.theme-dark .music-arrow-svg {
-    color: #4ecaff;
-}
-body.theme-dark .music-arrow-btn:hover {
-    background: #1C88CE33;
+    transition: all 0.2s ease;
 }
 
-/* --- Melody row layout --- */
-.music-title-row {
+/* Эффект при наведении на обычные кнопки */
+.main-menu .menu-item:hover {
+    background: #A787FC;
+    border-color: #BEA6FC;
+    transform: scale(1.03);
+}
+
+
+/* --- УНИКАЛЬНЫЙ СТИЛЬ ТОЛЬКО ДЛЯ ПЕРВОЙ КНОПКИ "ГРАТИ" --- */
+.main-menu li:first-child .menu-item {
+    justify-content: center;
+    /* Тот самый яркий градиентный фон */
+    background: linear-gradient(91.71deg, #16D9F7 8.86%, #7E4DF9 84.02%);
+    border: 1px solid #BEA6FC;
+}
+
+/* Эффект при наведении на первую кнопку */
+.main-menu li:first-child .menu-item:hover {
+    /* Делаем градиент чуть ярче при наведении */
+    filter: brightness(1.15);
+    transform: scale(1.03);
+}
+
+
+/* Находим кнопку "Авторы" по её ID и центрируем содержимое */
+#authorsLink {
+    justify-content: center;
+}
+
+/* Также скроем иконку в этой кнопке для чистого центрирования текста */
+#authorsLink .menu-icon {
+    display: none;
+}
+
+/* Основной контейнер для блоков "Мова" и "Озвучка" */
+.lang-voice-block {
+    background: #B496FF;
+    border: 1px solid #A787FC;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    flex-grow: 1; /* Позволяет блокам равномерно занимать место */
+}
+
+/* Стиль для заголовка ("Мова" / "Озвучка") */
+.lang-voice-title {
+    color: rgba(0, 0, 0, 0.6); /* Полупрозрачный тёмный текст */
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+/* Стиль для значения ("Українська") */
+.lang-voice-value {
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: bold;
+}
+.exit-label {
+    display: block; /* Позволяет ссылке вести себя как кнопка */
+    
+    /* Ваш фон и рамка */
+    background: #7E4DF9;
+    border: 1px solid #BEA6FC;
+
+    /* Внешний вид */
+    border-radius: 8px;
+    padding: 12px;
+    
+    /* Стили текста */
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 18px;
+    font-weight: bold;
+    
+    /* Плавный переход для наведения */
+    transition: background-color 0.2s ease;
+}
+
+/* Эффект при наведении курсора */
+.exit-label:hover {
+    background-color: #9269ff; /* Делаем фон немного светлее */
+    color: #FFFFFF; /* Гарантируем, что текст останется белым */
+}
+
+/* Общий стиль для контейнера иконки */
+.menu-icon {
+    width: 41px;
+    height: 39px;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Плавный переход для смены картинки, к сожалению, не работает, но пусть будет */
+    transition: all 0.2s ease;
+}
+
+/* --- ИКОНКИ ПО УМОЛЧАНИЮ (Фиолетовые) --- */
+
+#continueGameLink .menu-icon { background-image: url('../img/Purpule_Icon/ПРОДОВЖИТИ.png'); }
+.main-menu li:nth-child(3) .menu-icon { background-image: url('../img/Purpule_Icon/НОВА ГРА.png'); }
+#loadGameLink .menu-icon { background-image: url('../img/Purpule_Icon/ЗАВАНТАЖИТИ.png'); }
+.main-menu li:nth-child(5) .menu-icon { background-image: url('../img/Purpule_Icon/ПЕРСОНАЖІ.png'); }
+#settingsLink .menu-icon { background-image: url('../img/Purpule_Icon/НАЛАШТУВАННЯ.png'); }
+.main-menu li:nth-child(7) .menu-icon { background-image: url('../img/Purpule_Icon/ДОСЯГНЕННЯ.png'); }
+#musicPrev .music-arrow-svg {background-image: url('../img/Purpule_Icon/Back.png'); }
+#musicNext .music-arrow-svg {background-image: url('../img/Purpule_Icon/Next.png');}
+
+/* --- ИКОНКИ ПРИ НАВЕДЕНИИ (Белые - ПРЕДПОЛОЖЕНИЕ) --- */
+
+#continueGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ПРОДОВЖИТИ.png'); }
+.main-menu li:nth-child(3):hover .menu-icon { background-image: url('../img/White_Icon/НОВА ГРА.png'); }
+#loadGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ЗАВАНТАЖИТИ.png'); }
+.main-menu li:nth-child(5):hover .menu-icon { background-image: url('../img/White_Icon/ПЕРСОНАЖІ.png'); }
+#settingsLink:hover .menu-icon { background-image: url('../img/White_Icon/НАЛАШТУВАННЯ.png'); }
+.main-menu li:nth-child(7):hover .menu-icon { background-image: url('../img/White_Icon/ДОСЯГНЕННЯ.png'); }
+#musicPrev:hover .music-arrow-svg { background-image: url('../img/White_Icon/Back.png'); }
+#musicNext:hover .music-arrow-svg {background-image: url('../img/White_Icon/Next.png');}
+
+/* --- ІКОНКИ ДЛЯ ТЕМНОЇ ТЕМИ (Сині) --- */
+
+.dark-theme #continueGameLink .menu-icon { background-image: url('../img/Blue_Icon/ПРОДОВЖИТИ.png'); }
+.dark-theme .main-menu li:nth-child(3) .menu-icon { background-image: url('../img/Blue_Icon/НОВА ГРА.png'); }
+.dark-theme #loadGameLink .menu-icon { background-image: url('../img/Blue_Icon/ЗАВАНТАЖИТИ.png'); }
+.dark-theme .main-menu li:nth-child(5) .menu-icon { background-image: url('../img/Blue_Icon/ПЕРСОНАЖІ.png'); }
+.dark-theme #settingsLink .menu-icon { background-image: url('../img/Blue_Icon/НАЛАШТУВАННЯ.png'); }
+.dark-theme .main-menu li:nth-child(7) .menu-icon { background-image: url('../img/Blue_Icon/ДОСЯГНЕННЯ.png'); }
+
+/* Стрілки в налаштуваннях музики */
+.dark-theme #musicPrev .music-arrow-svg { background-image: url('../img/Blue_Icon/Back.png'); }
+.dark-theme #musicNext .music-arrow-svg { background-image: url('../img/Blue_Icon/Next.png'); }
+
+
+.dark-theme #continueGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ПРОДОВЖИТИ.png'); }
+.dark-theme .main-menu li:nth-child(3):hover .menu-icon { background-image: url('../img/White_Icon/НОВА ГРА.png'); }
+.dark-theme #loadGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ЗАВАНТАЖИТИ.png'); }
+.dark-theme .main-menu li:nth-child(5):hover .menu-icon { background-image: url('../img/White_Icon/ПЕРСОНАЖІ.png'); }
+.dark-theme #settingsLink:hover .menu-icon { background-image: url('../img/White_Icon/НАЛАШТУВАННЯ.png'); }
+.dark-theme .main-menu li:nth-child(7):hover .menu-icon { background-image: url('../img/White_Icon/ДОСЯГНЕННЯ.png'); }
+
+/* Стрілки в налаштуваннях музики при наведенні */
+.dark-theme #musicPrev:hover .music-arrow-svg { background-image: url('../img/White_Icon/Back.png'); }
+.dark-theme #musicNext:hover .music-arrow-svg { background-image: url('../img/White_Icon/Next.png'); }
+
+
+/* --- Стиль для кнопки входу "Log In" --- */
+
+/* Контейнер, що позиціонує кнопку */
+.user-profile {
+    position: absolute;
+    top: 28px;
+    right: 48px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+/* Внутрішній блок з іконкою та текстом */
+.user-profile-inner {
+    display: flex;
+    align-items: left;
+    gap: 10px;
+    
+    /* СТИЛІ, СКОПІЙОВАНІ З ГОЛОВНОГО МЕНЮ */
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.5) 0%, rgba(190, 166, 252, 0.5) 100%);
+    border: 2px solid #BEA6FC;
+    border-radius: 25px;
+    box-shadow: 0px 0px 90px 0px #FFFFFF;
+    
+    /* Інші стилі */
+    padding: 8px 15px;
+    transition: all 0.2s ease;
+}
+
+/* Ефект при наведенні курсора */
+.user-profile:hover .user-profile-inner {
+    transform: scale(1.05); /* Збільшуємо кнопку */
+    filter: brightness(1.1); /* Робимо її трохи яскравішою */
+}
+
+/* Стиль для іконки всередині кнопки */
+.user-profile .menu-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Стиль для тексту "Log In" */
+.user-profile p {
+    margin: 0;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* --- МУЗЫКАЛЬНЫЙ ВИДЖЕТ --- */
+
+/* Анимация для обводки виджета */
+@keyframes rotate-gradient-widget {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Основной контейнер музыкального виджета */
+.music-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1010;
+    display: none; /* Скрываем по умолчанию, будет показан при загрузке */
+    align-items: center;
+    gap: 15px;
+    background: radial-gradient(circle, rgba(26, 28, 42, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 12px 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: 1px solid transparent;
+    overflow: hidden;
+}
+/* 2. Показываем виджет, ТОЛЬКО ЕСЛИ на странице есть .menu-container */
+body:has(.menu-container) .music-widget {
+  display: flex; /* Используем flex, как в стилях самого виджета */
+}
+body:has(.achievements-page-container) .music-widget {
+  display: none !important;
+}
+
+/* Анимированная неоновая обводка */
+.music-widget::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: conic-gradient(
+        from 90deg at 50% 50%,
+        #7E4DF9, #16D9F7, #BEA6FC, #7E4DF9
+    );
+    filter: blur(8px);
+    opacity: 0.6;
+    animation: rotate-gradient-widget 8s linear infinite;
+    z-index: -2;
+}
+
+/* Внутренняя маска для создания эффекта рамки */
+.music-widget::after {
+    content: '';
+    position: absolute;
+    top: 1px; left: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background: #1a1c2a; /* Цвет фона под "стеклом" */
+    border-radius: 15px;
+    z-index: -1;
+}
+
+/* Название трека */
+.widget-track-title {
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Кнопки управления */
+.widget-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.widget-controls button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin: 0 auto 10px auto;
-    position: relative;
-    z-index: 2;
+    transition: all 0.2s ease;
 }
-.settings-section .music-title-row {
-    margin-top: 0.2em;
-    margin-bottom: 1.2em;
+
+.widget-controls button:hover {
+    background: rgba(0, 234, 255, 0.2);
+    border-color: rgba(0, 234, 255, 0.5);
+    transform: scale(1.1);
 }
-@media (max-width: 600px) {
-  .music-title-row {
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-  }
+
+.widget-controls button svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    filter: drop-shadow(0 0 3px #00eaff);
 }
+
+/* Логика для иконок Play/Pause */
+.widget-controls .pause-icon { display: none; }
+.widget-controls .play-icon { display: block; }
+#widgetPlayPauseBtn.playing .pause-icon { display: block; }
+#widgetPlayPauseBtn.playing .play-icon { display: none; }
+
+/* Пульсация для кнопки "Пауза", когда музыка играет */
+#widgetPlayPauseBtn.playing {
+    animation: pulse-playing 2s infinite;
+}
+
+@keyframes pulse-playing {
+    0% { box-shadow: 0 0 0 0 rgba(0, 234, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 234, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 234, 255, 0); }
+}
+
+

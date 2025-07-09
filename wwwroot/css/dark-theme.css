@@ -1,0 +1,219 @@
+
+/* ================================================= */
+/* ========== ТЁМНАЯ ТЕМА: ГЛАВНОЕ МЕНЮ ========== */
+/* ================================================= */
+
+/* Контейнер главного меню в тёмной теме */
+.dark-theme .menu-container {
+    /* Градиент из раздела "Fill" с 50% прозрачностью */
+    background: linear-gradient(180deg, rgba(206, 63, 201, 0.5) 0%, rgba(2, 10, 32, 0.5) 17%, rgba(126, 77, 249, 0.5) 100%);
+
+    /* Обводка из раздела "Stroke" */
+    border: 2px solid #BEA6FC;
+
+    /* Тень из раздела "Effects" */
+    box-shadow: 0px 0px 90px 0px #1054DB;
+}
+
+
+/* Свечение за заголовком "Dream.exe" */
+.dark-theme .menu-title::before {
+    /* Сплошной розовый цвет для основы свечения */
+    background: #FF46DD;
+
+    /* Сильное размытие для создания эффекта "glow" */
+    filter: blur(100px);
+
+    /* Небольшая прозрачность, чтобы свечение не было слишком резким */
+    opacity: 0.7;
+
+    /* Увеличиваем область свечения */
+    transform: scale(1.4);
+    
+    /* Эти свойства обязательны для позиционирования псевдоэлемента */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+/* Уникальный стиль для первой кнопки "Играть" в тёмной теме */
+.dark-theme .main-menu li:first-child .menu-item {
+    /* Градиент из раздела "Fill" с 80% прозрачностью */
+    background: linear-gradient(90deg, rgba(255, 70, 221, 0.8) 0%, rgba(126, 77, 249, 0.8) 100%);
+    
+    /* Обводка из раздела "Stroke" */
+    border: 1px solid #BEA6FC;
+}
+
+/* Стиль для всех кнопок меню, кроме уникальных */
+.dark-theme .main-menu .menu-item {
+    background: linear-gradient(90deg, rgba(2, 10, 32, 0.8) 0%, rgba(8, 42, 134, 0.8) 100%);
+    
+    
+}
+
+/* Эффект при наведении на обычные кнопки меню */
+.dark-theme .main-menu .menu-item:hover {
+    background: linear-gradient(172.69deg, rgba(22, 217, 247, 0.5) 5.64%, rgba(8, 42, 134, 0.5) 94.36%);
+}
+
+/* Уникальный стиль для первой кнопки "ГРАТИ" (оставляем яркой для акцента) */
+.dark-theme .main-menu li:first-child .menu-item {
+    border: 1px solid #60A5FA; /* Немного изменим рамку */
+}
+
+/* Блоки "Мова" и "Озвучка" */
+.dark-theme .lang-voice-block {
+    background: #082A86; /* Тёмно-синий фон */
+    border: 1px solid #2563EB;
+}
+
+/* Текст "Мова" / "Озвучка" */
+.dark-theme .lang-voice-title {
+    color: rgba(255, 255, 255, 0.7); /* Светлый полупрозрачный текст */
+}
+
+/* Кнопка "Выход" */
+.dark-theme .exit-label {
+    background: #7E4DF9; /* Глубокий тёмно-фиолетовый */
+    border: 1px solid #6D28D9;
+}
+
+.dark-theme .exit-label:hover {
+    background-color: #5B21B6;
+}
+
+/* Кнопка профиля пользователя (Log In) */
+.dark-theme .user-profile-inner {
+    background: linear-gradient(180deg, rgba(10, 25, 47, 0.8) 0%, rgba(28, 18, 58, 0.8) 100%);
+    border: 2px solid #2563EB;
+    box-shadow: 0px 0px 80px 0px rgba(37, 99, 235, 0.5);
+}
+
+/* ========================================== */
+/* ========== ТЁМНАЯ ТЕМА: АВТОРЫ ========== */
+/* ========================================== */
+
+/* Контейнер меню авторов */
+.dark-theme .authors-menu-container {
+    background: linear-gradient(180deg, rgba(10, 25, 47, 0.85) 0%, rgba(28, 18, 58, 0.85) 100%);
+    border: 2px solid #2563EB;
+    box-shadow: 0px 0px 80px 0px rgba(37, 99, 235, 0.6);
+}
+
+/* Имена авторов (были черными, станут светлыми) */
+.dark-theme .author-name {
+    color: #E0E7FF; /* Светлый синевато-белый цвет */
+}
+
+/* Кнопка "Закрыть" в меню авторов */
+.dark-theme .authors-menu-container .close-button {
+    background: #4C1D95;
+    border: 1px solid #6D28D9;
+}
+
+.dark-theme .authors-menu-container .close-button:hover {
+    background-color: #5B21B6;
+}
+
+/* ============================================== */
+/* ========== ТЁМНАЯ ТЕМА: НАСТРОЙКИ ========== */
+/* ============================================== */
+
+/* Контейнер меню настроек в тёмной теме */
+.dark-theme .settings-menu-container {
+    /* Градиент с 60% непрозрачности */
+    background: linear-gradient(180deg, rgba(2, 10, 32, 0.6), rgba(8, 42, 134, 0.6));
+
+    /* Обводка из раздела "Stroke" */
+    border: 1px solid #BEA6FC;
+
+    /* Внешнее свечение */
+    box-shadow: 0px 0px 90px 0px #1054DB;
+}
+
+/* Кнопки выбора темы, масштаба и языка (неактивные) */
+.dark-theme .theme-button,
+.dark-theme .scale-button,
+.dark-theme .lang-button,
+.dark-theme .music-toggle {
+    background: linear-gradient(90deg, rgba(2, 10, 32, 0.5) 0%, rgba(8, 42, 134, 0.5) 100%);
+    box-shadow: none; /* Make sure there's no glow on inactive buttons */
+}
+
+.dark-theme .theme-button:hover,
+.dark-theme .scale-button:hover,
+.dark-theme .lang-button:hover {
+    border-color: #60A5FA; /* Светло-синяя рамка при наведении */
+}
+
+.dark-theme .theme-button.active,
+.dark-theme .scale-button.active,
+.dark-theme .lang-button.active {
+    /* Существующие стили (фон и цвет) */
+    background: linear-gradient(172.69deg, #16D9F7 5.64%, #BEA6FC 94.36%);
+    color: #082A86;
+    border-color: #60A5FA;
+    
+    /* Добавляем свечение */
+    box-shadow: 0 0 15px rgba(22, 217, 247, 0.7);
+}
+
+/* Ползунок громкости музыки (дорожка) */
+.dark-theme .music-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #1E40AF 0%, #3730A3 100%);
+    box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+}
+.dark-theme .music-slider::-moz-range-track {
+    background: linear-gradient(90deg, #1E40AF 0%, #3730A3 100%);
+    box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* Ползунок громкости (бегунок) */
+.dark-theme .music-slider::-webkit-slider-thumb {
+    border: 2px solid #60A5FA;
+}
+.dark-theme .music-slider::-moz-range-thumb {
+    border: 2px solid #60A5FA;
+}
+
+/* Блок с названием трека */
+.dark-theme .music-title-block {
+    background: rgba(17, 24, 39, 0.8); /* Тёмный фон */
+    border: 1px solid #2563EB;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+    color: #E0E7FF; /* Светлый текст */
+}
+
+.dark-theme .music-toggle.active {
+    /* Существующие стили (фон и цвет) */
+    background: linear-gradient(180deg, #16D9F7, #BEA6FC );
+    color: #FFFFFF;
+    border: 1px solid #BEA6FC;
+    
+    /* Добавляем свечение */
+    box-shadow: 0 0 15px rgba(22, 217, 247, 0.7);
+}
+
+/* Кнопка вкл/выкл музыки (неактивная) */
+.dark-theme .music-toggle {
+    border: 1px solid #2563EB;
+}
+.dark-theme .music-toggle:hover {
+    border-color: #60A5FA;
+}
+
+/* Кнопка "Закрыть" в настройках */
+.dark-theme #closeSettingsMenu {
+    background: #7E4DF9;
+    border: 1px solid #6D28D9;
+}
+
+.dark-theme #closeSettingsMenu:hover {
+    background-color: #5B21B6;
+}
+

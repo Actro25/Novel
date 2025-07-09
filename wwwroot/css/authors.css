@@ -1,0 +1,79 @@
+
+/* --- Основний контейнер меню авторів --- */
+.authors-menu-container {
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.5) 0%, rgba(190, 166, 252, 0.5) 100%);
+    border-radius: 25px;
+    border: 2px solid #BEA6FC;
+    box-shadow: 0px 0px 90px 0px #FFFFFF;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    width: 450px;
+    color: white;
+    left: 1000px;
+    top:120px;
+    gap:25px;
+    position: fixed;
+}
+
+/* --- ОНОВЛЕНИЙ ЗАГОЛОВОК "АВТОРИ НОВЕЛИ" --- */
+.authors-title {
+    /* Градієнтний текст, як у "DREAM.EXE" */
+    background: linear-gradient(to right, #00c6ff, #5869d8, #9945ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    /* Інші стилі */
+    font-size: 2.5em; /* Трохи менший, ніж головний заголовок */
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* --- Список авторів --- */
+.authors-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.authors-list li {
+    margin-bottom: 15px;
+}
+
+.author-info {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    /* Текст "Сценарист:", "Художник:" залишається білим */
+    color: white; 
+}
+
+/* --- ОНОВЛЕНИЙ СТИЛЬ ДЛЯ ІМЕН АВТОРІВ --- */
+.author-name {
+    font-weight: bold;
+    color: #000000; /* Чорний колір тексту */
+}
+
+/* --- Стиль для кнопки "Закрити" --- */
+.authors-menu-container .close-button {
+    background: #7E4DF9;
+    border: 1px solid #BEA6FC;
+    color: #FFFFFF;
+    font-family: 'Aldrich', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.authors-menu-container .close-button:hover {
+    background-color: #9269ff;
+}
