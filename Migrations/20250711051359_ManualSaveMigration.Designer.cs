@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NovelProject.Data;
 
@@ -10,9 +11,11 @@ using NovelProject.Data;
 namespace NovelProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250711051359_ManualSaveMigration")]
+    partial class ManualSaveMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
@@ -101,41 +104,6 @@ namespace NovelProject.Migrations
                     b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("NovelProject.Models.ManualSaveModel", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ActId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsSaveFromAct")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsSaveFromPart")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsSaveFromScene")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsStart")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PartId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SaveFileId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SceneId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("id");
-
-                    b.ToTable("ManualSave");
-                });
-
             modelBuilder.Entity("NovelProject.Models.PartsModel", b =>
                 {
                     b.Property<int>("id")
@@ -183,6 +151,9 @@ namespace NovelProject.Migrations
                     b.Property<string>("FirstSaveName")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("LastManualSaveId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SecondSaveId")
                         .HasColumnType("INTEGER");

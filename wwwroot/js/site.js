@@ -1,4 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
+function showGameMenu() {
+    document.getElementById('gameMenuOverlay').style.display = 'block';
+    document.getElementById('gameMenu').style.display = 'block';
+}
+
+function hideGameMenu() {
+    document.getElementById('gameMenuOverlay').style.display = 'none';
+    document.getElementById('gameMenu').style.display = 'none';
+    document.getElementById('saveSlots').style.display = 'none';
+    document.getElementById('saveNameInput').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', function () {
 
     // --- НОВОЕ: Восстанавливаем состояние плеера при загрузке страницы ---
     function restorePlayerState() {
@@ -86,26 +97,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- 2. Установка активных состояний и темы при ЗАГРУЗКЕ страницы ---
     function initializeState() {
-        // Загружаем сохраненную тему или используем 'light' по умолчанию
+        // Завантажуємо збережену тему або 'light' за замовчуванням
         const savedTheme = localStorage.getItem('selectedTheme') || 'light';
         applyTheme(savedTheme);
 
-        // Убираем 'active' со всех кнопок темы на всякий случай
+        // Знімаємо 'active' з усіх кнопок теми
         document.querySelectorAll('.theme-button').forEach(btn => btn.classList.remove('active'));
-        
-        // Устанавливаем активную кнопку темы в соответствии с сохраненной
+
+        // Активуємо відповідну тему
         const themeButtonToActivate = document.querySelector(`.theme-button[data-lang-key="theme_${savedTheme}"]`);
         if (themeButtonToActivate) {
             themeButtonToActivate.classList.add('active');
         } else {
-            // Если что-то пошло не так, активируем светлую тему по умолчанию
-            document.querySelector('.theme-button[data-lang-key="theme_light"]').classList.add('active');
+            const fallbackBtn = document.querySelector('.theme-button[data-lang-key="theme_light"]');
+            if (fallbackBtn) {
+                fallbackBtn.classList.add('active');
+            }
         }
 
-        // Установка активных кнопок для масштаба и языка
-        document.querySelector('.scale-button[data-scale="normal"]').classList.add('active');
-        document.querySelector('.lang-button[data-lang="uk"]').classList.add('active');
+        // Активуємо масштаб (перевірка, якщо елементи існують)
+        const scaleBtn = document.querySelector('.scale-button[data-scale="normal"]');
+        if (scaleBtn) {
+            scaleBtn.classList.add('active');
+        }
+
+        // Активуємо мову
+        const langBtn = document.querySelector('.lang-button[data-lang="uk"]');
+        if (langBtn) {
+            langBtn.classList.add('active');
+        }
     }
+
 
     // Запускаем инициализацию при загрузке страницы
     initializeState();
@@ -312,9 +334,4 @@ window.addEventListener('beforeunload', () => {
     }
 });
 
-
-
-    
-
-    
 });

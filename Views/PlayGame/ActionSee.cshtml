@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = $"Action {Model.Act.Name}";
-    Layout = null;
+    <script src="~/js/site.js"></script>
     string actionUrl = Model.StartActOrEnd
         ? Url.Action("ActionSeePart", "PlayGame", new { partId = Model.PartId, actId = Model.Act.Id, StartAct = true, sceneId = Model.SceneId })
         : Url.Action("ChangePart", "PlayGame", new { partId = Model.PartId, actId = Model.Act.Id, sceneId = Model.SceneId});
@@ -75,7 +75,16 @@
 <!-- Основное меню -->
 <div id="gameMenu" class="game-menu">
     <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
-    <button class="game-menu-item" onclick="goToMainMenu()">Головне меню</button>
+    <form method="get" asp-controller="PlayGame" asp-action="ManualSaveGame">
+        <input type="hidden" name="partId" value="@Model.PartId" />
+        <input type="hidden" name="actId" value="@Model.Act.Id" />
+        <input type="hidden" name="sceneId" value="@Model.SceneId" />
+        <input type="hidden" name="StartAct" value="@Model.StartActOrEnd" />
+        <input type="hidden" name="IsSaveFromScene" value="false" />
+        <input type="hidden" name="IsSaveFromPart" value="false" />
+        <input type="hidden" name="IsSaveFromAct" value="true" />
+        <button class="game-menu-item" type="submit">Головне меню</button>
+    </form>
     <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
 </div>
 

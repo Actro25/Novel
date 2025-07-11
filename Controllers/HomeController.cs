@@ -22,6 +22,8 @@ namespace NovelProject.Controllers
 
         public IActionResult Index()
         {
+            bool isHaveManualSave = false;
+            var manualSave = new ManualSaveModel();
             var AllAchivments = new List<AchivmentsModel>();
             var UserAchivment = new List<UserAchivmentsModel>();
             var saveFiles = new List<ShowSaveFileModel>
@@ -66,6 +68,16 @@ namespace NovelProject.Controllers
                                 _context
                             );
                         }
+                        manualSave = _context.ManualSave.FirstOrDefault(ma => ma.SaveFileId == saveFile.Id);
+                        if(manualSave == null)
+                        {
+                            manualSave = new ManualSaveModel();
+                            isHaveManualSave = false;
+                        }
+                        else
+                        {
+                            isHaveManualSave = true;
+                        }
                     }
 
                     UserAchivment = _context.UserAchivments
@@ -84,13 +96,18 @@ namespace NovelProject.Controllers
                 }
             }
             else
+            {
+                manualSave = new ManualSaveModel();
                 AllAchivments = _context.Achivments.ToList();
+            }
 
             var result = new MenuShowModel
             {
                 SaveFiles = saveFiles,
                 UserAchivments = UserAchivment,
-                AllAhivments = AllAchivments
+                AllAhivments = AllAchivments,
+                ManualSave = manualSave,
+                IsHaveManualSave = isHaveManualSave
             };
 
             return View(result);

@@ -51,7 +51,9 @@ else
     <div class="main-menu-label">ГОЛОВНЕ МЕНЮ</div>
         <ul class="main-menu">
             <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="peaceful_mode"><span>ГРАТИ</span></a></li>
-            <li><a href="#" class="menu-item" id="continueGameLink" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span><i class="menu-icon"></i></a></li>
+            @if(@Model.IsHaveManualSave){
+            <li><a href="@Url.Action("Continue", "PlayGame")" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span><i class="menu-icon"></i></a></li>
+            }
             <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span><i class="menu-icon new-game-icon"></i></a></li>
             <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span><i class="menu-icon"></i></a></li>
             <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span><i class="menu-icon"></i></a></li>
@@ -151,7 +153,6 @@ else
                 }
             });
         }
-
         // --- Кнопки відкриття ---
         document.getElementById('settingsLink')?.addEventListener('click', (e) => {
             e.preventDefault();
@@ -171,12 +172,6 @@ else
         document.getElementById('loadAchivmentLink')?.addEventListener('click', (e) => {
             e.preventDefault();
             showMenu('achivmentsMenu');
-        });
-
-        document.getElementById('continueGameLink')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Загрузка останнього збереження...');
-            window.location.href = '@Url.Action("Index", "PlayGame")';
         });
 
         // --- Кнопки закриття ---

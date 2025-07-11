@@ -9,7 +9,7 @@
     Layout = null;
 
     // Подключаем необходимые скрипты
-    <script src="~/js/site.js" defer></script>
+    <script src="~/js/site.js"></script>
 
     var answers = Model.CurrentScene.answer ? _context.Answers.Where(a => a.id_scene == Model.CurrentScene.id).ToList() : new List<NovelProject.Models.AnswersModel>();
 }
@@ -120,7 +120,16 @@
         <button class="game-menu-item" onclick="showSaveSlots()">Зберегти</button>
     }
     <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
-    <button class="game-menu-item" onclick="goToMainMenu()">Головне меню</button>
+    <form method="get" asp-controller="PlayGame" asp-action="ManualSaveGame">
+        <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
+        <input type="hidden" name="actId" value="@Model.actId" />
+        <input type="hidden" name="sceneId" value="@Model.CurrentScene.id" />
+        <input type="hidden" name="StartAct" value="@Model.StartPart" />
+        <input type="hidden" name="IsSaveFromScene" value="true" />
+        <input type="hidden" name="IsSaveFromPart" value="false" />
+        <input type="hidden" name="IsSaveFromAct" value="false" />
+        <button class="game-menu-item" type="submit">Головне меню</button>
+    </form>
     <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
 </div>
 

@@ -45,6 +45,92 @@ namespace NovelProject.Controllers
                 return NotFound("Act not found.");
             return RedirectToAction("ActionSeeScene", new { actId = currentAct.Id, StartAct = false, partId = currentPart.id, sceneID = currentScene.id });
         }
+        [HttpGet]
+        public IActionResult ManualSaveGame(int partId, int sceneId, int actId, bool StartAct, bool IsSaveFromScene, bool IsSaveFromPart, bool IsSaveFromAct)
+        {
+            if (partId <= 0 && sceneId <= 0 && actId <= 0)
+            {
+                return BadRequest("Invalid part, scene, or act ID.");
+            }
+
+            var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (int.TryParse(userIdStr, out int parsedUserId))
+            {
+                var userSaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == parsedUserId);
+                if (userSaveFile == null)
+                {
+                    return NotFound("User save file not found.");
+                }
+
+                var existingManualSave = _context.ManualSave.FirstOrDefault(ms => ms.SaveFileId == userSaveFile.Id);
+
+                if (existingManualSave != null)
+                {
+                    existingManualSave.SceneId = sceneId;
+                    existingManualSave.PartId = partId;
+                    existingManualSave.ActId = actId;
+                    existingManualSave.IsStart = StartAct;
+                    existingManualSave.IsSaveFromScene = IsSaveFromScene;
+                    existingManualSave.IsSaveFromPart = IsSaveFromPart;
+                    existingManualSave.IsSaveFromAct = IsSaveFromAct;
+
+                    _context.ManualSave.Update(existingManualSave);
+                }
+                else
+                {
+                    var manualSave = new ManualSaveModel
+                    {
+                        SceneId = sceneId,
+                        PartId = partId,
+                        ActId = actId,
+                        IsStart = StartAct,
+                        IsSaveFromScene = IsSaveFromScene,
+                        IsSaveFromPart = IsSaveFromPart,
+                        IsSaveFromAct = IsSaveFromAct,
+                        SaveFileId = userSaveFile.Id
+                    };
+
+                    _context.ManualSave.Add(manualSave);
+                }
+
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public IActionResult Continue()
+        {
+            var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (int.TryParse(userIdStr, out int parsedUserId))
+            {
+                var UserSaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == parsedUserId);
+                if (UserSaveFile == null)
+                {
+                    return NotFound("User save file not found.");
+                }
+                var ManualSave = _context.ManualSave.FirstOrDefault(ms => ms.SaveFileId == UserSaveFile.Id);
+                if (ManualSave == null)
+                {
+                    return NotFound("Manual save not found.");
+                }
+                if (ManualSave.IsSaveFromScene)
+                {
+                    return RedirectToAction("ActionSeeScene", new { partId = ManualSave.PartId, sceneId = ManualSave.SceneId, StartPart = ManualSave.IsStart, actId = ManualSave.ActId });
+                }
+                else if (ManualSave.IsSaveFromPart)
+                {
+                    return RedirectToAction("ActionSeePart", new { partId = ManualSave.PartId, actId = ManualSave.ActId, StartAct = ManualSave.IsStart, sceneID = ManualSave.SceneId });
+                }
+                else if (ManualSave.IsSaveFromAct)
+                {
+                    return RedirectToAction("ActionSee", new { actId = ManualSave.ActId, StartAct = ManualSave.IsStart, partId = ManualSave.PartId, sceneId = ManualSave.SceneId });
+                }
+            }
+            return RedirectToAction("Index", "PlayGame");
+        }
         public IActionResult ChangePart(int ActId, int PartId, int sceneId)
         {
 

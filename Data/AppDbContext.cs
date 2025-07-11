@@ -15,6 +15,7 @@ namespace NovelProject.Data
         public DbSet<UsersModel> Users { get; set; }
 
         public DbSet<SaveFileModel> SaveFile { get; set; }
+        public DbSet<ManualSaveModel> ManualSave { get; set; }
 
         public DbSet<AchivmentsModel> Achivments { get; set; }
         public DbSet<UserAchivmentsModel> UserAchivments { get; set; }

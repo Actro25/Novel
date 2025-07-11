@@ -69,7 +69,16 @@
 <!-- Основное меню -->
 <div id="gameMenu" class="game-menu">
     <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
-    <button class="game-menu-item" onclick="goToMainMenu()">Головне меню</button>
+    <form method="get" asp-controller="PlayGame" asp-action="ManualSaveGame">
+        <input type="hidden" name="partId" value="@Model.Part.id" />
+        <input type="hidden" name="actId" value="@Model.ActId" />
+        <input type="hidden" name="sceneId" value="@Model.SceneId" />
+        <input type="hidden" name="StartAct" value="@Model.StartPartOrEnd" />
+        <input type="hidden" name="IsSaveFromScene" value="false" />
+        <input type="hidden" name="IsSaveFromPart" value="true" />
+        <input type="hidden" name="IsSaveFromAct" value="false" />
+        <button class="game-menu-item" type="submit">Головне меню</button>
+    </form>
     <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
 </div>
 
