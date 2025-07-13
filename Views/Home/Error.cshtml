@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Помилка сервера";
+    Layout = null; // або підключи свій Layout, якщо потрібно
+}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Помилка 500 — Сталася непередбачена помилка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .error-container {
+            max-width: 600px;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            color: #ff5555;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .back-link {
+            padding: 10px 20px;
+            background-color: #238636;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #2ea043;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">500</div>
+        <div class="error-message">Ой! Щось пішло не так. Ми вже працюємо над цим.</div>
+        <a class="back-link" href="/">Повернутись на головну</a>
+    </div>
+</body>
+</html>

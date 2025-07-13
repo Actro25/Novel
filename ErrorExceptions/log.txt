@@ -1,0 +1,9 @@
+--- [2025-07-13 07:39:33] ---
+User: UnAuthorized (ID: 0)
+Type: Exception
+Message: This is a test exception for error handling middleware.
+StackTrace:    at Program.<>c.<<Main>$>b__0_3() in D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\Program.cs:line 38
+   at lambda_method2(Closure, Object, HttpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at NovelProject.Middlewares.ExceptionhandlingMiddleware.InvokeAsync(HttpContext context) in D:\PROGRAMS\VSTUDIOFOLDER\PROJECTS_FOLDER\NovelProject\Middlewares\ExceptionhandlingMiddleware.cs:line 21
+-----------------------------
