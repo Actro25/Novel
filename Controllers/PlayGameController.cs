@@ -21,13 +21,13 @@ namespace NovelProject.Controllers
         {
             var firstAct = _context.Acts.OrderBy(a => a.Id).FirstOrDefault();
             if (firstAct == null)
-                return NotFound("No acts found in the database.");
+                return View("~/Views/Home/Error.cshtml");
             var firstPart = _context.Parts.FirstOrDefault(p => p.id == firstAct.StartPartId);
             if (firstPart == null)
-                return NotFound("No parts found for the first act.");
+                return View("~/Views/Home/Error.cshtml");
             var firstScene = _context.Scenes.FirstOrDefault(s => s.id == firstPart.start_scene_id);
             if (firstScene == null)
-                return NotFound("No scenes found for the first part.");
+                return View("~/Views/Home/Error.cshtml");
 
             return RedirectToAction("ActionSee", new { actId = firstAct.Id, StartAct = true, partId = firstPart.id, sceneId = firstScene.id });
         }
@@ -36,13 +36,13 @@ namespace NovelProject.Controllers
         {
             var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
             if (currentScene == null)
-                return NotFound("Scene not found.");
+                return View("~/Views/Home/Error.cshtml");
             var currentPart = _context.Parts.FirstOrDefault(p => p.id == currentScene.id_part);
             if (currentPart == null)
-                return NotFound("Part not found.");
+                return View("~/Views/Home/Error.cshtml");
             var currentAct = _context.Acts.FirstOrDefault(a => a.Id == currentPart.act_id);
             if (currentAct == null)
-                return NotFound("Act not found.");
+                return View("~/Views/Home/Error.cshtml");
             return RedirectToAction("ActionSeeScene", new { actId = currentAct.Id, StartAct = false, partId = currentPart.id, sceneID = currentScene.id });
         }
         [HttpGet]
@@ -50,7 +50,7 @@ namespace NovelProject.Controllers
         {
             if (partId <= 0 && sceneId <= 0 && actId <= 0)
             {
-                return BadRequest("Invalid part, scene, or act ID.");
+                return View("~/Views/Home/Error.cshtml");
             }
 
             var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -60,7 +60,7 @@ namespace NovelProject.Controllers
                 var userSaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == parsedUserId);
                 if (userSaveFile == null)
                 {
-                    return NotFound("User save file not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 }
 
                 var existingManualSave = _context.ManualSave.FirstOrDefault(ms => ms.SaveFileId == userSaveFile.Id);
@@ -109,12 +109,12 @@ namespace NovelProject.Controllers
                 var UserSaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == parsedUserId);
                 if (UserSaveFile == null)
                 {
-                    return NotFound("User save file not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 }
                 var ManualSave = _context.ManualSave.FirstOrDefault(ms => ms.SaveFileId == UserSaveFile.Id);
                 if (ManualSave == null)
                 {
-                    return NotFound("Manual save not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 }
                 if (ManualSave.IsSaveFromScene)
                 {
@@ -137,7 +137,7 @@ namespace NovelProject.Controllers
             var currentAct = _context.Acts.FirstOrDefault(a => a.Id == ActId);
             var currentPart = _context.Parts.FirstOrDefault(p => p.id == PartId);
             if (currentAct == null || currentPart == null)
-                return NotFound("Act or Part or Scene not found.");
+                return View("~/Views/Home/Error.cshtml");
             if (sceneId == 0)
             {
                 if (currentAct.EndPartId == currentPart.id)
@@ -150,11 +150,11 @@ namespace NovelProject.Controllers
                     {
                         var nextAct = _context.Acts.FirstOrDefault(a => a.Id == currentAct.NextActId);
                         if (nextAct == null)
-                            return NotFound("Next Act not found.");
+                            return View("~/Views/Home/Error.cshtml");
 
                         var nextPart = _context.Parts.FirstOrDefault(p => p.id == nextAct.StartPartId && p.act_id == nextAct.Id);
                         if (nextPart == null)
-                            return NotFound("Next Part not found.");
+                            return View("~/Views/Home/Error.cshtml");
 
                         return RedirectToAction("ActionSee", new { actId = nextAct.Id, partId = nextPart.id, sceneId = nextPart.start_scene_id, StartAct = true });
                     }
@@ -163,19 +163,19 @@ namespace NovelProject.Controllers
 
             var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
             if (currentScene == null)
-                return NotFound("Scene not found.");
+                return View("~/Views/Home/Error.cshtml");
 
 
 
             var currentPart_forScene = _context.Parts.FirstOrDefault(p => p.id == currentScene.id_part);
             if (currentPart_forScene == null)
-                return NotFound("Part for the current scene not found.");
+                return View("~/Views/Home/Error.cshtml");
 
             if (currentPart_forScene.act_id != currentAct.Id)
             {
                 var currentAct_forScene = _context.Acts.FirstOrDefault(a => a.Id == currentPart_forScene.act_id);
                 if (currentAct_forScene == null)
-                    return NotFound("Act for the current scene not found.");
+                    return View("~/Views/Home/Error.cshtml");
 
                 return RedirectToAction("ActionSee", new { actId = currentAct_forScene.Id, partId = currentPart_forScene.id, sceneID = currentScene.id, StartAct = true });
             }
@@ -187,7 +187,7 @@ namespace NovelProject.Controllers
 
                 var nextPart = _context.Parts.FirstOrDefault(p => p.id == nextAct.StartPartId && p.act_id == nextAct.Id);
                 if (nextPart == null)
-                    return NotFound("Next Part not found.");
+                    return View("~/Views/Home/Error.cshtml");
 
                 return RedirectToAction("ActionSee", new { actId = nextAct.Id, partId = nextPart.id, sceneID = nextPart.start_scene_id, StartAct = true });
             }
@@ -202,7 +202,7 @@ namespace NovelProject.Controllers
             {
                 var nextPart = _context.Parts.FirstOrDefault(p => p.id == currentPart.next_part_id);
                 if (nextPart == null)
-                    return NotFound("Next Part not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 if (nextPart.start_scene_id != currentScene.id)
                     return RedirectToAction("ActionSeePart", new { partId = nextPart.id, actId = currentAct.Id, StartAct = true, sceneID = currentScene.id });
                 else
@@ -219,7 +219,7 @@ namespace NovelProject.Controllers
             {
                 var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
                 if (currentScene == null)
-                    return NotFound("Scene not found.");
+                    return View("~/Views/Home/Error.cshtml");
 
                 var previousScenes = _context.Scenes
                     .Where(s => s.id_next_scene == currentScene.id)
@@ -257,11 +257,11 @@ namespace NovelProject.Controllers
         {
             var CurrentAct = _context.Acts.FirstOrDefault(a => a.Id == actId);
             if (CurrentAct == null)
-                return NotFound("Act not found.");
+                return View("~/Views/Home/Error.cshtml");
 
             var CurrentPart = _context.Parts.FirstOrDefault(p => p.id == partId);
             if (CurrentPart == null)
-                return NotFound("Part not found.");
+                return View("~/Views/Home/Error.cshtml");
 
             var temp = new CheckPartModel
             {
@@ -313,7 +313,7 @@ namespace NovelProject.Controllers
 
             var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
             if (currentScene == null)
-                return NotFound("Scene not found.");
+                return View("~/Views/Home/Error.cshtml");
 
             var nextScene = _context.Scenes.FirstOrDefault(s => s.id == currentScene.id_next_scene);
 
@@ -345,33 +345,33 @@ namespace NovelProject.Controllers
         {
             var scene_save = 0;
             if (selectedSlot == 0)
-                return BadRequest("Please select a valid slot.");
+                return View("~/Views/Home/Error.cshtml");
 
             if (saveName == null)
-                return BadRequest("Please provide a save name.");
+                return View("~/Views/Home/Error.cshtml");
 
             if (partId > 0 && sceneId == 0)
             {
                 var current_part_save = _context.Parts.FirstOrDefault(p => p.id == partId);
                 if (current_part_save == null)
-                    return NotFound("Part not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 scene_save = current_part_save.end_scene_id;
             }
             else if (partId > 0 && sceneId > 0)
             {
                 var current_scene_save = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
                 if (current_scene_save == null)
-                    return NotFound("Scene not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 scene_save = current_scene_save.id;
             }
             else if (partId == 0 && sceneId == 0)
             {
                 var current_act_save = _context.Acts.FirstOrDefault(a => a.Id == actId);
                 if (current_act_save == null)
-                    return NotFound("Act not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 var current_part_save = _context.Parts.FirstOrDefault(p => p.id == current_act_save.EndPartId);
                 if (current_part_save == null)
-                    return NotFound("Part not found.");
+                    return View("~/Views/Home/Error.cshtml");
                 scene_save = current_part_save.end_scene_id;
             }
             else if (partId == 0 && sceneId > 0)
@@ -380,7 +380,7 @@ namespace NovelProject.Controllers
             }
             else
             {
-                return BadRequest("Invalid part or scene ID.");
+                return View("~/Views/Home/Error.cshtml");
             }
 
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
@@ -444,7 +444,7 @@ namespace NovelProject.Controllers
             try
             {
                 if (achivmentIds == null || !achivmentIds.Any())
-                    return BadRequest("No achivment IDs provided");
+                    return View("~/Views/Home/Error.cshtml");
 
                 var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 if (!int.TryParse(userIdStr, out int userId))
@@ -455,7 +455,7 @@ namespace NovelProject.Controllers
                     .ToList();
 
                 if (!achivments.Any())
-                    return Ok("No new achivments to update");
+                    return Ok();
 
                 foreach (var ach in achivments)
                 {
@@ -465,13 +465,12 @@ namespace NovelProject.Controllers
 
                 await _context.SaveChangesAsync();
 
-                return Ok(achivments.Select(a => a.AchivmentId));
+                return Ok();
             }
             catch (Exception ex)
             {
-                // Логування помилки
                 _logger.LogError(ex, "Error updating achivments");
-                return StatusCode(500, "Internal server error");
+                return View("~/Views/Home/Error.cshtml");
             }
         }
     }
