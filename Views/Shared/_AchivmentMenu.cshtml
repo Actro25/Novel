@@ -1,167 +1,367 @@
 ﻿<div id="achivmentsMenu" class="load-menu-container hidden">
+
+   
+
     <h3 class="load-title">ДОСЯГНЕННЯ</h3>
 
-    <div id="achivmentContainer" class="save-slots">
-        @{
-            var achievedIds = new HashSet<int>();
-            if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
+    @{
+        var achievedIds = new HashSet<int>();
+        if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
+        {
+            var userAchivmentsList = Model.UserAchivments as List<UserAchivmentsModel>;
+            if (userAchivmentsList != null)
             {
-                var userAchivmentsList = Model.UserAchivments as List<UserAchivmentsModel>;
-                if (userAchivmentsList != null)
-                {
-                    achievedIds = userAchivmentsList
-                        .Where((Func<UserAchivmentsModel, bool>)(a => a.IsAchieved))
-                        .Select(a => a.AchivmentId)
-                        .ToHashSet();
-                }
+                achievedIds = userAchivmentsList
+                    .Where(a => a.IsAchieved)
+                    .Select(a => a.AchivmentId)
+                    .ToHashSet();
             }
         }
 
-        @foreach (var ach in Model.AllAhivments)
+        var total = Model.AchivmentsShowModel.allAchivments.Count;
+        var unlocked = achievedIds.Count;
+    }
+
+        <div class="achievements-grid">
+    @{
+        var percentsAchiv = @Model.AchivmentsShowModel.percentsAchivments;
+        int index = 0;
+        foreach (var ach in Model.AchivmentsShowModel.allAchivments)
         {
             var isAchieved = achievedIds.Contains(ach.Id);
-            <div class="save-slot @(isAchieved ? "achieved" : "locked")">
-                <div class="save-slot-header">
-                    <span class="save-slot-number">@ach.Name</span>
+
+        if (index == 0)
+{
+             <div class="achievement-wrapper @(isAchieved ? "achieved" : "locked")">
+                <div class="achievement-slot">
+                    <img src="@(isAchieved ? ach.IconPath : "/img/question.jpg")" alt="@ach.Name" />
                 </div>
-                <div class="save-slot-info">
-                    <div class="achievement-icon-container">
-                        <img src="@(isAchieved ? ach.IconPath : "/img/question.jpg")" 
-                             alt="@ach.Name" 
-                             class="achievement-icon @(isAchieved ? "" : "grayscale")" />
-                    </div>
-                    <div class="scene-preview">@ach.Description</div>
-                </div>
+
+            <div class="achievement-info-box doub-slot">
+                @if(isAchieved){
+                    <span class="achievement-percent">@percentsAchiv[index]%</span>
+                }
+                else
+                {
+                    <img src="/img/Vector.png" alt="Heart" class="doub-heart" />
+                }
             </div>
+
+              </div>
+    
+                
+
+                <div class="achievement-wrapper double achieved">
+                    <div class="achievement-slot double-slot">
+                        <img src="/img/Дуо.png" alt="Girl" />
+                        <img src="/img/Vector.png" alt="Heart" class="double-heart" />
+                        <img src="/img/Кот.png" alt="Cat" />
+                    </div>
+
+
+                    <div class="double-progress">
+                        <div class="double-progress-fill" style="width:@Model.CatReputationPointe%"></div>
+                    </div>
+                </div>
+                index++;
+                continue;
+}
+
+            <div class="achievement-wrapper @(isAchieved ? "achieved" : "locked")">
+                <div class="achievement-slot">
+                    <img src="@(isAchieved ? ach.IconPath : "/img/question.jpg")" alt="@ach.Name" />
+                </div>
+
+            <div class="achievement-info-box doub-slot">
+                @if(isAchieved){
+                    <span class="achievement-percent">@percentsAchiv[index]%</span>
+                }
+                else
+                {
+                    <img src="/img/Vector.png" alt="Heart" class="doub-heart" />
+                }
+            </div>
+            </div>
+            
+            
+
+            index++;
+            
         }
+    }
+    </div>
+        <!-- Общий прогресс -->
+        <div class="progress-container">
+        <div class="progress-header">
+            <span class="progress-label">ПРОГРЕС</span>
+            <span class="progress-percent">@Model.ProchentAchivments%</span>
+        </div>
+        <div class="achievement-progress-bar">
+            <div class="progress-fill" style="width:@Model.ProchentAchivments%"></div>
+        </div>
+    </div>
+        <button id="closeAchivmentsMenuBtn" class="close-button">ЗАКРИТИ</button>
     </div>
 
-    <button id="closeAchivmentsMenuBtn" class="close-button">ЗАКРИТИ</button>
-</div>
-
-
-
 <style>
-     .save-slot {
-        position: relative;
-        border: 2px solid;
-        border-radius: 10px;
-        padding: 15px;
-        margin-bottom: 15px;
-        transition: all 0.3s ease;
-    }
+/* === БАЗОВІ ВИПРАВЛЕННЯ РОЗТАШУВАННЯ === */
+#achivmentsMenu {
+    position: fixed;
+    top: 50%;
+    right: 150px;
+    transform: translate(-50%, -50%);
+    width: 536px;
+    height: 840px;
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.6), rgba(190, 166, 252, 0.6));
+    border: 2px solid #BEA6FC;
+    box-shadow: 0px 0px 90px 0px #FFFFFF, inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    opacity: 1;
+    z-index: 10;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-    .save-slot.achieved {
-        border-color: #00ff8c;
-        background-color: rgba(0, 255, 140, 0.1);
-        box-shadow: 0 0 15px rgba(0, 255, 140, 0.3);
-    }
+#achivmentsMenu.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -45%);
+}
 
-    .save-slot.locked {
-        border-color: #555;
-        opacity: 0.6;
-        background-color: rgba(85, 85, 85, 0.1);
-    }
-    .achievement-icon-container {
-        width: 80px;
-        height: 80px;
-        margin-right: 15px;
-        float: left;
-        border-radius: 8px;
-        overflow: hidden;
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .achievement-icon {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: all 0.3s ease;
-    }
-    .achieved .achievement-icon {
-        border: 1px solid #00ff8c;
-        box-shadow: 0 0 10px rgba(0, 255, 140, 0.5);
-    }
-    .grayscale {
-        filter: grayscale(100%) brightness(0.7);
-    }
-    .achievements-menu-container {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(10, 20, 35, 0.95);
-        border: 2px solid #ffb400;
-        border-radius: 15px;
-        box-shadow: 0 0 30px rgba(255, 180, 0, 0.5);
-        padding: 25px;
-        color: white;
-        z-index: 1000;
-        width: 90%;
-        max-width: 600px;
-        opacity: 0;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        transform: translate(-50%, -50%) scale(0.95);
-    }
+#achivmentsMenu.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+}
 
-    .achievements-menu-container.active {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
 
-    .achievements-menu-container.hidden {
-        display: none;
-    }
+/* === ТИТУЛ === */
+.load-title {
+    font-family: Franklin Gothic Heavy;
+    font-size: 40px;
+    text-align: center;
+    background: linear-gradient(105.67deg, #04C3E6 7.06%, #FFFFFF 54.91%, #7E4DF9 97.34%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 10px;
+}
 
-    .achievements-title {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 1.8em;
-        color: #ffb400;
-        text-shadow: 0 0 10px #ffb400;
-    }
+/* === СІТКА ДОСЯГНЕНЬ === */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 62px 38px;
+    justify-content: center;
+    align-items: start;
+    margin: 30px auto;
+    padding: 0 10px;
+}
 
-    .achievements-list {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        max-height: 400px;
-        overflow-y: auto;
-    }
+/* === КАРТКА ДОСЯГНЕННЯ === */
+.achievement-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+}
 
-    .achievement-card {
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        padding: 15px;
-        transition: background-color 0.3s ease;
-    }
+.achievement-slot {
+    width: 104px;
+    height: 105px;
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.6), rgba(190, 166, 252, 0.6));
+    border: 2px solid #D9D9D9;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
 
-    .achievement-card.achieved {
-        border-color: #00ff8c;
-    }
+.achievement-slot img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    
+}
 
-    .achievement-name {
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
+/* === ПІДІКОНКА === */
+.achievement-subicon {
+    width: 24px;
+    height: 24px;
+    margin-top: -6px;
+}
 
-    .achievement-desc {
-        font-size: 0.95em;
-        color: #aaa;
-        margin-bottom: 10px;
-    }
+.achievement-info-box {
+    position: absolute;
+    top: 118px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 103.9px;
+    height: 41.7px;
+    opacity: 1;
+    border: 2px solid #BEA6FC;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.6), rgba(190, 166, 252, 0.6));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.achievement-percent {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+/* === СТАНИ === */
+.achievement-wrapper.achieved .achievement-slot {
+    border-color: #04C3E6;
+    box-shadow: 0px 0px 30px rgba(4, 195, 230, 0.5);
+}
 
-    .achievement-status {
-        font-size: 0.9em;
-        color: #ffcc00;
-    }
-    .save-slot-info::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+.achievement-wrapper.locked .achievement-slot {
+    filter: grayscale(1) brightness(0.6);
+}
+
+/* === ДВОЙНАЯ ДОСЯГНЕННЯ === */
+.achievement-wrapper.double {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.achievement-slot.double-slot {
+    width: 256px;
+    height: 104px;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 12px;
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.6) 0%, rgba(190, 166, 252, 0.6) 100%);
+
+}
+
+.double-slot img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    
+}
+
+.double-heart {
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 8px !important;
+}
+
+.doub-slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; 
+}
+
+.doub-heart {
+    width: 25px !important;
+    height: 30px !important;
+    margin: 14px !important;
+    
+}
+
+/* === ДВОЙНИЙ ПРОГРЕС === */
+.double-progress {
+    width: 256px;
+    height: 42px;
+    border-radius: 15px;
+    border: 1px solid rgba(190, 166, 252, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.double-progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #00D1FF, #6ebeff);
+    transition: width 0.3s ease-in-out;
+    border-radius: 15px 0 0 15px;
+}
+
+/* === ПРОГРЕС === */
+.progress-container {
+    width: 90%;
+    max-width: 415px;
+    margin: 60px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.progress-label,
+.progress-percent {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.achievement-progress-bar {
+    width: 100%;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #BEA6FC;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #00D1FF, #6ebeff);
+    border-radius: 5px 0 0 5px;
+    transition: width 0.3s ease-in-out;
+}
+
+/* === КНОПКА === */
+.close-button {
+    width: 321px;
+    height: 46px;
+    margin: 40px auto 0 auto;
+    background: #7E4DF9;
+    border: 1px solid #BEA6FC;
+    border-radius: 8px;
+    font-family: 'Franklin Gothic Heavy', sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 0 20px rgba(126, 77, 249, 0.4);
+}
+
+.close-button:hover {
+    background: #641cdf;
+}
+
 </style>
 
 <script>
@@ -171,5 +371,9 @@
         setTimeout(() => menu.classList.add('hidden'), 300);
     });
 
+    function openAchievementsMenu() {
+        const menu = document.getElementById('achivmentsMenu');
+        menu.classList.remove('hidden');
+        setTimeout(() => menu.classList.add('active'), 20);
+    }
 </script>
-

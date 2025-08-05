@@ -18,10 +18,10 @@ namespace NovelProject.Controllers
             _logger = logger;
             _context = context;
         }
-
-
         public IActionResult Index()
         {
+            var UserReputationPointe = 0;
+            var PercentAchivments = 0;
             bool isHaveManualSave = false;
             var manualSave = new ManualSaveModel();
             var AllAchivments = new List<AchivmentsModel>();
@@ -80,9 +80,23 @@ namespace NovelProject.Controllers
                         }
                     }
 
+                    var UserReputation = _context.Reputation.FirstOrDefault(r => r.UserId == userId);
+                    if(UserReputation != null)
+                        UserReputationPointe = UserReputation.CatReputation;
+
                     UserAchivment = _context.UserAchivments
-                        .Where(ua => ua.UserId == userId)
-                        .ToList();
+                            .Where(ua => ua.UserId == userId)
+                            .ToList();
+                    
+
+                    var userAchivmentsCount = UserAchivment.Count;
+
+                    var CompliteAchivmentsCount = UserAchivment.Count(ua => ua.IsAchieved);
+
+                    PercentAchivments = userAchivmentsCount > 0
+                        ? (int)((double)CompliteAchivmentsCount / userAchivmentsCount * 100)
+                        : 0;
+
                     if (UserAchivment.Count > 0)
                     {
                         AllAchivments = _context.Achivments
@@ -99,17 +113,32 @@ namespace NovelProject.Controllers
             {
                 manualSave = new ManualSaveModel();
                 AllAchivments = _context.Achivments.ToList();
+                UserReputationPointe = 0;
+            }
+            List<int> percents = new List<int>();
+            foreach (var ach in AllAchivments)
+            {
+                int userCountAchivments = _context.UserAchivments.Count(ua => ua.AchivmentId == ach.Id && ua.IsAchieved);
+                int allCountPeople = _context.Users.Count();
+                percents.Add((int)(((double)userCountAchivments / allCountPeople) * 100));
             }
 
             var result = new MenuShowModel
             {
                 SaveFiles = saveFiles,
                 UserAchivments = UserAchivment,
-                AllAhivments = AllAchivments,
+                AchivmentsShowModel = new AchivmentsShowModel
+                {
+                    allAchivments = AllAchivments,
+                    percentsAchivments = percents
+                },
                 ManualSave = manualSave,
-                IsHaveManualSave = isHaveManualSave
+                IsHaveManualSave = isHaveManualSave,
+                ProchentAchivments = PercentAchivments,
+                CatReputationPointe = UserReputationPointe,
             };
 
+            
             return View(result);
         }
 

@@ -279,6 +279,18 @@ namespace NovelProject.Controllers
             if (sceneId == 0)
                 return RedirectToAction("ActionSeePart", new { partId, actId, StartAct = false, sceneID = sceneId });
 
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                var userIdStrNew = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (int.TryParse(userIdStrNew, out int parsedUserIdNew))
+                {
+                    if (ReputationScenes.PlusReputation.Contains(sceneId))
+                        ChangeReputation(ReputationScenes.ReputationPointsPlus, parsedUserIdNew);
+                    else if (ReputationScenes.MinusReputation.Contains(sceneId))
+                        ChangeReputation(-ReputationScenes.ReputationPointsPlus, parsedUserIdNew);
+                }
+            }
 
             List<AchivmentsModel> filteredAchivments;
 
@@ -472,6 +484,30 @@ namespace NovelProject.Controllers
                 _logger.LogError(ex, "Error updating achivments");
                 return View("~/Views/Home/Error.cshtml");
             }
+        }
+        public void ChangeReputation(int points, int userId)
+        {
+            var userReputation = _context.Reputation.FirstOrDefault(r => r.UserId == userId);
+            if (userReputation != null)
+            {
+                userReputation.CatReputation += points;
+                if (userReputation.CatReputation < 0)
+                    userReputation.CatReputation = 0;
+                else if (userReputation.CatReputation > 100)
+                    userReputation.CatReputation = 100;
+                _context.Reputation.Update(userReputation);
+            }
+            else 
+            {                 
+                userReputation = new ReputationModel
+                {
+                    CatReputation = points,
+                    UserId = userId
+                };
+                _context.Reputation.Add(userReputation);
+            }
+
+            _context.SaveChanges();
         }
     }
 }

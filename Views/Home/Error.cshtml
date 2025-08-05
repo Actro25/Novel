@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Помилка сервера";
-    Layout = null; // або підключи свій Layout, якщо потрібно
+    Layout = null;
 }
 <!DOCTYPE html>
 <html lang="uk">
@@ -9,47 +9,224 @@
     <title>Помилка 500 — Сталася непередбачена помилка</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Базовые стили */
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
-            background-color: #0d1117;
             color: #ffffff;
             font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
             text-align: center;
+            background-color: #090A0F;
         }
+
+        /* Контейнер для JS-анимации звёзд */
+        .stars-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Размещаем фон позади всего контента */
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+        
+        /* Стили для SVG-лучей */
+        .stars-rays-svg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; /* SVG не должен перехватывать клики */
+            z-index: 0;
+        }
+        
+        /* --- Секция контента ошибки --- */
         .error-container {
             max-width: 600px;
+            position: relative; /* Чтобы контент был над фоном */
+            z-index: 10; /* Выше всех фоновых элементов */
+            animation: fadeIn 2s ease-in-out;
         }
+
         .error-code {
-            font-size: 6rem;
+            font-size: 8rem;
             font-weight: 700;
             color: #ff5555;
+            text-shadow: 0 0 10px rgba(255, 85, 85, 0.7);
+            animation: pulse 4s infinite;
         }
+
         .error-message {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
         }
+
         .back-link {
-            padding: 10px 20px;
-            background-color: #238636;
-            color: white;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: #4a90e2;
             text-decoration: none;
             border-radius: 8px;
-            transition: background-color 0.3s ease;
+            border: 2px solid #4a90e2;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
         .back-link:hover {
-            background-color: #2ea043;
+            background-color: #4a90e2;
+            color: white;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.7);
+        }
+        
+        /* Анимации для контента */
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @@keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
+    <div class="stars-bg"></div>
+
     <div class="error-container">
         <div class="error-code">500</div>
         <div class="error-message">Ой! Щось пішло не так. Ми вже працюємо над цим.</div>
         <a class="back-link" href="/">Повернутись на головну</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Parallax stars animation + interactive rays ---
+            (function() {
+                const starsBg = document.querySelector('.stars-bg');
+                if (!starsBg) return;
+                const starCount = 120;
+                let mouseX = 0, mouseY = 0;
+                let targetX = 0, targetY = 0;
+                const parallaxStrength = 30;
+                const stars = [];
+
+                // Создаём звёзды с сохранением базовых позиций и скоростью
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    const size = Math.random() * 2 + 1;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.position = 'absolute';
+                    const top = Math.random() * 100;
+                    const left = Math.random() * 100;
+                    star.dataset.baseTop = top;
+                    star.dataset.baseLeft = left;
+                    star.dataset.speedX = (Math.random() - 0.5) * 0.04; // скорость движения
+                    star.dataset.speedY = (Math.random() - 0.5) * 0.04;
+                    star.style.top = `${top}%`;
+                    star.style.left = `${left}%`;
+                    star.style.background = 'white';
+                    star.style.borderRadius = '50%';
+                    star.style.opacity = Math.random() * 0.7 + 0.3;
+                    star.style.boxShadow = `0 0 ${Math.random() * 8 + 2}px #fff`;
+                    starsBg.appendChild(star);
+                    stars.push(star);
+                }
+
+                // SVG слой для лучей
+                const raysSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                raysSvg.setAttribute('class', 'stars-rays-svg');
+                starsBg.appendChild(raysSvg);
+                const rays = [];
+
+                for (let i = 0; i < starCount; i++) {
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('stroke', '#00eaff');
+                    line.setAttribute('stroke-width', '1.1');
+                    line.setAttribute('opacity', '0.18');
+                    raysSvg.appendChild(line);
+                    rays.push(line);
+                }
+
+                // Parallax + движение + интерактивные лучи
+                function animateStars() {
+                    mouseX += (targetX - mouseX) * 0.08;
+                    mouseY += (targetY - mouseY) * 0.08;
+                    const w = window.innerWidth;
+                    const h = window.innerHeight;
+                    const mouseAbsX = w/2 + mouseX * w/2;
+                    const mouseAbsY = h/2 + mouseY * h/2;
+
+                    for (let i = 0; i < stars.length; i++) {
+                        const star = stars[i];
+                        // Движение звезды
+                        let baseTop = parseFloat(star.dataset.baseTop);
+                        let baseLeft = parseFloat(star.dataset.baseLeft);
+                        let speedX = parseFloat(star.dataset.speedX);
+                        let speedY = parseFloat(star.dataset.speedY);
+                        baseTop += speedY;
+                        baseLeft += speedX;
+                        // Зацикливание
+                        if (baseTop > 100) baseTop = 0;
+                        if (baseTop < 0) baseTop = 100;
+                        if (baseLeft > 100) baseLeft = 0;
+                        if (baseLeft < 0) baseLeft = 100;
+                        star.dataset.baseTop = baseTop;
+                        star.dataset.baseLeft = baseLeft;
+                        const depth = 1 + (parseFloat(star.style.width) - 1) / 2;
+                        const offsetX = mouseX * parallaxStrength / depth;
+                        const offsetY = mouseY * parallaxStrength / depth;
+                        // Позиция звезды
+                        const starX = w * baseLeft / 100 + offsetX;
+                        const starY = h * baseTop / 100 + offsetY;
+                        star.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                        star.style.top = `${baseTop}%`;
+                        star.style.left = `${baseLeft}%`;
+
+                        // Луч только если мышка рядом (дистанция < 120px)
+                        const dist = Math.hypot(mouseAbsX - starX, mouseAbsY - starY);
+                        if (dist < 120) {
+                            rays[i].setAttribute('x1', starX);
+                            rays[i].setAttribute('y1', starY);
+                            rays[i].setAttribute('x2', mouseAbsX);
+                            rays[i].setAttribute('y2', mouseAbsY);
+                            rays[i].setAttribute('opacity', Math.max(0, 0.4 * (1 - dist/120)));
+                        } else {
+                            rays[i].setAttribute('opacity', '0');
+                        }
+                    }
+                    requestAnimationFrame(animateStars);
+                }
+
+                // Parallax effect
+                window.addEventListener('mousemove', function(e) {
+                    const w = window.innerWidth;
+                    const h = window.innerHeight;
+                    targetX = ((e.clientX / w) - 0.5) * 2;
+                    targetY = ((e.clientY / h) - 0.5) * 2;
+                });
+                
+                animateStars();
+            })();
+
+            // Блок с анимацией созвездия был удален.
+        });
+    </script>
 </body>
 </html>

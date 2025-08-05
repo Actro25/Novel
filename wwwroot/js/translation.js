@@ -26,7 +26,6 @@ const translations = {
         scale_small: "ДРІБНИЙ",
         scale_normal: "ЗВИЧАЙНИЙ",
         scale_large: "ВЕЛИКИЙ"
-        
     },
     en: {
         peaceful_mode: "PLAY",
@@ -60,28 +59,36 @@ const translations = {
 
 let currentLang = 'uk';
 
-function setLanguage(lang) {
-    currentLang = lang;
+/**
+ * Обновляет все элементы интерфейса по текущему языку
+ */
+function updateTranslations(lang) {
+    const dictionary = translations[lang];
+    if (!dictionary) {
+        console.warn(`No translations found for language: ${lang}`);
+        return;
+    }
 
     document.querySelectorAll('[data-lang-key]').forEach(el => {
         const key = el.dataset.langKey;
-        const newText = translations[lang][key];
-        if (!newText) return;
+        const translatedText = dictionary[key];
 
-        // Специальный случай: если внутри есть <span class="author-name"> — сохраняем его
-        const authorSpan = el.querySelector('.author-name');
-        if (authorSpan) {
-            el.childNodes[0].textContent = newText + ' '; // заменяем только текст до <span>
+        if (!translatedText) {
+            console.warn(`Missing translation for key: ${key} in language: ${lang}`);
             return;
         }
 
-        // Стандартные заголовки, кнопки и простые span/p
-        if (['SPAN', 'P', 'BUTTON', 'H3', 'H4'].includes(el.tagName)) {
-            el.innerText = newText;
+        const authorSpan = el.querySelector('.author-name');
+
+        if (authorSpan) {
+            // Оставляем <span>, меняем текст перед ним
+            el.childNodes[0].textContent = translatedText + ' ';
+        } else if (['SPAN', 'P', 'BUTTON', 'H3', 'H4'].includes(el.tagName)) {
+            el.innerText = translatedText;
         } else {
             const span = el.querySelector('span');
             if (span) {
-                span.innerText = newText;
+                span.innerText = translatedText;
             }
         }
     });
@@ -91,15 +98,26 @@ function setLanguage(lang) {
     });
 }
 
+/**
+ * Устанавливает язык и обновляет интерфейс
+ */
+function setLanguage(lang) {
+    currentLang = lang;
+    updateTranslations(lang);
+}
 
-
+/**
+ * Инициализация переключателей языков
+ */
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-button').forEach(btn => {
         btn.addEventListener('click', () => {
             const selectedLang = btn.dataset.lang;
-            setLanguage(selectedLang);
+            if (selectedLang !== currentLang) {
+                setLanguage(selectedLang);
+            }
         });
     });
 
-    setLanguage(currentLang); // начальная установка
+    setLanguage(currentLang);
 });

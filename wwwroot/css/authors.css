@@ -9,10 +9,10 @@
     box-sizing: border-box;
     width: 450px;
     color: white;
-    left: 1000px;
+    right: 190px;
     top:120px;
     gap:25px;
-    position: fixed;
+    position: absolute;
 }
 
 /* --- ОНОВЛЕНИЙ ЗАГОЛОВОК "АВТОРИ НОВЕЛИ" --- */

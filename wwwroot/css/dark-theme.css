@@ -89,9 +89,25 @@
 
 /* Кнопка профиля пользователя (Log In) */
 .dark-theme .user-profile-inner {
-    background: linear-gradient(180deg, rgba(10, 25, 47, 0.8) 0%, rgba(28, 18, 58, 0.8) 100%);
-    border: 2px solid #2563EB;
+    background: linear-gradient(90deg, rgba(255, 70, 221, 0.8) 0%, rgba(126, 77, 249, 0.8) 100%);
+    border: 2px solid #935afc;
     box-shadow: 0px 0px 80px 0px rgba(37, 99, 235, 0.5);
+}
+
+/* --- Вариант для темной темы --- */
+.dark-theme .top-right-buttons {
+   background: linear-gradient(90deg, rgba(255, 70, 221, 0.8) 0%, rgba(126, 77, 249, 0.8) 100%);
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Более темная тень */
+}
+
+/* Адаптация тени при наведении для темной темы */
+.dark-theme .top-right-buttons:hover {
+    box-shadow: 0 8px 25px rgba(255, 70, 221, 0.25);
+}
+
+/* Адаптация цвета текста кнопки "Вихід" для темной темы */
+.dark-theme .top-right-buttons a:hover {
+    color: #FF46DD; /* Цвет текста меняется на другой градиентный цвет */
 }
 
 /* ========================================== */
@@ -215,5 +231,133 @@
 
 .dark-theme #closeSettingsMenu:hover {
     background-color: #5B21B6;
+}
+
+/* =============================== */
+/* = ТЁМНАЯ ТЕМА: ДОСТИЖЕНИЯ = */
+/* =============================== */
+
+.dark-theme #achivmentsMenu {
+    background: linear-gradient(180deg, rgba(2, 10, 32, 0.5) 0%, rgba(126, 77, 249, 0.5) 100%);
+    border: 2px solid #7E4DF9;
+    box-shadow: 0px 0px 90px 0px rgba(126, 77, 249, 0.4), inset 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .load-title {
+    background: linear-gradient(99.74deg, #04C3E6 25.81%, #2F63E1 45.47%, #042AA6 54.98%, #7E4DF9 64.27%, #7E4DF9 70.91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.5); /* для читаемости */
+}
+
+
+.dark-theme .achievement-slot {
+    background: linear-gradient(180deg, rgba(206, 63, 201, 0.5) 0%, rgba(2, 10, 32, 0.5) 16.83%, rgba(126, 77, 249, 0.5) 100%);
+    border: 2px solid #4C1D95;
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .achievement-wrapper.achieved .achievement-slot {
+    border-color: #00D1FF;
+    box-shadow: 0px 0px 30px rgba(0, 209, 255, 0.4);
+}
+
+.dark-theme .achievement-wrapper.locked .achievement-slot {
+    filter: grayscale(1) brightness(0.5);
+}
+
+.dark-theme .achievement-progress-bar {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid #7E4DF9;
+}
+
+.dark-theme .progress-label,
+.dark-theme .progress-percent {
+    color: #E0E7FF;
+}
+
+.dark-theme .progress-fill,
+.dark-theme .double-progress-fill {
+    background: linear-gradient(to right, #00D2FF);
+}
+
+.dark-theme .double-slot {
+    background: linear-gradient(to right, #2E1065, #4C1D95);
+    border: 2px solid #7E4DF9;
+}
+
+.dark-theme .double-progress {
+    border-color: rgba(190, 166, 252, 0.4);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dark-theme .close-button {
+    background: #4C1D95;
+    border: 1px solid #7E4DF9;
+    box-shadow: 0 0 20px rgba(126, 77, 249, 0.4);
+}
+
+.dark-theme .close-button:hover {
+    background: #3B0CA3;
+}
+
+/* ================================ */
+/* = ТЁМНАЯ ТЕМА: МЕНЮ ЗАГРУЗКИ = */
+/* ================================ */
+
+.dark-theme #loadMenu {
+  background: linear-gradient(160deg, rgba(20, 10, 60, 0.9), rgba(50, 20, 100, 0.9));
+  border: 2px solid rgba(190, 166, 252, 0.8);
+  box-shadow:
+    0 0 40px rgba(100, 50, 180, 0.4),
+    inset 0 0 10px rgba(0, 0, 0, 0.35);
+  color: #f3f0ff;
+}
+
+.dark-theme #loadMenu .menu-title {
+  color: #FF46DD;
+  text-shadow: 0 0 12px rgba(255, 70, 221, 0.4);
+}
+
+.dark-theme .slot-item {
+  background: linear-gradient(145deg, rgba(40, 20, 80, 0.85), rgba(90, 40, 160, 0.8));
+  border: 1px solid rgba(210, 180, 255, 0.4);
+  box-shadow:
+    0 0 12px rgba(120, 80, 200, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.05);
+  color: #e9ddff;
+}
+
+.dark-theme .slot-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(160, 100, 255, 0.6);
+}
+
+.dark-theme .slot-name {
+  color: #e0b3ff;
+}
+
+.dark-theme .slot-info {
+  color: #ccc;
+}
+
+.dark-theme .slot-preview {
+  color: #aaa;
+}
+
+.dark-theme .slot-disabled {
+  background: rgba(30, 30, 50, 0.6);
+  border: 1px dashed rgba(180, 180, 220, 0.25);
+  color: #888;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .menu-close-btn {
+  background: linear-gradient(90deg, #3B0CA3, #6D28D9);
+  box-shadow: 0 0 12px rgba(160, 100, 255, 0.4);
+}
+
+.dark-theme .menu-close-btn:hover {
+  background: linear-gradient(90deg, #5B21B6, #7E4DF9);
 }
 

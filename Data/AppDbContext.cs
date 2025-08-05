@@ -19,5 +19,7 @@ namespace NovelProject.Data
 
         public DbSet<AchivmentsModel> Achivments { get; set; }
         public DbSet<UserAchivmentsModel> UserAchivments { get; set; }
+
+        public DbSet<ReputationModel> Reputation { get; set; }
     }
 }

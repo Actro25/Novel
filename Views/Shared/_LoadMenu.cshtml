@@ -1,30 +1,31 @@
-<div id="loadMenu" class="load-menu-container hidden">
-    <h3 class="load-title">ЗАВАНТАЖИТИ ГРУ</h3>
+<div id="loadMenu" class="menu-wrapper hidden">
+    <h3 class="download-title">ЗАВАНТАЖИТИ ГРУ</h3>
+    
 
-    <div id="saveSlotsContainer" class="save-slots">
+    <div id="saveSlotsContainer" class="slot-list">
         @for (int i = 0; i < Model.SaveFiles.Count; i++)
         {
             var save = Model.SaveFiles[i];
             if (!string.IsNullOrEmpty(save.FileName))
             {
-                <a href="@Url.Action("LoadGame", "PlayGame", new { sceneId = save.SceneId })" class="save-slot">
+                <a href="@Url.Action("LoadGame", "PlayGame", new { sceneId = save.SceneId })" class="slot-item">
                     <input type="hidden" name="sceneId" value="@save.SceneId" />
-                    <div class="save-slot-header">
-                        <span class="save-slot-number">Слот @(i + 1)</span>
+                    <div class="slot-header">
+                        <span class="slot-number">Слот @(i + 1)</span>
                     </div>
-                    <div class="save-slot-name">@save.FileName</div>
-                    <div class="save-slot-info">
+                    <div class="slot-name">@save.FileName</div>
+                    <div class="slot-info">
                         <div>Акт: @save.ActName</div>
                         <div>Частина: @save.PartName</div>
-                        <div class="scene-preview">@save.SceneFirstText</div>
+                        <div class="slot-preview">@save.SceneFirstText</div>
                     </div>
                 </a>
             }
             else
             {
-                <div class="save-slot disabled-slot">
-                    <div class="save-slot-header">
-                        <span class="save-slot-number">Слот @(i + 1)</span>
+                <div class="slot-item slot-disabled">
+                    <div class="slot-header">
+                        <span class="slot-number">Слот @(i + 1)</span>
                     </div>
                     <div class="slot-empty">Порожньо</div>
                 </div>
@@ -32,172 +33,48 @@
         }
     </div>
 
-    <button id="closeLoadMenuBtn" class="close-button">ЗАКРИТИ</button>
+    <button id="closeLoadMenuBtn" class="menu-close-btn">ЗАКРИТИ</button>
 </div>
 
-
 <style>
-    a {
-        text-decoration: none; /* прибирає підкреслення */
-        color: inherit; /* успадковує колір з батьківського елемента */
-    }
+#loadMenu {
+    position: fixed;
+    top: 50%;
+    right: 150px;
+    transform: translate(-50%, -50%);
+    width: 536px;
+    height: 793px;
+    background: linear-gradient(180deg, rgba(21, 94, 141, 0.6) 0%, rgba(190, 166, 252, 0.6) 100%);
+    border: 2px solid #BEA6FC;
+    box-shadow: 0px 0px 90px 0px #FFFFFF, inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    opacity: 1;
+    z-index: 10;
+    padding: 20px;
+    
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.download-title{
+    font-family: Franklin Gothic Heavy;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 40px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 12%;
+    text-align: center;
+    background: linear-gradient(99.74deg, #04C3E6 25.81%, #2F63E1 45.47%, #042AA6 54.98%, #7E4DF9 64.27%, #7E4DF9 70.91%),linear-gradient(105.67deg, #04C3E6 7.06%, #FFFFFF 54.91%, #7E4DF9 97.34%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
 
-    a:visited {
-        color: inherit; /* щоб після кліку не змінювався колір */
-    }
+}
 
-    a:focus, a:active {
-        outline: none; /* прибирає рамку при кліку або фокусі */
-    }
-
-    .save-slot.disabled {
-        pointer-events: none;
-        opacity: 0.5;
-    }
-
-    .save-slot-info {
-        margin: 10px 0;
-        font-size: 0.9em;
-        color: #aaa;
-    }
-
-    .scene-preview {
-        margin-top: 5px;
-        font-style: italic;
-        color: #888;
-    }
-    /* Ваші стилі залишаються майже без змін, я лише додав стилі для нових кнопок */
-    .load-menu-container {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(10, 20, 35, 0.95);
-        border: 2px solid #00aaff;
-        border-radius: 15px;
-        box-shadow: 0 0 30px rgba(0, 170, 255, 0.5);
-        padding: 25px;
-        color: white;
-        z-index: 1000;
-        width: 90%;
-        max-width: 600px;
-        opacity: 0;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        transform: translate(-50%, -50%) scale(0.95);
-    }
-
-        .load-menu-container.active {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .load-menu-container.hidden {
-            display: none;
-        }
-
-    .load-title {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 1.8em;
-        color: #00aaff;
-        text-shadow: 0 0 10px #00aaff;
-    }
-
-    .save-slots {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    .save-slot {
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        padding: 15px;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .save-slot-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-
-    .save-slot-name {
-        font-size: 1em;
-        color: #00d1ff;
-        margin-bottom: 15px;
-    }
-
-    .save-slot-date {
-        font-size: 0.8em;
-        color: #ccc;
-    }
-
-    .slot-empty {
-        color: #888;
-        text-align: center;
-        padding: 20px 0;
-    }
-
-    /* Нові стилі для кнопок дій */
-    .slot-actions {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .action-btn {
-        flex-grow: 1;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        background: transparent;
-        color: white;
-        font-weight: bold;
-        border: 1px solid;
-        transition: all 0.2s ease;
-    }
-
-    .load-btn {
-        border-color: #00ff8c;
-    }
-
-        .load-btn:hover {
-            background-color: #00ff8c;
-            color: #000;
-        }
-
-    .delete-btn {
-        border-color: #ff4d4d;
-    }
-
-        .delete-btn:hover {
-            background-color: #ff4d4d;
-            color: white;
-        }
-
-
-    .close-button {
-        width: 100%;
-        padding: 12px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid white;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        font-size: 1em;
-    }
-
-        .close-button:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
 </style>
+
+
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -249,4 +126,4 @@
             }
         });
     });
-</script>
+</script>   

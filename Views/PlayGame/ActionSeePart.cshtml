@@ -1,115 +1,66 @@
 ﻿@using NovelProject.AlterModels
 @model CheckPartModel
+
 @{
     ViewData["Title"] = $"Part {Model.Part.name}";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null; 
     string actionUrl = Model.StartPartOrEnd
         ? Url.Action("ActionSeeScene", "PlayGame", new { partId = Model.Part.id, sceneId = Model.SceneId, StartPart = true, actId = Model.ActId })
         : Url.Action("ActionSee", "PlayGame", new { ActId = Model.ActId, PartId = Model.Part.id, StartAct = Model.StartPartOrEnd, sceneId = Model.SceneId });
 }
-<style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-        background-color: black;
-    }
 
-    .scene-layer {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .background {
-        z-index: 1;
-        background-image: url('/scene_images/background_action_scene/black_background_action.jpg');
-    }
-
-    .additional {
-        z-index: 2;
-        background-image: none;
-    }
-
-    .front {
-        z-index: 3;
-        background-image: none;
-    }
-
-    .full-screen-wrapper {
-        position: relative;
-        z-index: 4;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
-
-    .center-text {
-        color: white;
-        font-size: 2.5rem;
-        text-align: center;
-        text-shadow: 2px 2px 4px #000000;
-    }
-</style>
-<link rel="stylesheet" href="~/css/game-menu.css" />
-<!-- Кнопка меню -->
-<button class="game-menu-button" onclick="showGameMenu()">Меню</button>
-
-<!-- Оверлей меню -->
-<div id="gameMenuOverlay" class="game-menu-overlay"></div>
-
-<!-- Основное меню -->
-<div id="gameMenu" class="game-menu">
-    <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
-    <form method="get" asp-controller="PlayGame" asp-action="ManualSaveGame">
-        <input type="hidden" name="partId" value="@Model.Part.id" />
-        <input type="hidden" name="actId" value="@Model.ActId" />
-        <input type="hidden" name="sceneId" value="@Model.SceneId" />
-        <input type="hidden" name="StartAct" value="@Model.StartPartOrEnd" />
-        <input type="hidden" name="IsSaveFromScene" value="false" />
-        <input type="hidden" name="IsSaveFromPart" value="true" />
-        <input type="hidden" name="IsSaveFromAct" value="false" />
-        <button class="game-menu-item" type="submit">Головне меню</button>
-    </form>
-    <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
-</div>
-
-
-<div class="full-screen-wrapper" onclick="redirectToAction()">
-    <div class="center-text">
-        @if (Model.StartPartOrEnd)
-        {
-            <strong>Part: @Model.Part.name</strong>
-            <br />
-
-            <br />
-            @Model.Part.start_part_text
-        }
-        else
-        {
-            <strong>End of Part: @Model.Part.name</strong>
-            <br />
-
-            <br />
-            @Model.Part.end_part_text
-        }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/game.css" />
+</head>
+<body>
+    <button id="game-menu-button" class="game-menu-button">
+    <img id="menu-icon" src="/wwwroot/img/Purpule_Icon/НАЛАШТУВАННЯ.png" alt="Menu" />
+    </button>
+    
+    <div id="gameMenuOverlay" class="game-menu-overlay hidden"></div>
+    <div id="gameMenu" class="game-menu hidden">
+        <button class="game-menu-item" onclick="alert('Settings not implemented yet')">Налаштування</button>
+        <form method="get" asp-controller="PlayGame" asp-action="ManualSaveGame">
+            <input type="hidden" name="partId" value="@Model.Part.id" />
+            <input type="hidden" name="actId" value="@Model.ActId" />
+            <input type="hidden" name="sceneId" value="@Model.SceneId" />
+            <input type="hidden" name="StartAct" value="@(Model.StartPartOrEnd.ToString().ToLower())" />
+            <input type="hidden" name="IsSaveFromPart" value="true" />
+            <button class="game-menu-item" type="submit">Головне меню</button>
+        </form>
+        <button id="close-menu-btn" class="game-menu-item">Закрити</button>
     </div>
-</div>
 
-<div class="scene-layer background"></div>
-<div class="scene-layer additional"></div>
-<div class="scene-layer front"></div>
+    <div id="transition-wrapper" class="full-screen-wrapper">
+        <div class="center-text">
+            @if (Model.StartPartOrEnd)
+            {
+                <strong>Part: @Model.Part.name</strong>
+                <br /><br />
+                @Model.Part.start_part_text
+            }
+            else
+            {
+                <strong>End of Part: @Model.Part.name</strong>
+                <br /><br />
+                @Model.Part.end_part_text
+            }
+        </div>
+    </div>
+    
+    <div class="scene-layer background" style="background-image: url('/scene_images/background_action_scene/black_background_action.jpg');"></div>
+    <div class="scene-layer additional"></div>
+    <div class="scene-layer front"></div>
 
-<script>
-    function redirectToAction() {
-        window.location.href = '@Html.Raw(actionUrl)';
-    }
-</script>
+    <script>
+        // Pass the URL to the shared game.js file
+        var actionUrl = '@Html.Raw(actionUrl)';
+    </script>
+    <script src="~/js/game.js" defer></script>
+</body>
+</html>
