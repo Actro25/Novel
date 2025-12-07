@@ -5,168 +5,96 @@
 
 @{
     ViewData["Title"] = $"Scene {Model.CurrentScene.id}";
-
     Layout = null;
-
-    // Подключаем необходимые скрипты
-    <script src="~/js/site.js"></script>
-
     var answers = Model.CurrentScene.answer ? _context.Answers.Where(a => a.id_scene == Model.CurrentScene.id).ToList() : new List<NovelProject.Models.AnswersModel>();
 }
 
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
-        background-color: black;
-    }
-
-    .scene-layer {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .background {
-        z-index: 1;
-        background-image: url('@Model.CurrentScene.background_scene_img');
-    }
-
-    .additional {
-        z-index: 2;
-        background-image: url('@Model.CurrentScene.additional_scene_img');
-    }
-
-    .front {
-        z-index: 3;
-        background-image: url('@Model.CurrentScene.personage_scene_img');
-    }
-
-    .scene-text, .answers {
-        position: absolute;
-        z-index: 4;
-        bottom: 30px;
-        width: 100%;
-        text-align: center;
-        color: white;
-        text-shadow: 1px 1px 3px black;
-        font-size: 1.5rem;
-    }
-
-    .answer-button {
-        background-color: rgba(255,255,255,0.1);
-        border: 2px solid white;
-        color: white;
-        padding: 0.5rem 1.5rem;
-        margin: 0.5rem;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-        .answer-button:hover {
-            background-color: rgba(255,255,255,0.3);
-        }
-</style>
-<link rel="stylesheet" href="~/css/game-menu.css" />
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/game.css" />
+</head>
+<body>
+    
+    
 @if (Model.Achivments != null && Model.Achivments.Any())
 {
-    <div id="achivment-popup" style="
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.85);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            min-width: 300px;
-            max-width: 90%;
-            text-align: center;
-            font-size: 1.2rem;
-        ">
-        <div style="font-weight: bold; font-size: 1.4rem; margin-bottom: 10px;">Досягнення отримано</div>
-        <div id="achivment-list">
-            @foreach (var a in Model.Achivments)
-            {
-                <div style="margin-bottom: 15px;">
-                    <strong>@a.Name</strong><br />
-                    <small>@a.Description</small>
+    <div id="achievement-popup">
+        @foreach (var a in Model.Achivments)
+        {
+            <div class="achievement">
+                <img src="@a.IconPath" alt="#" />
+                <div class="achievement-text">
+                    <strong>@a.Name</strong>
+                    <span>@a.Description</span>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
 }
 
-<!-- Кнопка меню -->
-<button class="game-menu-button" onclick="showGameMenu()">Меню</button>
 
-<!-- Оверлей меню -->
-<div id="gameMenuOverlay" class="game-menu-overlay"></div>
 
-<!-- Основное меню -->
-<div id="gameMenu" class="game-menu">
-    @if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
-    {
-        <button class="game-menu-item" onclick="showSaveSlots()">Зберегти</button>
-    }
-    <button class="game-menu-item" onclick="openSettings()">Налаштування</button>
-    <form method="get" asp-controller="PlayGame" asp-action="ManualSaveGame">
-        <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
-        <input type="hidden" name="actId" value="@Model.actId" />
-        <input type="hidden" name="sceneId" value="@Model.CurrentScene.id" />
-        <input type="hidden" name="StartAct" value="@Model.StartPart" />
-        <input type="hidden" name="IsSaveFromScene" value="true" />
-        <input type="hidden" name="IsSaveFromPart" value="false" />
-        <input type="hidden" name="IsSaveFromAct" value="false" />
-        <button class="game-menu-item" type="submit">Головне меню</button>
-    </form>
-    <button class="game-menu-item" onclick="hideGameMenu()">Закрити</button>
-</div>
-
-<!-- Слоты сохранения -->
-<div id="saveSlots" class="save-slots">
-    <button class="save-slot" onclick="showSaveNameInput(1)">
-        Слот 1 @(!string.IsNullOrEmpty(Model.SaveFile.FirstSaveName) ? $" - {Model.SaveFile.FirstSaveName}" : "")
+    <button id="game-menu-button" class="game-menu-button">
+    <img id="menu-icon" src="/wwwroot/img/Purpule_Icon/НАЛАШТУВАННЯ.png" alt="Menu" />
     </button>
-    <button class="save-slot" onclick="showSaveNameInput(2)">
-        Слот 2 @(!string.IsNullOrEmpty(Model.SaveFile.SecondSaveName) ? $" - {Model.SaveFile.SecondSaveName}" : "")
-    </button>
-    <button class="save-slot" onclick="showSaveNameInput(3)">
-        Слот 3 @(!string.IsNullOrEmpty(Model.SaveFile.ThirdSaveName) ? $" - {Model.SaveFile.ThirdSaveName}" : "")
-    </button>
-    <button class="save-slot" onclick="hideGameMenu()">Назад</button>
-</div>
+    <div id="gameMenuOverlay" class="game-menu-overlay hidden"></div>
+    <div id="gameMenu" class="game-menu hidden">
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <button id="show-saves-btn" class="game-menu-item">Зберегти</button>
+        }
+        <button class="game-menu-item" onclick="alert('Settings not implemented yet')">Налаштування</button>
+        <form method="get" asp-controller="PlayGame" asp-action="ManualSaveGame">
+             <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
+             <input type="hidden" name="actId" value="@Model.actId" />
+             <input type="hidden" name="sceneId" value="@Model.CurrentScene.id" />
+             <input type="hidden" name="IsSaveFromScene" value="true" />
+             <button class="game-menu-item" type="submit">Головне меню</button>
+        </form>
+        <button id="close-menu-btn" class="game-menu-item">Закрити</button>
+    </div>
+    <div id="saveSlots" class="save-slots hidden">
+        <button class="save-slot" data-slot="1">Слот 1 @(!string.IsNullOrEmpty(Model.SaveFile.FirstSaveName) ? $" - {Model.SaveFile.FirstSaveName}" : "")</button>
+        <button class="save-slot" data-slot="2">Слот 2 @(!string.IsNullOrEmpty(Model.SaveFile.SecondSaveName) ? $" - {Model.SaveFile.SecondSaveName}" : "")</button>
+        <button class="save-slot" data-slot="3">Слот 3 @(!string.IsNullOrEmpty(Model.SaveFile.ThirdSaveName) ? $" - {Model.SaveFile.ThirdSaveName}" : "")</button>
+        <button id="back-to-menu-btn" class="save-slot">Назад</button>
+    </div>
+    <div id="saveNameInput" class="save-name-input hidden">
+        <form asp-controller="PlayGame" asp-action="SaveGame" method="post">
+            <input type="hidden" name="selectedSlot" id="selectedSlot" />
+            <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
+            <input type="hidden" name="actId" value="@Model.actId" />
+            <input type="hidden" name="sceneId" value="@Model.CurrentScene.id" />
+            <input type="text" name="saveName" placeholder="Введіть назву збереження" required />
+            <button type="submit">Зберегти</button>
+            <button type="button" id="cancel-save-btn">Скасувати</button>
+        </form>
+    </div>
 
-<!-- Ввод имени сохранения -->
-<div id="saveNameInput" class="save-name-input">
-    <form asp-controller="PlayGame" asp-action="SaveGame" method="post">
-        <input type="hidden" name="selectedSlot" id="selectedSlot" value="" />
-        <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
-        <input type="hidden" name="actId" value="@Model.actId" />
-        <input type="hidden" name="sceneId" value="@Model.CurrentScene.id" />
-        <input type="text" name="saveName" id="saveName" placeholder="Введіть назву збереження" />
-        <button type="submit" onclick="saveGame()">Зберегти</button>
-    </form>
-    <button onclick="hideGameMenu()">Скасувати</button>
-</div>
 
-<div class="scene-layer background"></div>
-<div class="scene-layer additional"></div>
-<div class="scene-layer front"></div>
 
-<div class="scene-text">
+<div class="scene-layer background" style="background-image: url('@Model.CurrentScene.background_scene_img');"></div>
+<div class="scene-layer additional" style="background-image: url('@Model.CurrentScene.additional_scene_img');"></div>
+<div class="scene-layer front" style="background-image: url('@Model.CurrentScene.personage_scene_img');"></div>
+
+
+<div class="ui-container">
+
+    
+        <div class="scene-text">
     @if (!Model.CurrentScene.answer)
     {
+        
+            <div id="text-background">
+                <div class="text-content">
+                    <strong>@Model.CurrentScene.text_scene</strong>
+                </div>
+            </div>
+       
         @if (Model.EndOfPartReached)
         {
             <form method="get" asp-controller="PlayGame" asp-action="ActionSeePart">
@@ -174,7 +102,7 @@
                 <input type="hidden" name="actId" value="@Model.actId" />
                 <input type="hidden" name="StartAct" value="false" />
                 <input type="hidden" name="sceneId" value="@Model.NextSceneId" />
-                <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
+                <button type="submit" class="answer-button"></button>
             </form>
         }
         else
@@ -184,11 +112,12 @@
                 <input type="hidden" name="actId" value="@Model.actId" />
                 <input type="hidden" name="StartAct" value="@Model.StartPart" />
                 <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
-                <button type="submit" class="answer-button">@Model.CurrentScene.text_scene</button>
+                <button type="submit" class="answer-button"></button>
             </form>
         }
     }
 </div>
+
 
 @if (Model.CurrentScene.answer)
 {
@@ -200,11 +129,13 @@
                 <input type="hidden" name="actId" value="@Model.actId" />
                 <input type="hidden" name="StartAct" value="@Model.StartPart" />
                 <input type="hidden" name="partId" value="@Model.CurrentScene.id_part" />
-                <button type="submit" class="answer-button">@answer.asnwer_for_scene</button>
+                <button type="submit" class="answers-button">@answer.asnwer_for_scene</button>
             </form>
         }
     </div>
 }
+
+
 <script>
     const achivmentIds = [
         @string.Join(", ", Model.Achivments.Select(a => a.Id))
@@ -228,7 +159,18 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         updateAchivmentsAsync();
+
+        const popup = document.getElementById("achievement-popup");
+        if (popup) {
+            popup.classList.add("show");   
+            setTimeout(() => {
+                popup.classList.remove("show"); 
+            }, 5000);
+        }
     });
 </script>
 
 
+    <script src="~/js/game.js" defer></script>
+</body>
+</html>

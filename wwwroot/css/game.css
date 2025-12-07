@@ -1,0 +1,628 @@
+/* --- Global & Transition Screen Styles --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100vw 100vh;
+
+    overflow: hidden;
+     /* Путь к изображению фона */
+    font-family: Arial, sans-serif;
+    display: block;
+}
+
+.game-content {
+    position: relative;
+    z-index: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+
+.scene-layer.background,
+.scene-layer.additional,
+.scene-layer.front {
+  pointer-events: none;
+}
+
+.scene-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+
+.scene-layer.background {
+  z-index: 0;
+}
+
+.scene-layer.additional {
+  z-index: 1;
+}
+
+.scene-layer.front {
+  z-index: 2;
+}
+
+
+
+
+
+
+.scene-layers.background {
+  position: absolute;   /* фиксируем относительно контейнера/экрана */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;           /* отправляем на задний план */
+  pointer-events: none;  /* фон не ловит клики/события */
+}
+
+
+.bg-fon-3 {
+  background-image: url('/img/останій-фон-4.png');
+  z-index: -1; /* чтобы фон был ниже остальных слоев */
+}
+
+
+
+
+
+.center-text {
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 2rem;
+}
+
+/* --- Main Game Scene Styles --- */
+.scene-text, .answers {
+    position: absolute;
+    z-index: 0;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.scene-text {
+    z-index: 0;
+    position: absolute;
+    bottom: 30px;
+    left: 420px; /* немного сдвинуть, чтобы быть внутри фона */
+    width: auto;
+    max-width: 1000px;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.answer-button {
+    position: absolute;
+    left: 1155px;       /* оставляем текущую позицию */
+    bottom: 35px;       /* оставляем текущую позицию */
+    width: 110px;
+    height: 110px;
+    max-width: 12vw;    /* масштабирование под ширину экрана */
+    max-height: 12vw;   /* масштабирование под ширину экрана */
+    min-width: 80px;    /* минимальный размер */
+    min-height: 80px;   /* минимальный размер */
+    
+    background-image: url('../img/Purpule_Icon/ПРОДОВЖИТИ2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    padding: 0;
+}
+
+.answer-button:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px #BEA6FC);
+}
+
+
+
+
+.fixed-button {
+    position: fixed;
+    right: 290px;
+    bottom: 72px;
+}
+
+
+#text-background {
+    position: fixed;
+    bottom: 20px; /* или top: 772px; если нужно */
+    left: 393px;
+    width: 1135px;
+    min-height: 137px; /* минимальная высота */
+    border-radius: 25px;
+    border: 2px solid #BEA6FC;
+    padding: 19px 23px 45px 27px;
+    background: linear-gradient(180deg, rgba(206, 63, 201, 0.5) 0%, rgba(2, 10, 32, 0.5) 16.83%, rgba(126, 77, 249, 0.5) 100%);
+    box-sizing: border-box;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px black;
+    z-index: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    opacity: 1;
+    overflow: visible; /* убираем скрытие текста */
+}
+
+#text-background .text-content {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    /* height: 100%; */ /* удаляем фиксированную высоту */
+    display: block; /* чтобы блок рос */
+    font-size: calc(1.2rem + 0.8vw);
+    word-break: break-word;
+    overflow: visible; /* убираем скролл */
+}
+
+
+/* === КНОПКА МЕНЮ === */
+.game-menu-button {
+    width: 50px;
+    height: 50px;
+    position: fixed; 
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-menu-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    content: url('../img/Purpule_Icon/НАЛАШТУВАННЯ.png'); /* стандартная иконка */
+}
+
+/* === ИКОНКА ПРИ НАВЕДЕНИИ === */
+.game-menu-button:hover img {
+    content: url('../img/White_Icon/НАЛАШТУВАННЯ.png'); /* иконка при hover */
+}
+
+/* === ПОВОРОТ ПРИ ОТКРЫТОМ МЕНЮ === */
+.game-menu-button.open img {
+    transform: rotate(90deg);
+}
+
+
+
+.game-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Эффект "матового стекла" */
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Для поддержки Safari */
+    z-index: 1000;
+}
+
+.game-menu, .save-slots, .save-name-input {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    background: linear-gradient(145deg, #1a233a, #311b3c);
+    border: 1px solid #00d9ff;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 300px;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3), 0 0 5px rgba(0, 217, 255, 0.5) inset;
+}
+
+.game-menu-item, .save-slot {
+    background: transparent;
+    color: #e0e0e0;
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    letter-spacing: 1px; /* Небольшое расстояние между буквами */
+    
+    /* --- ДОБАВЛЕННЫЕ СТРОКИ ДЛЯ ВЫРАВНИВАНИЯ --- */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.game-menu-item:hover, .save-slot:hover {
+    background-color: rgba(0, 217, 255, 0.15);
+    color: white;
+    border-color: #00d9ff;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+/* === ACHIEVEMENT POPUP === */
+#achievement-popup {
+    position: fixed;
+    bottom: 200px; /* выше текста */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    display: flex;
+    align-items: center;
+    gap: 15px; /* пространство между картинкой и текстом */
+    
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 2px solid #ff4df5;
+    background: rgba(40, 0, 60, 0.95);
+    
+    color: #ffb7ff;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 4px #000;
+    
+    box-shadow: 0 0 10px #ff4df5, 0 0 20px #ff4df5, 0 0 40px #ff4df5;
+    z-index: 999999;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+}
+
+#achievement-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* Картинка вынесена за бар */
+#achievement-popup img {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+    
+    position: absolute;   /* абсолютное позиционирование */
+    top: -365px;           /* картинка выступает над блоком */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Текст достижения */
+#achievement-popup .achievement-text {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#achievement-popup .achievement-text strong {
+    font-size: 1.5rem;
+    color: #ff4df5;
+    text-shadow: 0 0 8px #ff4df5, 0 0 16px #ff4df5;
+}
+
+#achievement-popup .achievement-text span {
+    font-size: 1.2rem;
+    color: #ffb7ff;
+}
+
+
+/* --- Стили для окна сохранения имени (на основе изображения) --- */
+.save-name-input {
+    flex-direction: row; /* Розміщуємо елементи горизонтально */
+    align-items: center; /* Вирівнюємо їх по вертикалі */
+    gap: 8px;            /* Проміжок між елементами */
+    padding: 15px 20px;  /* Трохи змінимо внутрішні відступи */
+    min-width: 450px;    /* Збільшимо мінімальну ширину */
+}
+
+.save-name-input input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 10px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #777;
+    border-radius: 4px;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.save-name-input input[type="text"]:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    border-color: #999;
+}
+
+.save-name-input button {
+    padding: 8px 18px;
+    font-size: 1rem;
+    color: #222;
+    background-color: #e0e0e0;
+    border: 1px solid #777;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    font-weight: bold;
+}
+
+.save-name-input button:hover {
+    background-color: #d0d0d0;
+    border-color: #555;
+}
+/* === Масштаб інтерфейсу === */
+body.scale-small {
+    font-size: 12px;
+    --scale-factor: 0.85;
+}
+
+body.scale-normal {
+    font-size: 16px;
+    --scale-factor: 1;
+}
+
+body.scale-large {
+    font-size: 20px;
+    --scale-factor: 1.15;
+}
+
+/* Приклад масштабування елементів */
+.main-menu, .menu-item, .settings-section, .scene-text, .answers {
+    transform: scale(var(--scale-factor));
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+.scale-button.active {
+    background-color: rgba(0, 217, 255, 0.3);
+    border-color: #00d9ff;
+    color: white;
+}
+
+
+
+.answers-button {
+    top: 610px;
+    left: 756px;
+    width: 409px;
+    height: 76px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #BEA6FC;
+    background: #7E4DF9;
+    opacity: 1;
+    color: white;
+    font-size: 1.3rem;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(126,77,249,0.15);
+    outline: none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+}
+
+.answers-button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 12px #BEA6FC;
+    background: #9d7cfb;
+}
+
+/* === Фон под настройки (оверлей) === */
+.settings-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1100;
+}
+
+/* === Окно настроек === */
+.settings-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1101;
+    background: linear-gradient(145deg, #1a233a, #311b3c);
+    border: 1px solid #00d9ff;
+    border-radius: 12px;
+    padding: 25px 35px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3), 0 0 5px rgba(0, 217, 255, 0.5) inset;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.settings-menu h2 {
+    margin: 0 0 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #00d9ff;
+    text-shadow: 0 0 6px rgba(0, 217, 255, 0.6);
+}
+
+/* Подписи */
+.settings-menu label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    gap: 8px;
+}
+
+/* Ползунок громкости */
+.settings-menu input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+/* Трек */
+.settings-menu input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px;
+    background: linear-gradient(to right, #00d9ff, #7E4DF9);
+    border-radius: 3px;
+}
+.settings-menu input[type="range"]::-moz-range-track {
+    height: 6px;
+    background: linear-gradient(to right, #00d9ff, #7E4DF9);
+    border-radius: 3px;
+}
+
+/* Ползунок */
+.settings-menu input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    background: #fff;
+    border: 2px solid #00d9ff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px;
+}
+.settings-menu input[type="range"]::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    background: #fff;
+    border: 2px solid #00d9ff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Выпадающий список (тема) */
+.settings-menu select {
+    padding: 8px 10px;
+    background: #1a233a;
+    color: white;
+    border: 1px solid #00d9ff;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.settings-menu select:hover {
+    border-color: #7E4DF9;
+    box-shadow: 0 0 8px rgba(126, 77, 249, 0.4);
+}
+
+/* Кнопка закрытия */
+#close-settings-btn {
+    background: transparent;
+    color: #e0e0e0;
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#close-settings-btn:hover {
+    background-color: rgba(0, 217, 255, 0.15);
+    color: white;
+    border-color: #00d9ff;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+/* Кнопки масштаба */
+.scale-buttons {
+    display: flex;
+    gap: 10px;
+}
+.scale-button {
+    flex: 1;
+    padding: 8px 12px;
+    background: transparent;
+    color: #e0e0e0;
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.scale-button:hover {
+    background-color: rgba(0, 217, 255, 0.15);
+    border-color: #00d9ff;
+}
+.scale-button.active {
+    background-color: rgba(0, 217, 255, 0.3);
+    border-color: #00d9ff;
+    color: white;
+}
+
+/* Чекбоксы (toggle) */
+.toggle-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle-setting input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+
+
+

@@ -1,0 +1,153 @@
+@{
+    ViewData["Title"] = "Choice";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" asp-append-version="true" href="~/css/game.css" />
+    <script src="~/js/game.js"></script>
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .scene-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: scale(1) translate(-50%, -50%);
+            transform-origin: center;
+        }
+
+        .main-page-background {
+            position: relative;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+        }
+
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .monitor {
+            position: absolute;
+            top: 505px;
+            left: 275px;
+            width: 400px;
+            height: 155px;
+            color: #a6ff9b;
+            font-size: 30px;
+            line-height: 1.5;
+            text-shadow: 0 0 4px #a6ff9b, 0 0 8px #6fff5c;
+            white-space: pre-wrap;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            background-color: #a6ff9b;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        .enter-btn {
+            position: absolute;
+            top: 70%;
+            left: 45%;
+            width: 244px;
+            height: 75px;
+            opacity: 1;
+            border-radius: 10px;
+            border-width: 2px;
+            font-size: 18px;
+            color: white;
+            background: #7c4dff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 10px #7c4dff;
+            transition: 0.3s;
+        }
+
+        .enter-btn:hover {
+            box-shadow: 0 0 20px #a076ff;
+            transform: scale(1.05);
+        }
+
+        @@keyframes blink {
+            0%,50% {opacity:1;}
+            51%,100% {opacity:0;}
+        }
+    </style>
+</head>
+<body>
+    <button id="game-menu-button" class="game-menu-button">
+        <img id="menu-icon" src="@Url.Content("~/img/Purpule_Icon/НАЛАШТУВАННЯ.png")" alt="Menu" />
+    </button>
+
+    <div id="gameMenuOverlay" class="game-menu-overlay hidden"></div>
+    <div id="gameMenu" class="game-menu hidden">
+       
+        <button class="game-menu-item" onclick="alert('Settings not implemented yet')">Налаштування</button>
+        <button id="close-menu-btn" class="game-menu-item">Закрити</button>
+    </div>
+
+    <div class="scene-container">
+        <div class="main-page-background">
+            <div class="background-layer" id="layer-2" style="background-image: url('@Url.Content("~/img/Stol.png")'); z-index:2;"></div>
+            <div class="background-layer" id="layer-1" style="background-image: url('@Url.Content("~/img/Ded.png")'); z-index:1; width:1166px; height:656px; top:-46px; left:-312px;"></div>
+            <div class="background-layer" id="layer-3" style="background-image: url('@Url.Content("~/img/stul.png")'); z-index:1;"></div>
+            <div class="background-layer" id="layer-4" style="background-image: url('@Url.Content("~/img/Fon.png")'); z-index:0;"></div>
+            <div class="background-layer" id="layer-5" style="background-image: url('@Url.Content("~/img/Pers.png")'); z-index:2;"></div>
+
+            <div class="monitor" id="computerText"></div>
+        </div>
+    </div>
+
+    <form asp-action="ConnectFromAnimationToScene" asp-controller="PlayGame" method="get">
+        <input type="hidden" name="partId" value="1" />
+        <input type="hidden" name="actId" value="1" />
+        <input type="hidden" name="StartAct" value="false" />
+        <input type="hidden" name="sceneId" value="37" />
+        <button type="submit" class="enter-btn">Enter</button>
+    </form>
+
+    <script>
+        const text = 'Навіть сни мають свою реальність.';
+        let index = 0;
+        const speed = 50;
+
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("computerText").innerHTML =
+                    text.substring(0, index + 1) + '<span class="cursor"></span>';
+                index++;
+                setTimeout(typeWriter, speed);
+            } else {
+                document.getElementById("computerText").innerHTML = text;
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>

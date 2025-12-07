@@ -45,7 +45,6 @@ namespace NovelProject.Middlewares
 
             _logger.LogError(error.ToString());
 
-            // Лог у файл
             var logPath = Path.Combine(Directory.GetCurrentDirectory(), "ErrorExceptions", "log.txt");
             var logMessage = $"""
             --- [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ---
@@ -57,7 +56,6 @@ namespace NovelProject.Middlewares
             """;
             await File.AppendAllTextAsync(logPath, logMessage);
 
-            // Перевіряємо, чи клієнт очікує HTML чи JSON
             var isHtml = context.Request.Headers["Accept"].Any(h => h.Contains("text/html"));
 
             if (isHtml)

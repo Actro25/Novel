@@ -1,140 +1,32 @@
-function showGameMenu() {
-    document.getElementById('gameMenuOverlay').style.display = 'block';
-    document.getElementById('gameMenu').style.display = 'block';
-}
-
-function hideGameMenu() {
-    document.getElementById('gameMenuOverlay').style.display = 'none';
-    document.getElementById('gameMenu').style.display = 'none';
-    document.getElementById('saveSlots').style.display = 'none';
-    document.getElementById('saveNameInput').style.display = 'none';
-}
 document.addEventListener('DOMContentLoaded', function () {
 
-    // --- НОВОЕ: Восстанавливаем состояние плеера при загрузке страницы ---
-    function restorePlayerState() {
-        const savedStateJSON = localStorage.getItem('musicPlayerState');
-        if (savedStateJSON) {
-            const savedState = JSON.parse(savedStateJSON);
-            
-            // Если в сохраненном состоянии музыка играла
-            if (savedState.isPlaying) {
-                isMusicOn = true;
-                currentTrackIndex = savedState.trackIndex;
-                
-                // Загружаем нужный трек, но пока не проигрываем
-                loadTrack(currentTrackIndex, false); // `false` означает "не запускать play"
-                
-                // Устанавливаем сохраненную громкость и позицию
-                bgMusic.volume = savedState.volume;
-                musicSlider.value = savedState.volume * 100;
-                musicVolumeValue.textContent = musicSlider.value;
-                
-                // Устанавливаем время, но с небольшой задержкой, чтобы файл успел подгрузиться
-                bgMusic.addEventListener('canplay', function onCanPlay() {
-                    bgMusic.currentTime = savedState.currentTime;
-                    bgMusic.play();
-                    // Удаляем обработчик, чтобы он не срабатывал каждый раз
-                    bgMusic.removeEventListener('canplay', onCanPlay);
-                });
+    // --- 1. ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ И КОНСТАНТ ---
 
-                updateMusicButtonUI(); // Обновляем иконки кнопок
-            }
-        }
-    }
+    // Меню и оверлеи
+    const gameMenuOverlay = document.getElementById('gameMenuOverlay');
+    const gameMenu = document.getElementById('gameMenu');
+    const saveSlots = document.getElementById('saveSlots');
+    const saveNameInput = document.getElementById('saveNameInput');
 
-    // Измените вашу функцию loadTrack, чтобы она могла не запускать музыку сразу
-    function loadTrack(trackIndex, shouldPlay = true) { // Добавляем второй аргумент
-        bgMusic.src = playlist[trackIndex].src.replace('~', '');
-        const trackTitleText = playlist[trackIndex].title;
-        musicTitle.textContent = trackTitleText;
-        widgetTrackTitle.textContent = trackTitleText;
-        
-        if (isMusicOn && shouldPlay) { // Проверяем флаг shouldPlay
-            bgMusic.play();
-        }
-    }
+    const settingsMenu = document.getElementById('settingsMenu');
+    const authorsMenu = document.getElementById('authorsMenu');
+    const loadMenu = document.getElementById('loadMenu');
+    const achivmentsMenu = document.getElementById('achivmentsMenu');
 
-    // --- Функция для применения темы и сохранения выбора ---
-    function applyTheme(theme) {
-        // Очищаем старые классы тем с <body>
-        document.body.classList.remove('theme-light', 'theme-dark', 'theme-contrast');
-        // Добавляем новый класс
-        if (theme) {
-            document.body.classList.add(`theme-${theme}`);
-            // Сохраняем выбор в localStorage для перезагрузок
-            localStorage.setItem('selectedTheme', theme);
-        }
-    }
-    
-    // --- 1. МОДИФИЦИРОВАНАЯ логика для групп кнопок (включая темы) ---
-    function setupButtonGroup(selector) {
-        const buttons = document.querySelectorAll(selector);
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Стандартная логика для переключения класса 'active'
-                buttons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
+    // Кнопки открытия/закрытия меню
+    const settingsLink = document.getElementById('settingsLink');
+    const authorsLink = document.getElementById('authorsLink');
+    const loadGameLink = document.getElementById('loadGameLink');
+    const loadAchivmentLink = document.getElementById('loadAchivmentLink');
+    const continueGameLink = document.getElementById('continueGameLink');
 
-                // --- ДОБАВЛЕНО: Логика смены темы ---
-                // Проверяем, является ли кнопка кнопкой темы
-                if (this.classList.contains('theme-button')) {
-                    const themeKey = this.dataset.langKey; // e.g., "theme_light"
-                    if (themeKey) {
-                        // Извлекаем название темы (light, dark, contrast)
-                        const theme = themeKey.split('_')[1];
-                        applyTheme(theme);
-                    }
-                }
-            });
-        });
-    }
+    const closeSettingsBtn = document.getElementById('closeSettingsMenu');
+    const closeAuthorsBtn = document.getElementById('closeAuthorsMenu');
+    // Предполагаем, что у других меню тоже есть кнопки закрытия
+    // const closeLoadBtn = document.getElementById('closeLoadMenu');
+    // const closeAchivmentsBtn = document.getElementById('closeAchivmentsMenu');
 
-    // Вызываем, как и раньше, для всех групп
-    setupButtonGroup('.theme-button');
-    setupButtonGroup('.scale-button');
-    setupButtonGroup('.lang-button');
-
-    // --- 2. Установка активных состояний и темы при ЗАГРУЗКЕ страницы ---
-    function initializeState() {
-        // Завантажуємо збережену тему або 'light' за замовчуванням
-        const savedTheme = localStorage.getItem('selectedTheme') || 'light';
-        applyTheme(savedTheme);
-
-        // Знімаємо 'active' з усіх кнопок теми
-        document.querySelectorAll('.theme-button').forEach(btn => btn.classList.remove('active'));
-
-        // Активуємо відповідну тему
-        const themeButtonToActivate = document.querySelector(`.theme-button[data-lang-key="theme_${savedTheme}"]`);
-        if (themeButtonToActivate) {
-            themeButtonToActivate.classList.add('active');
-        } else {
-            const fallbackBtn = document.querySelector('.theme-button[data-lang-key="theme_light"]');
-            if (fallbackBtn) {
-                fallbackBtn.classList.add('active');
-            }
-        }
-
-        // Активуємо масштаб (перевірка, якщо елементи існують)
-        const scaleBtn = document.querySelector('.scale-button[data-scale="normal"]');
-        if (scaleBtn) {
-            scaleBtn.classList.add('active');
-        }
-
-        // Активуємо мову
-        const langBtn = document.querySelector('.lang-button[data-lang="uk"]');
-        if (langBtn) {
-            langBtn.classList.add('active');
-        }
-    }
-
-
-    // Запускаем инициализацию при загрузке страницы
-    initializeState();
-
-    // --- 3. Логика для музыки ---
-
-    // Элементы из меню НАСТРОЕК
+    // Элементы управления музыкой (Настройки)
     const musicToggleBtn = document.getElementById('musicToggleBtn');
     const bgMusic = document.getElementById('bgMusic');
     const musicNextBtn = document.getElementById('musicNext');
@@ -143,12 +35,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const musicSlider = document.getElementById('musicSlider');
     const musicVolumeValue = document.getElementById('musicVolumeValue');
 
-    // Элементы музыкального ВИДЖЕТА
+    // Элементы управления музыкой (Виджет)
     const widgetTrackTitle = document.getElementById('widgetTrackTitle');
     const widgetPrevBtn = document.getElementById('widgetPrevBtn');
     const widgetPlayPauseBtn = document.getElementById('widgetPlayPauseBtn');
     const widgetNextBtn = document.getElementById('widgetNextBtn');
 
+    // Состояние плеера
     let isMusicOn = false;
     let currentTrackIndex = 0;
     const playlist = [
@@ -157,91 +50,13 @@ document.addEventListener('DOMContentLoaded', function () {
         { title: 'Не дзвонила', src: '~/audio/bg3.mp3' }
     ];
 
-// --- ИЗМЕНЕНО: Создаём общие функции для управления плеером ---
 
-    function togglePlayPause() {
-        isMusicOn = !isMusicOn;
-        updateMusicButtonUI();
-        if (isMusicOn) {
-            bgMusic.play();
-        } else {
-            bgMusic.pause();
-        }
-    }
+    // --- 2. ВСЕ ФУНКЦИИ ---
 
-    function playNextTrack() {
-        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-        loadTrack(currentTrackIndex);
-    }
-
-    function playPrevTrack() {
-        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
-        loadTrack(currentTrackIndex);
-    }
-
-
-// --- Общие функции для обновления интерфейса ---
-
-    function updateMusicButtonUI() {
-        const isPlaying = isMusicOn;
-        musicToggleBtn.classList.toggle('active', isPlaying);
-        widgetPlayPauseBtn.classList.toggle('playing', isPlaying);
-        // Обновление текста для локализации, если нужно
-        musicToggleBtn.setAttribute('data-lang-key', isPlaying ? 'music_on' : 'music_off');
-    }
-
-    function loadTrack(trackIndex) {
-        bgMusic.src = playlist[trackIndex].src.replace('~', '');
-        const trackTitleText = playlist[trackIndex].title;
-        musicTitle.textContent = trackTitleText;
-        widgetTrackTitle.textContent = trackTitleText;
-        if (isMusicOn) {
-            bgMusic.play();
-        }
-    }
-
-    function setVolume() {
-        bgMusic.volume = musicSlider.value / 100;
-        musicVolumeValue.textContent = musicSlider.value;
-    }
-
-// --- ИЗМЕНЕНО: Назначаем новые общие функции на все кнопки ---
-
-// Кнопки в НАСТРОЙКАХ
-musicToggleBtn.addEventListener('click', togglePlayPause);
-musicNextBtn.addEventListener('click', playNextTrack);
-musicPrevBtn.addEventListener('click', playPrevTrack);
-
-// Кнопки в ВИДЖЕТЕ
-widgetPlayPauseBtn.addEventListener('click', togglePlayPause);
-widgetNextBtn.addEventListener('click', playNextTrack);
-widgetPrevBtn.addEventListener('click', playPrevTrack);
-
-
-// Остальные обработчики
-musicSlider.addEventListener('input', setVolume);
-bgMusic.addEventListener('ended', playNextTrack); // Переключаем на следующий трек по окончании
-
-
-// И добавьте вместо них это:
-    if (!localStorage.getItem('musicPlayerState')) {
-        // Если сохраненного состояния нет, запускаем всё по умолчанию
-        loadTrack(currentTrackIndex);
-        updateMusicButtonUI();
-        musicSlider.value = 10; 
-        setVolume();
-    } else {
-        restorePlayerState();
-    }
-
-    // --- 7. Логіка відкриття/закриття меню (без изменений) ---
-    const settingsLink = document.getElementById('settingsLink');
-    const authorsLink = document.getElementById('authorsLink');
-    const settingsMenu = document.getElementById('settingsMenu');
-    const authorsMenu = document.getElementById('authorsMenu');
-    const closeSettingsBtn = document.getElementById('closeSettingsMenu');
-    const closeAuthorsBtn = document.getElementById('closeAuthorsMenu');
-
+    /**
+     * Показывает указанное меню, скрывая все остальные.
+     * @param {string} menuIdToShow - ID элемента меню, которое нужно показать.
+     */
     function showMenu(menuIdToShow) {
         const allMenus = ['loadMenu', 'settingsMenu', 'authorsMenu', 'achivmentsMenu'];
         allMenus.forEach(id => {
@@ -250,7 +65,7 @@ bgMusic.addEventListener('ended', playNextTrack); // Переключаем на
 
             if (id === menuIdToShow) {
                 el.classList.remove('hidden');
-                setTimeout(() => el.classList.add('active'), 10);
+                setTimeout(() => el.classList.add('active'), 10); // для анимации
             } else {
                 el.classList.remove('active');
                 setTimeout(() => el.classList.add('hidden'), 10);
@@ -258,80 +73,359 @@ bgMusic.addEventListener('ended', playNextTrack); // Переключаем на
         });
     }
 
-    // --- Кнопки відкриття ---
-    document.getElementById('settingsLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        showMenu('settingsMenu');
-    });
+    /**
+     * Закрывает указанное меню.
+     * @param {string} menuIdToHide - ID элемента меню, которое нужно скрыть.
+     */
+    function hideMenu(menuIdToHide) {
+        const el = document.getElementById(menuIdToHide);
+        if (el) {
+            el.classList.remove('active');
+            setTimeout(() => el.classList.add('hidden'), 10); // соответствует логике showMenu
+        }
+    }
 
-    document.getElementById('authorsLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        showMenu('authorsMenu');
-    });
-
-    document.getElementById('loadGameLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        showMenu('loadMenu');
-    });
-
-    document.getElementById('loadAchivmentLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        showMenu('achivmentsMenu');
-    });
-
-    document.getElementById('continueGameLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log('Загрузка останнього збереження...');
-        window.location.href = '@Url.Action("Index", "PlayGame")';
-    });
-
-    // --- Кнопки закриття ---
-    document.getElementById('closeSettingsMenu')?.addEventListener('click', () => {
-        const el = document.getElementById('settingsMenu');
-        el.classList.remove('active');
-        setTimeout(() => el.classList.add('hidden'), 10);
-    });
-
-    document.getElementById('closeAuthorsMenu')?.addEventListener('click', () => {
-        const el = document.getElementById('authorsMenu');
-        el.classList.remove('active');
-        setTimeout(() => el.classList.add('hidden'), 10);
-    });
+    /**
+     * Применяет выбранную тему (light, dark, contrast) и сохраняет выбор.
+     * @param {string} theme - Название темы.
+     */
     function applyTheme(theme) {
-    // Удаляем все возможные темы
-    document.body.classList.remove('light-theme', 'dark-theme', 'contrast-theme');
-
-    // Добавляем соответствующий класс
-    if (theme === 'light') {
-        document.body.classList.add('light-theme');
-    } else if (theme === 'dark') {
-        document.body.classList.add('dark-theme');
-    } else if (theme === 'contrast') {
-        document.body.classList.add('contrast-theme');
+        document.body.classList.remove('light-theme', 'dark-theme', 'contrast-theme');
+        if (theme) {
+            document.body.classList.add(`${theme}-theme`);
+            localStorage.setItem('selectedTheme', theme);
+        }
     }
 
-    localStorage.setItem('selectedTheme', theme);
-}
-    // Инициализация темы при загрузке страницы
-    const savedTheme = localStorage.getItem('selectedTheme') || 'light';
-    applyTheme(savedTheme);
+    /**
+     * Настраивает логику для группы кнопок (например, темы, масштаб).
+     * @param {string} selector - CSS-селектор для группы кнопок.
+     */
+    function setupButtonGroup(selector) {
+        const buttons = document.querySelectorAll(selector);
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
 
-
-    // --- НОВОЕ: Сохраняем состояние плеера перед уходом со страницы ---
-window.addEventListener('beforeunload', () => {
-    if (isMusicOn) {
-        const playerState = {
-            trackIndex: currentTrackIndex,
-            currentTime: bgMusic.currentTime,
-            volume: bgMusic.volume,
-            isPlaying: true
-        };
-        // Сохраняем объект в localStorage в виде текста
-        localStorage.setItem('musicPlayerState', JSON.stringify(playerState));
-    } else {
-        // Если музыка выключена, просто удаляем сохраненное состояние
-        localStorage.removeItem('musicPlayerState');
+                // Специальная логика для кнопок темы
+                if (this.classList.contains('theme-button')) {
+                    const themeKey = this.dataset.langKey; // e.g., "theme_light"
+                    if (themeKey) {
+                        const theme = themeKey.split('_')[1]; // "light"
+                        applyTheme(theme);
+                    }
+                }
+            });
+        });
     }
-});
+    
+    /**
+     * Загружает трек в плеер по индексу.
+     * @param {number} trackIndex - Индекс трека в плейлисте.
+     * @param {boolean} shouldPlay - Нужно ли запускать воспроизведение сразу.
+     */
+    function loadTrack(trackIndex, shouldPlay = true) {
+        if (!bgMusic || !playlist[trackIndex]) return;
+        bgMusic.src = playlist[trackIndex].src.replace('~', '');
+        const trackTitleText = playlist[trackIndex].title;
+        if (musicTitle) musicTitle.textContent = trackTitleText;
+        if (widgetTrackTitle) widgetTrackTitle.textContent = trackTitleText;
+
+        if (isMusicOn && shouldPlay) {
+            bgMusic.play().catch(e => console.error("Ошибка воспроизведения:", e));
+        }
+    }
+
+    /**
+     * Обновляет иконки и состояние кнопок управления музыкой.
+     */
+    function updateMusicButtonUI() {
+        if (musicToggleBtn) {
+            musicToggleBtn.classList.toggle('active', isMusicOn);
+            musicToggleBtn.setAttribute('data-lang-key', isMusicOn ? 'music_on' : 'music_off');
+        }
+        if (widgetPlayPauseBtn) {
+            widgetPlayPauseBtn.classList.toggle('playing', isMusicOn);
+        }
+    }
+
+    /**
+     * Переключает воспроизведение/паузу.
+     */
+    function togglePlayPause() {
+        isMusicOn = !isMusicOn;
+        if (isMusicOn) {
+            if (bgMusic.src) {
+                bgMusic.play().catch(e => console.error("Ошибка воспроизведения:", e));
+            } else {
+                loadTrack(currentTrackIndex); // Загружаем первый трек, если еще ничего не играло
+            }
+        } else {
+            bgMusic.pause();
+        }
+        updateMusicButtonUI();
+    }
+
+    /**
+     * Включает следующий трек.
+     */
+    function playNextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        loadTrack(currentTrackIndex);
+    }
+
+    /**
+     * Включает предыдущий трек.
+     */
+    function playPrevTrack() {
+        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+        loadTrack(currentTrackIndex);
+    }
+
+    /**
+     * Устанавливает громкость музыки.
+     */
+    function setVolume() {
+        if (!bgMusic || !musicSlider || !musicVolumeValue) return;
+        bgMusic.volume = musicSlider.value / 100;
+        musicVolumeValue.textContent = musicSlider.value;
+    }
+
+    /**
+     * Восстанавливает состояние плеера из localStorage.
+     */
+    function restorePlayerState() {
+        const savedStateJSON = localStorage.getItem('musicPlayerState');
+        if (savedStateJSON) {
+            const savedState = JSON.parse(savedStateJSON);
+            if (savedState.isPlaying) {
+                isMusicOn = true;
+                currentTrackIndex = savedState.trackIndex;
+                
+                loadTrack(currentTrackIndex, false); // Загружаем трек без авто-проигрывания
+                
+                bgMusic.volume = savedState.volume;
+                if (musicSlider) musicSlider.value = savedState.volume * 100;
+                if (musicVolumeValue) musicVolumeValue.textContent = musicSlider.value;
+                
+                bgMusic.addEventListener('canplay', function onCanPlay() {
+                    bgMusic.currentTime = savedState.currentTime;
+                    bgMusic.play().catch(e => console.error("Ошибка воспроизведения:", e));
+                    bgMusic.removeEventListener('canplay', onCanPlay); // Удаляем, чтобы не сработал снова
+                });
+
+                updateMusicButtonUI();
+            }
+        }
+    }
+
+    /**
+     * Главная функция инициализации при загрузке страницы.
+     */
+    function initializeState() {
+        // 1. Настройка тем
+        const savedTheme = localStorage.getItem('selectedTheme') || 'light';
+        applyTheme(savedTheme);
+
+        // 2. Настройка групп кнопок
+        setupButtonGroup('.theme-button');
+        setupButtonGroup('.scale-button');
+        setupButtonGroup('.lang-button');
+
+        // 3. Активация кнопок по умолчанию или из сохраненных данных
+        document.querySelectorAll('.theme-button').forEach(btn => btn.classList.remove('active'));
+        const themeBtn = document.querySelector(`.theme-button[data-lang-key="theme_${savedTheme}"]`) || document.querySelector('.theme-button[data-lang-key="theme_light"]');
+        if (themeBtn) themeBtn.classList.add('active');
+
+        const scaleBtn = document.querySelector('.scale-button[data-scale="normal"]');
+        if (scaleBtn) scaleBtn.classList.add('active');
+
+        const langBtn = document.querySelector('.lang-button[data-lang="uk"]');
+        if (langBtn) langBtn.classList.add('active');
+        
+        // 4. Настройка плеера
+        if (!localStorage.getItem('musicPlayerState')) {
+            // Если нет сохраненного состояния, ставим значения по умолчанию
+            loadTrack(currentTrackIndex, false); // Просто загружаем, не играем
+            updateMusicButtonUI();
+            if (musicSlider) musicSlider.value = 10;
+            setVolume();
+        } else {
+            // Иначе восстанавливаем
+            restorePlayerState();
+        }
+    }
+
+
+    // --- 3. НАЗНАЧЕНИЕ ОБРАБОТЧИКОВ СОБЫТИЙ ---
+
+    // Кнопки открытия меню
+    if (settingsLink) settingsLink.addEventListener('click', (e) => { e.preventDefault(); showMenu('settingsMenu'); });
+    if (authorsLink) authorsLink.addEventListener('click', (e) => { e.preventDefault(); showMenu('authorsMenu'); });
+    if (loadGameLink) loadGameLink.addEventListener('click', (e) => { e.preventDefault(); showMenu('loadMenu'); });
+    if (loadAchivmentLink) loadAchivmentLink.addEventListener('click', (e) => { e.preventDefault(); showMenu('achivmentsMenu'); });
+    
+    // Кнопка "Продолжить"
+    if (continueGameLink) continueGameLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Загрузка последнего сохранения...');
+        // window.location.href = '@Url.Action("Index", "PlayGame")'; // Раскомментируйте, когда будет серверная часть
+    });
+
+    // Кнопки закрытия меню
+    if (closeSettingsBtn) closeSettingsBtn.addEventListener('click', () => hideMenu('settingsMenu'));
+    if (closeAuthorsBtn) closeAuthorsBtn.addEventListener('click', () => hideMenu('authorsMenu'));
+    // if (closeLoadBtn) closeLoadBtn.addEventListener('click', () => hideMenu('loadMenu'));
+    // if (closeAchivmentsBtn) closeAchivmentsBtn.addEventListener('click', () => hideMenu('achivmentsMenu'));
+    
+    // Музыка (Настройки)
+    if (musicToggleBtn) musicToggleBtn.addEventListener('click', togglePlayPause);
+    if (musicNextBtn) musicNextBtn.addEventListener('click', playNextTrack);
+    if (musicPrevBtn) musicPrevBtn.addEventListener('click', playPrevTrack);
+    if (musicSlider) musicSlider.addEventListener('input', setVolume);
+
+    // Музыка (Виджет)
+    if (widgetPlayPauseBtn) widgetPlayPauseBtn.addEventListener('click', togglePlayPause);
+    if (widgetNextBtn) widgetNextBtn.addEventListener('click', playNextTrack);
+    if (widgetPrevBtn) widgetPrevBtn.addEventListener('click', playPrevTrack);
+    
+    // Событие окончания трека
+    if (bgMusic) bgMusic.addEventListener('ended', playNextTrack);
+
+    // Сохранение состояния плеера перед закрытием страницы
+    window.addEventListener('beforeunload', () => {
+        if (isMusicOn) {
+            const playerState = {
+                trackIndex: currentTrackIndex,
+                currentTime: bgMusic.currentTime,
+                volume: bgMusic.volume,
+                isPlaying: true
+            };
+            localStorage.setItem('musicPlayerState', JSON.stringify(playerState));
+        } else {
+            localStorage.removeItem('musicPlayerState');
+        }
+    });
+
+
+    // --- 4. ЗАПУСК ИНИЦИАЛИЗАЦИИ ---
+    initializeState();
+
+    function applyScale(scale) {
+        const body = document.body;
+        body.classList.remove('scale-small', 'scale-normal', 'scale-large');
+        body.classList.add(`scale-${scale}`);
+        localStorage.setItem('uiScale', scale);
+    }
+
+    // Завантаження масштабу при старті
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedScale = localStorage.getItem('uiScale') || 'normal';
+        applyScale(savedScale);
+    });
+
+    // Призначення обробників кнопкам
+    document.getElementById('scaleSmall')?.addEventListener('click', () => applyScale('small'));
+    document.getElementById('scaleNormal')?.addEventListener('click', () => applyScale('normal'));
+    document.getElementById('scaleLarge')?.addEventListener('click', () => applyScale('large'));
+
+        // --- 5. ПРЕЛОАДЕР ТА ПАРАЛАКС ---
+
+    // Заборона скролу на час завантаження
+    document.documentElement.style.overflow = "hidden";
+    document.body.classList.add('lock-scroll');
+
+    const imgs = document.querySelectorAll('img, video');
+    let i = 0;
+
+    const intprochentChet = document.getElementById("intprochent_chet");
+    const perchenload = document.getElementById("perchenload");
+
+    const updateProgress = () => {
+        i++;
+        let percent = ((i * 100) / imgs.length).toFixed(0);
+        if (intprochentChet) intprochentChet.innerHTML = `${percent}%`;
+        if (perchenload) perchenload.style.width = `${percent}%`;
+
+        if (i === imgs.length) {
+            setTimeout(() => {
+                document.body.classList.remove('lock-scroll');
+                document.documentElement.style.overflow = "visible";
+                hidePreloader();
+            }, 1500);
+        }
+    };
+
+    imgs.forEach((img) => {
+        if (img.complete) {
+            updateProgress();
+        } else {
+            img.onload = updateProgress;
+            img.onerror = updateProgress;
+        }
+    });
+
+    function hidePreloader() {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+            preloader.style.transition = "opacity 0.5s ease";
+            preloader.style.opacity = "0";
+
+            setTimeout(() => {
+                preloader.style.display = "none";
+            }, 500);
+        }
+    }
+
+    // --- 6. ПАРАЛАКС І РУХ ХОТБАРУ ---
+    const layers = document.querySelector('.layers');
+    const hotBar = document.querySelector('.hot-bar-inner');
+    let isHovering = false;
+    let isHoveringHotBar = false;
+
+    document.addEventListener('mousemove', e => {
+        if (!isHoveringHotBar) {
+            isHovering = true;
+            document.documentElement.style.setProperty('--move-x', `${(e.clientX - window.innerWidth / 2) * -.005}deg`);
+            document.documentElement.style.setProperty('--move-y', `${(e.clientY - window.innerHeight / 2) * -.01}deg`);
+        }
+    });
+
+    if (hotBar) {
+        hotBar.addEventListener('mouseenter', () => {
+            isHoveringHotBar = true;
+            document.documentElement.style.transition = 'transform 0.5s ease-out';
+            document.documentElement.style.setProperty('--move-x', `0deg`);
+            document.documentElement.style.setProperty('--move-y', `0deg`);
+        });
+
+        hotBar.addEventListener('mouseleave', () => {
+            isHoveringHotBar = false;
+        });
+    }
+
+    if (layers) {
+        layers.addEventListener('mouseleave', () => {
+            if (!isHoveringHotBar) {
+                isHovering = false;
+                document.documentElement.style.transition = 'transform var(--transition)';
+                document.documentElement.style.setProperty('--move-x', `0deg`);
+                document.documentElement.style.setProperty('--move-y', `0deg`);
+
+                setTimeout(() => {
+                    if (!isHovering && !isHoveringHotBar) {
+                        document.documentElement.style.transition = '';
+                    }
+                }, 1500);
+            }
+        });
+    }
+
+    // Додаткова утиліта (якщо потрібно)
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
 
 });

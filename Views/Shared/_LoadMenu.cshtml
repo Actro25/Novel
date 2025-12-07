@@ -1,30 +1,31 @@
-<div id="loadMenu" class="load-menu-container hidden">
-    <h3 class="load-title">ЗАВАНТАЖИТИ ГРУ</h3>
+<div id="loadMenu" class="menu-wrapper hidden">
+    <h3 class="download-title">ЗАВАНТАЖИТИ ГРУ</h3>
+    
 
-    <div id="saveSlotsContainer" class="save-slots">
+    <div id="saveSlotsContainer" class="slot-list">
         @for (int i = 0; i < Model.SaveFiles.Count; i++)
         {
             var save = Model.SaveFiles[i];
             if (!string.IsNullOrEmpty(save.FileName))
             {
-                <a href="@Url.Action("LoadGame", "PlayGame", new { sceneId = save.SceneId })" class="save-slot">
-                    <input type="hidden" name="sceneId" value="@save.SceneId" />
-                    <div class="save-slot-header">
-                        <span class="save-slot-number">Слот @(i + 1)</span>
+                <div class="slot-item">
+                    <div class="slot-header">
+                        <span class="slot-title">СТОРІНКА&nbsp;<span class="slot-number">@save.SceneId</span></span>
+                        <span class="slot-download">
+                            <img src="/img/White_Icon/ЗАВАНТАЖИТИ.png" alt="download" width="22" height="22" />
+                        </span>
                     </div>
-                    <div class="save-slot-name">@save.FileName</div>
-                    <div class="save-slot-info">
-                        <div>Акт: @save.ActName</div>
-                        <div>Частина: @save.PartName</div>
-                        <div class="scene-preview">@save.SceneFirstText</div>
-                    </div>
-                </a>
+                    <div class="slot-preview">@save.SceneFirstText</div>
+                    <div class="slot-act">АКТ: @save.ActName</div>
+                    <a href="@Url.Action("LoadGame", "PlayGame", new { sceneId = save.SceneId })" class="slot-continue-btn">ПРОДОВЖИТИ</a>
+                    <div class="slot-part">ЧАСТИНА: @save.PartName</div>
+                </div>
             }
             else
             {
-                <div class="save-slot disabled-slot">
-                    <div class="save-slot-header">
-                        <span class="save-slot-number">Слот @(i + 1)</span>
+                <div class="slot-item slot-disabled">
+                    <div class="slot-header">
+                        <span class="slot-title">Слот @(i + 1)</span>
                     </div>
                     <div class="slot-empty">Порожньо</div>
                 </div>
@@ -32,172 +33,221 @@
         }
     </div>
 
-    <button id="closeLoadMenuBtn" class="close-button">ЗАКРИТИ</button>
+    <button id="closeLoadMenuBtn" class="menu-close-btn">ЗАКРИТИ</button>
 </div>
 
-
 <style>
-    a {
-        text-decoration: none; /* прибирає підкреслення */
-        color: inherit; /* успадковує колір з батьківського елемента */
-    }
-
-    a:visited {
-        color: inherit; /* щоб після кліку не змінювався колір */
-    }
-
-    a:focus, a:active {
-        outline: none; /* прибирає рамку при кліку або фокусі */
-    }
-
-    .save-slot.disabled {
-        pointer-events: none;
-        opacity: 0.5;
-    }
-
-    .save-slot-info {
-        margin: 10px 0;
-        font-size: 0.9em;
-        color: #aaa;
-    }
-
-    .scene-preview {
-        margin-top: 5px;
-        font-style: italic;
-        color: #888;
-    }
-    /* Ваші стилі залишаються майже без змін, я лише додав стилі для нових кнопок */
-    .load-menu-container {
+    #loadMenu {
         position: fixed;
         top: 50%;
-        left: 50%;
+        right: 150px;
         transform: translate(-50%, -50%);
-        background-color: rgba(10, 20, 35, 0.95);
-        border: 2px solid #00aaff;
-        border-radius: 15px;
-        box-shadow: 0 0 30px rgba(0, 170, 255, 0.5);
-        padding: 25px;
-        color: white;
-        z-index: 1000;
-        width: 90%;
-        max-width: 600px;
-        opacity: 0;
+        width: 536px;
+        height: 793px;
+        background: linear-gradient(180deg, rgba(21, 94, 141, 0.6) 0%, rgba(190, 166, 252, 0.6) 100%);
+        border: 2px solid #BEA6FC;
+        box-shadow: 0px 0px 90px 0px #FFFFFF, inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+        opacity: 1;
+        z-index: 10;
+        padding: 20px;
+        
+        backdrop-filter: blur(10px);
         transition: opacity 0.3s ease, transform 0.3s ease;
-        transform: translate(-50%, -50%) scale(0.95);
     }
-
-        .load-menu-container.active {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .load-menu-container.hidden {
-            display: none;
-        }
-
-    .load-title {
+    .download-title {
+        font-family: 'Franklin Gothic Heavy', Arial, sans-serif;
+        font-weight: 700;
+        font-size: 40px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        line-height: 1;
         text-align: center;
-        margin-bottom: 20px;
-        font-size: 1.8em;
-        color: #00aaff;
-        text-shadow: 0 0 10px #00aaff;
+        background: linear-gradient(105.67deg, #04C3E6 7.06%, #FFFFFF 54.91%, #7E4DF9 97.34%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        position: static;
     }
-
-    .save-slots {
+    .slot-list {
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        margin-bottom: 20px;
-        width: 100%;
+        gap: 24px;
+        align-items: center;
     }
-
-    .save-slot {
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+    .slot-item {
+        width: 465px;
+        min-height: 174px;
+        border-radius: 25px;
+        border: 2px solid #BEA6FC;
+        background: linear-gradient(180deg, rgba(21, 94, 141, 0.6) 0%, rgba(190, 166, 252, 0.6) 100%);
+        opacity: 1;
+        position: relative;
+        backdrop-filter: blur(12.5px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* distribute space, part at bottom */
+        box-sizing: border-box;
+        padding: 20px 22px 20px 22px;
+        overflow: hidden;
+    }
+    .slot-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 6px;
+    }
+    .slot-title {
+        font-family: 'Aldrich', Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: 0;
+    }
+    .slot-number {
+        font-weight: 700;
+        font-size: 22px;
+        color: #fff;
+    }
+    .slot-download {
+        margin-left: 8px;
+        display: flex;
+        align-items: center;
+    }
+    .slot-preview {
+        font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 4px;
+        margin-top: 2px;
+        font-weight: 500;
+    }
+    .slot-act {
+        font-family: 'Aldrich', Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #1E469D;
+        padding: 2px 8px;
+        border-radius: 6px;
+        display: inline-block;
+        margin-bottom: 2px;
+        opacity: 1;
+        align-self: flex-start;
+        text-align: left;
+    }
+    .slot-part {
+        font-family: 'Aldrich', Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 13px;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #1E469D;
+        padding: 2px 8px;
+        border-radius: 6px;
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+        opacity: 1;
+        align-self: flex-start;
+        text-align: left;
+    }
+    .slot-continue-btn {
+        width: 201px;
+        height: 40px;
         border-radius: 8px;
-        padding: 15px;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .save-slot-header {
+        border: 1px solid #BEA6FC;
+        background: #7E4DF9;
+        color: #fff;
+        font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-
-    .save-slot-name {
-        font-size: 1em;
-        color: #00d1ff;
-        margin-bottom: 15px;
-    }
-
-    .save-slot-date {
-        font-size: 0.8em;
-        color: #ccc;
-    }
-
-    .slot-empty {
-        color: #888;
-        text-align: center;
-        padding: 20px 0;
-    }
-
-    /* Нові стилі для кнопок дій */
-    .slot-actions {
-        display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 10px;
-        margin-top: 10px;
-    }
-
-    .action-btn {
-        flex-grow: 1;
         padding: 10px;
-        border-radius: 5px;
+        margin-top: 12px;
+        margin-bottom: 0;
+        align-self: flex-end;
+        top: unset;
+        box-shadow: none;
+        transition: background 0.2s, border-color 0.2s;
         cursor: pointer;
-        background: transparent;
-        color: white;
-        font-weight: bold;
-        border: 1px solid;
-        transition: all 0.2s ease;
     }
-
-    .load-btn {
-        border-color: #00ff8c;
+    .slot-continue-btn:hover {
+        background: #5a2fc7;
+        border-color: #7E4DF9;
+        box-shadow: 0 0 16px 0 #04C3E6;
+        color: #fff;
     }
-
-        .load-btn:hover {
-            background-color: #00ff8c;
-            color: #000;
-        }
-
-    .delete-btn {
-        border-color: #ff4d4d;
+    .slot-disabled {
+        width: 465px;
+        height: 174px;
+        border-radius: 25px;
+        border: 2px solid #BEA6FC;
+        background: linear-gradient(180deg, rgba(21, 94, 141, 0.3) 0%, rgba(190, 166, 252, 0.3) 100%);
+        opacity: 0.7;
+        position: relative;
+        backdrop-filter: blur(12.5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        overflow: hidden;
     }
-
-        .delete-btn:hover {
-            background-color: #ff4d4d;
-            color: white;
-        }
-
-
-    .close-button {
-        width: 100%;
-        padding: 12px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid white;
-        border-radius: 5px;
-        color: white;
+    .slot-empty {
+        font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        font-size: 22px;
+        color: #fff;
+        opacity: 0.5;
+    }
+    .menu-close-btn {
+        width: 321px;
+        height: 46px;
+        border-radius: 8px;
+        border: 1px solid #BEA6FC;
+        background: #7E4DF9;
+        color: #fff;
+        font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        margin: 32px auto 0 auto;
+        box-shadow: none;
         cursor: pointer;
-        transition: background-color 0.3s ease;
-        font-size: 1em;
+        transition: background 0.2s, border-color 0.2s;
     }
-
-        .close-button:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
+    .menu-close-btn:hover {
+        background: #5a2fc7;
+        border-color: #7E4DF9;
+    }
 </style>
+
+
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

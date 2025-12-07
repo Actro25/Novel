@@ -171,6 +171,23 @@ namespace NovelProject.Migrations
                     b.ToTable("Parts");
                 });
 
+            modelBuilder.Entity("NovelProject.Models.ReputationModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CatReputation")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reputation");
+                });
+
             modelBuilder.Entity("NovelProject.Models.SaveFileModel", b =>
                 {
                     b.Property<int>("Id")

@@ -159,6 +159,8 @@ namespace NovelProject.Controllers
                         return RedirectToAction("ActionSee", new { actId = nextAct.Id, partId = nextPart.id, sceneId = nextPart.start_scene_id, StartAct = true });
                     }
                 }
+                else
+                    return RedirectToAction("Index", "Home");
             }
 
             var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
@@ -279,7 +281,31 @@ namespace NovelProject.Controllers
             if (sceneId == 0)
                 return RedirectToAction("ActionSeePart", new { partId, actId, StartAct = false, sceneID = sceneId });
 
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                var userIdStrNew = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+                if (int.TryParse(userIdStrNew, out int parsedUserIdNew))
+                {
+                    if (ReputationScenes.PlusReputation.Contains(sceneId))
+                        ChangeReputation(ReputationScenes.ReputationPointsPlus, parsedUserIdNew);
+                    else if (ReputationScenes.MinusReputation.Contains(sceneId))
+                        ChangeReputation(-ReputationScenes.ReputationPointsPlus, parsedUserIdNew);
+                }
+            }
+
+            if (sceneId == 37)
+            {
+                return View("~/Views/Home/Choice.cshtml");
+            }
+            else if (sceneId == 51)
+            {
+                return View("~/Views/Home/Choice2.cshtml");
+            }
+            else if (sceneId == 31)
+            {
+                return View("~/Views/Home/To_give.cshtml");
+            }
             List<AchivmentsModel> filteredAchivments;
 
             var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -472,6 +498,110 @@ namespace NovelProject.Controllers
                 _logger.LogError(ex, "Error updating achivments");
                 return View("~/Views/Home/Error.cshtml");
             }
+        }
+        public void ChangeReputation(int points, int userId)
+        {
+            var userReputation = _context.Reputation.FirstOrDefault(r => r.UserId == userId);
+            if (userReputation != null)
+            {
+                userReputation.CatReputation += points;
+                if (userReputation.CatReputation < 0)
+                    userReputation.CatReputation = 0;
+                else if (userReputation.CatReputation > 100)
+                    userReputation.CatReputation = 100;
+                _context.Reputation.Update(userReputation);
+            }
+            else 
+            {                 
+                userReputation = new ReputationModel
+                {
+                    CatReputation = points,
+                    UserId = userId
+                };
+                _context.Reputation.Add(userReputation);
+            }
+
+            _context.SaveChanges();
+        }
+        //For connect animation scene to normal show.
+        [HttpGet]
+        public IActionResult ConnectFromAnimationToScene(int partId, int sceneId, bool StartPart, int actId)
+        {
+            if (sceneId == 0)
+                return RedirectToAction("ActionSeePart", new { partId, actId, StartAct = false, sceneID = sceneId });
+
+            if (User?.Identity?.IsAuthenticated == true)
+            {
+                var userIdStrNew = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (int.TryParse(userIdStrNew, out int parsedUserIdNew))
+                {
+                    if (ReputationScenes.PlusReputation.Contains(sceneId))
+                        ChangeReputation(ReputationScenes.ReputationPointsPlus, parsedUserIdNew);
+                    else if (ReputationScenes.MinusReputation.Contains(sceneId))
+                        ChangeReputation(-ReputationScenes.ReputationPointsPlus, parsedUserIdNew);
+                }
+            }
+
+            List<AchivmentsModel> filteredAchivments;
+
+            var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            int? userId = null;
+
+            if (int.TryParse(userIdStr, out int parsedUserId))
+            {
+                userId = parsedUserId;
+
+                var currentSceneAchivments = _context.Achivments
+                    .Where(a => a.SceneId == sceneId)
+                    .ToList();
+
+                var unachievedAchivmentIds = _context.UserAchivments
+                    .Where(a => a.UserId == userId && !a.IsAchieved)
+                    .Select(a => a.AchivmentId)
+                    .ToList();
+
+                filteredAchivments = currentSceneAchivments
+                    .Where(a => unachievedAchivmentIds.Contains(a.Id))
+                    .ToList();
+            }
+            else
+            {
+                filteredAchivments = _context.Achivments
+                    .Where(a => a.SceneId == sceneId)
+                    .ToList();
+            }
+
+
+
+            var currentScene = _context.Scenes.FirstOrDefault(s => s.id == sceneId);
+            if (currentScene == null)
+                return View("~/Views/Home/Error.cshtml");
+
+            var nextScene = _context.Scenes.FirstOrDefault(s => s.id == currentScene.id_next_scene);
+
+            bool endOfPartReached = nextScene != null && nextScene.id_part != currentScene.id_part;
+            int nextPartId = nextScene?.id_part ?? currentScene.id_part;
+            var temp = new PlayGameSceneChange
+            {
+                CurrentScene = currentScene,
+                actId = actId,
+                StartPart = StartPart,
+                EndOfPartReached = endOfPartReached,
+                NextSceneId = nextScene?.id ?? 0,
+                NextPartId = nextPartId,
+                Achivments = filteredAchivments,
+            };
+
+            if (userId.HasValue)
+            {
+                var SaveFile = _context.SaveFile.FirstOrDefault(s => s.UserId == userId.Value);
+                if (SaveFile != null)
+                {
+                    temp.SaveFile = SaveFile;
+                }
+            }
+            return View("~/Views/PlayGame/ActionSeeScene.cshtml",temp);
         }
     }
 }

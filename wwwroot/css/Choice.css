@@ -1,0 +1,40 @@
+body {
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        font-family: 'Courier New', monospace;
+        overflow: hidden;
+    }
+    
+    
+
+  
+
+    /* Экран монитора */
+    .monitor {
+        position: absolute;
+        top: 505px;   /* подогнано под картинку */
+        left: 275px;  /* подогнано под картинку */
+        width: 329px;
+        height: 105px;
+        color: #a6ff9b;
+        font-size: 28px;
+        line-height: 1.5;
+        text-shadow: 0 0 4px #a6ff9b, 0 0 8px #6fff5c;
+        white-space: pre-wrap;
+        overflow: hidden;
+    }
+
+    /* Мигающий курсор */
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        background-color: #a6ff9b;
+        margin-left: 2px;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }

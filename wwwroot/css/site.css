@@ -1,58 +1,45 @@
-/* Добавляем .main-page-background, чтобы стиль работал только на главной */
 body.main-page-background {
     position: relative;
     background-color: #000;
+    overflow: hidden;
+}
+.parallax-layer.light { display: none; } /* приховані світлі шари */
+body.light-theme .parallax-layer.dark { display: none; } /* темні шари ховаються в світлій темі */
+body.light-theme .parallax-layer.light { display: block; } /* світлі шари показуються */
+
+
+.parallax-wrapper {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
 }
 
-/* Общие стили для слоёв на главной странице */
-body.main-page-background::before,
-body.main-page-background::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
+.parallax-layer {
+    position: absolute;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    transition: opacity 0.5s ease-in-out;
-    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-}
-
-/* СЛОЙ ДЛЯ СВЕТЛОЙ ТЕМЫ */
-body.main-page-background::after {
-    background-image:
-        url('../img/1LIGHT1.png'),
-        url('../img/Налаштування_шар-1.png'),
-        url('../img/Налаштування-шар-2.png'), 
-        url('../img/Налаштування-шар-3.png');
-    
-    background-size: cover, cover, cover, cover; 
-    opacity: 1;
-}
-
-/* СЛОЙ ДЛЯ ТЁМНОЙ ТЕМЫ */
-body.main-page-background::before {
-    background-image:
-        url('../img/2DARK2.png'),
-        url('../img/зірочки-1.png'),
-        url('../img/контур-2.png'),
-        url('../img/фон-3.png'),
-        url('../img/останій-фон-4.png');
-        
-    background-size: cover, cover, cover, cover, cover; 
+    background-position: center;
+    will-change: transform;
+    transition: transform 0.2s ease-out, opacity 0.4s ease-in-out;
     opacity: 0;
 }
 
-
-/* ЛОГИКА ПЕРЕКЛЮЧЕНИЯ */
-.dark-theme.main-page-background::before {
+/* Активні шари за темою */
+body.dark-theme .parallax-layer.dark {
+    opacity: 1;
+}
+body.light-theme .parallax-layer.light {
     opacity: 1;
 }
 
-.dark-theme.main-page-background::after {
-    opacity: 0;
-}
+
 
 
 .main-flex-wrap {
@@ -79,61 +66,53 @@ body.main-page-background::before {
     /* Внутренние отступы, чтобы контент не прилегал к краям */
     padding: 25px;
     /* Максимальная ширина, чтобы меню не растягивалось слишком сильно на больших экранах */
-    max-width: 430px;
-    width: 100%;
+    max-width: 480px;
+    width: 460px;
     position: fixed;
     left: 70px;
-    top: 50px;
-    z-index: 1000;
+    top: 10px;
+    
 }
 
 
+/* Этот блок остается без изменений для контекста */
 .menu-title {
-    /* Ваши существующие стили (градиент, размер шрифта и т.д.) */
-    background: linear-gradient(to right, #00c6ff, #5869d8, #9945ff);
+    background: linear-gradient(to right, #52d6f7, #002afc, #a300f5);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-size: 4.2em;
+    font-size: 4.4em;
     font-weight: bold;
     text-transform: uppercase;
-
-    
-
-    /* ДОБАВЬТЕ ЭТИ ДВЕ СТРОКИ */
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
+
+
+
+
+/* Свечение за заголовком "Dream.exe" */
 .menu-title::before {
+    /* Сплошной розовый цвет для основы свечения */
+    background: #ffffff;
+    /* Сиьное размытие для создания эффекта "glow" */
+    filter: blur(80px);
+    /* Небольшая прозрачность, чтобы свечение не было слишком резким */
+    opacity: 1;
+    /* Увеличиваем область свечения */
+    transform: scale(1.2);
+    /* Эти свойства обязательны для позиционирования псевдоэлемента */
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1; /* Помещаем этот слой позади текста */
-
-    /* Создаём два свечения с помощью двух радиальных градиентов */
-    background: 
-        
-        radial-gradient(
-            ellipse 50% 80% at 15% 50%,
-            rgba(255, 255, 255, 0.846) 0%,
-            rgba(252, 254, 255, 0) 100%
-        ),
-        
-        radial-gradient(
-            ellipse 50% 80% at 85% 50%,
-            rgba(255, 255, 255, 0.833) 0%,
-            rgba(255, 255, 255, 0) 100%
-        );
-    
-    /* Дополнительно сильно размываем для мягкости */
-    filter: blur(40px);
-    
-    /* Немного увеличим область свечения */
-    transform: scale(1.3);
+    z-index: -1;
 }
+
+
+
 
 .main-menu-label {
     font-family: 'Aldrich', sans-serif;
@@ -237,31 +216,24 @@ body.main-page-background::before {
     font-weight: bold;
 }
 .exit-label {
-    display: block; /* Позволяет ссылке вести себя как кнопка */
-    
-    /* Ваш фон и рамка */
+    display: block; 
     background: #7E4DF9;
     border: 1px solid #BEA6FC;
-
-    /* Внешний вид */
     border-radius: 8px;
     padding: 12px;
-    
-    /* Стили текста */
-    color: #FFFFFF;
     text-align: center;
-    text-decoration: none; /* Убираем подчеркивание */
+    text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    
-    /* Плавный переход для наведения */
     transition: background-color 0.2s ease;
+    
+    /* УСИЛЕННОЕ ПРАВИЛО ДЛЯ ЦВЕТА */
+    color: #FFFFFF !important; 
 }
 
-/* Эффект при наведении курсора */
 .exit-label:hover {
-    background-color: #9269ff; /* Делаем фон немного светлее */
-    color: #FFFFFF; /* Гарантируем, что текст останется белым */
+    background-color: #9269ff;
+    color: #FFFFFF !important; /* Добавляем и сюда на всякий случай */
 }
 
 /* Общий стиль для контейнера иконки */
@@ -272,24 +244,26 @@ body.main-page-background::before {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    /* Плавный переход для смены картинки, к сожалению, не работает, но пусть будет */
     transition: all 0.2s ease;
 }
 
 /* --- ИКОНКИ ПО УМОЛЧАНИЮ (Фиолетовые) --- */
 
-#continueGameLink .menu-icon { background-image: url('../img/Purpule_Icon/ПРОДОВЖИТИ.png'); }
+[data-id="continueGameLink"] .menu-icon {
+    background-image: url('../img/Purpule_Icon/ПРОДОВЖИТИ.png');
+}
+
 .main-menu li:nth-child(3) .menu-icon { background-image: url('../img/Purpule_Icon/НОВА ГРА.png'); }
 #loadGameLink .menu-icon { background-image: url('../img/Purpule_Icon/ЗАВАНТАЖИТИ.png'); }
 .main-menu li:nth-child(5) .menu-icon { background-image: url('../img/Purpule_Icon/ПЕРСОНАЖІ.png'); }
 #settingsLink .menu-icon { background-image: url('../img/Purpule_Icon/НАЛАШТУВАННЯ.png'); }
 .main-menu li:nth-child(7) .menu-icon { background-image: url('../img/Purpule_Icon/ДОСЯГНЕННЯ.png'); }
-#musicPrev .music-arrow-svg {background-image: url('../img/Purpule_Icon/Back.png'); }
-#musicNext .music-arrow-svg {background-image: url('../img/Purpule_Icon/Next.png');}
+#musicPrev .music-arrow-svg {background-image: url('../img/Blue_Icon/Back.png'); }
+#musicNext .music-arrow-svg {background-image: url('../img/Blue_Icon/Next.png');}
 
-/* --- ИКОНКИ ПРИ НАВЕДЕНИИ (Белые - ПРЕДПОЛОЖЕНИЕ) --- */
+/* --- ИКОНКИ ПРИ НАВЕДЕНИИ (Белые - ПРЕДПОЛОЖЕНИЕ) --- */  
 
-#continueGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ПРОДОВЖИТИ.png'); }
+[data-id="continueGameLink"]:hover .menu-icon { background-image: url('../img/White_Icon/ПРОДОВЖИТИ.png'); }
 .main-menu li:nth-child(3):hover .menu-icon { background-image: url('../img/White_Icon/НОВА ГРА.png'); }
 #loadGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ЗАВАНТАЖИТИ.png'); }
 .main-menu li:nth-child(5):hover .menu-icon { background-image: url('../img/White_Icon/ПЕРСОНАЖІ.png'); }
@@ -300,7 +274,7 @@ body.main-page-background::before {
 
 /* --- ІКОНКИ ДЛЯ ТЕМНОЇ ТЕМИ (Сині) --- */
 
-.dark-theme #continueGameLink .menu-icon { background-image: url('../img/Blue_Icon/ПРОДОВЖИТИ.png'); }
+.dark-theme [data-id="continueGameLink"] .menu-icon { background-image: url('../img/Blue_Icon/ПРОДОВЖИТИ.png'); }
 .dark-theme .main-menu li:nth-child(3) .menu-icon { background-image: url('../img/Blue_Icon/НОВА ГРА.png'); }
 .dark-theme #loadGameLink .menu-icon { background-image: url('../img/Blue_Icon/ЗАВАНТАЖИТИ.png'); }
 .dark-theme .main-menu li:nth-child(5) .menu-icon { background-image: url('../img/Blue_Icon/ПЕРСОНАЖІ.png'); }
@@ -312,7 +286,7 @@ body.main-page-background::before {
 .dark-theme #musicNext .music-arrow-svg { background-image: url('../img/Blue_Icon/Next.png'); }
 
 
-.dark-theme #continueGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ПРОДОВЖИТИ.png'); }
+.dark-theme [data-id="continueGameLink"]:hover .menu-icon { background-image: url('../img/White_Icon/ПРОДОВЖИТИ.png'); }
 .dark-theme .main-menu li:nth-child(3):hover .menu-icon { background-image: url('../img/White_Icon/НОВА ГРА.png'); }
 .dark-theme #loadGameLink:hover .menu-icon { background-image: url('../img/White_Icon/ЗАВАНТАЖИТИ.png'); }
 .dark-theme .main-menu li:nth-child(5):hover .menu-icon { background-image: url('../img/White_Icon/ПЕРСОНАЖІ.png'); }
@@ -328,34 +302,36 @@ body.main-page-background::before {
 
 /* Контейнер, що позиціонує кнопку */
 .user-profile {
-    position: absolute;
-    top: 28px;
-    right: 48px;
-    z-index: 100;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центруем кнопку по горизонтали */
     cursor: pointer;
 }
 
 /* Внутрішній блок з іконкою та текстом */
 .user-profile-inner {
     display: flex;
-    align-items: left;
+    align-items: center;
+    justify-content: center; /* << Добавил для центрирования по горизонтали */
     gap: 10px;
     
-    /* СТИЛІ, СКОПІЙОВАНІ З ГОЛОВНОГО МЕНЮ */
-    background: linear-gradient(180deg, rgba(21, 94, 141, 0.5) 0%, rgba(190, 166, 252, 0.5) 100%);
-    border: 2px solid #BEA6FC;
-    border-radius: 25px;
-    box-shadow: 0px 0px 90px 0px #FFFFFF;
+    width: 162px; 
+    height: 46px;
+    padding: 12px 10px;
+    background: linear-gradient(91.71deg, #16D9F7 8.86%, #7E4DF9 84.02%);
+    border: 1px solid #BEA6FC;
+    border-radius: 8px;
     
-    /* Інші стилі */
-    padding: 8px 15px;
-    transition: all 0.2s ease;
+    transition: filter 0.2s ease;
 }
 
-/* Ефект при наведенні курсора */
+/* Эффект при наведении курсора */
 .user-profile:hover .user-profile-inner {
-    transform: scale(1.05); /* Збільшуємо кнопку */
-    filter: brightness(1.1); /* Робимо її трохи яскравішою */
+    filter: brightness(1.15); 
 }
 
 /* Стиль для іконки всередині кнопки */
@@ -371,6 +347,46 @@ body.main-page-background::before {
     font-weight: bold;
     font-size: 16px;
 }
+/* --- Полный стиль для классической прямоугольной формы с градиентным фоном --- */
+
+/* Основной контейнер */
+.top-right-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(91.71deg, #16D9F7 8.86%, #7E4DF9 84.02%);
+    border-radius: 4px;
+}
+
+/* Стиль для имени пользователя */
+.top-right-buttons .text-white {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Кнопка "Вихід" */
+.top-right-buttons a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.2); /* Полупрозрачная кнопка */
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Эффект при наведении на кнопку "Вихід" */
+.top-right-buttons a:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+
 
 /* --- МУЗЫКАЛЬНЫЙ ВИДЖЕТ --- */
 
@@ -492,6 +508,41 @@ body:has(.achievements-page-container) .music-widget {
     0% { box-shadow: 0 0 0 0 rgba(0, 234, 255, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(0, 234, 255, 0); }
     100% { box-shadow: 0 0 0 0 rgba(0, 234, 255, 0); }
+}
+
+body.scale-small {
+    font-size: 12px;
+}
+
+body.scale-normal {
+    font-size: 16px;
+}
+
+body.scale-large {
+    font-size: 20px;
+}
+
+#preloader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #000; /* фон, чтобы ничего не просвечивало */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* больше, чем у кнопок и интерфейса */
+}
+
+#preloader video {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+/* Исчезновение */
+#preloader.fade-out {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
 }
 
 

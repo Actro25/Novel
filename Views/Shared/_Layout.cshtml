@@ -7,18 +7,32 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NovelProject.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/person-menu.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/person-overlay.css" asp-append-version="true" />
 </head>
-<body>
-
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<body class="@ViewData["BodyClass"]">  @* Главное меню и другой контент будут вставляться здесь через @RenderBody() *@
+    @RenderBody()
     
+    <div class="music-widget">
+        <div id="widgetTrackTitle" class="widget-track-title">Название трека</div>
+        <div class="widget-controls">
+            <button id="widgetPrevBtn" title="Предыдущий трек">
+                <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path></svg>
+            </button>
+            <button id="widgetPlayPauseBtn" title="Play/Pause">
+                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+            </button>
+            <button id="widgetNextBtn" title="Следующий трек">
+                <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zm-3.5 6l-8.5 6V6z"></path></svg>
+            </button>
+        </div>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/translation.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

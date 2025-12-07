@@ -1,0 +1,241 @@
+<div id="personMenu" class="character-menu">
+    <div class="menu-bar">
+        <span class="label">ПЕРСОНАЖІ</span>
+    </div>
+    <div class="cards custom-layout">
+        <button class="card mia" onclick="openOverlay('Мія у реальному світі', '/img/Mia.png', '', 'mia')">
+            <div class="art"><img src="/img/Мія.png" alt="Мія"></div>
+            <p class="name">Мія</p>
+        </button>
+
+        <button class="card kit" onclick="openOverlay(kitData.name, kitData.src, kitData.desc, kitData.cls)">
+            <div class="art"><img src="/img/Кіт.png" alt="Неоновий кіт"></div>
+            <p class="name">Неоновий кіт</p>
+        </button>
+
+        <button class="card obriy" onclick="openOverlay(obriyData.name, obriyData.src, obriyData.desc, obriyData.cls)">
+            <div class="art"><img src="/img/Обрій.png" alt="Обрій"></div>
+            <p class="name">Обрій</p>
+        </button>
+
+        <button class="card vodiy" onclick="openOverlay(vodiyData.name, vodiyData.src, vodiyData.desc, vodiyData.cls)">
+            <div class="art"><img src="/img/Водій.png" alt="Водій"></div>
+            <p class="name">Водій</p>
+        </button>
+
+        <button class="card pryvid" onclick="openOverlay(pryvidData.name, pryvidData.src, pryvidData.desc, pryvidData.cls)">
+            <div class="art"><img src="/img/Привід.png" alt="Привид"></div>
+            <p class="name">Привид</p>
+        </button>
+    </div>
+</div>
+
+<div id="overlay-backdrop"></div>
+
+<div id="overlay">
+    <div class="overlay-content">
+        <div class="overlay-img-wrapper">
+            <img id="overlay-img" src="" alt="Персонаж">
+            <div id="overlay-extra-imgs"></div>
+        </div>
+
+        <div class="overlay-text-wrapper">
+            <h2 id="overlay-name">Имя персонажа</h2>
+            <p id="overlay-description">Описание персонажа появится здесь.</p>
+
+            <div class="mia-switch-wrapper">
+                <img class="mia-switch-img" src='/img/Purpule_Icon/ПРОДОВЖИТИ2.png' alt="">
+            </div>
+        </div>
+    </div>
+    <button class="close-btn" onclick="closeOverlay()">Закрити</button>
+</div>
+
+<script>
+const miaVersions = [
+    {
+        name: 'Мія у реальному світі',
+        desc: `<p>Мія — звичайна студентка, яка живе у світі, що здається їй сірим і втомливим. У реальному житті вона часто тікає від проблем у книги та музику. Саме через постійну втому і бажання відключитися вона починає все більше занурюватися у світ снів.</p>
+               <h3>Зовнішність / одяг:</h3>
+               <ul>
+                   <li>Светр пастельних тонів, прості джинси, зручні кеди.</li>
+                   <li>Волосся трохи неохайне, підкреслює втому.</li>
+                   <li>Погляд задумливий, іноді відсторонений.</li>
+               </ul>
+               <h3>Образ:</h3>
+               <p>Спокійна, замкнена, схильна до роздумів. Виглядає, ніби завжди у пошуку — себе, сенсу, виходу з рутини.</p>`,
+        src: '/img/Mia.png',
+        cls: 'mia'
+    },
+    {
+        name: 'Мія у сні',
+        desc: `<h3>Зовнішність / одяг:</h3>
+               <ul>
+                   <li>Коротка спідниця-плісе, високі гольфи.</li>
+                   <li>Елемент «сну»: сяючий кулон у формі місяця.</li>
+                   <li>Виразні рожеві очі, які ніби світяться у темряві.</li>
+                   <li>Волосся більш об’ємне, іноді трохи «підсвічене» неоновими відтінками.</li>
+                   <li>Рухи легкі, майже невагомі.</li>
+               </ul>
+               <h3>Образ:</h3>
+               <p>Вона здається молодшою, безтурботнішою, але водночас у цьому є трохи таємничості.</p>`,
+        src: '/img/Mia_SLeep.png',
+        cls: 'mia-sleep'
+    },
+    {
+        name: 'Мія на байку',
+        desc: `<h3>Зовнішність / одяг:</h3>
+               <ul>
+                   <li>Обтислий цільний костюм світло-блакитного кольору з геометричними вставками, довгими рукавами та високою горловиною на блискавці.</li>
+                   <li>Вирізи біля плечей додають динаміки.</li>
+               </ul>
+               <h3>Стиль:</h3>
+               <p>Нагадує космічний/технологічний костюм — підкреслює фігуру, створює відчуття сили й швидкості.</p>
+               <h3>Взуття:</h3>
+               <p>Масивні високі черевики в тон костюму.</p>
+               <h3>Образ:</h3>
+               <p>Більш холодний і рішучий, поєднує естетику майбутнього та екшен-атмосферу втечі/боротьби.</p>`,
+        src: '/img/Mia_Bike.png',
+        cls: 'mia-bike'
+    }
+];
+
+const kitData = {
+    name: 'Неоновий кіт',
+    desc: `<h3>Образ:</h3>
+           <p>Кіт невеликий, його шерсть світиться м’якими неоновими відтінками (блакитним, рожевим, фіолетовим), наче він зроблений зі світла. Його очі — це два яскравих пульсуючих екрани, що іноді змінюють форму, наче відображають дані.</p>
+           <h3>Коротка історія:</h3>
+           <p>Він ніколи не говорить словами, але Мія розуміє його через інтуїцію та емоції. Кіт з’являється в моменти, коли Мія найбільше потребує підтримки. Він водночас лагідний і загадковий: то грається з предметами, то вказує шлях, то дивиться так, ніби знає більше, ніж показує.</p>
+           <h3>Роль у грі:</h3>
+           <ul>
+               <li>Символ надії й довіри.</li>
+               <li>Може з’являтися у найнеочікуваніші моменти, коли Мія розгублена.</li>
+               <li>У різних кінцівках його природа розкривається по-різному: у добрій він друг і рятівник, у темній — інструмент контролю.</li>
+           </ul>`,
+    src: '/img/Кіт.png',
+    cls: 'kit'
+};
+
+const obriyData = {
+    name: 'Обрій',
+    desc: `<h3>Прототип:</h3>
+           <p>Людина, яка виглядає звичайним провідником у світі снів, але приховує більше, ніж здається.</p>
+           <h3>Образ:</h3>
+           <p>Він завжди з’являється у критичні моменти — то підкаже, то врятує, то змусить сумніватися. Одягнений у сучасному стилі з легкою ноткою бунтарства (куртка, іноді — мотоцикл). Його погляд спокійний, але водночас важко зрозуміти, чи він союзник, чи той, хто щось приховує.</p>
+           <h3>Коротка історія:</h3>
+           <p>Він каже, що також застряг у цьому світі, і прагне допомогти Мії пройти крізь сни. Але щоразу його підказки занадто точні — наче він знає сценарій наперед. У певні моменти його поведінка може здаватися надто холодною, немов він перевіряє її вибори. Довіряти йому чи ні, вирішувати тобі.</p>
+           <h3>Роль у грі:</h3>
+           <ul>
+               <li>Створює відчуття «союзника з таємницею».</li>
+               <li>Дає сюжетні гачки та відкриває нові шляхи у виборі.</li>
+               <li>Може вести до різних кінцівок: романтичної, зради або союзної.</li>
+           </ul>`,
+    src: '/img/Обрій.png',
+    cls: 'obriy'
+};
+
+const vodiyData = {
+    name: 'Водій',
+    desc: `<h3>Прототип:</h3>
+           <p>Літній чоловік, який на перший погляд виглядає простою людиною з минулого життя, але насправді його існування в <b>Dream.exe</b> викривлене.</p>
+           <h3>Образ:</h3>
+           <p>Сивий, похмурий, із глибокими зморшками. Частина його голови виглядає ніби складена з цифрових «пікселів» чи світлових вікон, які спотворюють його людську подобу. Він рідко говорить багато, але кожна його фраза здається підозріло важливою. Його погляд — холодний і втомлений, мов людини, що бачила занадто багато.</p>
+           <h3>Коротка історія (для гравця):</h3>
+           <p>Водій з’являється, щоб підвезти Мію у певні моменти сну. Він знає дороги краще, ніж мав би, і часом говорить загадками. Здається, він знає, куди Мія має потрапити, навіть якщо вона ще не вирішила. Гравець може сприймати його як провідника або як частину системи, що направляє героїню у «правильному напрямку».</p>
+           <h3>Роль у грі:</h3>
+           <ul>
+               <li>Символ шляху та переходу між різними світами/снами.</li>
+               <li>Нагадує, що кожна подорож має ціну.</li>
+               <li>У різних кінцівках може виявитися або мудрим союзником, або «наглядачем», який повертає Мію назад у цикл.</li>
+           </ul>`,
+    src: '/img/Водій.png',
+    cls: 'vodiy'
+};
+
+const pryvidData = {
+    name: 'Привид',
+    desc: `<h3>Прототип:</h3>
+           <p>Людина, яка колись підключилася до <b>Dream.exe</b>, але не змогла вийти й втратила свою ідентичність.</p>
+           <h3>Образ:</h3>
+           <p>Напівпрозора постать без чітких рис обличчя. Його силует нагадує людину, але ніби стерту з пам’яті. Голос тремтить, іноді спотворюється цифровими шумами. Він виглядає не як ворог, а як трагедія — жертва, яка залишилась у системі назавжди.</p>
+           <h3>Коротка історія (для гравця):</h3>
+           <p>Привид з’являється, аби попередити Мію. Він говорить уривками, немов боїться, що система почує його слова. Він розповідає, що колись був таким самим користувачем, як і вона, але залишився тут назавжди. Мія відчуває до нього співчуття, але водночас його вигляд нагадує їй про небезпеку застрягнути у цьому світі.</p>
+           <h3>Роль у грі:</h3>
+           <ul>
+               <li>Попереджає гравця про справжню природу застосунку.</li>
+               <li>Символізує «майбутнє», яке чекає тих, хто не зможе вибратися.</li>
+               <li>Його історія створює атмосферу страху й невизначеності.</li>
+           </ul>`,
+    src: '/img/Привід.png',
+    cls: 'pryvid'
+};
+
+let currentMiaIndex = 0;
+
+window.openOverlay = function(name, imgSrc, description = '', cssClass = '') {
+    const overlay = document.getElementById('overlay');
+    const backdrop = document.getElementById('overlay-backdrop');
+    const img = document.getElementById('overlay-img');
+    const overlayName = document.getElementById('overlay-name');
+    const overlayDesc = document.getElementById('overlay-description');
+    const miaSwitchWrapper = document.querySelector('.mia-switch-wrapper');
+    const extraImgsContainer = document.getElementById('overlay-extra-imgs');
+
+    extraImgsContainer.innerHTML = '';
+
+    img.src = imgSrc;
+    img.className = "";
+    if(cssClass) img.classList.add(cssClass);
+
+    overlayName.textContent = name;
+    overlayDesc.innerHTML = description;
+
+    if(name === 'Неоновий кіт') {
+        const extra1 = document.createElement('img');
+        extra1.src = '/img/NeonKit.png';
+        extra1.classList.add('extra-img-left');
+        extra1.alt = 'Неоновий кіт 1';
+        const extra2 = document.createElement('img');
+        extra2.src = '/img/NeonKit2.png';
+        extra2.classList.add('extra-img-right');
+        extra2.alt = 'Неоновий кіт 2';
+        extraImgsContainer.appendChild(extra1);
+        extraImgsContainer.appendChild(extra2);
+    }
+
+    if(name.includes('Мія')) {
+        miaSwitchWrapper.style.display = 'block';
+        currentMiaIndex = miaVersions.findIndex(v => v.src === imgSrc);
+        if(currentMiaIndex === -1) currentMiaIndex = 0;
+    } else {
+        miaSwitchWrapper.style.display = 'none';
+    }
+
+    backdrop.classList.add('active');
+    overlay.classList.add('active');
+}
+
+window.closeOverlay = function() {
+    const overlay = document.getElementById('overlay');
+    const backdrop = document.getElementById('overlay-backdrop');
+    const img = document.getElementById('overlay-img');
+    overlay.classList.remove('active');
+    backdrop.classList.remove('active');
+    img.className = "";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const miaSwitch = document.querySelector('.mia-switch-img');
+    if(miaSwitch) {
+        miaSwitch.addEventListener('click', () => {
+            currentMiaIndex = (currentMiaIndex + 1) % miaVersions.length;
+            const v = miaVersions[currentMiaIndex];
+            document.getElementById('overlay-name').textContent = v.name;
+            document.getElementById('overlay-description').innerHTML = v.desc;
+            const img = document.getElementById('overlay-img');
+            img.src = v.src;
+            img.className = v.cls;
+        });
+    }
+});
+</script>

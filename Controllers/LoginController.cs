@@ -146,6 +146,26 @@ namespace NovelProject.Controllers
                 _context.SaveChanges();
             }
 
+            var newSaveFile = new SaveFileModel
+            {
+                UserId = user.Id,
+                FirstSaveName = "None",
+                FirstSaveId = 0,
+                SecondSaveName = "None",
+                SecondSaveId = 0,
+                ThirdSaveName = "None",
+                ThirdSaveId = 0,
+            };
+            _context.SaveFile.Add(newSaveFile);
+
+            var reputation = new ReputationModel
+            {
+                UserId = user.Id,
+                CatReputation = 0
+            };
+            _context.Reputation.Add(reputation);
+            _context.SaveChanges();
+
             return RedirectToAction("LoginUser");
         }
         public async Task Login()
@@ -190,6 +210,24 @@ namespace NovelProject.Controllers
                     };
                     _context.UserAchivments.Add(userAchivment);
                 }
+
+                var newSaveFile = new SaveFileModel
+                {
+                    UserId = user.Id,
+                    FirstSaveName = "None",
+                    FirstSaveId = 0,
+                    SecondSaveName = "None",
+                    SecondSaveId = 0,
+                    ThirdSaveName = "None",
+                    ThirdSaveId = 0,
+                };
+                _context.SaveFile.Add(newSaveFile);
+                var reputation = new ReputationModel
+                {
+                    UserId = user.Id,
+                    CatReputation = 0
+                };
+                _context.Reputation.Add(reputation);
                 _context.SaveChanges();
             }
 

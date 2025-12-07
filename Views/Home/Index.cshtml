@@ -1,62 +1,79 @@
 @using NovelProject.AlterModels
 @model MenuShowModel
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@ViewData["Title"]</title>
 @{
     ViewData["BodyClass"] = "main-page-background";
 }
-<link rel="stylesheet" href="~/css/site.css">
-<link rel="stylesheet" href="~/css/settings.css">
-<link rel="stylesheet" href="~/css/authors.css">
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
 
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji">
-
-<link rel="stylesheet" href="~/css/dark-theme.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/settings.css">
+    <link rel="stylesheet" href="~/css/authors.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji">
+    <link rel="stylesheet" href="~/css/dark-theme.css">
 </head>
-<body>
+
+<body class="@ViewData["BodyClass"]">
+<div class="parallax-wrapper">
+    <div class="parallax-layer dark" data-depth="0.09" style="background-image: url('/img/DARK.png'); z-index: 5;"></div>
+    <div class="parallax-layer dark" data-depth="0.07" style="background-image: url('/img/останій-фон-4.png'); z-index: 2;"></div>
+    <div class="parallax-layer dark" data-depth="0.03" style="background-image: url('/img/контур-2.png'); z-index: 4;"></div>
+    <div class="parallax-layer dark" data-depth="0.05" style="background-image: url('/img/фон-3.png'); z-index: 3;"></div>
+
+    
+
+    <div class="parallax-layer light" data-depth="0.09" style="background-image: url('/img/LIGHT.png'); z-index: 5;"></div>
+    <div class="parallax-layer light" data-depth="0.07" style="background-image: url('/img/layer-setting-3.png'); z-index: 4;"></div>
+    <div class="parallax-layer light" data-depth="0.05" style="background-image: url('/img/layer-setting-2.png'); z-index: 3;"></div>
+    <div class="parallax-layer light" data-depth="0.03" style="background-image: url('/img/layer-setting-1.png'); z-index: 2;"></div>
+</div>
 @if (Context.User.Identity != null && Context.User.Identity.IsAuthenticated)
 {
-<div class="top-right-buttons" style="position: absolute; top: 15px; right: 20px; z-index: 100;">
-<label class="text-white">
-    @Context.User.Identity.Name
-</label>
-<a href="@Url.Action("LogOut", "Login")">Вихід</a>
-</div>
+    <div class="top-right-buttons" style="position: absolute; top: 15px; right: 20px; z-index: 100;">
+        <label class="text-white">
+            @Context.User.Identity.Name
+        </label>
+        <a href="@Url.Action("LogOut", "Login")">Вихід</a>
+    </div>
 }
 else
 {
-<div aria-label="User Login Button"
-    tabindex="0"
-    role="button"
-    class="user-profile"
-    style="position: absolute; top: 28px; right: 48px; z-index: 100;"
-    onclick="window.location.href='@Url.Action("LoginUser", "Login")'"
-    onkeydown="if(event.key==='Enter'){window.location.href='@Url.Action("LoginUser", "Login")'}">
-<div class="user-profile-inner">
-    <class="menu-icon">
-    <p>Log In</p>
-</div>
-</div>
-}
-<div class="main-flex-wrap">
-<div class="menu-container" id="mainMenuContainer">
-    <div class="title-glass-panel">
-<h1 class="menu-title center-title"><span>DREAM</span><span class="alt">.EXE</span></h1>
+    
+
+    <div aria-label="User Login Button"
+        tabindex="0"
+        role="button"
+        class="user-profile"
+        style="position: absolute; top: 28px; right: 48px; z-index: 100;"
+        onclick="window.location.href='@Url.Action("LoginUser", "Login")'"
+        onkeydown="if(event.key==='Enter'){window.location.href='@Url.Action("LoginUser", "Login")'}">
+        <div class="user-profile-inner">
+            <class="menu-icon">
+            <p>Log In</p>
+        </div>
     </div>
-    <div class="main-menu-label">ГОЛОВНЕ МЕНЮ</div>
+    
+}
+
+<div class="main-flex-wrap">
+    <div class="menu-container" id="mainMenuContainer">
+        <div class="title-glass-panel">
+            <h1 class="menu-title center-title"><span>DREAM</span><span class="alt">.EXE</span></h1>
+        </div>
+        <div class="main-menu-label">ГОЛОВНЕ МЕНЮ</div>
         <ul class="main-menu">
             <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="peaceful_mode"><span>ГРАТИ</span></a></li>
-            @if(@Model.IsHaveManualSave){
-            <li><a href="@Url.Action("Continue", "PlayGame")" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span><i class="menu-icon"></i></a></li>
+            @if (Model.IsHaveManualSave)
+            {
+                <li><a href="@Url.Action("Continue", "PlayGame")" data-id="continueGameLink" class="menu-item" data-lang-key="continue_game"><span>ПРОДОВЖИТИ</span><i class="menu-icon"></i></a></li>
             }
             <li><a href="@Url.Action("Index", "PlayGame")" class="menu-item" data-lang-key="new_game"><span>НОВА ГРА</span><i class="menu-icon new-game-icon"></i></a></li>
             <li><a href="#" class="menu-item" id="loadGameLink" data-lang-key="load_game"><span>ЗАВАНТАЖИТИ</span><i class="menu-icon"></i></a></li>
-            <li><a href="#" class="menu-item" data-lang-key="characters"><span>ПЕРСОНАЖІ</span><i class="menu-icon"></i></a></li>
+            <li><a href="#" class="menu-item" id="personLink" data-lang-key="characters"><span>ПЕРСОНАЖІ</span><i class="menu-icon"></i></a></li>
             <li><a href="#" class="menu-item" data-lang-key="settings" id="settingsLink"><span>НАЛАШТУВАННЯ</span><i class="menu-icon"></i></a></li>
             <li><a href="#" id="loadAchivmentLink" class="menu-item" data-lang-key="achievements"><span>ДОСЯГНЕННЯ</span> <span class="achievement-count">26/26</span><i class="menu-icon"></i></a></li>
             <li><a href="#" class="menu-item" id="authorsLink" data-lang-key="authors"><span>АВТОРИ</span><i class="menu-icon"></i></a></li>
@@ -75,120 +92,132 @@ else
             </li>
         </ul>
     </div>
-<div id="authorsMenu" class="authors-menu-container hidden">
-<h3 class="authors-title" data-lang-key="authors_novel_title">АВТОРИ НОВЕЛИ</h3>
-<ul class="authors-list">
-    <li><p data-lang-key="scenario_writer" class="author-info">Сценарист: <span class="author-name">Alyona Okey</span></p></li>
-    <li><p data-lang-key="artist" class="author-info">Художник: <span class="author-name">Alyona Okey, Zorochka 🍃, Youbi</span></p></li>
-    <li><p data-lang-key="programmer" class="author-info">Програміст: <span class="author-name">_ТоРтІк_, 𝕯𝖎𝖘𝖆𝖏</span></p></li>
-    <li><p data-lang-key="music" class="author-info">Музика: <span class="author-name">𝕯𝖎𝖘𝖆𝖏</span></p></li>
-</ul>
-<button id="closeAuthorsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
-</div>
-<div id="settingsMenu" class="settings-menu-container hidden">
-<h3 class="settings-title" data-lang-key="settings_title">НАЛАШТУВАННЯ</h3>
-<div class="settings-section">
-    <h4 data-lang-key="interface_themes">ТЕМИ ІНТЕРФЕЙСУ</h4>
-    <div class="theme-options">
-        <button class="theme-button" id="themeLight" data-lang-key="theme_light">СВІТЛА</button>
-        <button class="theme-button" id="themeDark" data-lang-key="theme_dark">ТЕМНА</button>
+
+    <div id="authorsMenu" class="authors-menu-container hidden">
+        <h3 class="authors-title" data-lang-key="authors_novel_title">АВТОРИ НОВЕЛИ</h3>
+        <ul class="authors-list">
+            <li><p data-lang-key="scenario_writer" class="author-info">Сценарист: <span class="author-name">Alyona Okey</span></p></li>
+            <li><p data-lang-key="artist" class="author-info">Художник: <span class="author-name">Alyona Okey, Zorochka 🍃, Youbi</span></p></li>
+            <li><p data-lang-key="programmer" class="author-info">Програміст: <span class="author-name">_ТоРтІк_, 𝕯𝖎𝖘𝖆𝖏</span></p></li>
+            <li><p data-lang-key="music" class="author-info">Музика: <span class="author-name">𝕯𝖎𝖘𝖆𝖏</span></p></li>
+        </ul>
+        <button id="closeAuthorsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
+    </div>
+
+    <div id="settingsMenu" class="settings-menu-container hidden">
+        <h3 class="settings-title" data-lang-key="settings_title">НАЛАШТУВАННЯ</h3>
+        <div class="settings-section">
+            <h4 data-lang-key="interface_themes">ТЕМИ ІНТЕРФЕЙСУ</h4>
+            <div class="theme-options">
+                <button class="theme-button" id="themeLight" data-lang-key="theme_light">СВІТЛА</button>
+                <button class="theme-button" id="themeDark" data-lang-key="theme_dark">ТЕМНА</button>
+            </div>
+        </div>
+        <div class="settings-section">
+            <h4 data-lang-key="interface_scale">МАСШТАБ ІНТЕРФЕЙСУ</h4>
+            <div class="scale-options">
+                <button class="scale-button" id="scaleSmall" data-scale="small">ДРІБНИЙ</button>
+                <button class="scale-button" id="scaleNormal" data-scale="normal">ЗВИЧАЙНИЙ</button>
+                <button class="scale-button" id="scaleLarge" data-scale="large">ВЕЛИКИЙ</button>
+            </div>
+        </div>
+        <div class="settings-section">
+            <h4 data-lang-key="language">МОВА</h4>
+            <div class="language-settings-options">
+                <button class="lang-button" data-lang="uk">Українська</button>
+                <button class="lang-button" data-lang="en">Англійська</button>
+            </div>
+        </div>
+        <div class="settings-section">
+            <h4 data-lang-key="music">МУЗИКА</h4>
+            <div class="music-controls">
+                <button class="music-toggle" id="musicToggleBtn" data-lang-key="music_off">Вимкнути</button>
+                <span class="music-volume-value" id="musicVolumeValue">0</span>
+                <input type="range" min="0" max="100" value="0" class="music-slider" id="musicSlider">
+                <span class="music-volume-max">100</span>
+            </div>
+            <div class="music-title-row">
+                <button class="music-arrow-btn" id="musicPrev"><i class="music-arrow-svg"></i></button>
+                <div class="music-title-block music-title-block-flat"><span id="musicTitle"></span></div>
+                <button class="music-arrow-btn" id="musicNext"><i class="music-arrow-svg"></i></button>
+            </div>
+        </div>
+        <button id="closeSettingsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
     </div>
 </div>
-<div class="settings-section">
-    <h4 data-lang-key="interface_scale">МАСШТАБ ІНТЕРФЕЙСУ</h4>
-    <div class="scale-options">
-        <button class="scale-button" id="scaleSmall" data-scale="small">ДРІБНИЙ</button>
-        <button class="scale-button" id="scaleNormal" data-scale="normal">ЗВИЧАЙНИЙ</button>
-        <button class="scale-button" id="scaleLarge" data-scale="large">ВЕЛИКИЙ</button>
-    </div>
-</div>
-<div class="settings-section">
-    <h4 data-lang-key="language">МОВА</h4>
-    <div class="language-settings-options">
-        <button class="lang-button" data-lang="uk">Українська</button>
-        <button class="lang-button" data-lang="en">Англійська</button>
-    </div>
-</div>
-<div class="settings-section">
-    <h4 data-lang-key="music">МУЗИКА</h4>
-    <div class="music-controls">
-        <button class="music-toggle" id="musicToggleBtn" data-lang-key="music_off">Вимкнути</button>
-        <span class="music-volume-value" id="musicVolumeValue">0</span>
-        <input type="range" min="0" max="100" value="0" class="music-slider" id="musicSlider">
-        <span class="music-volume-max">100</span>
-    </div>
-    <div class="music-title-row">
-    <button class="music-arrow-btn" id="musicPrev">
-        <i class="music-arrow-svg"></i>
-    </button>
-    <div class="music-title-block music-title-block-flat">
-        <span id="musicTitle"></span>
-    </div>
-    <button class="music-arrow-btn" id="musicNext">
-        <i  class="music-arrow-svg"></i>
-    </button>
-    </div>
-</div>
-<button id="closeSettingsMenu" class="close-button" data-lang-key="close">ЗАКРИТИ</button>
-</div>
-</div>
+
 @await Html.PartialAsync("_LoadMenu")
 @await Html.PartialAsync("_AchivmentMenu")
+@await Html.PartialAsync("_PersonMenu")
+
 <script src="~/js/site.js"></script>
 <script src="~/js/translation.js"></script>
-    <script>
-        // Універсальна функція для відкриття одного меню та закриття інших
-        function showMenu(menuIdToShow) {
-            const allMenus = ['loadMenu', 'settingsMenu', 'authorsMenu', 'achivmentsMenu'];
-            allMenus.forEach(id => {
-                const el = document.getElementById(id);
-                if (!el) return;
-
-                if (id === menuIdToShow) {
-                    el.classList.remove('hidden');
-                    setTimeout(() => el.classList.add('active'), 10);
-                } else {
-                    el.classList.remove('active');
-                    setTimeout(() => el.classList.add('hidden'), 10);
-                }
-            });
-        }
-        // --- Кнопки відкриття ---
-        document.getElementById('settingsLink')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            showMenu('settingsMenu');
+<script>
+    function showMenu(menuIdToShow) {
+        const allMenus = ['loadMenu', 'settingsMenu', 'authorsMenu', 'achivmentsMenu', 'personMenu'];
+        allMenus.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (id === menuIdToShow) {
+                el.classList.remove('hidden');
+                setTimeout(() => el.classList.add('active'), 10);
+            } else {
+                el.classList.remove('active');
+                setTimeout(() => el.classList.add('hidden'), 10);
+            }
         });
+    }
 
-        document.getElementById('authorsLink')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            showMenu('authorsMenu');
+    document.getElementById('settingsLink')?.addEventListener('click', e => {
+        e.preventDefault();
+        showMenu('settingsMenu');
+    });
+    document.getElementById('authorsLink')?.addEventListener('click', e => {
+        e.preventDefault();
+        showMenu('authorsMenu');
+    });
+    document.getElementById('personLink')?.addEventListener('click', e => {
+    e.preventDefault();
+    showMenu('personMenu');
+    });
+    document.getElementById('loadGameLink')?.addEventListener('click', e => {
+        e.preventDefault();
+        showMenu('loadMenu');
+    });
+    document.getElementById('loadAchivmentLink')?.addEventListener('click', e => {
+        e.preventDefault();
+        showMenu('achivmentsMenu');
+    });
+    
+
+    document.getElementById('closeSettingsMenu')?.addEventListener('click', () => {
+        const el = document.getElementById('settingsMenu');
+        el.classList.remove('active');
+        setTimeout(() => el.classList.add('hidden'), 10);
+    });
+    document.getElementById('closeAuthorsMenu')?.addEventListener('click', () => {
+        const el = document.getElementById('authorsMenu');
+        el.classList.remove('active');
+        setTimeout(() => el.classList.add('hidden'), 10);
+    });
+
+    // --- Parallax Effect Script ---
+    document.addEventListener('mousemove', (e) => {
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        const moveX = (e.clientX - centerX) / centerX;
+        const moveY = (e.clientY - centerY) / centerY;
+
+        document.querySelectorAll('.parallax-layer').forEach(layer => {
+            const depth = parseFloat(layer.dataset.depth);
+            const x = moveX * depth * 100;
+            const y = moveY * depth * 100;
+            layer.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         });
-
-        document.getElementById('loadGameLink')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            showMenu('loadMenu');
-        });
-
-        document.getElementById('loadAchivmentLink')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            showMenu('achivmentsMenu');
-        });
-
-        // --- Кнопки закриття ---
-        document.getElementById('closeSettingsMenu')?.addEventListener('click', () => {
-            const el = document.getElementById('settingsMenu');
-            el.classList.remove('active');
-            setTimeout(() => el.classList.add('hidden'), 10);
-        });
-
-        document.getElementById('closeAuthorsMenu')?.addEventListener('click', () => {
-            const el = document.getElementById('authorsMenu');
-            el.classList.remove('active');
-            setTimeout(() => el.classList.add('hidden'), 10);
-        });
-    </script>
-
-
-<audio id="bgMusic" preload="auto"></audio>
+    });
+    // --- End of Parallax Script ---
+</script>
+        <audio id="bgMusic" preload="auto"></audio>
 </body>
 </html>
