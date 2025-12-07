@@ -1,5 +1,7 @@
 # Visual Studio temporary files
 .vs/
+.idea/
+.vscode
 # ������ �����
 appsettings*.json
 bin/
